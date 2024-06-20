@@ -1,4 +1,10 @@
-var builder = WebApplication.CreateBuilder(args);
+var options = new WebApplicationOptions()
+{
+    Args = args,
+    ContentRootPath = Directory.GetCurrentDirectory(),
+    WebRootPath = "wwwroot"
+};
+var builder = WebApplication.CreateBuilder(options);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -7,6 +13,7 @@ builder.Services.AddSwaggerGen();
 
 builder.WebHost.UseUrls(
     "http://*:5050");
+builder.WebHost.UseWebRoot("wwwroot");
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
