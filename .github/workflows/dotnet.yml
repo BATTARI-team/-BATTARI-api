@@ -25,6 +25,6 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet publish --no-restore
     - name: Restart service
       run: echo ${{ secrets.SUDOPASSWORD }} | sudo -S systemctl restart battari-api-dev
