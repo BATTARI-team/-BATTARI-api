@@ -13,7 +13,6 @@ builder.Services.AddSwaggerGen();
 
 builder.WebHost.UseUrls(
     "http://*:5050");
-builder.WebHost.UseWebRoot("wwwroot");
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
