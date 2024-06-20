@@ -25,4 +25,4 @@ jobs:
     - name: Build
       run: dotnet build --no-restore
     - name: Deploy
-      run: dotnet ./BATTARI-api/bin/Release/net6.0/myapp.dll
+      run: dotnet ./bin/Release/net6.0/myapp.dll
