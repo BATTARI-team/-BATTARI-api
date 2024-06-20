@@ -20,6 +20,8 @@ jobs:
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 8.0.x
+    - name: Show dotnet bin path
+      run: echo "${{ env.DOTNET_INSTALL_DIR }}"
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
