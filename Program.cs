@@ -4,7 +4,6 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddSwaggerGen();
 builder.WebHost.UseUrls(
-    "http://localhost:5050",
     "http://*:5050");
 var app = builder.Build();
 
