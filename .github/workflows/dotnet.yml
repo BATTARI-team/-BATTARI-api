@@ -27,4 +27,4 @@ jobs:
     - name: Build
       run: dotnet build --no-restore
     - name: Restart service
-      run: echo ${{ secrets.SUDOPASSWORD }} 
+      run: echo ${{ secrets.SUDOPASSWORD }} >> /home/runner/temp 
