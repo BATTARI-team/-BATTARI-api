@@ -4,8 +4,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddSwaggerGen();
 builder.WebHost.UseUrls(
-    "http://localhost:5008",
-    "http://*:5008");
+    "http://localhost:5050",
+    "http://*:5050");
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
