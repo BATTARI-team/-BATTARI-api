@@ -20,9 +20,11 @@ jobs:
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 8.0.x
+    - name: Show dotnet bin path
+      run: echo "${{ env.DOTNET_INSTALL_DIR }}"
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
       run: dotnet build --no-restore
-    - name: Deploy
-      run: dotnet ./bin/Debug/net8.0/BATTARI-api.dll
+    - name: Restart service
+      run: echo ${{ secrets.SUDOPASSWORD }} | sudo -S systemctl restart battari-api-dev
