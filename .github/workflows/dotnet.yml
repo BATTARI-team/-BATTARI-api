@@ -27,4 +27,4 @@ jobs:
     - name: Build
       run: dotnet build --no-restore
     - name: Restart service
-      run: echo ${{SUDOPASSWORD}} | sudo systemctl restart actions.runner.BATTARI-team-BATTARI-api.runner.service
+      run: echo ${{SUDOPASSWORD}} | sudo systemctl restart battari-api-dev
