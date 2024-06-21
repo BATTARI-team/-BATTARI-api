@@ -10,7 +10,7 @@ on:
 jobs:
   build:
 
-    runs-on: self-hosted
+    runs-on: production
 
     steps:
     - uses: actions/checkout@v4
