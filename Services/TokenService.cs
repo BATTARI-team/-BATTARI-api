@@ -24,15 +24,17 @@ public class TokenService
 
         var claims = new[]
         {
-            new Claim(JwtRegisteredClaimNames.NameId, userid),
-            new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+            new Claim(JwtRegisteredClaimNames.Sub, userid),
+            new Claim(JwtRegisteredClaimNames.Name, "test"),
+            new Claim(JwtRegisteredClaimNames.Email, "test@test.com"),
+            new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
         };
         
         var token = new JwtSecurityToken(
             issuer: issuer,
             audience: audience,
-            // claims: claims,
-            expires: DateTime.Now.AddDays(2),
+            claims: claims,
+            expires: DateTime.Now.AddYears(30),
             signingCredentials: credentials
         );
 
