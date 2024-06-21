@@ -24,6 +24,7 @@ public class TokenService
 
         var claims = new[]
         {
+            //#TODO ユーザーに合わせて設定する必要がある．
             new Claim(JwtRegisteredClaimNames.Sub, userid),
             new Claim(JwtRegisteredClaimNames.Name, "test"),
             new Claim(JwtRegisteredClaimNames.Email, "test@test.com"),
@@ -34,7 +35,7 @@ public class TokenService
             issuer: issuer,
             audience: audience,
             claims: claims,
-            expires: DateTime.Now.AddYears(30),
+            expires: DateTime.Now.AddHours(8),
             signingCredentials: credentials
         );
 
