@@ -12,9 +12,10 @@ var builder = WebApplication.CreateBuilder(options);
 
 void AddTokenValidationParameters(JwtBearerOptions options, bool isDevelopment)
 {
+    //#TODO いずれは設定ファイルに移動
     String issuer;
     String audience;
-    const String key = "karinokey";
+    const String key = "16バイト以上の文字でありますかこれは";
     if (isDevelopment)
     {
         issuer = "http://localhost:5050";
@@ -40,8 +41,17 @@ void AddTokenValidationParameters(JwtBearerOptions options, bool isDevelopment)
 
 // Add services to the container.
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer( configureOptions =>
-{   
-    AddTokenValidationParameters(configureOptions, builder.Environment.IsDevelopment());
+{
+    configureOptions.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidIssuer = builder.Configuration["Jwt:Issuer"],
+        ValidAudience = builder.Configuration["Jwt:Audience"],
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"])),
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = false,
+        ValidateIssuerSigningKey = true,
+    };
 });
 builder.Services.AddControllersWithViews();
 builder.Services.AddEndpointsApiExplorer();
