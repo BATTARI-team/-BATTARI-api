@@ -1,7 +1,6 @@
 using System.Reflection;
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.JsonWebTokens;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 
@@ -59,8 +58,8 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
-builder.WebHost.UseUrls(
-    "http://*:5050");
+builder.WebHost.UseUrls("http://*:" + args[0]);
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
