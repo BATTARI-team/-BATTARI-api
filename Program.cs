@@ -1,3 +1,7 @@
+using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+
 var options = new WebApplicationOptions()
 {
     Args = args,
@@ -6,7 +10,39 @@ var options = new WebApplicationOptions()
 };
 var builder = WebApplication.CreateBuilder(options);
 
+void AddTokenValidationParameters(JwtBearerOptions options, bool isDevelopment)
+{
+    String issuer;
+    String audience;
+    const String key = "karinokey";
+    if (isDevelopment)
+    {
+        issuer = "http://localhost:5050";
+        audience = "http://localhost:5050";
+    }
+    else
+    {        
+        issuer = "http://localhost:5050"; 
+        audience = "http://localhost:5050";
+    }
+
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidIssuer = issuer,
+        ValidAudience = audience,
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key)),
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = false,
+        ValidateIssuerSigningKey = true,
+    };
+}
+
 // Add services to the container.
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer( configureOptions =>
+{   
+    AddTokenValidationParameters(configureOptions, builder.Environment.IsDevelopment());
+});
 builder.Services.AddControllersWithViews();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
