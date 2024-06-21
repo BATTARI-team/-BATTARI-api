@@ -5,7 +5,7 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace BATTARI_api.Services;
 
-public class TokenService
+public static class TokenService
 {
     /// <summary>
     /// JWTTokenを生成します
@@ -14,7 +14,7 @@ public class TokenService
     /// 16バイト以上
     /// <param name="issuer"></param>
     /// <param name="audience"></param>
-    /// <param name="username"></param>
+    /// <param name="userid"></param>
     /// <returns></returns>
     public static string GenerateToken(string key, string issuer, string audience, string userid)
     {
