@@ -8,7 +8,7 @@ namespace BATTARI_api.Repository;
 public class UserDatabase(UserContext userContext) : IUserControllerInterface
 {
     const string _pepper = "BATTARI";
-    private readonly UserContext _userContext = userContext;
+    private UserContext _userContext = userContext;
 
     /// <summary>
     /// 
@@ -36,6 +36,8 @@ public class UserDatabase(UserContext userContext) : IUserControllerInterface
         var result = await _userContext.AddAsync(userModel);
         Console.WriteLine(result);
 
+        await _userContext.SaveChangesAsync();
         return userModel;
     }
+    
 }
