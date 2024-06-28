@@ -5,7 +5,7 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace BATTARI_api.Services;
 
-public static class TokenService
+public class TokenService : ITokenService
 {
     /// <summary>
     /// JWTTokenを生成します
@@ -16,7 +16,7 @@ public static class TokenService
     /// <param name="audience"></param>
     /// <param name="userid"></param>
     /// <returns></returns>
-    public static string GenerateToken(string key, string issuer, string audience, string userid)
+    public string GenerateToken(string key, string issuer, string audience, string userid)
     {
         Console.WriteLine("generate token" + key + issuer + audience + userid);
         var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key));

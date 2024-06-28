@@ -6,8 +6,15 @@ namespace BATTARI_api.Controllers;
 
 [Route("[controller]/[action]")]
 [ApiController]
-public class TokenController(IConfiguration configuration) : ControllerBase
+public class TokenController : ControllerBase
 {
+    private readonly ITokenService tokenService;
+    private readonly IConfiguration configuration;
+    public TokenController(ITokenService tokenService, IConfiguration configuration)
+    {
+        this.tokenService = tokenService;
+        this.configuration = configuration;
+    }
     /// <summary>
     /// UserIdとPasswordがあっていれば，Tokenを返します
     /// </summary>
@@ -20,7 +27,7 @@ public class TokenController(IConfiguration configuration) : ControllerBase
         {
             Console.WriteLine("login" + configuration["Jwt:Key"] + configuration["Jwt:Issuer"] +
                               configuration["Jwt:Audience"] + model.UserId);
-            var token = TokenService.GenerateToken(
+            var token = tokenService.GenerateToken(
                 configuration["Jwt:Key"] ?? "",
                 configuration["Jwt:Issuer"] ?? "",
                 configuration["Jwt:Audience"] ?? "",
