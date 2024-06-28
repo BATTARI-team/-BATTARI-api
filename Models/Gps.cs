@@ -1,7 +1,9 @@
+using Microsoft.EntityFrameworkCore;
+
 namespace BATTARI_api.Models;
 
-public class Gps
-{
-    public required double Latitude { get; set; }
-    public required double Longitude { get; set; }
+
+public struct Gps {
+    public double Latitude { get; set; }
+    public double Longitude { get; set; }
 }

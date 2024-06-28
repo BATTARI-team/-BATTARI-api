@@ -6,7 +6,7 @@ namespace BATTARI_api.Models;
 public class UserModel {
     [MaxLength(30)]
     public required string Name { get; set; }
-    public Gps? Gps { get; set; }
+    [Key]
     public int Id { get; set; }
     public required byte[] PasswordHash { get; set; }
     public required byte[] PasswordSalt { get; set; }
