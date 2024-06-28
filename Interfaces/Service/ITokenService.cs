@@ -1,4 +1,6 @@
+using BATTARI_api.Models;
+
 public interface ITokenService
 {
-    public string GenerateToken(string key, string issuer, string audience, string userid);
+    public string GenerateToken(string key, UserModel userModel, DateTime? expires = null);
 }

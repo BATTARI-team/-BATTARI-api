@@ -1,6 +1,7 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using BATTARI_api.Models;
 using Microsoft.IdentityModel.Tokens;
 
 namespace BATTARI_api.Services;
@@ -12,30 +13,26 @@ public class TokenService : ITokenService
     /// </summary>
     /// <param name="key"></param>
     /// 16バイト以上
-    /// <param name="issuer"></param>
-    /// <param name="audience"></param>
-    /// <param name="userid"></param>
+    /// <param name="userModel"></param>
+    /// JWTの有効期限
+    /// <param name="expires"></param>
     /// <returns></returns>
-    public string GenerateToken(string key, string issuer, string audience, string userid)
+    public string GenerateToken(string key, UserModel userModel, DateTime? expires = null)
     {
-        Console.WriteLine("generate token" + key + issuer + audience + userid);
         var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key));
         var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
         var claims = new[]
         {
-            //#TODO ユーザーに合わせて設定する必要がある．
-            new Claim(JwtRegisteredClaimNames.Sub, userid),
-            new Claim(JwtRegisteredClaimNames.Name, "test"),
-            new Claim(JwtRegisteredClaimNames.Email, "test@test.com"),
+            new Claim(JwtRegisteredClaimNames.Iss, "BATTARI-team"),
+            new Claim(JwtRegisteredClaimNames.Sub, userModel.UserId),
+            new Claim(JwtRegisteredClaimNames.Name, userModel.Name),
             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
         };
         
         var token = new JwtSecurityToken(
-            issuer: issuer,
-            audience: audience,
             claims: claims,
-            expires: DateTime.Now.AddHours(8),
+            expires: expires ?? DateTime.Now.AddDays(1),
             signingCredentials: credentials
         );
 

@@ -13,19 +13,19 @@ namespace BATTARI_api.Controllers;
 public class UserController : ControllerBase
 {
     
-    private static IUserControllerInterface _userControllerInterface = new UserDatabase(new UserContext());
+    private static IUserControllerInterface _userRepositoryInterface = new UserDatabase(new UserContext());
     //#TODO Exception型定義
     [HttpPost]
     public async Task<ActionResult<UserModel>> CreateUser(UserRegisterModel userRegisterModel)
     {
-        var userModel = await _userControllerInterface.CreateUser(userRegisterModel);
+        var userModel = await _userRepositoryInterface.CreateUser(userRegisterModel);
         return userModel;
     }
     
     [HttpPost]
     public async Task<ActionResult<UserModel>> Login(UserLoginModel userLoginModel)
     {
-        var userModel = await _userControllerInterface.GetUser(userLoginModel.UserId);
+        var userModel = await _userRepositoryInterface.GetUser(userLoginModel.UserId);
         if (userModel == null)
         {
             return NotFound();
@@ -39,18 +39,18 @@ public class UserController : ControllerBase
     [HttpDelete("{id}")]
     public async Task<ActionResult<UserModel>> DeleteUser(int id)
     {
-        var userModel = await _userControllerInterface.GetUser(id);
+        var userModel = await _userRepositoryInterface.GetUser(id);
         if (userModel == null)
         {
             return NotFound();
         }
-        _ = _userControllerInterface.DeleteUser(userModel.Id);
+        _ = _userRepositoryInterface.DeleteUser(userModel.Id);
         return userModel;
     }
 
     [HttpGet]
     public async Task<ActionResult<UserModel>> GetUsers() {
-        var users = await _userControllerInterface.GetUsers();
+        var users = await _userRepositoryInterface.GetUsers();
         if(users.Count() == 0) return NotFound();
         return Ok(users);
     }

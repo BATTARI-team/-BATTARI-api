@@ -23,18 +23,17 @@ public class TokenController : ControllerBase
     [HttpPost]
     public IActionResult Login([FromBody] UserLoginModel model)
     {
-        if (model is { UserId: "test", Password: "test" })
-        {
-            Console.WriteLine("login" + configuration["Jwt:Key"] + configuration["Jwt:Issuer"] +
-                              configuration["Jwt:Audience"] + model.UserId);
-            var token = tokenService.GenerateToken(
-                configuration["Jwt:Key"] ?? "",
-                configuration["Jwt:Issuer"] ?? "",
-                configuration["Jwt:Audience"] ?? "",
-                model.UserId
-                );
-            return Ok(token);
-        }
+        
+        // if (model is { UserId: "test", Password: "test" })
+        // {
+        //     Console.WriteLine("login" + configuration["Jwt:Key"] + configuration["Jwt:Issuer"] +
+        //                       configuration["Jwt:Audience"] + model.UserId);
+        //     var token = tokenService.GenerateToken(
+        //         configuration["Jwt:Key"] ?? "",
+        //         model
+        //         );
+        //     return Ok(token);
+        // }
 
         return Unauthorized();
     }
