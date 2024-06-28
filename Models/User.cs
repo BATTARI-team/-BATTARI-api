@@ -1,7 +1,7 @@
 namespace BATTARI_api.Models;
 
-class UserModel {
-    public required string Name { get; set; }
+public class UserModel {
+    public string Name { get; set; }
     public Gps? Gps { get; set; }
-    public required int Id { get; set; }
+    public int Id { get; set; }
 }
