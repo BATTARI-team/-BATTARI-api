@@ -1,6 +1,9 @@
+using System.Drawing.Printing;
 using BATTARI_api.Data;
 using BATTARI_api.Interfaces;
+using BATTARI_api.Migrations;
 using BATTARI_api.Models;
+using Microsoft.EntityFrameworkCore;
 using webUserLoginTest.Util;
 
 namespace BATTARI_api.Repository;
@@ -27,6 +30,7 @@ public class UserDatabase(UserContext userContext) : IUserControllerInterface
         byte[] _salt = PasswordUtil.GetInitialPasswordSalt(_created.ToString());
         UserModel userModel = new UserModel()
         {
+            UserId = userRegisterModel.UserId,
             Name = userRegisterModel.Name,
             PasswordHash = PasswordUtil.GetPasswordHashFromPepper(_salt, userRegisterModel.Password, _pepper),
             PasswordSalt = _salt,
@@ -39,5 +43,29 @@ public class UserDatabase(UserContext userContext) : IUserControllerInterface
         await _userContext.SaveChangesAsync();
         return userModel;
     }
-    
+
+    public async Task<UserModel?> GetUser(string userId)
+    {
+        Console.WriteLine(userId);
+        UserModel user = await _userContext.Users.Where<UserModel>(x => x.UserId == userId).FirstAsync();
+        Console.WriteLine(user.Created);
+        return user;
+    }
+
+    public async Task<UserModel> DeleteUser(int id)
+    {
+        UserModel user = await _userContext.Users.FindAsync(id);
+        if(user != null) {
+            _userContext.Users.Remove(user);
+            await _userContext.SaveChangesAsync();
+            return user;
+        } else {
+            throw new Exception("User not found");
+        }
+    }
+
+    public async Task<IEnumerable<UserModel>> GetUsers()
+    {
+        return await _userContext.Users.ToListAsync();
+    }
 }
