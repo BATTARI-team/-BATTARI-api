@@ -3,4 +3,6 @@ https://github.com/battari-team/battari
 ## run
 `dotnet run {{ポート番号}}`
 ## データベースマイグレーション
-`dotnet ef migrations add {arg}`
+`dotnet ef migrations add {マイグレーションメッセージ}`
+then
+`dotnet ef database update`
