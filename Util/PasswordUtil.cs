@@ -46,6 +46,21 @@ public class PasswordUtil
         return hmac.ComputeHash(passwordByte);
     }
 
+    public static bool CompareHash(byte[] hash1, byte[] hash2)
+    {
+        if (hash1.Length != hash2.Length)
+        {
+            return false;
+        }
+        for (int i = 0; i < hash1.Length; i++)
+        {
+            if (hash1[i] != hash2[i])
+            {
+                return false;
+            }
+        }
+        return true;
+    }
     public static void PutByte(byte[] str)
     {
         //文字列補完式

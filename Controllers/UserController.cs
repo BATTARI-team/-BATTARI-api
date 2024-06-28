@@ -30,7 +30,7 @@ public class UserController : ControllerBase
         {
             return NotFound();
         }
-        if (Encoding.Unicode.GetString(userModel.PasswordHash) == Encoding.Unicode.GetString(PasswordUtil.GetPasswordHashFromPepper(userModel.PasswordSalt, userLoginModel.Password, "BATTARI")))
+        if(PasswordUtil.CompareHash(userModel.PasswordHash, PasswordUtil.GetPasswordHashFromPepper(userModel.PasswordSalt, userLoginModel.Password, "BATTARI")))
         {
             return userModel;
         }
