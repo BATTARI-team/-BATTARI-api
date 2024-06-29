@@ -25,7 +25,7 @@ public class TokenService : ITokenService
         var claims = new[]
         {
             new Claim(JwtRegisteredClaimNames.Iss, "BATTARI-team"),
-            new Claim(JwtRegisteredClaimNames.Sub, userModel.UserId),
+            new Claim(JwtRegisteredClaimNames.NameId, userModel.UserId),
             new Claim(JwtRegisteredClaimNames.Name, userModel.Name),
             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
         };
