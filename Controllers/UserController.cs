@@ -10,19 +10,29 @@ namespace BATTARI_api.Controllers;
 
 [ApiController]
 [Route("[controller]/[action]")]
-public class UserController(IUserRepository _userRepositoryInterface) : ControllerBase
+public class UserController(IUserRepository _userRepositoryInterface, ITokenService tokenService, IConfiguration configuration) : ControllerBase
 {
     
     //#TODO Exception型定義
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="userRegisterModel"></param>
+    /// <returns>token</returns>
     [HttpPost]
-    public async Task<ActionResult<UserModel>> CreateUser(UserRegisterModel userRegisterModel)
+    public async Task<ActionResult<string>> CreateUser(UserRegisterModel userRegisterModel)
     {
+        //TODO userModelの作成とかはここでやった方がいい気がする（IUserRepositoryはデータベースのアクセスだけやるイメージ）
         var userModel = await _userRepositoryInterface.CreateUser(userRegisterModel);
-        return userModel;
+        if (userModel == null)
+        {
+            return BadRequest();
+        }
+        return tokenService.GenerateToken(configuration["Jwt:Key"] ?? "", userModel);
     }
     
     [HttpPost]
-    public async Task<ActionResult<UserModel>> Login(UserLoginModel userLoginModel)
+    public async Task<ActionResult<string>> Login(UserLoginModel userLoginModel)
     {
         var userModel = await _userRepositoryInterface.GetUser(userLoginModel.UserId);
         if (userModel == null)
@@ -31,7 +41,7 @@ public class UserController(IUserRepository _userRepositoryInterface) : Controll
         }
         if(PasswordUtil.CompareHash(userModel.PasswordHash, PasswordUtil.GetPasswordHashFromPepper(userModel.PasswordSalt, userLoginModel.Password, "BATTARI")))
         {
-            return userModel;
+            return tokenService.GenerateToken(configuration["Jwt:Key"] ?? "", userModel);
         }
         return Unauthorized();
     }
