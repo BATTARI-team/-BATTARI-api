@@ -10,10 +10,9 @@ namespace BATTARI_api.Controllers;
 
 [ApiController]
 [Route("[controller]/[action]")]
-public class UserController : ControllerBase
+public class UserController(IUserRepository _userRepositoryInterface) : ControllerBase
 {
     
-    private static IUserControllerInterface _userRepositoryInterface = new UserDatabase(new UserContext());
     //#TODO Exception型定義
     [HttpPost]
     public async Task<ActionResult<UserModel>> CreateUser(UserRegisterModel userRegisterModel)

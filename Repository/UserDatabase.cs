@@ -8,7 +8,7 @@ using webUserLoginTest.Util;
 
 namespace BATTARI_api.Repository;
 
-public class UserDatabase(UserContext userContext) : IUserControllerInterface
+public class UserDatabase(UserContext userContext) : IUserRepository
 {
     const string _pepper = "BATTARI";
     private UserContext _userContext = userContext;
