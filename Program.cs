@@ -17,6 +17,7 @@ var options = new WebApplicationOptions()
 var builder = WebApplication.CreateBuilder(options);
 
 // Add services to the container.
+// jwtの設定はここでやる
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer( configureOptions =>
 {
     configureOptions.TokenValidationParameters = new TokenValidationParameters

@@ -23,24 +23,29 @@ public class UserDatabase(UserContext userContext) : IUserRepository
         return await _userContext.Users.FindAsync(id);
     }
 
-    public async Task<UserModel> CreateUser(UserRegisterModel userRegisterModel)
+    public async Task<UserModel?> CreateUser(UserModel userModel)
     {
-        //ここら辺はコアロジック？
-        DateTime _created = DateTime.Now;
-        byte[] _salt = PasswordUtil.GetInitialPasswordSalt(_created.ToString());
-        UserModel userModel = new UserModel()
-        {
-            UserId = userRegisterModel.UserId,
-            Name = userRegisterModel.Name,
-            PasswordHash = PasswordUtil.GetPasswordHashFromPepper(_salt, userRegisterModel.Password, _pepper),
-            PasswordSalt = _salt,
-            Created = _created
-        };
+        // //ここら辺はコアロジック？
+        // DateTime _created = DateTime.Now;
+        // byte[] _salt = PasswordUtil.GetInitialPasswordSalt(_created.ToString());
+        // UserModel userModel = new UserModel()
+        // {
+        //     UserId = userRegisterModel.UserId,
+        //     Name = userRegisterModel.Name,
+        //     PasswordHash = PasswordUtil.GetPasswordHashFromPepper(_salt, userRegisterModel.Password, _pepper),
+        //     PasswordSalt = _salt,
+        //     Created = _created
+        // };
         
         var result = await _userContext.AddAsync(userModel);
         Console.WriteLine(result);
 
-        await _userContext.SaveChangesAsync();
+        try{
+            await _userContext.SaveChangesAsync();
+        }catch(Exception e){
+            Console.WriteLine(e);
+            return null;
+        }
         return userModel;
     }
 

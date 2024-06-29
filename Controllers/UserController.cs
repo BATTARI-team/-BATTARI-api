@@ -12,7 +12,6 @@ namespace BATTARI_api.Controllers;
 [Route("[controller]/[action]")]
 public class UserController(IUserRepository _userRepositoryInterface, ITokenService tokenService, IConfiguration configuration) : ControllerBase
 {
-    
     //#TODO Exception型定義
     /// <summary>
     /// 
@@ -24,12 +23,24 @@ public class UserController(IUserRepository _userRepositoryInterface, ITokenServ
     [HttpPost]
     public async Task<ActionResult<string>> CreateUser(UserRegisterModel userRegisterModel)
     {
-        //TODO userModelの作成とかはここでやった方がいい気がする（IUserRepositoryはデータベースのアクセスだけやるイメージ）
         if(await _userRepositoryInterface.UserExists(userRegisterModel.UserId))
         {
             return Conflict("User already exists");
         }
-        var userModel = await _userRepositoryInterface.CreateUser(userRegisterModel);
+
+        //TODO コアロジックなので，別の場所に移動した方がいい
+        DateTime now = DateTime.Now;
+        byte[] _salt = PasswordUtil.GetInitialPasswordSalt(now.ToString());
+        UserModel user = new UserModel()
+        {
+            UserId = userRegisterModel.UserId,
+            Name = userRegisterModel.Name,
+            PasswordHash = PasswordUtil.GetPasswordHashFromPepper(_salt, userRegisterModel.Password, "BATTARI"),
+            PasswordSalt = _salt,
+            Created = DateTime.Now
+        };
+        
+        var userModel = await _userRepositoryInterface.CreateUser(user);
         if (userModel == null)
         {
             return BadRequest();
@@ -49,8 +60,10 @@ public class UserController(IUserRepository _userRepositoryInterface, ITokenServ
         {
             return tokenService.GenerateToken(configuration["Jwt:Key"] ?? "", userModel);
         }
+
         return Unauthorized();
     }
+
     [HttpDelete("{id}")]
     public async Task<ActionResult<UserModel>> DeleteUser(int id)
     {
