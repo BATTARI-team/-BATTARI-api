@@ -9,4 +9,5 @@ public interface IUserRepository
     Task<IEnumerable<UserModel>> GetUsers();
     Task<UserModel> CreateUser(UserRegisterModel userRegisterModel);
     Task<UserModel> DeleteUser(int id);
+    Task<bool> UserExists(string userId);
 }

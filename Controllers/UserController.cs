@@ -18,11 +18,17 @@ public class UserController(IUserRepository _userRepositoryInterface, ITokenServ
     /// 
     /// </summary>
     /// <param name="userRegisterModel"></param>
-    /// <returns>token</returns>
+    /// <returns>token
+    /// ユーザーIDがすでに存在する場合はConflictステータスを返します
+    /// </returns>
     [HttpPost]
     public async Task<ActionResult<string>> CreateUser(UserRegisterModel userRegisterModel)
     {
         //TODO userModelの作成とかはここでやった方がいい気がする（IUserRepositoryはデータベースのアクセスだけやるイメージ）
+        if(await _userRepositoryInterface.UserExists(userRegisterModel.UserId))
+        {
+            return Conflict("User already exists");
+        }
         var userModel = await _userRepositoryInterface.CreateUser(userRegisterModel);
         if (userModel == null)
         {

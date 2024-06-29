@@ -68,4 +68,9 @@ public class UserDatabase(UserContext userContext) : IUserRepository
     {
         return await _userContext.Users.ToListAsync();
     }
+
+    public async Task<bool> UserExists(string userId)
+    {
+        return await _userContext.Users.AnyAsync(x => x.UserId == userId);
+    }
 }
