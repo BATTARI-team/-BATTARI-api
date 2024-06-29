@@ -1,6 +1,9 @@
 using System.Reflection;
 using System.Text;
 using BATTARI_api.Data;
+using BATTARI_api.Interfaces;
+using BATTARI_api.Repository;
+using BATTARI_api.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
@@ -31,6 +34,10 @@ builder.Services.AddDbContext<UserContext>();
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddEndpointsApiExplorer();
+
+builder.Services.AddScoped<IUserRepository, UserDatabase>();
+builder.Services.AddScoped<ITokenService, TokenService>();
+
 builder.Services.AddSwaggerGen(c =>
 {
     // ここを追加
