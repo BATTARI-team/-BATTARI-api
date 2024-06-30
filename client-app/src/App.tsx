@@ -3,17 +3,20 @@ import './App.css'
 import { Header } from './Header'
 import { BrowserRouter } from 'react-router-dom'
 import { AppRoutes } from './Routes'
+import { TokenContext, TokenProvider } from './provider/TokenProvider'
+import { Battari } from './Battari'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <BrowserRouter>
-      <Header/>
-
-      <AppRoutes/>
-      
-
+      <TokenProvider>
+        <Battari>
+          <Header/>
+          <AppRoutes/>
+        </Battari>
+      </TokenProvider>
     </BrowserRouter>
   )
 }

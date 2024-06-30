@@ -1,6 +1,13 @@
 import { Link } from 'react-router-dom';
 import './Header.css';
+import { useContext } from 'react';
+import styled from '@emotion/styled';
+import {Button} from '@mui/material';
+import { TokenContext, TokenProvider } from './provider/TokenProvider';
+
 export function Header() {
+    const {token, setToken} = useContext(TokenContext);
+    
     return (
         <header className="header">
             <nav>
@@ -8,6 +15,9 @@ export function Header() {
                     <li><Link to="/login">Login</Link></li>
                     <li>Register</li>
                 </ul>
+                <p>token: {token}</p>
+                    <p>token: {token}</p>
+                    <Button onClick={() => { setToken("testets");console.log("konnnitiha");}}>ログイン</Button>
             </nav>
         </header>
     );
