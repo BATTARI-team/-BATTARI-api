@@ -22,6 +22,11 @@ jobs:
       run: echo "${{ env.DOTNET_INSTALL_DIR }}"
     - name: Restore dependencies
       run: dotnet restore
+    - name: Update database
+      run: |
+        dotnet tool install --global dotnet-ef
+        dotnet tool restore
+        dotnet ef database update -c DataContext -p MyProj -s MyProjFactory
     - name: Build
       run: dotnet publish --no-restore
     - name: Restart service
