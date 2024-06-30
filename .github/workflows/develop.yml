@@ -24,6 +24,7 @@ jobs:
       run: dotnet restore
     - name: Update database
       run: |
+        export PATH="$PATH:/home/runner/.dotnet/tools"
         dotnet new tool-manifest
         dotnet tool install --global dotnet-ef
         dotnet tool restore
