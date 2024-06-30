@@ -24,6 +24,7 @@ jobs:
       run: dotnet restore
     - name: Update database
       run: |
+        dotnet new tool-manifest
         dotnet tool install --global dotnet-ef
         dotnet tool restore
         dotnet ef database update -c DataContext -p MyProj -s MyProjFactory
