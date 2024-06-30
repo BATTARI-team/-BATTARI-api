@@ -1,5 +1,9 @@
 using System.Reflection;
 using System.Text;
+using BATTARI_api.Data;
+using BATTARI_api.Interfaces;
+using BATTARI_api.Repository;
+using BATTARI_api.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
@@ -13,22 +17,27 @@ var options = new WebApplicationOptions()
 var builder = WebApplication.CreateBuilder(options);
 
 // Add services to the container.
+// jwtの設定はここでやる
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer( configureOptions =>
 {
     configureOptions.TokenValidationParameters = new TokenValidationParameters
     {
         ValidIssuer = builder.Configuration["Jwt:Issuer"],
-        ValidAudience = builder.Configuration["Jwt:Audience"],
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"] ?? throw new ArgumentNullException($"appsettingsのJwt:Keyがnullです"))),
         ValidateIssuer = true,
-        ValidateAudience = true,
         ValidateLifetime = true,
         ValidateIssuerSigningKey = true,
+        ValidateAudience = false,
     };
 });
+builder.Services.AddDbContext<UserContext>();
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddEndpointsApiExplorer();
+
+builder.Services.AddScoped<IUserRepository, UserDatabase>();
+builder.Services.AddScoped<ITokenService, TokenService>();
+
 builder.Services.AddSwaggerGen(c =>
 {
     // ここを追加

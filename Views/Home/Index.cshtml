@@ -1,4 +1,5 @@
-﻿@{
+﻿@model UserViewModel
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -19,5 +20,30 @@
     <h3><a href="https://github.com/tauto1127/snow_prototype">プロトタイプ</a></h3>
     <br/>
     <br/>
+    <h1>ユーザー一覧</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>ユーザーid</th>
+                <th>名前</th>
+                <th>パスワードはっしゅ</th>
+                <th>パスワードソルト</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model.Users)
+            {
+                <tr>
+                    <td>@user.Id</td>
+                    <td>@user.UserId</td>
+                    <td>@user.Name</td>
+                    <td>@System.Text.Encoding.ASCII.GetString(user.PasswordHash)</td>
+                    <td>@System.Text.Encoding.ASCII.GetString(user.PasswordSalt)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
