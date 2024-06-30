@@ -27,7 +27,7 @@ jobs:
         dotnet new tool-manifest
         dotnet tool install --global dotnet-ef
         dotnet tool restore
-        dotnet ef database update -c DataContext -p MyProj -s MyProjFactory
+        dotnet ef database update
     - name: Build
       run: dotnet publish --no-restore
     - name: Restart service
