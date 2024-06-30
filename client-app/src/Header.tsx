@@ -1,9 +1,8 @@
 import { Link } from 'react-router-dom';
 import './Header.css';
 import { useContext } from 'react';
-import styled from '@emotion/styled';
 import {Button} from '@mui/material';
-import { TokenContext, TokenProvider } from './provider/TokenProvider';
+import { TokenContext } from './provider/TokenProvider';
 
 export function Header() {
     const {token, setToken} = useContext(TokenContext);

@@ -17,7 +17,7 @@ export function Battari({children}: BattariProps) {
 }
 
 async function init(): Promise<void>{
-    const {token, setToken} = React.useContext(TokenContext);
+    const {setToken} = React.useContext(TokenContext);
     
     //ここでtokenを読み込む
     await new Promise(resolve => setTimeout(resolve, 1000));
