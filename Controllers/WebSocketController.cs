@@ -31,13 +31,34 @@ public class WebSocketController : ControllerBase {
 		}
 	
 	}
+
 	private int num = 0;
 
 	private async Task WebSocketTest(WebSocket webSocket) {
+		var buffer = new byte[1024 * 4];
+		Task task = send(webSocket);
 		while(webSocket.State == WebSocketState.Open){
-			await Task.Delay(1000);
-			await webSocket.SendAsync(new ArraySegment<byte>(Encoding.Default.GetBytes((num++).ToString())), WebSocketMessageType.Text, true, CancellationToken.None);
+
+			var receiveResult = await webSocket.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
+
+			if(receiveResult.CloseStatus.HasValue){
+				Console.WriteLine("WebSocket接続終了");
+				break;
+			} 
+			if(buffer.Length > 0){
+				Console.WriteLine("receive: " + Encoding.Default.GetString(buffer));
+			}
+
 		}
+		task.Dispose();
+		Console.WriteLine("WebSocket接続終了");
+	}
+	private async Task send(WebSocket webSocket) {
+			if(webSocket.State == WebSocketState.Open) {
+				await Task.Delay(1000);
+				await webSocket.SendAsync(new ArraySegment<byte>(Encoding.Default.GetBytes((num++).ToString())), WebSocketMessageType.Text, true, CancellationToken.None);
+				Console.WriteLine("send: " + num);
+			}
 	}
 
 	private async Task Echo(WebSocket webSocket) {
