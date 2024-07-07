@@ -1,4 +1,5 @@
 using System.Net.WebSockets;
+using System.Text;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,7 +18,30 @@ public class WebSocketController : ControllerBase {
 		}
 	}
 
+	[Route("/wstest")]
+	public async Task Get2() {
+		Console.WriteLine("WebSocket接続開始");
+		if (HttpContext.WebSockets.IsWebSocketRequest) {
+			// TCP接続をWebSocket接続にアップグレード
+			using WebSocket? webSocket = await HttpContext.WebSockets.AcceptWebSocketAsync();
+			await WebSocketTest(webSocket);
+		}
+		else {
+			HttpContext.Response.StatusCode = 400;
+		}
+	
+	}
+	private int num = 0;
+
+	private async Task WebSocketTest(WebSocket webSocket) {
+		while(webSocket.State == WebSocketState.Open){
+			await Task.Delay(1000);
+			await webSocket.SendAsync(new ArraySegment<byte>(Encoding.Default.GetBytes((num++).ToString())), WebSocketMessageType.Text, true, CancellationToken.None);
+		}
+	}
+
 	private async Task Echo(WebSocket webSocket) {
+		Console.WriteLine("Echo");
 		var buffer = new byte[1024 * 4];
 		var receiveResult = await webSocket.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
 
@@ -28,6 +52,8 @@ public class WebSocketController : ControllerBase {
 			receiveResult = await webSocket.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
 		}
 
+		await Task.Delay(1000);
+		await webSocket.SendAsync(new ArraySegment<byte>(Encoding.Default.GetBytes("hello world"), 0, receiveResult.Count), receiveResult.MessageType, receiveResult.EndOfMessage, CancellationToken.None);
 		await webSocket.CloseAsync(receiveResult.CloseStatus.Value, receiveResult.CloseStatusDescription, CancellationToken.None);
 	}
 }
