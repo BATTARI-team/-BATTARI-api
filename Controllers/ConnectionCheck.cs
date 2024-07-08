@@ -21,11 +21,13 @@ public class DeveloperController : ControllerBase
     public IActionResult ConnectionCheck()
     {
 			var identity = HttpContext.User.Identity as ClaimsIdentity;
+			var claim = identity?.Claims.FirstOrDefault(c => c.Type == "name");
 
-			return Ok("Connection is working. Welcome " + identity.Claims.All((claim) => {
-						Console.WriteLine(claim.Type + " : " + claim.Value);
-						return true;
-				}));
+			if(claim != null) {
+				Console.WriteLine(claim.Value);
+			}
+
+			return Ok("Connection is working. Welcome " + claim.Value + "!");
     }
     
     /// <summary>
