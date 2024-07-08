@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 [AllowAnonymous]
+[ApiExplorerSettings(IgnoreApi = true)]
 public class WebSocketController : ControllerBase {
 	[Route("/ws")]
 	public async Task Get() {

@@ -1,4 +1,5 @@
 using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,7 +20,12 @@ public class DeveloperController : ControllerBase
     [Authorize]
     public IActionResult ConnectionCheck()
     {
-        return Ok("Connection is working");
+			var identity = HttpContext.User.Identity as ClaimsIdentity;
+
+			return Ok("Connection is working. Welcome " + identity.Claims.All((claim) => {
+						Console.WriteLine(claim.Type + " : " + claim.Value);
+						return true;
+				}));
     }
     
     /// <summary>
