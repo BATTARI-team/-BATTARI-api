@@ -27,7 +27,7 @@
                 <th>Id</th>
                 <th>ユーザーid</th>
                 <th>名前</th>
-                <th>パスワードはっしゅ</th>
+                <th>パスワードハッシュ</th>
                 <th>パスワードソルト</th>
             </tr>
         </thead>
@@ -35,11 +35,11 @@
             @foreach (var user in Model.Users)
             {
                 <tr>
-                    <td>@user.Id</td>
-                    <td>@user.UserId</td>
-                    <td>@user.Name</td>
-                    <td>@System.Text.Encoding.ASCII.GetString(user.PasswordHash)</td>
-                    <td>@System.Text.Encoding.ASCII.GetString(user.PasswordSalt)</td>
+                    <th>@user.Id</th>
+                    <th>@user.UserId</th>
+                    <th>@user.Name</th>
+                    <th>@Convert.ToBase64String(user.PasswordHash)</th>
+                    <th>@Convert.ToBase64String(user.PasswordSalt)</th>
                 </tr>
             }
         </tbody>
