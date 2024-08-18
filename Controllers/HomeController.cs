@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using BATTARI_api.Models;
+using BATTARI_api.Data;
 
 namespace BATTARI_api.Controllers;
 
@@ -15,7 +16,7 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        return View();
+        return View(new UserViewModel(new UserContext()));
     }
 
     public IActionResult Privacy()
