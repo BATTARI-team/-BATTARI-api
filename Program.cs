@@ -8,18 +8,23 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 
-var options = new WebApplicationOptions() { Args = args,
-                                            ContentRootPath =
+var options = new WebApplicationOptions()
+{
+  Args = args,
+  ContentRootPath =
                                                 Directory.GetCurrentDirectory(),
-                                            WebRootPath = "wwwroot" };
+  WebRootPath = "wwwroot"
+};
 var builder = WebApplication.CreateBuilder(options);
 
 // Add services to the container.
 // jwtの設定はここでやる
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-    .AddJwtBearer(configureOptions => {
+    .AddJwtBearer(configureOptions =>
+    {
       configureOptions.TokenValidationParameters =
-          new TokenValidationParameters {
+          new TokenValidationParameters
+          {
             ValidIssuer = builder.Configuration["Jwt:Issuer"],
             IssuerSigningKey = new SymmetricSecurityKey(
                 Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"] ??
@@ -38,14 +43,17 @@ builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddScoped<IUserRepository, UserDatabase>();
 builder.Services.AddScoped<ITokenService, TokenService>();
+builder.Services.AddScoped<IRefreshTokensRepository, RefreshTokenDatabase>();
 
-builder.Services.AddSwaggerGen(c => {
+builder.Services.AddSwaggerGen(c =>
+{
   // ここを追加
   var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
   var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
   c.IncludeXmlComments(xmlPath);
 
-  c.AddSecurityDefinition("token認証", new OpenApiSecurityScheme {
+  c.AddSecurityDefinition("token認証", new OpenApiSecurityScheme
+  {
     Name = "Authorization",
     Type = SecuritySchemeType.Http,
     Scheme = "Bearer",
@@ -68,7 +76,8 @@ builder.WebHost.UseUrls("http://*:" + args[0]);
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment()) {
+if (!app.Environment.IsDevelopment())
+{
   app.UseExceptionHandler("/Home/Error");
   // The default HSTS value is 30 days. You may want to change this for
   // production scenarios, see https://aka.ms/aspnetcore-hsts.
@@ -83,7 +92,8 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseWebSockets(new WebSocketOptions {
+app.UseWebSockets(new WebSocketOptions
+{
   KeepAliveInterval = TimeSpan.FromHours(1),
 });
 
