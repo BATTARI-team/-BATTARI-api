@@ -1,5 +1,6 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Text;
 using BATTARI_api.Models;
 using Microsoft.IdentityModel.Tokens;
@@ -39,5 +40,13 @@ public class TokenService : ITokenService
         signingCredentials: credentials);
 
     return new JwtSecurityTokenHandler().WriteToken(token);
+  }
+
+  public string GenerateRefreshToken(UserModel userModel)
+  {
+    var randomNumber = new byte[64];
+    using var rng = RandomNumberGenerator.Create();
+    rng.GetBytes(randomNumber);
+    return Convert.ToBase64String(randomNumber);
   }
 }
