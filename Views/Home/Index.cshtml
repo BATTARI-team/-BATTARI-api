@@ -1,4 +1,5 @@
-﻿@{
+﻿@model UserViewModel
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -19,5 +20,30 @@
     <h3><a href="https://github.com/tauto1127/snow_prototype">プロトタイプ</a></h3>
     <br/>
     <br/>
+    <h1>ユーザー一覧</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>ユーザーid</th>
+                <th>名前</th>
+                <th>パスワードハッシュ</th>
+                <th>パスワードソルト</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model.Users)
+            {
+                <tr>
+                    <th>@user.Id</th>
+                    <th>@user.UserId</th>
+                    <th>@user.Name</th>
+                    <th>@Convert.ToBase64String(user.PasswordHash)</th>
+                    <th>@Convert.ToBase64String(user.PasswordSalt)</th>
+                </tr>
+            }
+        </tbody>
+    </table>
+    自動デプロイされてる？
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
