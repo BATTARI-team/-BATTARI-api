@@ -7,38 +7,38 @@ namespace BATTARI_api.Services;
 
 public static class TokenService
 {
-    /// <summary>
-    /// JWTTokenを生成します
-    /// </summary>
-    /// <param name="key"></param>
-    /// 16バイト以上
-    /// <param name="issuer"></param>
-    /// <param name="audience"></param>
-    /// <param name="userid"></param>
-    /// <returns></returns>
-    public static string GenerateToken(string key, string issuer, string audience, string userid)
-    {
-        Console.WriteLine("generate token" + key + issuer + audience + userid);
-        var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key));
-        var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+  /// <summary>
+  /// JWTTokenを生成します
+  /// key, issuer, audienceはappsettings.jsonから取得します
+  /// </summary>
+  /// <param name="key"></param>
+  /// 16バイト以上
+  /// <param name="issuer"></param>
+  /// <param name="audience"></param>
+  /// <param name="userid"></param>
+  /// <returns></returns>
+  public static string GenerateToken(string key, string issuer, string audience,
+                                     string userid)
+  {
+    Console.WriteLine("generate token" + key + issuer + audience + userid);
+    // 暗号化アルゴリズム(鍵の生成)
+    var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key));
+    // 署名の作成
+    var credentials =
+        new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
-        var claims = new[]
-        {
-            //#TODO ユーザーに合わせて設定する必要がある．
-            new Claim(JwtRegisteredClaimNames.Sub, userid),
-            new Claim(JwtRegisteredClaimNames.Name, "test"),
-            new Claim(JwtRegisteredClaimNames.Email, "test@test.com"),
-            new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-        };
-        
-        var token = new JwtSecurityToken(
-            issuer: issuer,
-            audience: audience,
-            claims: claims,
-            expires: DateTime.Now.AddHours(8),
-            signingCredentials: credentials
-        );
+    var claims = new[] {
+      // #TODO ユーザーに合わせて設定する必要がある．
+      new Claim(JwtRegisteredClaimNames.Sub, userid),
+      new Claim(JwtRegisteredClaimNames.Name, "test"),
+      new Claim(JwtRegisteredClaimNames.Email, "test@test.com"),
+      new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+    };
 
-        return new JwtSecurityTokenHandler().WriteToken(token);
-    }
+    var token = new JwtSecurityToken(
+        issuer: issuer, audience: audience, claims: claims,
+        expires: DateTime.Now.AddHours(8), signingCredentials: credentials);
+
+    return new JwtSecurityTokenHandler().WriteToken(token);
+  }
 }
