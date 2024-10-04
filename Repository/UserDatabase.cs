@@ -55,7 +55,15 @@ public class UserDatabase(UserContext userContext) : IUserRepository
   public async Task<UserModel?> GetUser(string userId)
   {
     Console.WriteLine(userId);
-    UserModel user = await _userContext.Users.Where<UserModel>(x => x.UserId == userId).FirstAsync();
+    UserModel user;
+    try
+    {
+      user = await _userContext.Users.Where<UserModel>(x => x.UserId == userId).FirstAsync();
+    }
+    catch (InvalidOperationException e)
+    {
+      return null;
+    }
     Console.WriteLine(user.Created);
     return user;
   }

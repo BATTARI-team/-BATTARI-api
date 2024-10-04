@@ -7,23 +7,25 @@ public interface IUserRepository
   /// <summary>
   /// 
   /// </summary>
-  /// <param name="id"></param>
-  /// indexIdでユーザーを取得します
+  /// <param name="id">indexIdでユーザーを取得します</param>
+  /// 
   /// <returns></returns> <summary>
   /// 
   /// </summary>
   /// <param name="id"></param>
+  /// <exception cref="InvalidOperationException">ユーザーが存在しない時</exception>
   /// <returns></returns>
   Task<UserModel?> GetUser(int id);
   /// <summary>
   /// 
   /// </summary>
-  /// <param name="userId"></param>
-  /// userIdでユーザーを取得します
+  /// <param name="userId">userIdでユーザーを取得します</param>
+  /// 
   /// <returns></returns> <summary>
   /// 
   /// </summary>
   /// <param name="userId"></param>
+  /// <exception cref="InvalidOperationException">ユーザーが存在しない時</exception>
   /// <returns></returns>
   Task<UserModel?> GetUser(string userId);
   Task<IEnumerable<UserModel>> GetUsers();
