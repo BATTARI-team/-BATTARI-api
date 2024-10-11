@@ -25,7 +25,7 @@ jobs:
       with:
         dotnet-version: 6.0.x
     - name: Restore dependencies
-      run: dotnet format BATTARI-api.sln
+      run: dotnet format
     - name: Commit files
       run: |
         git config --local user.email "action@github.com"
