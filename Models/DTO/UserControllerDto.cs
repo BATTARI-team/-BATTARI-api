@@ -1,11 +1,16 @@
 class LoginDto
 {
-    public string UserId { get; set; }
-    public string Password { get; set; }
+    public required string UserId { get; set; }
+    public required string Password { get; set; }
 }
 
 public class AuthenticatedDto
 {
-    public string Token { get; set; }
-    public string RefreshToken { get; set; }
+    public required string Token { get; set; }
+    public required string RefreshToken { get; set; }
+}
+
+public class RefreshTokenDto
+{
+    public required string RefreshToken { get; set; }
 }

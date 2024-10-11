@@ -1,8 +1,5 @@
-using System.Text;
-using BATTARI_api.Data;
 using BATTARI_api.Interfaces;
 using BATTARI_api.Models;
-using BATTARI_api.Repository;
 using Microsoft.AspNetCore.Mvc;
 using webUserLoginTest.Util;
 
@@ -90,13 +87,15 @@ public class UserController
         return Unauthorized();
     }
 
-    [HttpPut]
-    public async Task<ActionResult<string>> RefreshToken(string refreshToken)
+    [HttpPost]
+    public async Task<ActionResult<string>> RefreshToken(
+        RefreshTokenDto refreshToken)
     {
         RefreshTokenModel refreshTokenModel;
         try
         {
-            refreshTokenModel = await tokenService.ValidateRefreshToken(refreshToken);
+            refreshTokenModel =
+                await tokenService.ValidateRefreshToken(refreshToken.RefreshToken);
         }
         catch (KeyNotFoundException e)
         {
@@ -109,16 +108,18 @@ public class UserController
 
         UserModel? userModel;
 
-        userModel = await _userRepositoryInterface.GetUser(refreshTokenModel.UserId);
-        if(userModel == null)
+        userModel =
+            await _userRepositoryInterface.GetUser(refreshTokenModel.UserId);
+        if (userModel == null)
         {
             return NotFound("User not found");
         }
 
-        string token = tokenService.GenerateToken(configuration["Jwt:Key"] ?? "", userModel);
+        string token =
+            tokenService.GenerateToken(configuration["Jwt:Key"] ?? "", userModel);
         return token;
     }
-    
+
     [HttpDelete("{id}")]
     public async Task<ActionResult<UserModel>> DeleteUser(int id)
     {
