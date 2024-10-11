@@ -1,11 +1,13 @@
 using BATTARI_api.Interfaces;
 using BATTARI_api.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using webUserLoginTest.Util;
 
 namespace BATTARI_api.Controllers;
 
 [ApiController]
+[Authorize]
 [Route("[controller]/[action]")]
 public class UserController
 (IUserRepository _userRepositoryInterface, ITokenService tokenService,
@@ -21,7 +23,8 @@ public class UserController
     /// ユーザーIDがすでに存在する場合はConflictステータスを返します
     /// </returns>
     [HttpPost]
-    public async Task<ActionResult<string>> CreateUser(
+    [AllowAnonymous]
+    public async Task<ActionResult<AuthenticatedDto>> CreateUser(
         UserRegisterModel userRegisterModel)
     {
         if (await _userRepositoryInterface.UserExists(userRegisterModel.UserId))
@@ -48,17 +51,22 @@ public class UserController
         {
             return BadRequest();
         }
-        return tokenService.GenerateToken(configuration["Jwt:Key"] ?? "",
-                                          userModel);
+        String refreshToken =
+            await tokenService.GenerateAndSaveRefreshToken(userModel);
+        String token =
+            tokenService.GenerateToken(configuration["Jwt:Key"] ?? "", userModel);
+        return new AuthenticatedDto { Token = token, RefreshToken = refreshToken };
     }
 
     [HttpGet]
+    [AllowAnonymous]
     public async Task<bool> UserExists(string userId)
     {
         return await _userRepositoryInterface.UserExists(userId);
     }
 
     [HttpPost]
+    [AllowAnonymous]
     public async Task<ActionResult<AuthenticatedDto>> Login(
         UserLoginModel userLoginModel)
     {
@@ -88,6 +96,7 @@ public class UserController
     }
 
     [HttpPost]
+    [AllowAnonymous]
     public async Task<ActionResult<string>> RefreshToken(
         RefreshTokenDto refreshToken)
     {
