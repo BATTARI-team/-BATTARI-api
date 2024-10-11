@@ -13,5 +13,7 @@ or
 
 ## データベースマイグレーション
 `dotnet ef migrations add {マイグレーションメッセージ}`
-then
+
+then（実際にデータベースに反映する）
+
 `dotnet ef database update`

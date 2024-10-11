@@ -28,15 +28,18 @@ public class TokenController(ITokenService tokenService, IConfiguration configur
             return NotFound("User not found");
         }
         //TODO パスワードペッパーを別の場所に保管する．
-        if (PasswordUtil.CompareHash(user.PasswordHash, PasswordUtil.GetPasswordHashFromPepper(user.PasswordSalt, userLoginModel.Password, "BATTARI"))) {
+        if (PasswordUtil.CompareHash(user.PasswordHash, PasswordUtil.GetPasswordHashFromPepper(user.PasswordSalt, userLoginModel.Password, "BATTARI")))
+        {
             var token = tokenService.GenerateToken(
                 configuration["Jwt:Key"] ?? "",
                 user
             );
             return Ok(token);
-        } else {
+        }
+        else
+        {
             return Unauthorized();
         }
     }
-    
+
 }
