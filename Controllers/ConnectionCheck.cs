@@ -20,12 +20,22 @@ public class DeveloperController : ControllerBase
     [Authorize]
     public IActionResult ConnectionCheck()
     {
-        var identity = HttpContext.User.Identity as ClaimsIdentity;
-        var claim = identity?.Claims.FirstOrDefault(c => c.Type == "name");
+        // var identity = HttpContext.User.Identity as ClaimsIdentity;
+        var identity = HttpContext.User.Claims;
+
+        var claim = HttpContext.User.Claims.FirstOrDefault(c => c.Type == "name");
+        foreach (var c in identity)
+        {
+            Console.WriteLine(c.Type + " : " + c.Value);
+        }
 
         if (claim != null)
         {
             Console.WriteLine(claim.Value);
+        }
+        else
+        {
+            return BadRequest();
         }
 
         return Ok("Connection is working. Welcome " + claim.Value + "!");
