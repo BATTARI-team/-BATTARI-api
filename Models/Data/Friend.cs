@@ -4,6 +4,7 @@ public class FriendModel
 {
     [Key]
     public int Id { get; set; }
-    public int UserId { get; set; }
-    public IEnumerable<int> Frineds { get; set; }
+    public int User1Id { get; set; }
+    public int User2Id { get; set; }
+    public FriendStatusEnum Status { get; set; }
 }
