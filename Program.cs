@@ -8,99 +8,115 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 
-var options = new WebApplicationOptions()
+namespace BATTARI_api
 {
-    Args = args,
-    ContentRootPath =
-                                                Directory.GetCurrentDirectory(),
-    WebRootPath = "wwwroot"
-};
-var builder = WebApplication.CreateBuilder(options);
-
-// Add services to the container.
-// jwtの設定はここでやる
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-    .AddJwtBearer(configureOptions =>
+    public class Program
     {
-        configureOptions.TokenValidationParameters =
-            new TokenValidationParameters
+        public static string Jwt_Unique_Name_Str =
+            "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name";
+
+        public static void Main(string[] args)
+        {
+            var options = new WebApplicationOptions()
             {
-                ValidIssuer = builder.Configuration["Jwt:Issuer"],
-                IssuerSigningKey = new SymmetricSecurityKey(
-                  Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"] ??
-                                         throw new ArgumentNullException(
-                                             $"appsettingsのJwt:Keyがnullです"))),
-                ValidateIssuer = true,
-                ValidateLifetime = true,
-                ValidateIssuerSigningKey = true,
-                ValidateAudience = false,
+                Args = args,
+                ContentRootPath = Directory.GetCurrentDirectory(),
+                WebRootPath = "wwwroot"
             };
-    });
-builder.Services.AddDbContext<UserContext>();
 
-builder.Services.AddControllersWithViews();
-builder.Services.AddEndpointsApiExplorer();
+            var builder = WebApplication.CreateBuilder(options);
 
-builder.Services.AddScoped<IUserRepository, UserDatabase>();
-builder.Services.AddScoped<ITokenService, TokenService>();
-builder.Services.AddScoped<IRefreshTokensRepository, RefreshTokenDatabase>();
+            // Add services to the container.
+            // jwtの設定はここでやる
+            builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(configureOptions =>
+                {
+                    configureOptions.TokenValidationParameters =
+                new TokenValidationParameters
+                      {
+                          ValidIssuer = builder.Configuration["Jwt:Issuer"],
+                          IssuerSigningKey =
+                      new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
+                          builder.Configuration["Jwt:Key"] ??
+                          throw new ArgumentNullException(
+                              $"appsettingsのJwt:Keyがnullです"))),
+                          ValidateIssuer = true,
+                          ValidateLifetime = true,
+                          ValidateIssuerSigningKey = true,
+                          ValidateAudience = false,
+                      };
+                });
+            builder.Services.AddDbContext<UserContext>();
 
-builder.Services.AddSwaggerGen(c =>
-{
-    // ここを追加
-    var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-    var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-    c.IncludeXmlComments(xmlPath);
+            builder.Services.AddControllersWithViews();
+            builder.Services.AddEndpointsApiExplorer();
 
-    c.AddSecurityDefinition("token認証", new OpenApiSecurityScheme
-    {
-        Name = "Authorization",
-        Type = SecuritySchemeType.Http,
-        Scheme = "Bearer",
-        BearerFormat = "JWT",
-        In = ParameterLocation.Header,
-        Description = "トークンをセットします(先頭の 'Bearer' + space は不要)。",
-    });
-    c.AddSecurityRequirement(new OpenApiSecurityRequirement {
-    { new OpenApiSecurityScheme {
-       Reference = new OpenApiReference { Type = ReferenceType.SecurityScheme,
-                                          Id = "token認証" }
-     },
-      // Scope は必要に応じて入力する
-      new string[] {} }
-  });
-});
+            builder.Services.AddScoped<IUserRepository, UserDatabase>();
+            builder.Services.AddScoped<ITokenService, TokenService>();
+            builder.Services
+                .AddScoped<IRefreshTokensRepository, RefreshTokenDatabase>();
 
-builder.WebHost.UseUrls("http://*:" + args[0]);
+            builder.Services.AddSwaggerGen(c =>
+            {
+                // ここを追加
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments(xmlPath);
 
-var app = builder.Build();
+                c.AddSecurityDefinition("token認証", new OpenApiSecurityScheme
+                {
+                    Name = "Authorization",
+                    Type = SecuritySchemeType.Http,
+                    Scheme = "Bearer",
+                    BearerFormat = "JWT",
+                    In = ParameterLocation.Header,
+                    Description =
+                      "トークンをセットします(先頭の 'Bearer' + space は不要)。",
+                });
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement {
+        { new OpenApiSecurityScheme {
+           Reference =
+               new OpenApiReference { Type = ReferenceType.SecurityScheme,
+                                      Id = "token認証" }
+         },
+          // Scope は必要に応じて入力する
+          new string[] {} }
+      });
+            });
 
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
-{
-    app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for
-    // production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
+            builder.WebHost.UseUrls("http://*:" + args[0]);
+
+            var app = builder.Build();
+
+            // Configure the HTTP request pipeline.
+            if (!app.Environment.IsDevelopment())
+            {
+                app.UseExceptionHandler("/Home/Error");
+                // The default HSTS value is 30 days. You may want to change this for
+                // production scenarios, see https://aka.ms/aspnetcore-hsts.
+                app.UseHsts();
+            }
+
+            // 順番結構大事なので注意
+            app.UseSwagger();
+            app.UseSwaggerUI();
+
+            app.UseStaticFiles();
+
+            app.UseRouting();
+
+            app.UseWebSockets(new WebSocketOptions
+            {
+                KeepAliveInterval = TimeSpan.FromHours(1),
+            });
+
+            app.UseAuthentication();
+            app.UseAuthorization();
+
+            app.MapControllerRoute(name: "default",
+                                   pattern: "{controller=Home}/{action=Index}/{id?}");
+
+            app.Run();
+        }
+    }
 }
-
-// 順番結構大事なので注意
-app.UseSwagger();
-app.UseSwaggerUI();
-
-app.UseStaticFiles();
-
-app.UseRouting();
-
-app.UseWebSockets(new WebSocketOptions
-{
-    KeepAliveInterval = TimeSpan.FromHours(1),
-});
-
-app.UseAuthentication();
-app.UseAuthorization();
-
-app.MapControllerRoute(name: "default",
-                       pattern: "{controller=Home}/{action=Index}/{id?}");
-
-app.Run();
