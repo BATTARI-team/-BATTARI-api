@@ -4,7 +4,6 @@ using System.Text;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-[AllowAnonymous]
 [ApiExplorerSettings(IgnoreApi = true)]
 public class WebSocketController : ControllerBase
 {
@@ -27,17 +26,28 @@ public class WebSocketController : ControllerBase
 
     [Route("/wstest")]
     [Authorize]
-    public async Task Get2()
+    public async Task Get2(String token)
     {
+        Console.WriteLine(token);
         Console.WriteLine("WebSocket接続開始");
-        var identity = HttpContext.User.Identity as ClaimsIdentity;
+        //var identity = HttpContext.User.Identity as ClaimsIdentity;
 
         if (HttpContext.WebSockets.IsWebSocketRequest)
         {
+            Console.WriteLine(HttpContext.Request.Headers["Authorization"]);
+            var identity = HttpContext.User.Identity as ClaimsIdentity;
+            var claim = identity?.Claims.FirstOrDefault(c => c.Type == "name");
+
+            if (claim != null)
+            {
+                Console.WriteLine(claim.Value);
+            }
+
             // TCP接続をWebSocket接続にアップグレード
             using WebSocket? webSocket =
                 await HttpContext.WebSockets.AcceptWebSocketAsync();
             await WebSocketTest(webSocket);
+            
         }
         else
         {

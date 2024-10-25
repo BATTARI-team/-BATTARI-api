@@ -35,6 +35,17 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 ValidateIssuerSigningKey = true,
                 ValidateAudience = false,
             };
+        configureOptions.Events = new JwtBearerEvents()
+        {
+            OnMessageReceived = context =>
+            {
+                if(context.Request.Headers.ContainsKey("sec-websocket-protocol"))
+                {
+                    Console.WriteLine("websocketをauth");
+                }
+                return Task.CompletedTask;
+            }
+        };
     });
 builder.Services.AddDbContext<UserContext>();
 
