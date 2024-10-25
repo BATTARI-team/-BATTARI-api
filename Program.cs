@@ -72,7 +72,12 @@ builder.Services.AddSwaggerGen(c =>
   });
 });
 
-builder.WebHost.UseUrls("http://*:" + args[0]);
+string port = "5050";
+if(args.Length != 0)
+{
+    port = args[0];
+}
+builder.WebHost.UseUrls("http://*:" + port);
 
 var app = builder.Build();
 
@@ -95,7 +100,6 @@ app.UseRouting();
 
 app.UseWebSockets(new WebSocketOptions
 {
-    KeepAliveInterval = TimeSpan.FromHours(1),
 });
 
 app.UseAuthentication();
