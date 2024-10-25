@@ -10,6 +10,12 @@ namespace BATTARI_api.Repository
         Task<FriendModel?> IsExist(int user1, int user2);
         Task<FriendStatusEnum?> AddFriendRequest(int user1, int user2);
         Task<IEnumerable<UserDto>> GetFriendList(int userId);
+        /// <summary>
+        /// ユーザーの友達申請一覧を取得します
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns>友達リクエストを送信している，ユーザーのユーザーインデックス</returns>
+        Task<IEnumerable<int>> GetFriendRequests(int userId);
     }
 
     public class FriendDatabase : IFriendRepository
@@ -117,6 +123,19 @@ namespace BATTARI_api.Repository
             IEnumerable<UserDto> friendList =
                 friendListContainsNull.Where(x => x != null);
             return friendList.AsEnumerable<UserDto>();
+        }
+
+        public async Task<IEnumerable<int>> GetFriendRequests(int userId)
+        {
+            var friendRequestsTask =
+                await _context.Friends
+                    .Where(x => x.User2Id == userId &&
+                                x.Status == FriendStatusEnum.requested)
+                    .Select(x => x.User1Id)
+                    .ToListAsync();
+            if (friendRequestsTask == null)
+                return [];
+            return friendRequestsTask;
         }
 
         public async Task<FriendModel?> IsExist(int user1, int user2)
