@@ -1,26 +1,103 @@
 using System.Net.WebSockets;
 using System.Security.Claims;
 using System.Text;
+using System.Text.Json;
+using BATTARI_api.Models.DTO;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 [ApiExplorerSettings(IgnoreApi = true)]
 public class WebSocketController : ControllerBase
 {
+    /// <summary>
+    /// Json
+    /// </summary>
+    private JsonSerializerOptions options = new JsonSerializerOptions
+    {
+        PropertyNameCaseInsensitive = true
+    };
     [Route("/ws")]
+    [Authorize]
     public async Task Get()
     {
+        var buffer = new byte[1024 * 4];
+        // #TODO ワンチャンbufferを超えたデータを受け取った場合，受け取れきれないかも
         Console.WriteLine("WebSocket接続開始");
         if (HttpContext.WebSockets.IsWebSocketRequest)
         {
+
             // TCP接続をWebSocket接続にアップグレード
             using WebSocket? webSocket =
                 await HttpContext.WebSockets.AcceptWebSocketAsync();
+            Task getSouguuTask = GetSouguuIncredients();
+            
+            while (webSocket.State == WebSocketState.Open)
+            {
+                using (var ms = new MemoryStream())
+                {
+                    String received;
+                    WebSocketReceiveResult result;
+                    do
+                    {
+                        result = await webSocket.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
+                        if (result.CloseStatus.HasValue) {
+                            Console.WriteLine("WebSocket接続終了");
+                            break;
+                        }
+
+                        ms.Write(buffer, 0, result.Count);
+                    } while (!result.EndOfMessage);
+
+                    ms.Seek(0, SeekOrigin.Begin);
+                    using (var reader = new StreamReader(ms, Encoding.UTF8))
+                    {
+                        received = await reader.ReadToEndAsync();
+                    }
+                    if (buffer.Length > 0)
+                    {
+                        Console.WriteLine("receive: " + received);
+                        var parsed = JsonSerializer.Deserialize<SouguuWebsocketDto>(received, options);
+                        if (parsed != null)
+                        {
+                            Console.WriteLine(parsed.id);;
+                            Console.WriteLine(parsed.incredients.Count);
+                            Console.WriteLine(parsed.incredients[0].ToString());
+                                // SouguuAppIncredientModel appData =
+                                //     (SouguuAppIncredientModel)parsed.incredients[0];
+                                // Console.WriteLine(appData.AppData.appName);
+                                if (parsed.incredients[0] is SouguuAppIncredientModel)
+                                {
+                                    SouguuAppIncredientModel app = (SouguuAppIncredientModel)parsed.incredients[0];
+                                    Console.WriteLine(app.AppData.appName);
+                                    Console.WriteLine("bingo");
+                            Console.WriteLine(JsonSerializer.Serialize(app));
+                                }
+                                else
+                                {
+                                    Console.WriteLine("not bingo");
+                                }
+                            //Console.WriteLine("parsed: " + parsed.data[0].name);
+                        }
+                        else
+                        {
+                            Console.Write("parsed is null");
+                        }
+                    }
+
+                }
+                
+            }
+
             await Echo(webSocket);
         }
         else
         {
             HttpContext.Response.StatusCode = 400;
+        }
+
+        async Task GetSouguuIncredients()
+        {
+            
         }
     }
 
@@ -30,7 +107,7 @@ public class WebSocketController : ControllerBase
     {
         Console.WriteLine(token);
         Console.WriteLine("WebSocket接続開始");
-        //var identity = HttpContext.User.Identity as ClaimsIdentity;
+        // var identity = HttpContext.User.Identity as ClaimsIdentity;
 
         if (HttpContext.WebSockets.IsWebSocketRequest)
         {
@@ -47,7 +124,7 @@ public class WebSocketController : ControllerBase
             using WebSocket? webSocket =
                 await HttpContext.WebSockets.AcceptWebSocketAsync();
             await WebSocketTest(webSocket);
-            
+
         }
         else
         {
@@ -113,10 +190,12 @@ public class WebSocketController : ControllerBase
     private async Task WebSocketTest(WebSocket webSocket)
     {
         var buffer = new byte[1024 * 4];
+        // データの送信
         Task task = send(webSocket);
         while (webSocket.State == WebSocketState.Open)
         {
 
+            // データの受信
             var receiveResult = await webSocket.ReceiveAsync(
                 new ArraySegment<byte>(buffer), CancellationToken.None);
 

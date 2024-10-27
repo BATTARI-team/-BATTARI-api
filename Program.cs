@@ -52,10 +52,12 @@ builder.Services.AddDbContext<UserContext>();
 builder.Services.AddControllersWithViews();
 builder.Services.AddEndpointsApiExplorer();
 
+// Repository
 builder.Services.AddScoped<IUserRepository, UserDatabase>();
 builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddScoped<IRefreshTokensRepository, RefreshTokenDatabase>();
 builder.Services.AddScoped<IFriendRepository, FriendDatabase>();
+builder.Services.AddScoped<UserOnlineConcurrentDictionaryDatabase>();
 
 builder.Services.AddSwaggerGen(c =>
 {
@@ -120,3 +122,4 @@ app.MapControllerRoute(name: "default",
                        pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
+const int _timeout_seconds = 60;
