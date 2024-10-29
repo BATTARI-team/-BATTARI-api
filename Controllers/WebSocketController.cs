@@ -20,8 +20,10 @@ public class WebSocketController(UserOnlineConcurrentDictionaryDatabase userOnli
             {
                 await webSocket.SendAsync(new ArraySegment<byte>(buffer, 0, 0), WebSocketMessageType.Text, true, cancellationToken);
             }
+            Console.WriteLine(userOnlineConcurrentDictionaryDatabase.IsUserOnline(2));
         }
     }
+    
     /// <summary>
     /// Json
     /// </summary>

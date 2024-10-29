@@ -54,10 +54,12 @@ builder.Services.AddEndpointsApiExplorer();
 
 // Repository
 builder.Services.AddScoped<IUserRepository, UserDatabase>();
-builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddScoped<IRefreshTokensRepository, RefreshTokenDatabase>();
 builder.Services.AddScoped<IFriendRepository, FriendDatabase>();
 builder.Services.AddScoped<UserOnlineConcurrentDictionaryDatabase>();
+// Service
+builder.Services.AddScoped<ITokenService, TokenService>();
+builder.Services.AddScoped<ISouguuService, SouguuService>();
 
 builder.Services.AddSwaggerGen(c =>
 {
