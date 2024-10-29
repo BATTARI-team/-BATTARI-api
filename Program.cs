@@ -113,6 +113,7 @@ app.UseRouting();
 
 app.UseWebSockets(new WebSocketOptions
 {
+    KeepAliveInterval = TimeSpan.FromHours(1)
 });
 
 app.UseAuthentication();
@@ -122,4 +123,3 @@ app.MapControllerRoute(name: "default",
                        pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
-const int _timeout_seconds = 60;
