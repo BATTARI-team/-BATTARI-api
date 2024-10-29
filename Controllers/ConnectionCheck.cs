@@ -36,16 +36,10 @@ public class DeveloperController : ControllerBase
     /// </summary>
     /// <returns></returns>
     [HttpPut]
-    public IActionResult JWTParse(String token)
+    public IActionResult JWTParse(String aiueo)
     {
-        var jsonToken = new JwtSecurityTokenHandler().ReadToken(token);
+        var jsonToken = new JwtSecurityTokenHandler().ReadToken(aiueo);
+        
         return Ok(jsonToken);
     }
-    [HttpGet]
-    public void setSouguu() { WebSocketController.isSouguu = true; }
-
-    [HttpGet]
-    public void unsetSouguu() { WebSocketController.isSouguu = false; }
-    [HttpGet]
-    public bool isSouguu() { return WebSocketController.isSouguu; }
 }

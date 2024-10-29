@@ -2,7 +2,7 @@ using System.Collections.Concurrent;
 
 namespace BATTARI_api.Repository;
 
-class UserOnlineConcurrentDictionaryDatabase
+public class UserOnlineConcurrentDictionaryDatabase
 {
     public ConcurrentDictionary<int, DateTime > UserOnlineDictionary = new ConcurrentDictionary<int, DateTime>();
     

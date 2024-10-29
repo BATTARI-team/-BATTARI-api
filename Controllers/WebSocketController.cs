@@ -3,12 +3,25 @@ using System.Security.Claims;
 using System.Text;
 using System.Text.Json;
 using BATTARI_api.Models.DTO;
+using BATTARI_api.Repository;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 [ApiExplorerSettings(IgnoreApi = true)]
-public class WebSocketController : ControllerBase
+public class WebSocketController(UserOnlineConcurrentDictionaryDatabase userOnlineConcurrentDictionaryDatabase) : ControllerBase
 {
+    private async Task KeepAlive(WebSocket webSocket, CancellationToken cancellationToken)
+    {
+        var buffer = new byte[1024 * 4];
+        while (webSocket.State == WebSocketState.Open)
+        {
+            await Task.Delay(10000, cancellationToken); // 10秒ごとにPingを送信
+            if (webSocket.State == WebSocketState.Open)
+            {
+                await webSocket.SendAsync(new ArraySegment<byte>(buffer, 0, 0), WebSocketMessageType.Text, true, cancellationToken);
+            }
+        }
+    }
     /// <summary>
     /// Json
     /// </summary>
@@ -23,30 +36,23 @@ public class WebSocketController : ControllerBase
         var buffer = new byte[1024 * 4];
         bool isEnd = false;
         var end = isEnd;
+        int userId = Int16.Parse((HttpContext.User.Claims.FirstOrDefault(c => c.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"))!.Value);
 
         async Task send(WebSocket webSocket)
         {
-            if (webSocket.State == WebSocketState.Open)
+            while (webSocket.State == WebSocketState.Open)
             {
-                await Task.Delay(1000);
+                if (end) break;
                 await webSocket.SendAsync(
-                    new ArraySegment<byte>(Encoding.Default.GetBytes((num++).ToString())),
+                    new ArraySegment<byte>(
+                        Encoding.Default.GetBytes("battari")),
                     WebSocketMessageType.Text, true, CancellationToken.None);
-                Console.WriteLine("send: " + num);
-                while (webSocket.State == WebSocketState.Open)
-                {
-                    if (end) break;
-                    await Task.Delay(1000);
-                    await webSocket.SendAsync(
-                        new ArraySegment<byte>(
-                            Encoding.Default.GetBytes((num++).ToString())),
-                        WebSocketMessageType.Text, true, CancellationToken.None);
-                }
+                await Task.Delay(10000);
             }
         }
 
         // #TODO ワンチャンbufferを超えたデータを受け取った場合，受け取れきれないかも
-        Console.WriteLine("WebSocket接続開始");
+        Console.WriteLine($"{userId}:WebSocket接続開始");
         if (HttpContext.WebSockets.IsWebSocketRequest)
         {
             
@@ -54,28 +60,27 @@ public class WebSocketController : ControllerBase
             using WebSocket? webSocket =
                 await HttpContext.WebSockets.AcceptWebSocketAsync();
             
-            Task echoTask =  send(webSocket);
+            //Task task = send(webSocket);
+            Task task2 = KeepAlive(webSocket, new CancellationToken());
             while (webSocket.State == WebSocketState.Open)
             {
-                await webSocket.SendAsync(
-                    new ArraySegment<byte>(Encoding.Default.GetBytes("hello")),
-                    WebSocketMessageType.Text, true, CancellationToken.None);
                 using (var ms = new MemoryStream())
                 {
                     String received;
-                    WebSocketReceiveResult result;
                     try
                     {
+                        WebSocketReceiveResult result;
                         do
                         {
                             result = await webSocket.ReceiveAsync(new ArraySegment<byte>(buffer),
                                 CancellationToken.None);
                             if (result.CloseStatus.HasValue)
                             {
-                                Console.WriteLine("WebSocket接続終了");
+                                Console.WriteLine($"{userId}:WebSocket接続終了");
                                 isEnd = true;
                                 break;
                             }
+                            userOnlineConcurrentDictionaryDatabase.AddUserOnline(userId);
 
                             ms.Write(buffer, 0, result.Count);
                         } while (!result.EndOfMessage);
@@ -94,173 +99,36 @@ public class WebSocketController : ControllerBase
                     if (buffer.Length > 0)
                     {
                         Console.WriteLine("receive: " + received);
-                        try
+                        if(received == "hello")
                         {
-                            var parsed = JsonSerializer.Deserialize<SouguuWebsocketDto>(received, options);
-                            if (parsed != null)
+                        }
+                        else
+                        {
+                            try
                             {
-                                if (parsed.incredients[0] is SouguuAppIncredientModel)
+                                var parsed = JsonSerializer.Deserialize<SouguuWebsocketDto>(received, options);
+                                if (parsed?.incredients[0] is SouguuAppIncredientModel)
                                 {
                                     SouguuAppIncredientModel app = (SouguuAppIncredientModel)parsed.incredients[0];
                                 }
                             }
+                            catch (Exception e)
+                            {
+                                Console.WriteLine("jsonのパースに失敗");
+                            }    
                         }
-                        catch (Exception e)
-                        {
-                            Console.WriteLine(e);
-                        }
+                        
                         
                     }
 
                 }
                 
             }
+            Console.WriteLine("切断されたようです" + webSocket.State);
         }
         else
         {
             HttpContext.Response.StatusCode = 400;
         }
-    }
-
-    //[Route("/wstest")]
-    //[Authorize]
-    //public async Task Get2(String token)
-    //{
-    //    Console.WriteLine(token);
-    //    Console.WriteLine("WebSocket接続開始");
-    //    // var identity = HttpContext.User.Identity as ClaimsIdentity;
-
-    //    if (HttpContext.WebSockets.IsWebSocketRequest)
-    //    {
-    //        Console.WriteLine(HttpContext.Request.Headers["Authorization"]);
-    //        var identity = HttpContext.User.Identity as ClaimsIdentity;
-    //        var claim = identity?.Claims.FirstOrDefault(c => c.Type == "name");
-
-    //        if (claim != null)
-    //        {
-    //            Console.WriteLine(claim.Value);
-    //        }
-
-    //        // TCP接続をWebSocket接続にアップグレード
-    //        using WebSocket? webSocket =
-    //            await HttpContext.WebSockets.AcceptWebSocketAsync();
-    //        await WebSocketTest(webSocket);
-
-    //    }
-    //    else
-    //    {
-    //        HttpContext.Response.StatusCode = 400;
-    //    }
-    //}
-
-    [Route("/souguu")]
-    public async Task Souguu()
-    {
-        Console.WriteLine("init souguu websocket");
-        if (HttpContext.WebSockets.IsWebSocketRequest)
-        {
-            // TCP接続をWebSocket接続にアップグレード
-            using WebSocket? webSocket =
-                await HttpContext.WebSockets.AcceptWebSocketAsync();
-            await SouguuWebSocket(webSocket);
-        }
-        else
-        {
-            HttpContext.Response.StatusCode = 400;
-        }
-    }
-
-    public async Task SouguuWebSocket(WebSocket webSocket)
-    {
-        var buffer = new byte[1024 * 4];
-        Task task = SouguuSender(webSocket);
-        while (webSocket.State == WebSocketState.Open)
-        {
-            var receiveResult = await webSocket.ReceiveAsync(
-                new ArraySegment<byte>(buffer), CancellationToken.None);
-            if (receiveResult.CloseStatus.HasValue)
-            {
-                Console.WriteLine("WebSocket接続終了");
-                break;
-            }
-        }
-        task.Dispose();
-    }
-    ///
-    /// 遭遇せんだー
-    ///
-    private async Task SouguuSender(WebSocket webSocket)
-    {
-        while (webSocket.State == WebSocketState.Open)
-        {
-            await Task.Delay(100);
-            if (isSouguu)
-            {
-                isSouguu = false;
-                await webSocket.SendAsync(
-                    new ArraySegment<byte>(Encoding.Default.GetBytes("true")),
-                    WebSocketMessageType.Text, true, CancellationToken.None);
-            }
-        }
-    }
-
-    public static bool isSouguu = false;
-
-    private int num = 0;
-
-    //private async Task WebSocketTest(WebSocket webSocket)
-    //{
-    //    var buffer = new byte[1024 * 4];
-    //    // データの送信
-    //    Task task = send(webSocket);
-    //    while (webSocket.State == WebSocketState.Open)
-    //    {
-
-    //        // データの受信
-    //        var receiveResult = await webSocket.ReceiveAsync(
-    //            new ArraySegment<byte>(buffer), CancellationToken.None);
-
-    //        if (receiveResult.CloseStatus.HasValue)
-    //        {
-    //            Console.WriteLine("WebSocket接続終了");
-    //            break;
-    //        }
-    //        if (buffer.Length > 0)
-    //        {
-    //            Console.WriteLine("receive: " + Encoding.Default.GetString(buffer));
-    //        }
-    //    }
-    //    task.Dispose();
-    //    Console.WriteLine("WebSocket接続終了");
-    //}
-
-    private async Task Echo(WebSocket webSocket)
-    {
-        Console.WriteLine("Echo");
-        var buffer = new byte[1024 * 4];
-        var receiveResult = await webSocket.ReceiveAsync(
-            new ArraySegment<byte>(buffer), CancellationToken.None);
-
-        // インターネット接続が切断された時の処理は含まれていないっぽい
-        // タイムアウトされたくない時は，クライアント側から定期的にpingを送信する
-        while (!receiveResult.CloseStatus.HasValue)
-        {
-            await webSocket.SendAsync(
-                new ArraySegment<byte>(buffer, 0, receiveResult.Count),
-                receiveResult.MessageType, receiveResult.EndOfMessage,
-                CancellationToken.None);
-            receiveResult = await webSocket.ReceiveAsync(
-                new ArraySegment<byte>(buffer), CancellationToken.None);
-        }
-
-        await Task.Delay(1000);
-        await webSocket.SendAsync(
-            new ArraySegment<byte>(Encoding.Default.GetBytes("hello world"), 0,
-                                   receiveResult.Count),
-            receiveResult.MessageType, receiveResult.EndOfMessage,
-            CancellationToken.None);
-        //await webSocket.CloseAsync(receiveResult.CloseStatus.Value,
-        //                           receiveResult.CloseStatusDescription,
-        //                           CancellationToken.None);
     }
 }
