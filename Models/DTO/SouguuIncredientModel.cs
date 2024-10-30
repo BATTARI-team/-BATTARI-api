@@ -27,12 +27,6 @@ public class SouguuIncredientDataModel
     public string Type { get; set; }
 }
 
-public class SouguuIncredientModel
-{
-    public String name { get; set; }
-    public SouguuIncredientDataModel data { get; set; }
-}
-
 // sealedつけたら，deserializeがうまくいった
 public class SouguuAppIncredientModel : SouguuIncredientDataModel
 {

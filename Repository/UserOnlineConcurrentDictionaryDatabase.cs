@@ -2,17 +2,18 @@ using System.Collections.Concurrent;
 
 namespace BATTARI_api.Repository;
 
-public class UserOnlineConcurrentDictionaryModel
+// #TODO サービス化したい
+public class UserOnlineConcurrentDictionaryModel()
 {
-
     public DateTime LastOnlineTime { get; set; }
+    public bool IsOnline { get { return LastOnlineTime > DateTime.Now.AddSeconds(-30); } }
     /// <summary>
     /// 遭遇しているかを表すフラグ
     /// 遭遇している場合は遭遇相手のuserid, そうでない場合は0
     /// </summary>
     public int IsSouguu { get; set; }
 }
-public class UserOnlineConcurrentDictionaryDatabase
+public class UserOnlineConcurrentDictionaryDatabase(IFriendRepository friendRepository)
 {
     readonly ConcurrentDictionary<int,  UserOnlineConcurrentDictionaryModel> _userOnlineDictionary = new ConcurrentDictionary<int, UserOnlineConcurrentDictionaryModel>();
     private readonly object _lock = new object();
@@ -32,6 +33,27 @@ public class UserOnlineConcurrentDictionaryDatabase
             Monitor.Exit(_lock);
             _userOnlineDictionary.AddOrUpdate(userId, new UserOnlineConcurrentDictionaryModel { LastOnlineTime = DateTime.Now }, (key, oldValue) => { oldValue.LastOnlineTime = DateTime.Now; return oldValue; });
         }
+    }
+    
+    public IEnumerable<int> GetOnlineUsers()
+    {
+        return _userOnlineDictionary.Where((element) => element.Value.IsOnline).Select((element) => element.Key);
+    }
+
+    public async Task<IEnumerable<UserDto>> GetFriendAndOnlineUsers(int userIndex)
+    {
+        var friends = (await friendRepository.GetFriendList(userIndex)).Where(
+            (element) =>
+            {
+                // オンラインかつ遭遇してなかったら
+                if (IsUserOnline(element.Id) ==
+                    (IsUserSouguu(element.Id) != 0))
+                {
+                    return true;
+                }
+                return false;
+            });
+        return friends;
     }
     
     /// <summary>
@@ -61,7 +83,7 @@ public class UserOnlineConcurrentDictionaryDatabase
             Monitor.Exit(_lock);
             if (!_userOnlineDictionary.ContainsKey(userId)) return false;
             
-            if(_userOnlineDictionary[userId].LastOnlineTime < DateTime.Now.AddMinutes(-1))
+            if(_userOnlineDictionary[userId].IsOnline)
             {
                 RemoveUserOnline(userId);
                 return false;

@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 [ApiExplorerSettings(IgnoreApi = true)]
-public class WebSocketController(UserOnlineConcurrentDictionaryDatabase userOnlineConcurrentDictionaryDatabase) : ControllerBase
+public class WebSocketController(UserOnlineConcurrentDictionaryDatabase userOnlineConcurrentDictionaryDatabase, ISouguuService souguuService) : ControllerBase
 {
     private async Task KeepAlive(WebSocket webSocket, CancellationToken cancellationToken)
     {
@@ -39,6 +39,11 @@ public class WebSocketController(UserOnlineConcurrentDictionaryDatabase userOnli
         bool isEnd = false;
         var end = isEnd;
         int userId = Int16.Parse((HttpContext.User.Claims.FirstOrDefault(c => c.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"))!.Value);
+
+        async Task close(int userId)
+        {
+            userOnlineConcurrentDictionaryDatabase.RemoveUserOnline(userId);
+        }
 
         async Task send(WebSocket webSocket)
         {
@@ -82,7 +87,7 @@ public class WebSocketController(UserOnlineConcurrentDictionaryDatabase userOnli
                                 isEnd = true;
                                 break;
                             }
-                            userOnlineConcurrentDictionaryDatabase.AddUserOnline(userId);
+                            await userOnlineConcurrentDictionaryDatabase.AddUserOnline(userId);
 
                             ms.Write(buffer, 0, result.Count);
                         } while (!result.EndOfMessage);
@@ -90,6 +95,7 @@ public class WebSocketController(UserOnlineConcurrentDictionaryDatabase userOnli
                     catch (Exception e)
                     {
                         Console.WriteLine(e);
+                        isEnd = true;
                     }
                     if(isEnd) break;
 
@@ -108,11 +114,16 @@ public class WebSocketController(UserOnlineConcurrentDictionaryDatabase userOnli
                         {
                             try
                             {
-                                var parsed = JsonSerializer.Deserialize<SouguuWebsocketDto>(received, options);
+                                SouguuWebsocketDto? parsed = JsonSerializer.Deserialize<SouguuWebsocketDto>(received, options);
+                                if(parsed == null) continue;
                                 if (parsed?.incredients[0] is SouguuAppIncredientModel)
                                 {
                                     SouguuAppIncredientModel app = (SouguuAppIncredientModel)parsed.incredients[0];
                                 }
+
+                                souguuService.AddIncredient(parsed);
+
+
                             }
                             catch (Exception e)
                             {
@@ -127,6 +138,7 @@ public class WebSocketController(UserOnlineConcurrentDictionaryDatabase userOnli
                 
             }
             Console.WriteLine("切断されたようです" + webSocket.State);
+            close(userId);
         }
         else
         {
