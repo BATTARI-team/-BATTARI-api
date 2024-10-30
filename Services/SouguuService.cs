@@ -2,7 +2,9 @@ using System.Collections.Concurrent;
 using System.Drawing.Printing;
 using BATTARI_api.Models;
 using BATTARI_api.Models.DTO;
+using BATTARI_api.Models.Enum;
 using BATTARI_api.Repository;
+using BATTARI_api.Services;
 
 public interface ISouguuService
 {
@@ -12,23 +14,21 @@ public interface ISouguuService
 public class SouguuService : ISouguuService
 {
     private readonly UserOnlineConcurrentDictionaryDatabase _userOnlineConcurrentDictionaryDatabase;
-    public SouguuService(UserOnlineConcurrentDictionaryDatabase userOnlineConcurrentDictionaryDatabase)
+    private readonly ICallRepository _callRepository;
+    private readonly CallingService _callingService;
+    public SouguuService(UserOnlineConcurrentDictionaryDatabase userOnlineConcurrentDictionaryDatabase, CallingService callingService)
     {
         CreateDequeTask();
         _userOnlineConcurrentDictionaryDatabase = userOnlineConcurrentDictionaryDatabase;
+        _callingService = callingService;
     }
     /// <summary>
     /// 遭遇判定するためのキュー
     /// </summary>
-    private ConcurrentQueue<SouguuQueueElement> _souguuQueue = new ConcurrentQueue<SouguuQueueElement>();
+    private ConcurrentQueue<int> _souguuQueue = new ConcurrentQueue<int>();
     private ConcurrentDictionary<int,SouguuWebsocketDto > _latestIncredient = new ConcurrentDictionary<int, SouguuWebsocketDto>();
     private Task _dequeueTask;
 
-    private class SouguuQueueElement
-    {
-        public KeyValuePair<int, SouguuWebsocketDto> User1 { get; set; }
-        public KeyValuePair<int, SouguuWebsocketDto> User2 { get; set; }
-    }
     /// <summary>
     /// 遭遇したユーザー一人ずつに作成される
     /// </summary>
@@ -54,21 +54,7 @@ public class SouguuService : ISouguuService
 
     private async Task AddSouguuQueueElement(int userIndex)
     {
-        var random = new Random();
-        var friends = (await _userOnlineConcurrentDictionaryDatabase.GetFriendAndOnlineUsers(userIndex)).OrderBy(
-            x => random.Next());
-        // ランダムにfriendsから選ぶ
-        foreach (var userDto in friends)
-        {
-            if(!_latestIncredient.ContainsKey(userDto.Id)) continue;
-            
-            _souguuQueue.Enqueue(
-                new SouguuQueueElement()
-                {
-                    User1 = new KeyValuePair<int, SouguuWebsocketDto>(userIndex, _latestIncredient[userIndex]),
-                    User2 = new KeyValuePair<int, SouguuWebsocketDto>(userIndex, _latestIncredient[userIndex]),
-                });
-        }
+        _souguuQueue.Enqueue(userIndex);
     }
     
 
@@ -77,10 +63,43 @@ public class SouguuService : ISouguuService
         
     }
 
+    private async Task Souguu(int user1, int user2, SouguuReasonStatusEnum reason)
+    {
+        // エラーハンドリングをしっかり
+        var call = await _callRepository.AddCall(SouguuReason: "battari", callStartTime: DateTime.Now.AddMinutes(2), user1: user1,
+            user2: user2, souguuDateTime: DateTime.Now, status: CallStatusEnum.Waiting);
+        _callingService.AddCall(
+            callId:call.CallId,
+            callStartTime: call.CallStartTime,
+            callEndTime: call.CallStartTime.AddMinutes(call.CallTime),
+            souguuReason: call.SouguuReason,
+            user1: call.User1Id,
+            user2: call.User2Id,
+            user1Token:"",
+            user2Token:"",
+            cancellationReason:"",
+            souguuDateTime: call.SouguuDateTime
+        );
+    }
+
+    private async Task SouguuCheck(int user1, int user2)
+    {
+        if (!_latestIncredient.ContainsKey(user2)) return;
+        
+        var user1Incredients = _latestIncredient[user1];
+        var user2Incredients = _latestIncredient[user2];
+        
+        if(user1Incredients.isWelcome && user2Incredients.isWelcome)
+        {
+            // ここで遭遇処理を行う
+        }
+    }
+    
     private void CreateDequeTask()
     {
+        Random random = new Random();
         // #TODO 結局，キューから取り出したときにもオンラインか判定するんだから，キューにはユーザーインデックスだけ入れればいいと思う
-        _dequeueTask = Task.Run(() =>
+        _dequeueTask = Task.Run(async () =>
                 {
                     while (true)
                     {
@@ -90,11 +109,18 @@ public class SouguuService : ISouguuService
                             Console.WriteLine(onlineUser);
                         }
                         
-                        if (_souguuQueue.TryDequeue(out SouguuQueueElement? element))
+                        if (_souguuQueue.TryDequeue(out int element))
                         {
-                            if (element == null) continue;
+                            if (element == 0) continue;
                             // ここで遭遇処理を行う
-                            Console.WriteLine(element?.User1.Value);
+                            var friends = (await _userOnlineConcurrentDictionaryDatabase.GetFriendAndOnlineUsers(element)).OrderBy(
+                                (_) => random.Next());
+                            if (!friends.Any()) continue;
+                            foreach (var VARIABLE in friends)
+                            {
+                                await SouguuCheck(element, VARIABLE.Id);
+                            }
+                            
                             Console.WriteLine("check");
                         }
                         else
