@@ -1,6 +1,8 @@
 using BATTARI_api.Interfaces;
 using BATTARI_api.Models;
+using BATTARI_api.Repository;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authorization.Infrastructure;
 using Microsoft.AspNetCore.Mvc;
 using webUserLoginTest.Util;
 
@@ -158,6 +160,20 @@ public class UserController
                                                                  userId: userId);
         if (user == null)
             return BadRequest();
+        return user;
+    }
+
+    [HttpPut]
+    public async Task<ActionResult<UserDto>> GetUser(int userIndex)
+    {
+        var userModel = await _userRepositoryInterface.GetUser(userIndex);
+        var user = new UserDto()
+        {
+            Name = userModel.Name,
+            UserId = userModel.UserId,
+            Id = userModel.Id,
+        };
+
         return user;
     }
 }
