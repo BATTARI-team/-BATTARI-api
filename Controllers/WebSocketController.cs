@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 [ApiExplorerSettings(IgnoreApi = true)]
 public class WebSocketController : ControllerBase
 {
+
     [Route("/ws")]
     public async Task Get()
     {
