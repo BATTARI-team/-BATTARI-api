@@ -125,6 +125,10 @@ public class UserController
         {
             return NotFound("User not found");
         }
+        if (userModel.Id != refreshToken.UserIndex)
+        {
+            return BadRequest("Invalid user");
+        }
 
         string token =
             tokenService.GenerateToken(configuration["Jwt:Key"] ?? "", userModel);

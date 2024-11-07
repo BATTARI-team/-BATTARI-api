@@ -13,4 +13,5 @@ public class AuthenticatedDto
 public class RefreshTokenDto
 {
     public required string RefreshToken { get; set; }
+    public required int UserIndex { get; set; }
 }
