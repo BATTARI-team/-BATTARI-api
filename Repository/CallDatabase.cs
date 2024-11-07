@@ -30,7 +30,7 @@ public class CallDatabase(UserContext context) : ICallRepository
     /// <returns></returns>
     public async Task<CallModel> AddCall(string SouguuReason, DateTime callStartTime, int user1, int user2, DateTime? souguuDateTime = null, CallStatusEnum status = CallStatusEnum.Ended)
     {
-        
+        Console.WriteLine("通話を追加します");
         var call = new CallModel
         {
             CallStartTime = callStartTime,

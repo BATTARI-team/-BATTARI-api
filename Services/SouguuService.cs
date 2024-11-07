@@ -23,11 +23,12 @@ public class SouguuService : ISouguuService
     private readonly ICallRepository _callRepository;
     private readonly CallingService _callingService;
     private readonly ILogger<ISouguuService> _logger;
-    public SouguuService(UserOnlineConcurrentDictionaryDatabase userOnlineConcurrentDictionaryDatabase, CallingService callingService, ILogger<ISouguuService> logger)
+    public SouguuService(UserOnlineConcurrentDictionaryDatabase userOnlineConcurrentDictionaryDatabase, CallingService callingService, ILogger<ISouguuService> logger, IServiceScopeFactory serviceScopeFactory)
     {
         CreateDequeTask();
         _userOnlineConcurrentDictionaryDatabase = userOnlineConcurrentDictionaryDatabase;
         _callingService = callingService;
+        _callRepository = serviceScopeFactory.CreateScope( ).ServiceProvider.GetRequiredService<ICallRepository>();
         _logger = logger;
         Console.WriteLine("SouguuServiceが作成されました");
     }
@@ -66,6 +67,7 @@ public class SouguuService : ISouguuService
     /// <param name="reason"></param>
     private async Task Souguu(int user1, int user2, SouguuReasonStatusEnum reason)
     {
+        Console.WriteLine("遭遇しました");
         CallModel call;
         try
         {
@@ -91,15 +93,14 @@ public class SouguuService : ISouguuService
             throw;
         }
 
-        await _callRepository.AddCall("battari", DateTime.Now.AddMinutes(2), user1, user2, DateTime.Now,
-            CallStatusEnum.Waiting);
+        // await _callingService.AddCall("battari", DateTime.Now.AddMinutes(2), user1, user2, DateTime.Now,
+        //     CallStatusEnum.Waiting);
         _logger.LogInformation("{}と{}が遭遇しました⭐⭐️⭐️️", user1, user2);
     }
 
     // #TODO 遭遇材料が古かったら，どうしよう
     private async Task SouguuCheck(int user1, int user2)
     {
-        return;
         _logger.LogInformation("遭遇判定: {user1}と{user2}", user1, user2);
         if (!_latestIncredient.ContainsKey(user2)) return;
         Console.WriteLine("ここまで[{s");
@@ -134,8 +135,10 @@ public class SouguuService : ISouguuService
         }
         if(user1AppUsage == null || user2AppUsage == null) return;
         _logger.LogInformation("ここまで");
-        if (user1AppUsage.appData.appName == user2AppUsage.appData.appName)
+        Console.WriteLine("user1AppUsage" + user1AppUsage.appData.appName + "\nuser2AppUsage" + user2AppUsage.appData.appName);
+        if (String.Compare(user1AppUsage.appData.appName, user2AppUsage.appData.appName, StringComparison.Ordinal) == 0)
         {
+            Console.WriteLine("同じアプリを使っている");
             await Souguu(user1, user2, SouguuReasonStatusEnum.App_Usage);
             result = SouguuReasonStatusEnum.App_Usage;
         }
