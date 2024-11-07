@@ -180,4 +180,18 @@ public class UserController
 
         return user;
     }
+
+    [HttpPut]
+    public async Task<ActionResult<UserDto>> GetUserByUserId(string userId)
+    {
+        var userModel = await _userRepositoryInterface.GetUser(userId);
+        var user = new UserDto()
+        {
+            Name = userModel.Name,
+            UserId = userModel.UserId,
+            Id = userModel.Id,
+        };
+
+        return user;
+    }
 }

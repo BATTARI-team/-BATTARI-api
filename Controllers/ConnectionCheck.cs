@@ -1,5 +1,7 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using System.Text.Json;
+using BATTARI_api.Models.DTO;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -41,5 +43,20 @@ public class DeveloperController : ControllerBase
         var jsonToken = new JwtSecurityTokenHandler().ReadToken(aiueo);
         
         return Ok(jsonToken);
+    }
+    
+    /// <summary>
+    ///
+    /// </summary>
+    [HttpPost]
+    public IActionResult TryParseSouguuMaterials(string materials)
+    {
+            
+        Console.WriteLine(materials);
+        var souguuMaterials = JsonSerializer.Deserialize<SouguuWebsocketDto>(materials);
+        Console.WriteLine("TryParseSouguuMaterials");
+        Console.WriteLine(souguuMaterials.incredients.Count);
+        Console.WriteLine(souguuMaterials.incredients[0].type);
+        return Ok(souguuMaterials);
     }
 }

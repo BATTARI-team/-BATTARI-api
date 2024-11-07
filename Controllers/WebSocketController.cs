@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 [ApiExplorerSettings(IgnoreApi = true)]
-public class WebSocketController(UserOnlineConcurrentDictionaryDatabase userOnlineConcurrentDictionaryDatabase, ISouguuService souguuService) : ControllerBase
+public class WebSocketController(UserOnlineConcurrentDictionaryDatabase userOnlineConcurrentDictionaryDatabase, ISouguuService souguuService, ILogger<WebSocketContext> _logger) : ControllerBase
 {
     private async Task KeepAlive(WebSocket webSocket, CancellationToken cancellationToken)
     {
@@ -18,9 +18,8 @@ public class WebSocketController(UserOnlineConcurrentDictionaryDatabase userOnli
             await Task.Delay(10000, cancellationToken); // 10秒ごとにPingを送信
             if (webSocket.State == WebSocketState.Open)
             {
-                await webSocket.SendAsync(new ArraySegment<byte>(buffer, 0, 0), WebSocketMessageType.Text, true, cancellationToken);
+                await webSocket.SendAsync(UnicodeEncoding.UTF8.GetBytes("battari"), WebSocketMessageType.Text, true, cancellationToken);
             }
-            Console.WriteLine(userOnlineConcurrentDictionaryDatabase.IsUserOnline(2));
         }
     }
     
@@ -59,7 +58,7 @@ public class WebSocketController(UserOnlineConcurrentDictionaryDatabase userOnli
         }
 
         // #TODO ワンチャンbufferを超えたデータを受け取った場合，受け取れきれないかも
-        Console.WriteLine($"{userId}:WebSocket接続開始");
+        _logger.LogInformation($"{userId}:WebSocket接続開始");
         if (HttpContext.WebSockets.IsWebSocketRequest)
         {
             
@@ -83,7 +82,7 @@ public class WebSocketController(UserOnlineConcurrentDictionaryDatabase userOnli
                                 CancellationToken.None);
                             if (result.CloseStatus.HasValue)
                             {
-                                Console.WriteLine($"{userId}:WebSocket接続終了");
+                                _logger.LogDebug($"{userId}:WebSocket接続終了");
                                 isEnd = true;
                                 break;
                             }
@@ -94,7 +93,7 @@ public class WebSocketController(UserOnlineConcurrentDictionaryDatabase userOnli
                     }
                     catch (Exception e)
                     {
-                        Console.WriteLine(e);
+                        _logger.LogError("WebSocketの受信に失敗" + e);
                         isEnd = true;
                     }
                     if(isEnd) break;
@@ -106,7 +105,7 @@ public class WebSocketController(UserOnlineConcurrentDictionaryDatabase userOnli
                     }
                     if (buffer.Length > 0)
                     {
-                        Console.WriteLine("receive: " + received);
+                        _logger.LogInformation("Received: {received} from {userId}", received, userId);
                         if(received == "hello")
                         {
                         }
@@ -119,15 +118,16 @@ public class WebSocketController(UserOnlineConcurrentDictionaryDatabase userOnli
                                 if (parsed?.incredients[0] is SouguuAppIncredientModel)
                                 {
                                     SouguuAppIncredientModel app = (SouguuAppIncredientModel)parsed.incredients[0];
+                                    Console.WriteLine("appname:" + app.appData.appName);
                                 }
 
-                                souguuService.AddIncredient(parsed);
+                                await souguuService.AddMaterial(parsed);
 
 
                             }
                             catch (Exception e)
                             {
-                                Console.WriteLine("jsonのパースに失敗");
+                                _logger.LogError("jsonのパースに失敗：e.ToString()");
                             }    
                         }
                         
@@ -138,6 +138,7 @@ public class WebSocketController(UserOnlineConcurrentDictionaryDatabase userOnli
                 
             }
             Console.WriteLine("切断されたようです" + webSocket.State);
+            _logger.LogInformation("websocekt切断:" + webSocket.State);
             close(userId);
         }
         else

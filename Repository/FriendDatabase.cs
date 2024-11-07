@@ -28,6 +28,16 @@ namespace BATTARI_api.Repository
             _context = context;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="user1"></param>
+        /// <param name="user2"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        /// <exception cref="DbUpdateException"></exception>
+        /// <exception cref="DbUpdateConcurrencyException"></exception>
+        /// <exception cref="OperationCanceledException"></exception>
         public async Task<FriendStatusEnum?> AddFriendRequest(int user1, int user2)
         {
 
@@ -75,16 +85,13 @@ namespace BATTARI_api.Repository
                 _context.Friends.Add(newFriend);
                 try
                 {
-                    // saveChangesのエラー処理用の何かを用意するべき
-
                     await _context.SaveChangesAsync();
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine(e);
-                    return null;
+                    throw;
                 }
-                transaction.Commit();
+                await transaction.CommitAsync();
                 return FriendStatusEnum.requested;
             }
         }
@@ -118,10 +125,8 @@ namespace BATTARI_api.Repository
                           .ToList();
 
             var friendListContainsNull = await Task.WhenAll(friendIdList);
-            if (friendListContainsNull == null)
-                friendListContainsNull = [];
             IEnumerable<UserDto> friendList =
-                friendListContainsNull.Where(x => x != null);
+                friendListContainsNull.Where(x => x != null)!;
             return friendList.AsEnumerable<UserDto>();
         }
 
@@ -133,8 +138,6 @@ namespace BATTARI_api.Repository
                                 x.Status == FriendStatusEnum.requested)
                     .Select(x => x.User1Id)
                     .ToListAsync();
-            if (friendRequestsTask == null)
-                return [];
             return friendRequestsTask;
         }
 

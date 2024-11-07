@@ -7,6 +7,7 @@ using BATTARI_api.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Serilog;
 
 var options = new WebApplicationOptions()
 {
@@ -16,6 +17,14 @@ var options = new WebApplicationOptions()
     WebRootPath = "wwwroot"
 };
 var builder = WebApplication.CreateBuilder(options);
+
+// Logger
+builder.Logging.AddSerilog(new LoggerConfiguration()
+    .WriteTo.Console()
+    .CreateLogger());
+builder.Logging.AddSerilog(new LoggerConfiguration()
+    .WriteTo.File("log.txt")
+    .CreateLogger());
 
 // Add services to the container.
 // jwtの設定はここでやる

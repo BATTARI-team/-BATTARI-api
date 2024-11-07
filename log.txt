@@ -1,0 +1,1813 @@
+2024-11-08 06:01:11.842 +09:00 [INF] User profile is available. Using '/Users/takuto/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2024-11-08 06:01:11.903 +09:00 [INF] Now listening on: http://[::]:5050
+2024-11-08 06:01:11.907 +09:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-08 06:01:11.909 +09:00 [INF] Hosting environment: Development
+2024-11-08 06:01:11.910 +09:00 [INF] Content root path: /Users/takuto/Code/BATTARI-api
+2024-11-08 06:02:34.741 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 06:02:34.885 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 06:02:34.901 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 06:02:34.958 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 06:02:40.073 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 06:02:40.087 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 06:02:40.089 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 06:02:40.095 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 06:14:45.207 +09:00 [INF] Executed action WebSocketController.Get (BATTARI-api) in 730294.9567ms
+2024-11-08 06:14:45.209 +09:00 [INF] Executed endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 06:14:45.232 +09:00 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentNullException: Value cannot be null. (Parameter 'logger')
+   at System.ThrowHelper.Throw(String paramName)
+   at System.ThrowHelper.ThrowIfNull(Object argument, String paramName)
+   at Microsoft.Extensions.Logging.LoggerExtensions.Log(ILogger logger, LogLevel logLevel, EventId eventId, Exception exception, String message, Object[] args)
+   at Microsoft.Extensions.Logging.LoggerExtensions.Log(ILogger logger, LogLevel logLevel, String message, Object[] args)
+   at Microsoft.Extensions.Logging.LoggerExtensions.LogInformation(ILogger logger, String message, Object[] args)
+   at WebSocketController.Get()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-11-08 06:14:45.234 +09:00 [WRN] The response has already started, the error page middleware will not be executed.
+2024-11-08 06:14:45.244 +09:00 [ERR] Connection id "0HN7VDU0CREQD", Request id "0HN7VDU0CREQD:00000001": An unhandled exception was thrown by the application.
+System.ArgumentNullException: Value cannot be null. (Parameter 'logger')
+   at System.ThrowHelper.Throw(String paramName)
+   at System.ThrowHelper.ThrowIfNull(Object argument, String paramName)
+   at Microsoft.Extensions.Logging.LoggerExtensions.Log(ILogger logger, LogLevel logLevel, EventId eventId, Exception exception, String message, Object[] args)
+   at Microsoft.Extensions.Logging.LoggerExtensions.Log(ILogger logger, LogLevel logLevel, String message, Object[] args)
+   at Microsoft.Extensions.Logging.LoggerExtensions.LogInformation(ILogger logger, String message, Object[] args)
+   at WebSocketController.Get()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2024-11-08 06:14:45.250 +09:00 [INF] Request finished HTTP/1.1 GET http://192.168.10.5:5050/ws - 101 null null 730510.9819ms
+2024-11-08 06:14:50.248 +09:00 [INF] Executed action WebSocketController.Get (BATTARI-api) in 730155.7412ms
+2024-11-08 06:14:50.250 +09:00 [INF] Executed endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 06:14:50.255 +09:00 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentNullException: Value cannot be null. (Parameter 'logger')
+   at System.ThrowHelper.Throw(String paramName)
+   at System.ThrowHelper.ThrowIfNull(Object argument, String paramName)
+   at Microsoft.Extensions.Logging.LoggerExtensions.Log(ILogger logger, LogLevel logLevel, EventId eventId, Exception exception, String message, Object[] args)
+   at Microsoft.Extensions.Logging.LoggerExtensions.Log(ILogger logger, LogLevel logLevel, String message, Object[] args)
+   at Microsoft.Extensions.Logging.LoggerExtensions.LogInformation(ILogger logger, String message, Object[] args)
+   at WebSocketController.Get()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-11-08 06:14:50.258 +09:00 [WRN] The response has already started, the error page middleware will not be executed.
+2024-11-08 06:14:50.262 +09:00 [ERR] Connection id "0HN7VDU0CREQE", Request id "0HN7VDU0CREQE:00000001": An unhandled exception was thrown by the application.
+System.ArgumentNullException: Value cannot be null. (Parameter 'logger')
+   at System.ThrowHelper.Throw(String paramName)
+   at System.ThrowHelper.ThrowIfNull(Object argument, String paramName)
+   at Microsoft.Extensions.Logging.LoggerExtensions.Log(ILogger logger, LogLevel logLevel, EventId eventId, Exception exception, String message, Object[] args)
+   at Microsoft.Extensions.Logging.LoggerExtensions.Log(ILogger logger, LogLevel logLevel, String message, Object[] args)
+   at Microsoft.Extensions.Logging.LoggerExtensions.LogInformation(ILogger logger, String message, Object[] args)
+   at WebSocketController.Get()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2024-11-08 06:14:50.266 +09:00 [INF] Request finished HTTP/1.1 GET http://192.168.10.5:5050/ws - 101 null null 730191.5195ms
+2024-11-08 06:16:24.821 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 06:16:24.828 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 06:16:24.829 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 06:23:16.904 +09:00 [INF] User profile is available. Using '/Users/takuto/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2024-11-08 06:23:16.970 +09:00 [INF] Now listening on: http://[::]:5050
+2024-11-08 06:23:16.973 +09:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-08 06:23:16.975 +09:00 [INF] Hosting environment: Development
+2024-11-08 06:23:16.976 +09:00 [INF] Content root path: /Users/takuto/Code/BATTARI-api
+2024-11-08 06:23:18.317 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 06:23:18.317 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 06:23:18.318 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 06:23:18.318 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 06:23:18.318 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 06:23:18.318 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 06:23:18.318 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 06:23:18.318 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 06:23:18.318 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 06:23:18.318 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 06:23:18.393 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 06:23:18.393 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 06:23:18.394 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 06:23:18.551 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 06:23:18.552 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 06:23:18.552 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 06:23:18.552 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 06:23:18.552 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 06:23:18.552 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 06:23:18.552 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 06:23:18.552 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 06:23:18.552 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 06:23:18.552 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 06:23:18.575 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 06:23:18.575 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 06:23:18.575 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 06:23:18.576 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 06:23:18.576 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 06:23:18.576 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 06:23:18.576 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 06:23:18.576 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 06:23:18.576 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 06:23:18.576 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 06:23:18.638 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 06:23:18.638 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 06:23:18.638 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 06:23:18.638 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 06:23:18.638 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 06:23:18.638 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 06:23:18.638 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 06:23:18.638 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 06:23:18.638 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 06:23:18.638 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 06:23:18.644 +09:00 [INF] 6:WebSocket接続開始
+2024-11-08 06:23:18.645 +09:00 [INF] 2:WebSocket接続開始
+2024-11-08 06:23:18.646 +09:00 [INF] 6:WebSocket接続開始
+2024-11-08 06:23:18.672 +09:00 [INF] 6:WebSocket接続開始
+2024-11-08 06:23:18.672 +09:00 [INF] 6:WebSocket接続開始
+2024-11-08 06:23:18.672 +09:00 [INF] 6:WebSocket接続開始
+2024-11-08 06:23:18.672 +09:00 [INF] 6:WebSocket接続開始
+2024-11-08 06:23:18.672 +09:00 [INF] 6:WebSocket接続開始
+2024-11-08 06:23:18.672 +09:00 [INF] 2:WebSocket接続開始
+2024-11-08 06:23:18.672 +09:00 [INF] 2:WebSocket接続開始
+2024-11-08 06:23:19.577 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 06:23:19.577 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 06:23:19.580 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 06:23:19.580 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 06:23:19.584 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 06:23:19.584 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 06:23:19.606 +09:00 [INF] 2:WebSocket接続開始
+2024-11-08 06:23:19.632 +09:00 [INF] 2:WebSocket接続開始
+2024-11-08 06:23:20.561 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 06:23:20.568 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 06:23:20.570 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 06:23:20.573 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 06:23:20.575 +09:00 [INF] 2:WebSocket接続開始
+2024-11-08 06:23:21.563 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 06:23:21.570 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 06:23:21.573 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 06:23:21.575 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 06:23:21.577 +09:00 [INF] 2:WebSocket接続開始
+2024-11-08 06:23:22.568 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 06:23:22.570 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 06:23:22.573 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 06:23:22.575 +09:00 [INF] 2:WebSocket接続開始
+2024-11-08 06:23:28.699 +09:00 [INF] Received: hello from {}
+2024-11-08 06:23:29.643 +09:00 [INF] Received: hello from {}
+2024-11-08 06:23:31.643 +09:00 [INF] Received: hello from {}
+2024-11-08 06:23:38.695 +09:00 [INF] Received: hello from {}
+2024-11-08 06:23:39.643 +09:00 [INF] Received: hello from {}
+2024-11-08 06:23:41.583 +09:00 [INF] Received: hello from {}
+2024-11-08 06:23:48.699 +09:00 [INF] Received: hello from {}
+2024-11-08 06:23:49.639 +09:00 [INF] Received: hello from {}
+2024-11-08 06:23:51.589 +09:00 [INF] Received: hello from {}
+2024-11-08 06:23:58.706 +09:00 [INF] Received: hello from 6
+2024-11-08 06:23:59.725 +09:00 [INF] Received: hello from 2
+2024-11-08 06:24:01.588 +09:00 [INF] Received: hello from 2
+2024-11-08 06:24:08.699 +09:00 [INF] Received: hello from 6
+2024-11-08 06:24:09.702 +09:00 [INF] Received: hello from 2
+2024-11-08 06:24:11.589 +09:00 [INF] Received: hello from 2
+2024-11-08 06:24:18.700 +09:00 [INF] Received: hello from 6
+2024-11-08 06:24:19.705 +09:00 [INF] Received: hello from 2
+2024-11-08 06:24:21.591 +09:00 [INF] Received: hello from 2
+2024-11-08 06:24:28.704 +09:00 [INF] Received: hello from 6
+2024-11-08 06:24:29.709 +09:00 [INF] Received: hello from 2
+2024-11-08 06:24:31.595 +09:00 [INF] Received: hello from 2
+2024-11-08 06:24:38.706 +09:00 [INF] Received: hello from 6
+2024-11-08 06:24:39.713 +09:00 [INF] Received: hello from 2
+2024-11-08 06:24:41.620 +09:00 [INF] Received: hello from 2
+2024-11-08 06:24:48.708 +09:00 [INF] Received: hello from 6
+2024-11-08 06:24:49.730 +09:00 [INF] Received: hello from 2
+2024-11-08 06:24:51.593 +09:00 [INF] Received: hello from 2
+2024-11-08 06:24:58.708 +09:00 [INF] Received: hello from 6
+2024-11-08 06:24:59.728 +09:00 [INF] Received: hello from 2
+2024-11-08 06:25:01.600 +09:00 [INF] Received: hello from 2
+2024-11-08 06:25:08.715 +09:00 [INF] Received: hello from 6
+2024-11-08 06:25:09.710 +09:00 [INF] Received: hello from 2
+2024-11-08 06:25:11.597 +09:00 [INF] Received: hello from 2
+2024-11-08 06:25:18.714 +09:00 [INF] Received: hello from 6
+2024-11-08 06:25:19.708 +09:00 [INF] Received: hello from 2
+2024-11-08 06:25:21.602 +09:00 [INF] Received: hello from 2
+2024-11-08 06:25:28.715 +09:00 [INF] Received: hello from 6
+2024-11-08 06:25:29.713 +09:00 [INF] Received: hello from 2
+2024-11-08 06:25:31.604 +09:00 [INF] Received: hello from 2
+2024-11-08 06:25:38.720 +09:00 [INF] Received: hello from 6
+2024-11-08 06:25:39.719 +09:00 [INF] Received: hello from 2
+2024-11-08 06:25:41.606 +09:00 [INF] Received: hello from 2
+2024-11-08 06:25:48.713 +09:00 [INF] Received: hello from 6
+2024-11-08 06:25:49.718 +09:00 [INF] Received: hello from 2
+2024-11-08 06:25:51.606 +09:00 [INF] Received: hello from 2
+2024-11-08 06:25:58.721 +09:00 [INF] Received: hello from 6
+2024-11-08 06:25:59.719 +09:00 [INF] Received: hello from 2
+2024-11-08 06:26:01.608 +09:00 [INF] Received: hello from 2
+2024-11-08 06:26:08.720 +09:00 [INF] Received: hello from 6
+2024-11-08 06:26:09.715 +09:00 [INF] Received: hello from 2
+2024-11-08 06:26:11.629 +09:00 [INF] Received: hello from 2
+2024-11-08 06:26:18.720 +09:00 [INF] Received: hello from 6
+2024-11-08 06:26:19.721 +09:00 [INF] Received: hello from 2
+2024-11-08 06:26:21.606 +09:00 [INF] Received: hello from 2
+2024-11-08 06:26:27.805 +09:00 [INF] Received: {"id":2,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 6
+2024-11-08 06:26:28.718 +09:00 [INF] Received: hello from 6
+2024-11-08 06:26:29.724 +09:00 [INF] Received: hello from 2
+2024-11-08 06:26:31.608 +09:00 [INF] Received: hello from 2
+2024-11-08 06:26:38.719 +09:00 [INF] Received: hello from 6
+2024-11-08 06:26:39.722 +09:00 [INF] Received: hello from 2
+2024-11-08 06:26:41.616 +09:00 [INF] Received: hello from 2
+2024-11-08 06:26:48.727 +09:00 [INF] Received: hello from 6
+2024-11-08 06:26:49.724 +09:00 [INF] Received: hello from 2
+2024-11-08 06:26:51.615 +09:00 [INF] Received: hello from 2
+2024-11-08 06:26:58.729 +09:00 [INF] Received: hello from 6
+2024-11-08 06:26:59.724 +09:00 [INF] Received: hello from 2
+2024-11-08 06:27:01.612 +09:00 [INF] Received: hello from 2
+2024-11-08 06:27:08.722 +09:00 [INF] Received: hello from 6
+2024-11-08 06:27:09.723 +09:00 [INF] Received: hello from 2
+2024-11-08 06:27:11.615 +09:00 [INF] Received: hello from 2
+2024-11-08 06:27:19.725 +09:00 [INF] Received: hello from 2
+2024-11-08 06:27:19.728 +09:00 [INF] Received: hello from 6
+2024-11-08 06:27:21.618 +09:00 [INF] Received: hello from 2
+2024-11-08 06:27:28.762 +09:00 [INF] Received: hello from 6
+2024-11-08 06:27:29.730 +09:00 [INF] Received: hello from 2
+2024-11-08 06:27:31.621 +09:00 [INF] Received: hello from 2
+2024-11-08 06:27:38.759 +09:00 [INF] Received: hello from 6
+2024-11-08 06:27:39.735 +09:00 [INF] Received: hello from 2
+2024-11-08 06:27:41.616 +09:00 [INF] Received: hello from 2
+2024-11-08 06:27:48.763 +09:00 [INF] Received: hello from 6
+2024-11-08 06:27:49.737 +09:00 [INF] Received: hello from 2
+2024-11-08 06:27:51.622 +09:00 [INF] Received: hello from 2
+2024-11-08 06:27:53.293 +09:00 [INF] Received: {"id":2,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 2
+2024-11-08 06:27:58.768 +09:00 [INF] Received: hello from 6
+2024-11-08 06:27:59.737 +09:00 [INF] Received: hello from 2
+2024-11-08 06:28:01.622 +09:00 [INF] Received: hello from 2
+2024-11-08 06:28:08.767 +09:00 [INF] Received: hello from 6
+2024-11-08 06:28:09.736 +09:00 [INF] Received: hello from 2
+2024-11-08 06:28:11.623 +09:00 [INF] Received: hello from 2
+2024-11-08 06:28:18.764 +09:00 [INF] Received: hello from 6
+2024-11-08 06:28:19.755 +09:00 [INF] Received: hello from 2
+2024-11-08 06:28:21.622 +09:00 [INF] Received: hello from 2
+2024-11-08 06:28:28.322 +09:00 [INF] Received: {"id":2,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 2
+2024-11-08 06:28:28.765 +09:00 [INF] Received: hello from 6
+2024-11-08 06:28:29.002 +09:00 [INF] 遭遇チェック
+2024-11-08 06:28:29.733 +09:00 [INF] Received: hello from 2
+2024-11-08 06:28:31.624 +09:00 [INF] Received: hello from 2
+2024-11-08 06:28:38.769 +09:00 [INF] Received: hello from 6
+2024-11-08 06:28:39.732 +09:00 [INF] Received: hello from 2
+2024-11-08 06:28:41.629 +09:00 [INF] Received: hello from 2
+2024-11-08 06:28:48.769 +09:00 [INF] Received: hello from 6
+2024-11-08 06:28:49.737 +09:00 [INF] Received: hello from 2
+2024-11-08 06:28:51.481 +09:00 [INF] Received: {"id":2,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 2
+2024-11-08 06:28:51.625 +09:00 [INF] Received: hello from 2
+2024-11-08 06:28:58.773 +09:00 [INF] Received: hello from 6
+2024-11-08 06:29:00.271 +09:00 [INF] Received: hello from 2
+2024-11-08 06:29:01.631 +09:00 [INF] Received: hello from 2
+2024-11-08 06:29:02.195 +09:00 [INF] Received: {"id":2,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 2
+2024-11-08 06:29:08.773 +09:00 [INF] Received: hello from 6
+2024-11-08 06:29:09.741 +09:00 [INF] Received: hello from 2
+2024-11-08 06:29:11.633 +09:00 [INF] Received: hello from 2
+2024-11-08 06:29:14.873 +09:00 [INF] Received: {"id":2,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 6
+2024-11-08 06:29:18.806 +09:00 [INF] Received: hello from 6
+2024-11-08 06:29:19.742 +09:00 [INF] Received: hello from 2
+2024-11-08 06:29:21.632 +09:00 [INF] Received: hello from 2
+2024-11-08 06:29:28.781 +09:00 [INF] Received: hello from 6
+2024-11-08 06:29:29.741 +09:00 [INF] Received: hello from 2
+2024-11-08 06:29:31.634 +09:00 [INF] Received: hello from 2
+2024-11-08 06:29:38.803 +09:00 [INF] Received: hello from 6
+2024-11-08 06:29:39.741 +09:00 [INF] Received: hello from 2
+2024-11-08 06:29:41.637 +09:00 [INF] Received: hello from 2
+2024-11-08 06:29:48.829 +09:00 [INF] Received: hello from 6
+2024-11-08 06:29:49.745 +09:00 [INF] Received: hello from 2
+2024-11-08 06:29:51.634 +09:00 [INF] Received: hello from 2
+2024-11-08 06:29:58.781 +09:00 [INF] Received: hello from 6
+2024-11-08 06:29:59.744 +09:00 [INF] Received: hello from 2
+2024-11-08 06:30:01.639 +09:00 [INF] Received: hello from 2
+2024-11-08 06:30:08.786 +09:00 [INF] Received: hello from 6
+2024-11-08 06:30:09.785 +09:00 [INF] Received: hello from 2
+2024-11-08 06:30:11.636 +09:00 [INF] Received: hello from 2
+2024-11-08 06:30:18.782 +09:00 [INF] Received: hello from 6
+2024-11-08 06:30:19.784 +09:00 [INF] Received: hello from 2
+2024-11-08 06:30:22.142 +09:00 [INF] Received: hello from 2
+2024-11-08 06:30:28.817 +09:00 [INF] Received: hello from 6
+2024-11-08 06:30:29.787 +09:00 [INF] Received: hello from 2
+2024-11-08 06:30:31.637 +09:00 [INF] Received: hello from 2
+2024-11-08 06:30:34.717 +09:00 [INF] Received: {"id":2,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 2
+2024-11-08 06:30:38.788 +09:00 [INF] Received: hello from 6
+2024-11-08 06:30:39.840 +09:00 [INF] Received: hello from 2
+2024-11-08 06:30:41.642 +09:00 [INF] Received: hello from 2
+2024-11-08 06:30:48.786 +09:00 [INF] Received: hello from 6
+2024-11-08 06:30:49.790 +09:00 [INF] Received: hello from 2
+2024-11-08 06:30:51.641 +09:00 [INF] Received: hello from 2
+2024-11-08 06:30:53.925 +09:00 [INF] Received: {"id":2,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 6
+2024-11-08 06:30:58.788 +09:00 [INF] Received: hello from 6
+2024-11-08 06:30:59.792 +09:00 [INF] Received: hello from 2
+2024-11-08 06:31:01.643 +09:00 [INF] Received: hello from 2
+2024-11-08 06:31:08.789 +09:00 [INF] Received: hello from 6
+2024-11-08 06:31:09.789 +09:00 [INF] Received: hello from 2
+2024-11-08 06:31:11.644 +09:00 [INF] Received: hello from 2
+2024-11-08 06:31:18.786 +09:00 [INF] Received: hello from 6
+2024-11-08 06:31:19.787 +09:00 [INF] Received: hello from 2
+2024-11-08 06:31:21.642 +09:00 [INF] Received: hello from 2
+2024-11-08 06:31:28.796 +09:00 [INF] Received: hello from 6
+2024-11-08 06:31:29.785 +09:00 [INF] Received: hello from 2
+2024-11-08 06:31:31.648 +09:00 [INF] Received: hello from 2
+2024-11-08 06:31:38.788 +09:00 [INF] Received: hello from 6
+2024-11-08 06:31:39.790 +09:00 [INF] Received: hello from 2
+2024-11-08 06:31:40.839 +09:00 [INF] Received: {"id":2,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 2
+2024-11-08 06:31:41.242 +09:00 [INF] 遭遇判定: {}と{}
+2024-11-08 06:31:41.645 +09:00 [INF] Received: hello from 2
+2024-11-08 06:31:48.787 +09:00 [INF] Received: hello from 6
+2024-11-08 06:31:49.810 +09:00 [INF] Received: hello from 2
+2024-11-08 06:31:51.649 +09:00 [INF] Received: hello from 2
+2024-11-08 06:31:58.787 +09:00 [INF] Received: hello from 6
+2024-11-08 06:31:59.824 +09:00 [INF] Received: hello from 2
+2024-11-08 06:32:01.648 +09:00 [INF] Received: hello from 2
+2024-11-08 06:32:08.816 +09:00 [INF] Received: hello from 6
+2024-11-08 06:32:09.792 +09:00 [INF] Received: hello from 2
+2024-11-08 06:32:11.646 +09:00 [INF] Received: hello from 2
+2024-11-08 06:32:17.636 +09:00 [INF] Received: {"id":2,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 2
+2024-11-08 06:32:18.296 +09:00 [INF] 遭遇判定: 2と6
+2024-11-08 06:32:18.799 +09:00 [INF] Received: hello from 6
+2024-11-08 06:32:19.790 +09:00 [INF] Received: hello from 2
+2024-11-08 06:32:21.651 +09:00 [INF] Received: hello from 2
+2024-11-08 06:32:28.840 +09:00 [INF] Received: hello from 6
+2024-11-08 06:32:29.795 +09:00 [INF] Received: hello from 2
+2024-11-08 06:32:31.650 +09:00 [INF] Received: hello from 2
+2024-11-08 06:32:38.798 +09:00 [INF] Received: hello from 6
+2024-11-08 06:32:39.797 +09:00 [INF] Received: hello from 2
+2024-11-08 06:32:41.651 +09:00 [INF] Received: hello from 2
+2024-11-08 06:32:48.794 +09:00 [INF] Received: hello from 6
+2024-11-08 06:32:49.798 +09:00 [INF] Received: hello from 2
+2024-11-08 06:32:51.653 +09:00 [INF] Received: hello from 2
+2024-11-08 06:32:58.793 +09:00 [INF] Received: hello from 6
+2024-11-08 06:32:59.795 +09:00 [INF] Received: hello from 2
+2024-11-08 06:33:01.654 +09:00 [INF] Received: hello from 2
+2024-11-08 06:33:02.759 +09:00 [INF] Received: {"id":2,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 2
+2024-11-08 06:33:03.356 +09:00 [INF] 遭遇判定: 2と6
+2024-11-08 06:33:16.230 +09:00 [INF] Received: hello from 2
+2024-11-08 06:33:16.234 +09:00 [INF] Received: hello from 6
+2024-11-08 06:33:16.236 +09:00 [INF] Received: hello from 2
+2024-11-08 06:33:26.233 +09:00 [INF] Received: hello from 6
+2024-11-08 06:33:26.236 +09:00 [INF] Received: hello from 2
+2024-11-08 06:33:26.291 +09:00 [INF] Received: hello from 2
+2024-11-08 06:33:34.295 +09:00 [INF] Received: {"id":2,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 6
+2024-11-08 06:33:35.246 +09:00 [INF] 遭遇判定: 2と6
+2024-11-08 06:33:48.707 +09:00 [INF] Received: hello from 6
+2024-11-08 06:33:48.761 +09:00 [INF] Received: hello from 2
+2024-11-08 06:33:48.771 +09:00 [INF] Received: hello from 2
+2024-11-08 06:33:58.710 +09:00 [INF] Received: hello from 2
+2024-11-08 06:33:58.711 +09:00 [INF] Received: hello from 6
+2024-11-08 06:33:58.715 +09:00 [INF] Received: hello from 2
+2024-11-08 06:34:08.714 +09:00 [INF] Received: hello from 2
+2024-11-08 06:34:08.716 +09:00 [INF] Received: hello from 6
+2024-11-08 06:34:08.718 +09:00 [INF] Received: hello from 2
+2024-11-08 06:34:18.708 +09:00 [INF] Received: hello from 2
+2024-11-08 06:34:18.708 +09:00 [INF] Received: hello from 6
+2024-11-08 06:34:18.734 +09:00 [INF] Received: hello from 2
+2024-11-08 06:34:28.707 +09:00 [INF] Received: hello from 2
+2024-11-08 06:34:28.707 +09:00 [INF] Received: hello from 6
+2024-11-08 06:34:28.759 +09:00 [INF] Received: hello from 2
+2024-11-08 06:34:38.710 +09:00 [INF] Received: hello from 2
+2024-11-08 06:34:38.716 +09:00 [INF] Received: hello from 2
+2024-11-08 06:34:38.720 +09:00 [INF] Received: hello from 6
+2024-11-08 06:34:48.712 +09:00 [INF] Received: hello from 2
+2024-11-08 06:34:48.715 +09:00 [INF] Received: hello from 6
+2024-11-08 06:34:48.719 +09:00 [INF] Received: hello from 2
+2024-11-08 06:34:58.709 +09:00 [INF] Received: hello from 2
+2024-11-08 06:34:58.713 +09:00 [INF] Received: hello from 6
+2024-11-08 06:34:59.520 +09:00 [INF] Received: hello from 2
+2024-11-08 06:35:08.721 +09:00 [INF] Received: hello from 2
+2024-11-08 06:35:08.729 +09:00 [INF] Received: hello from 6
+2024-11-08 06:35:08.733 +09:00 [INF] Received: hello from 2
+2024-11-08 06:35:18.727 +09:00 [INF] Received: hello from 2
+2024-11-08 06:35:18.735 +09:00 [INF] Received: hello from 2
+2024-11-08 06:35:18.743 +09:00 [INF] Received: hello from 6
+2024-11-08 06:35:28.723 +09:00 [INF] Received: hello from 6
+2024-11-08 06:35:28.730 +09:00 [INF] Received: hello from 2
+2024-11-08 06:35:28.736 +09:00 [INF] Received: hello from 2
+2024-11-08 06:35:38.864 +09:00 [INF] Received: hello from 6
+2024-11-08 06:35:38.930 +09:00 [INF] Received: hello from 2
+2024-11-08 06:35:38.934 +09:00 [INF] Received: hello from 2
+2024-11-08 06:35:49.027 +09:00 [INF] Received: hello from 2
+2024-11-08 06:35:49.045 +09:00 [INF] Received: hello from 2
+2024-11-08 06:35:49.095 +09:00 [INF] Received: hello from 6
+2024-11-08 06:35:58.716 +09:00 [INF] Received: hello from 2
+2024-11-08 06:35:58.746 +09:00 [INF] Received: hello from 6
+2024-11-08 06:35:58.751 +09:00 [INF] Received: hello from 2
+2024-11-08 06:36:08.722 +09:00 [INF] Received: hello from 2
+2024-11-08 06:36:08.722 +09:00 [INF] Received: hello from 6
+2024-11-08 06:36:08.726 +09:00 [INF] Received: hello from 2
+2024-11-08 06:36:16.479 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 06:36:16.489 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 06:36:16.491 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 06:36:16.496 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 06:36:16.500 +09:00 [INF] 2:WebSocket接続開始
+2024-11-08 06:36:18.747 +09:00 [INF] Received: hello from 2
+2024-11-08 06:36:18.778 +09:00 [INF] Received: hello from 6
+2024-11-08 06:36:18.804 +09:00 [INF] Received: hello from 2
+2024-11-08 06:36:26.506 +09:00 [INF] Received: hello from 2
+2024-11-08 06:36:28.721 +09:00 [INF] Received: hello from 2
+2024-11-08 06:36:28.725 +09:00 [INF] Received: hello from 2
+2024-11-08 06:36:28.725 +09:00 [INF] Received: hello from 6
+2024-11-08 06:36:36.515 +09:00 [INF] Received: hello from 2
+2024-11-08 06:36:38.759 +09:00 [INF] Received: hello from 6
+2024-11-08 06:36:38.760 +09:00 [INF] Received: hello from 2
+2024-11-08 06:36:38.767 +09:00 [INF] Received: hello from 2
+2024-11-08 06:36:46.510 +09:00 [INF] Received: hello from 2
+2024-11-08 06:36:48.736 +09:00 [INF] Received: hello from 2
+2024-11-08 06:36:48.736 +09:00 [INF] Received: hello from 6
+2024-11-08 06:36:48.740 +09:00 [INF] Received: hello from 2
+2024-11-08 06:36:56.510 +09:00 [INF] Received: hello from 2
+2024-11-08 06:36:58.755 +09:00 [INF] Received: hello from 6
+2024-11-08 06:36:58.755 +09:00 [INF] Received: hello from 2
+2024-11-08 06:36:58.782 +09:00 [INF] Received: hello from 2
+2024-11-08 06:37:06.518 +09:00 [INF] Received: hello from 2
+2024-11-08 06:37:09.226 +09:00 [INF] Received: hello from 2
+2024-11-08 06:37:09.232 +09:00 [INF] Received: hello from 6
+2024-11-08 06:37:09.238 +09:00 [INF] Received: hello from 2
+2024-11-08 06:37:16.517 +09:00 [INF] Received: hello from 2
+2024-11-08 06:37:19.228 +09:00 [INF] Received: hello from 6
+2024-11-08 06:37:19.231 +09:00 [INF] Received: hello from 2
+2024-11-08 06:37:19.233 +09:00 [INF] Received: hello from 2
+2024-11-08 06:37:26.520 +09:00 [INF] Received: hello from 2
+2024-11-08 06:37:28.198 +09:00 [INF] Received: {"id":"2","isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 2
+2024-11-08 06:37:28.309 +09:00 [ERR] jsonのパースに失敗：e.ToString()
+2024-11-08 06:37:29.234 +09:00 [INF] Received: hello from 2
+2024-11-08 06:37:29.237 +09:00 [INF] Received: hello from 2
+2024-11-08 06:37:29.241 +09:00 [INF] Received: hello from 6
+2024-11-08 06:37:36.513 +09:00 [INF] Received: hello from 2
+2024-11-08 06:37:39.230 +09:00 [INF] Received: hello from 2
+2024-11-08 06:37:39.233 +09:00 [INF] Received: hello from 6
+2024-11-08 06:37:39.236 +09:00 [INF] Received: hello from 2
+2024-11-08 06:37:46.522 +09:00 [INF] Received: hello from 2
+2024-11-08 06:37:49.236 +09:00 [INF] Received: hello from 2
+2024-11-08 06:37:49.244 +09:00 [INF] Received: hello from 6
+2024-11-08 06:37:49.245 +09:00 [INF] Received: hello from 2
+2024-11-08 06:37:56.520 +09:00 [INF] Received: hello from 2
+2024-11-08 06:37:59.234 +09:00 [INF] Received: hello from 6
+2024-11-08 06:37:59.234 +09:00 [INF] Received: hello from 2
+2024-11-08 06:37:59.245 +09:00 [INF] Received: hello from 2
+2024-11-08 06:38:06.518 +09:00 [INF] Received: hello from 2
+2024-11-08 06:38:09.232 +09:00 [INF] Received: hello from 2
+2024-11-08 06:38:09.237 +09:00 [INF] Received: hello from 6
+2024-11-08 06:38:09.237 +09:00 [INF] Received: hello from 2
+2024-11-08 06:38:11.226 +09:00 [INF] Received: {"id":2,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 2
+2024-11-08 06:38:11.656 +09:00 [INF] 遭遇判定: 2と6
+2024-11-08 06:38:16.525 +09:00 [INF] Received: hello from 2
+2024-11-08 06:38:19.285 +09:00 [INF] Received: hello from 6
+2024-11-08 06:38:20.233 +09:00 [INF] Received: hello from 2
+2024-11-08 06:38:20.238 +09:00 [INF] Received: hello from 2
+2024-11-08 06:38:26.521 +09:00 [INF] Received: hello from 2
+2024-11-08 06:38:29.238 +09:00 [INF] Received: hello from 6
+2024-11-08 06:38:29.242 +09:00 [INF] Received: hello from 2
+2024-11-08 06:38:29.246 +09:00 [INF] Received: hello from 2
+2024-11-08 06:38:36.523 +09:00 [INF] Received: hello from 2
+2024-11-08 06:38:39.076 +09:00 [INF] Received: {"id":6,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 6
+2024-11-08 06:38:39.236 +09:00 [INF] Received: hello from 6
+2024-11-08 06:38:39.241 +09:00 [INF] Received: hello from 2
+2024-11-08 06:38:39.244 +09:00 [INF] Received: hello from 2
+2024-11-08 06:38:40.011 +09:00 [INF] 遭遇判定: 6と2
+2024-11-08 06:38:40.015 +09:00 [INF] 遭遇チェック
+2024-11-08 06:38:46.527 +09:00 [INF] Received: hello from 2
+2024-11-08 06:38:49.270 +09:00 [INF] Received: hello from 2
+2024-11-08 06:38:49.272 +09:00 [INF] Received: hello from 2
+2024-11-08 06:38:49.279 +09:00 [INF] Received: hello from 6
+2024-11-08 06:38:56.527 +09:00 [INF] Received: hello from 2
+2024-11-08 06:38:59.236 +09:00 [INF] Received: hello from 2
+2024-11-08 06:38:59.239 +09:00 [INF] Received: hello from 6
+2024-11-08 06:38:59.241 +09:00 [INF] Received: hello from 2
+2024-11-08 06:39:06.527 +09:00 [INF] Received: hello from 2
+2024-11-08 06:39:09.246 +09:00 [INF] Received: hello from 6
+2024-11-08 06:39:09.250 +09:00 [INF] Received: hello from 2
+2024-11-08 06:39:09.253 +09:00 [INF] Received: hello from 2
+2024-11-08 06:39:16.527 +09:00 [INF] Received: hello from 2
+2024-11-08 06:39:19.248 +09:00 [INF] Received: hello from 2
+2024-11-08 06:39:19.279 +09:00 [INF] Received: hello from 2
+2024-11-08 06:39:19.388 +09:00 [INF] Received: hello from 6
+2024-11-08 06:39:26.527 +09:00 [INF] Received: hello from 2
+2024-11-08 06:39:29.277 +09:00 [INF] Received: hello from 2
+2024-11-08 06:39:29.281 +09:00 [INF] Received: hello from 6
+2024-11-08 06:39:29.281 +09:00 [INF] Received: hello from 2
+2024-11-08 06:39:36.531 +09:00 [INF] Received: hello from 2
+2024-11-08 06:39:39.311 +09:00 [INF] Received: hello from 6
+2024-11-08 06:39:39.311 +09:00 [INF] Received: hello from 2
+2024-11-08 06:39:39.361 +09:00 [INF] Received: hello from 2
+2024-11-08 06:39:46.554 +09:00 [INF] Received: hello from 2
+2024-11-08 06:39:49.245 +09:00 [INF] Received: hello from 2
+2024-11-08 06:39:49.278 +09:00 [INF] Received: hello from 6
+2024-11-08 06:39:49.279 +09:00 [INF] Received: hello from 2
+2024-11-08 06:39:50.542 +09:00 [INF] Received: {"id":2,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 2
+2024-11-08 06:39:50.774 +09:00 [INF] 遭遇判定: 2と6
+2024-11-08 06:39:56.535 +09:00 [INF] Received: hello from 2
+2024-11-08 06:39:59.248 +09:00 [INF] Received: hello from 2
+2024-11-08 06:39:59.248 +09:00 [INF] Received: hello from 6
+2024-11-08 06:39:59.251 +09:00 [INF] Received: hello from 2
+2024-11-08 06:40:06.559 +09:00 [INF] Received: hello from 2
+2024-11-08 06:40:09.271 +09:00 [INF] Received: hello from 2
+2024-11-08 06:40:09.271 +09:00 [INF] Received: hello from 6
+2024-11-08 06:40:09.274 +09:00 [INF] Received: hello from 2
+2024-11-08 06:40:16.535 +09:00 [INF] Received: hello from 2
+2024-11-08 06:40:19.249 +09:00 [INF] Received: hello from 2
+2024-11-08 06:40:19.299 +09:00 [INF] Received: hello from 6
+2024-11-08 06:40:19.299 +09:00 [INF] Received: hello from 2
+2024-11-08 06:40:26.535 +09:00 [INF] Received: hello from 2
+2024-11-08 06:40:29.275 +09:00 [INF] Received: hello from 6
+2024-11-08 06:40:29.280 +09:00 [INF] Received: hello from 2
+2024-11-08 06:40:29.282 +09:00 [INF] Received: hello from 2
+2024-11-08 06:40:36.535 +09:00 [INF] Received: hello from 2
+2024-11-08 06:40:39.254 +09:00 [INF] Received: hello from 6
+2024-11-08 06:40:39.255 +09:00 [INF] Received: hello from 2
+2024-11-08 06:40:39.258 +09:00 [INF] Received: hello from 2
+2024-11-08 06:40:46.533 +09:00 [INF] Received: hello from 2
+2024-11-08 06:40:49.250 +09:00 [INF] Received: hello from 2
+2024-11-08 06:40:49.252 +09:00 [INF] Received: hello from 6
+2024-11-08 06:40:49.254 +09:00 [INF] Received: hello from 2
+2024-11-08 06:40:53.100 +09:00 [INF] Received: {"id":2,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 2
+2024-11-08 06:40:53.851 +09:00 [INF] 遭遇判定: 2と6
+2024-11-08 06:40:56.536 +09:00 [INF] Received: hello from 2
+2024-11-08 06:40:59.319 +09:00 [INF] Received: hello from 6
+2024-11-08 06:40:59.320 +09:00 [INF] Received: hello from 2
+2024-11-08 06:40:59.402 +09:00 [INF] Received: hello from 2
+2024-11-08 06:41:06.558 +09:00 [INF] Received: hello from 2
+2024-11-08 06:41:09.282 +09:00 [INF] Received: hello from 2
+2024-11-08 06:41:09.282 +09:00 [INF] Received: hello from 6
+2024-11-08 06:41:09.335 +09:00 [INF] Received: hello from 2
+2024-11-08 06:41:09.857 +09:00 [INF] Received: {"id":2,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 2
+2024-11-08 06:41:09.873 +09:00 [INF] 遭遇判定: 2と6
+2024-11-08 06:41:12.341 +09:00 [INF] Received: {"id":6,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 6
+2024-11-08 06:41:13.172 +09:00 [INF] 遭遇判定: 6と2
+2024-11-08 06:41:13.174 +09:00 [INF] ここまで
+2024-11-08 06:41:16.541 +09:00 [INF] Received: hello from 2
+2024-11-08 06:41:19.280 +09:00 [INF] Received: hello from 6
+2024-11-08 06:41:19.377 +09:00 [INF] Received: hello from 2
+2024-11-08 06:41:19.379 +09:00 [INF] Received: hello from 2
+2024-11-08 06:41:24.866 +09:00 [INF] Received: {"id":2,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 2
+2024-11-08 06:41:24.901 +09:00 [INF] 遭遇判定: 2と6
+2024-11-08 06:41:26.571 +09:00 [INF] Received: hello from 2
+2024-11-08 06:41:27.644 +09:00 [INF] Received: {"id":6,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 6
+2024-11-08 06:41:28.192 +09:00 [INF] 遭遇判定: 6と2
+2024-11-08 06:41:28.195 +09:00 [INF] ここまで
+2024-11-08 06:41:29.285 +09:00 [INF] Received: hello from 6
+2024-11-08 06:41:29.289 +09:00 [INF] Received: hello from 2
+2024-11-08 06:41:29.316 +09:00 [INF] Received: hello from 2
+2024-11-08 06:41:36.538 +09:00 [INF] Received: hello from 2
+2024-11-08 06:41:39.335 +09:00 [INF] Received: hello from 2
+2024-11-08 06:41:39.335 +09:00 [INF] Received: hello from 6
+2024-11-08 06:41:39.388 +09:00 [INF] Received: hello from 2
+2024-11-08 06:41:43.885 +09:00 [INF] Received: {"id":6,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 6
+2024-11-08 06:41:44.229 +09:00 [INF] 遭遇判定: 6と2
+2024-11-08 06:41:46.540 +09:00 [INF] Received: hello from 2
+2024-11-08 06:41:46.681 +09:00 [INF] Received: {"id":2,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 2
+2024-11-08 06:41:46.935 +09:00 [INF] 遭遇判定: 2と6
+2024-11-08 06:41:49.215 +09:00 [INF] Received: {"id":6,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 6
+2024-11-08 06:41:49.251 +09:00 [INF] 遭遇判定: 6と2
+2024-11-08 06:41:49.281 +09:00 [INF] Received: hello from 2
+2024-11-08 06:41:49.284 +09:00 [INF] Received: hello from 6
+2024-11-08 06:41:49.288 +09:00 [INF] Received: hello from 2
+2024-11-08 06:41:56.546 +09:00 [INF] Received: hello from 2
+2024-11-08 06:41:59.318 +09:00 [INF] Received: hello from 6
+2024-11-08 06:41:59.318 +09:00 [INF] Received: hello from 2
+2024-11-08 06:41:59.322 +09:00 [INF] Received: hello from 2
+2024-11-08 06:42:06.546 +09:00 [INF] Received: hello from 2
+2024-11-08 06:42:09.312 +09:00 [INF] Received: hello from 6
+2024-11-08 06:42:09.312 +09:00 [INF] Received: hello from 2
+2024-11-08 06:42:09.366 +09:00 [INF] Received: hello from 2
+2024-11-08 06:42:16.572 +09:00 [INF] Received: hello from 2
+2024-11-08 06:42:19.294 +09:00 [INF] Received: hello from 2
+2024-11-08 06:42:19.294 +09:00 [INF] Received: hello from 6
+2024-11-08 06:42:19.371 +09:00 [INF] Received: hello from 2
+2024-11-08 06:42:26.552 +09:00 [INF] Received: hello from 2
+2024-11-08 06:42:29.269 +09:00 [INF] Received: hello from 6
+2024-11-08 06:42:29.272 +09:00 [INF] Received: hello from 2
+2024-11-08 06:42:29.275 +09:00 [INF] Received: hello from 2
+2024-11-08 06:42:36.549 +09:00 [INF] Received: hello from 2
+2024-11-08 06:42:39.271 +09:00 [INF] Received: hello from 2
+2024-11-08 06:42:39.276 +09:00 [INF] Received: hello from 6
+2024-11-08 06:42:39.280 +09:00 [INF] Received: hello from 2
+2024-11-08 06:42:46.587 +09:00 [INF] Received: hello from 2
+2024-11-08 06:42:49.264 +09:00 [INF] Received: hello from 2
+2024-11-08 06:42:49.267 +09:00 [INF] Received: hello from 6
+2024-11-08 06:42:49.275 +09:00 [INF] Received: hello from 2
+2024-11-08 06:42:56.553 +09:00 [INF] Received: hello from 2
+2024-11-08 06:42:59.266 +09:00 [INF] Received: hello from 2
+2024-11-08 06:42:59.274 +09:00 [INF] Received: hello from 6
+2024-11-08 06:42:59.279 +09:00 [INF] Received: hello from 2
+2024-11-08 06:43:06.564 +09:00 [INF] Received: hello from 2
+2024-11-08 06:43:09.360 +09:00 [INF] Received: hello from 2
+2024-11-08 06:43:09.362 +09:00 [INF] Received: hello from 6
+2024-11-08 06:43:09.364 +09:00 [INF] Received: hello from 2
+2024-11-08 06:43:16.556 +09:00 [INF] Received: hello from 2
+2024-11-08 06:43:19.341 +09:00 [INF] Received: hello from 2
+2024-11-08 06:43:19.342 +09:00 [INF] Received: hello from 6
+2024-11-08 06:43:19.406 +09:00 [INF] Received: hello from 2
+2024-11-08 06:43:26.557 +09:00 [INF] Received: hello from 2
+2024-11-08 06:43:29.275 +09:00 [INF] Received: hello from 6
+2024-11-08 06:43:29.275 +09:00 [INF] Received: hello from 2
+2024-11-08 06:43:29.307 +09:00 [INF] Received: hello from 2
+2024-11-08 06:43:36.559 +09:00 [INF] Received: hello from 2
+2024-11-08 06:43:39.270 +09:00 [INF] Received: hello from 2
+2024-11-08 06:43:39.270 +09:00 [INF] Received: hello from 6
+2024-11-08 06:43:39.324 +09:00 [INF] Received: hello from 2
+2024-11-08 06:43:46.565 +09:00 [INF] Received: hello from 2
+2024-11-08 06:43:49.273 +09:00 [INF] Received: hello from 2
+2024-11-08 06:43:49.282 +09:00 [INF] Received: hello from 6
+2024-11-08 06:43:49.282 +09:00 [INF] Received: hello from 2
+2024-11-08 06:43:56.560 +09:00 [INF] Received: hello from 2
+2024-11-08 06:43:59.293 +09:00 [INF] Received: hello from 2
+2024-11-08 06:43:59.321 +09:00 [INF] Received: hello from 6
+2024-11-08 06:43:59.321 +09:00 [INF] Received: hello from 2
+2024-11-08 06:44:06.565 +09:00 [INF] Received: hello from 2
+2024-11-08 06:44:09.274 +09:00 [INF] Received: hello from 6
+2024-11-08 06:44:09.280 +09:00 [INF] Received: hello from 2
+2024-11-08 06:44:09.285 +09:00 [INF] Received: hello from 2
+2024-11-08 06:44:16.560 +09:00 [INF] Received: hello from 2
+2024-11-08 06:44:19.276 +09:00 [INF] Received: hello from 2
+2024-11-08 06:44:20.275 +09:00 [INF] Received: hello from 6
+2024-11-08 06:44:20.283 +09:00 [INF] Received: hello from 2
+2024-11-08 06:44:26.569 +09:00 [INF] Received: hello from 2
+2024-11-08 06:44:29.279 +09:00 [INF] Received: hello from 6
+2024-11-08 06:44:29.285 +09:00 [INF] Received: hello from 2
+2024-11-08 06:44:29.292 +09:00 [INF] Received: hello from 2
+2024-11-08 06:44:36.562 +09:00 [INF] Received: hello from 2
+2024-11-08 06:44:39.282 +09:00 [INF] Received: hello from 2
+2024-11-08 06:44:39.315 +09:00 [INF] Received: hello from 6
+2024-11-08 06:44:39.425 +09:00 [INF] Received: hello from 2
+2024-11-08 06:44:46.566 +09:00 [INF] Received: hello from 2
+2024-11-08 06:44:49.332 +09:00 [INF] Received: hello from 6
+2024-11-08 06:44:49.361 +09:00 [INF] Received: hello from 2
+2024-11-08 06:44:49.444 +09:00 [INF] Received: hello from 2
+2024-11-08 06:44:56.564 +09:00 [INF] Received: hello from 2
+2024-11-08 06:44:59.284 +09:00 [INF] Received: hello from 6
+2024-11-08 06:44:59.364 +09:00 [INF] Received: hello from 2
+2024-11-08 06:44:59.370 +09:00 [INF] Received: hello from 2
+2024-11-08 06:45:06.565 +09:00 [INF] Received: hello from 2
+2024-11-08 06:45:09.290 +09:00 [INF] Received: hello from 2
+2024-11-08 06:45:09.290 +09:00 [INF] Received: hello from 6
+2024-11-08 06:45:09.321 +09:00 [INF] Received: hello from 2
+2024-11-08 06:45:16.571 +09:00 [INF] Received: hello from 2
+2024-11-08 06:45:19.305 +09:00 [INF] Received: hello from 6
+2024-11-08 06:45:19.395 +09:00 [INF] Received: hello from 2
+2024-11-08 06:45:19.400 +09:00 [INF] Received: hello from 2
+2024-11-08 06:45:26.589 +09:00 [INF] Received: hello from 2
+2024-11-08 06:45:29.311 +09:00 [INF] Received: hello from 6
+2024-11-08 06:45:29.385 +09:00 [INF] Received: hello from 2
+2024-11-08 06:45:29.391 +09:00 [INF] Received: hello from 2
+2024-11-08 06:45:36.574 +09:00 [INF] Received: hello from 2
+2024-11-08 06:45:39.314 +09:00 [INF] Received: hello from 2
+2024-11-08 06:45:39.315 +09:00 [INF] Received: hello from 6
+2024-11-08 06:45:39.366 +09:00 [INF] Received: hello from 2
+2024-11-08 06:45:46.575 +09:00 [INF] Received: hello from 2
+2024-11-08 06:45:49.292 +09:00 [INF] Received: hello from 2
+2024-11-08 06:45:49.297 +09:00 [INF] Received: hello from 6
+2024-11-08 06:45:49.302 +09:00 [INF] Received: hello from 2
+2024-11-08 06:45:56.577 +09:00 [INF] Received: hello from 2
+2024-11-08 06:45:59.291 +09:00 [INF] Received: hello from 2
+2024-11-08 06:46:00.290 +09:00 [INF] Received: hello from 2
+2024-11-08 06:46:00.294 +09:00 [INF] Received: hello from 6
+2024-11-08 06:46:06.577 +09:00 [INF] Received: hello from 2
+2024-11-08 06:46:09.291 +09:00 [INF] Received: hello from 2
+2024-11-08 06:46:09.298 +09:00 [INF] Received: hello from 6
+2024-11-08 06:46:09.305 +09:00 [INF] Received: hello from 2
+2024-11-08 06:46:16.578 +09:00 [INF] Received: hello from 2
+2024-11-08 06:46:19.292 +09:00 [INF] Received: hello from 6
+2024-11-08 06:46:19.327 +09:00 [INF] Received: hello from 2
+2024-11-08 06:46:19.471 +09:00 [INF] Received: hello from 2
+2024-11-08 06:46:26.569 +09:00 [INF] Received: hello from 2
+2024-11-08 06:46:29.285 +09:00 [INF] Received: hello from 6
+2024-11-08 06:46:29.285 +09:00 [INF] Received: hello from 2
+2024-11-08 06:46:29.336 +09:00 [INF] Received: hello from 2
+2024-11-08 06:46:36.562 +09:00 [INF] Received: hello from 2
+2024-11-08 06:46:39.282 +09:00 [INF] Received: hello from 6
+2024-11-08 06:46:39.282 +09:00 [INF] Received: hello from 2
+2024-11-08 06:46:39.420 +09:00 [INF] Received: hello from 2
+2024-11-08 06:46:46.558 +09:00 [INF] Received: hello from 2
+2024-11-08 06:46:49.353 +09:00 [INF] Received: hello from 2
+2024-11-08 06:46:49.353 +09:00 [INF] Received: hello from 6
+2024-11-08 06:46:49.383 +09:00 [INF] Received: hello from 2
+2024-11-08 06:46:56.555 +09:00 [INF] Received: hello from 2
+2024-11-08 06:46:59.302 +09:00 [INF] Received: hello from 6
+2024-11-08 06:46:59.302 +09:00 [INF] Received: hello from 2
+2024-11-08 06:46:59.351 +09:00 [INF] Received: hello from 2
+2024-11-08 06:47:06.553 +09:00 [INF] Received: hello from 2
+2024-11-08 06:47:09.367 +09:00 [INF] Received: hello from 6
+2024-11-08 06:47:09.417 +09:00 [INF] Received: hello from 2
+2024-11-08 06:47:09.421 +09:00 [INF] Received: hello from 2
+2024-11-08 06:47:16.556 +09:00 [INF] Received: hello from 2
+2024-11-08 06:47:19.271 +09:00 [INF] Received: hello from 2
+2024-11-08 06:47:19.272 +09:00 [INF] Received: hello from 6
+2024-11-08 06:47:19.300 +09:00 [INF] Received: hello from 2
+2024-11-08 06:47:26.561 +09:00 [INF] Received: hello from 2
+2024-11-08 06:47:29.278 +09:00 [INF] Received: hello from 2
+2024-11-08 06:47:29.284 +09:00 [INF] Received: hello from 6
+2024-11-08 06:47:29.290 +09:00 [INF] Received: hello from 2
+2024-11-08 06:47:36.558 +09:00 [INF] Received: hello from 2
+2024-11-08 06:47:39.331 +09:00 [INF] Received: hello from 2
+2024-11-08 06:47:39.335 +09:00 [INF] Received: hello from 6
+2024-11-08 06:47:39.340 +09:00 [INF] Received: hello from 2
+2024-11-08 06:47:46.560 +09:00 [INF] Received: hello from 2
+2024-11-08 06:47:49.272 +09:00 [INF] Received: hello from 2
+2024-11-08 06:47:49.277 +09:00 [INF] Received: hello from 6
+2024-11-08 06:47:49.282 +09:00 [INF] Received: hello from 2
+2024-11-08 06:47:56.563 +09:00 [INF] Received: hello from 2
+2024-11-08 06:47:59.279 +09:00 [INF] Received: hello from 6
+2024-11-08 06:47:59.288 +09:00 [INF] Received: hello from 2
+2024-11-08 06:47:59.295 +09:00 [INF] Received: hello from 2
+2024-11-08 06:48:06.566 +09:00 [INF] Received: hello from 2
+2024-11-08 06:48:09.388 +09:00 [INF] Received: hello from 2
+2024-11-08 06:48:09.388 +09:00 [INF] Received: hello from 6
+2024-11-08 06:48:09.417 +09:00 [INF] Received: hello from 2
+2024-11-08 06:48:16.598 +09:00 [INF] Received: hello from 2
+2024-11-08 06:48:19.379 +09:00 [INF] Received: hello from 2
+2024-11-08 06:48:19.382 +09:00 [INF] Received: hello from 6
+2024-11-08 06:48:19.389 +09:00 [INF] Received: hello from 2
+2024-11-08 06:48:26.566 +09:00 [INF] Received: hello from 2
+2024-11-08 06:48:29.280 +09:00 [INF] Received: hello from 6
+2024-11-08 06:48:29.285 +09:00 [INF] Received: hello from 2
+2024-11-08 06:48:29.291 +09:00 [INF] Received: hello from 2
+2024-11-08 06:48:36.567 +09:00 [INF] Received: hello from 2
+2024-11-08 06:48:39.287 +09:00 [INF] Received: hello from 2
+2024-11-08 06:48:39.287 +09:00 [INF] Received: hello from 6
+2024-11-08 06:48:39.340 +09:00 [INF] Received: hello from 2
+2024-11-08 06:48:46.564 +09:00 [INF] Received: hello from 2
+2024-11-08 06:48:49.312 +09:00 [INF] Received: hello from 2
+2024-11-08 06:48:49.312 +09:00 [INF] Received: hello from 6
+2024-11-08 06:48:49.369 +09:00 [INF] Received: hello from 2
+2024-11-08 06:48:56.566 +09:00 [INF] Received: hello from 2
+2024-11-08 06:48:59.291 +09:00 [INF] Received: hello from 2
+2024-11-08 06:48:59.291 +09:00 [INF] Received: hello from 6
+2024-11-08 06:48:59.295 +09:00 [INF] Received: hello from 2
+2024-11-08 06:49:06.568 +09:00 [INF] Received: hello from 2
+2024-11-08 06:49:09.290 +09:00 [INF] Received: hello from 6
+2024-11-08 06:49:09.294 +09:00 [INF] Received: hello from 2
+2024-11-08 06:49:09.298 +09:00 [INF] Received: hello from 2
+2024-11-08 06:49:16.569 +09:00 [INF] Received: hello from 2
+2024-11-08 06:49:19.287 +09:00 [INF] Received: hello from 6
+2024-11-08 06:49:19.295 +09:00 [INF] Received: hello from 2
+2024-11-08 06:49:19.299 +09:00 [INF] Received: hello from 2
+2024-11-08 06:49:26.573 +09:00 [INF] Received: hello from 2
+2024-11-08 06:49:29.288 +09:00 [INF] Received: hello from 2
+2024-11-08 06:49:30.285 +09:00 [INF] Received: hello from 6
+2024-11-08 06:49:30.291 +09:00 [INF] Received: hello from 2
+2024-11-08 06:49:36.572 +09:00 [INF] Received: hello from 2
+2024-11-08 06:49:39.287 +09:00 [INF] Received: hello from 6
+2024-11-08 06:49:39.291 +09:00 [INF] Received: hello from 2
+2024-11-08 06:49:39.293 +09:00 [INF] Received: hello from 2
+2024-11-08 06:49:46.572 +09:00 [INF] Received: hello from 2
+2024-11-08 06:49:49.288 +09:00 [INF] Received: hello from 6
+2024-11-08 06:49:49.293 +09:00 [INF] Received: hello from 2
+2024-11-08 06:49:49.348 +09:00 [INF] Received: hello from 2
+2024-11-08 06:49:56.599 +09:00 [INF] Received: hello from 2
+2024-11-08 06:49:59.323 +09:00 [INF] Received: hello from 6
+2024-11-08 06:49:59.323 +09:00 [INF] Received: hello from 2
+2024-11-08 06:49:59.348 +09:00 [INF] Received: hello from 2
+2024-11-08 06:50:06.575 +09:00 [INF] Received: hello from 2
+2024-11-08 06:50:09.300 +09:00 [INF] Received: hello from 2
+2024-11-08 06:50:09.300 +09:00 [INF] Received: hello from 6
+2024-11-08 06:50:09.331 +09:00 [INF] Received: hello from 2
+2024-11-08 06:50:16.573 +09:00 [INF] Received: hello from 2
+2024-11-08 06:50:19.347 +09:00 [INF] Received: hello from 2
+2024-11-08 06:50:19.347 +09:00 [INF] Received: hello from 6
+2024-11-08 06:50:19.376 +09:00 [INF] Received: hello from 2
+2024-11-08 06:50:26.575 +09:00 [INF] Received: hello from 2
+2024-11-08 06:50:29.345 +09:00 [INF] Received: hello from 6
+2024-11-08 06:50:29.345 +09:00 [INF] Received: hello from 2
+2024-11-08 06:50:29.399 +09:00 [INF] Received: hello from 2
+2024-11-08 06:50:36.574 +09:00 [INF] Received: hello from 2
+2024-11-08 06:50:39.321 +09:00 [INF] Received: hello from 2
+2024-11-08 06:50:39.325 +09:00 [INF] Received: hello from 6
+2024-11-08 06:50:39.330 +09:00 [INF] Received: hello from 2
+2024-11-08 06:50:46.582 +09:00 [INF] Received: hello from 2
+2024-11-08 06:50:49.333 +09:00 [INF] Received: hello from 6
+2024-11-08 06:50:50.298 +09:00 [INF] Received: hello from 2
+2024-11-08 06:50:50.302 +09:00 [INF] Received: hello from 2
+2024-11-08 06:50:56.581 +09:00 [INF] Received: hello from 2
+2024-11-08 06:50:59.302 +09:00 [INF] Received: hello from 6
+2024-11-08 06:50:59.305 +09:00 [INF] Received: hello from 2
+2024-11-08 06:50:59.308 +09:00 [INF] Received: hello from 2
+2024-11-08 06:51:06.581 +09:00 [INF] Received: hello from 2
+2024-11-08 06:51:09.304 +09:00 [INF] Received: hello from 2
+2024-11-08 06:51:10.302 +09:00 [INF] Received: hello from 6
+2024-11-08 06:51:10.309 +09:00 [INF] Received: hello from 2
+2024-11-08 06:51:16.582 +09:00 [INF] Received: hello from 2
+2024-11-08 06:51:19.303 +09:00 [INF] Received: hello from 2
+2024-11-08 06:51:19.313 +09:00 [INF] Received: hello from 6
+2024-11-08 06:51:19.317 +09:00 [INF] Received: hello from 2
+2024-11-08 06:51:26.581 +09:00 [INF] Received: hello from 2
+2024-11-08 06:51:29.309 +09:00 [INF] Received: hello from 6
+2024-11-08 06:51:29.310 +09:00 [INF] Received: hello from 2
+2024-11-08 06:51:29.368 +09:00 [INF] Received: hello from 2
+2024-11-08 06:51:36.609 +09:00 [INF] Received: hello from 2
+2024-11-08 06:51:39.312 +09:00 [INF] Received: hello from 6
+2024-11-08 06:51:39.316 +09:00 [INF] Received: hello from 2
+2024-11-08 06:51:39.320 +09:00 [INF] Received: hello from 2
+2024-11-08 06:51:46.606 +09:00 [INF] Received: hello from 2
+2024-11-08 06:51:49.334 +09:00 [INF] Received: hello from 2
+2024-11-08 06:51:49.338 +09:00 [INF] Received: hello from 6
+2024-11-08 06:51:49.345 +09:00 [INF] Received: hello from 2
+2024-11-08 06:51:56.583 +09:00 [INF] Received: hello from 2
+2024-11-08 06:51:59.315 +09:00 [INF] Received: hello from 2
+2024-11-08 06:51:59.315 +09:00 [INF] Received: hello from 6
+2024-11-08 06:51:59.320 +09:00 [INF] Received: hello from 2
+2024-11-08 06:52:02.362 +09:00 [INF] Received: {"id":2,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 2
+2024-11-08 06:52:02.612 +09:00 [INF] 遭遇判定: 2と6
+2024-11-08 06:52:05.933 +09:00 [INF] Received: {"id":6,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 6
+2024-11-08 06:52:06.157 +09:00 [INF] 遭遇判定: 6と2
+2024-11-08 06:52:06.166 +09:00 [INF] [null]
+2024-11-08 06:52:06.171 +09:00 [INF] [null]
+2024-11-08 06:52:06.583 +09:00 [INF] Received: hello from 2
+2024-11-08 06:52:09.314 +09:00 [INF] Received: hello from 2
+2024-11-08 06:52:09.320 +09:00 [INF] Received: hello from 2
+2024-11-08 06:52:09.325 +09:00 [INF] Received: hello from 6
+2024-11-08 06:52:16.590 +09:00 [INF] Received: hello from 2
+2024-11-08 06:52:19.315 +09:00 [INF] Received: hello from 2
+2024-11-08 06:52:20.313 +09:00 [INF] Received: hello from 6
+2024-11-08 06:52:20.317 +09:00 [INF] Received: hello from 2
+2024-11-08 06:52:26.587 +09:00 [INF] Received: hello from 2
+2024-11-08 06:52:29.314 +09:00 [INF] Received: hello from 2
+2024-11-08 06:52:29.338 +09:00 [INF] Received: hello from 6
+2024-11-08 06:52:29.341 +09:00 [INF] Received: hello from 2
+2024-11-08 06:52:36.591 +09:00 [INF] Received: hello from 2
+2024-11-08 06:52:39.356 +09:00 [INF] Received: hello from 2
+2024-11-08 06:52:39.363 +09:00 [INF] Received: hello from 6
+2024-11-08 06:52:39.363 +09:00 [INF] Received: hello from 2
+2024-11-08 06:52:46.595 +09:00 [INF] Received: hello from 2
+2024-11-08 06:52:49.317 +09:00 [INF] Received: hello from 6
+2024-11-08 06:52:49.317 +09:00 [INF] Received: hello from 2
+2024-11-08 06:52:49.321 +09:00 [INF] Received: hello from 2
+2024-11-08 06:52:56.589 +09:00 [INF] Received: hello from 2
+2024-11-08 06:52:59.341 +09:00 [INF] Received: hello from 2
+2024-11-08 06:52:59.394 +09:00 [INF] Received: hello from 6
+2024-11-08 06:52:59.394 +09:00 [INF] Received: hello from 2
+2024-11-08 06:53:06.596 +09:00 [INF] Received: hello from 2
+2024-11-08 06:53:09.352 +09:00 [INF] Received: hello from 6
+2024-11-08 06:53:09.357 +09:00 [INF] Received: hello from 2
+2024-11-08 06:53:09.360 +09:00 [INF] Received: hello from 2
+2024-11-08 06:53:15.928 +09:00 [INF] Received: {"id":2,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 2
+2024-11-08 06:53:16.597 +09:00 [INF] Received: hello from 2
+2024-11-08 06:53:16.705 +09:00 [INF] 遭遇判定: 2と6
+2024-11-08 06:53:19.321 +09:00 [INF] Received: hello from 2
+2024-11-08 06:53:19.321 +09:00 [INF] Received: hello from 6
+2024-11-08 06:53:19.373 +09:00 [INF] Received: hello from 2
+2024-11-08 06:53:26.597 +09:00 [INF] Received: hello from 2
+2024-11-08 06:53:29.370 +09:00 [INF] Received: hello from 2
+2024-11-08 06:53:29.370 +09:00 [INF] Received: hello from 6
+2024-11-08 06:53:29.374 +09:00 [INF] Received: hello from 2
+2024-11-08 06:53:36.601 +09:00 [INF] Received: hello from 2
+2024-11-08 06:53:39.364 +09:00 [INF] Received: hello from 6
+2024-11-08 06:53:39.440 +09:00 [INF] Received: hello from 2
+2024-11-08 06:53:39.442 +09:00 [INF] Received: hello from 2
+2024-11-08 06:53:46.602 +09:00 [INF] Received: hello from 2
+2024-11-08 06:53:49.353 +09:00 [INF] Received: hello from 2
+2024-11-08 06:53:49.353 +09:00 [INF] Received: hello from 6
+2024-11-08 06:53:49.357 +09:00 [INF] Received: hello from 2
+2024-11-08 06:53:56.595 +09:00 [INF] Received: hello from 2
+2024-11-08 06:53:59.333 +09:00 [INF] Received: hello from 2
+2024-11-08 06:53:59.333 +09:00 [INF] Received: hello from 6
+2024-11-08 06:53:59.384 +09:00 [INF] Received: hello from 2
+2024-11-08 06:54:06.598 +09:00 [INF] Received: hello from 2
+2024-11-08 06:54:09.348 +09:00 [INF] Received: hello from 6
+2024-11-08 06:54:09.349 +09:00 [INF] Received: hello from 2
+2024-11-08 06:54:09.354 +09:00 [INF] Received: hello from 2
+2024-11-08 06:54:13.428 +09:00 [INF] Received: {"id":2,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 2
+2024-11-08 06:54:13.780 +09:00 [INF] 遭遇判定: 2と6
+2024-11-08 06:54:16.603 +09:00 [INF] Received: hello from 2
+2024-11-08 06:54:19.324 +09:00 [INF] Received: hello from 2
+2024-11-08 06:54:19.375 +09:00 [INF] Received: hello from 6
+2024-11-08 06:54:19.375 +09:00 [INF] Received: hello from 2
+2024-11-08 06:54:26.601 +09:00 [INF] Received: hello from 2
+2024-11-08 06:54:29.355 +09:00 [INF] Received: hello from 2
+2024-11-08 06:54:29.355 +09:00 [INF] Received: hello from 6
+2024-11-08 06:54:29.383 +09:00 [INF] Received: hello from 2
+2024-11-08 06:54:36.607 +09:00 [INF] Received: hello from 2
+2024-11-08 06:54:39.398 +09:00 [INF] Received: hello from 6
+2024-11-08 06:54:39.398 +09:00 [INF] Received: hello from 2
+2024-11-08 06:54:39.422 +09:00 [INF] Received: hello from 2
+2024-11-08 06:54:46.609 +09:00 [INF] Received: hello from 2
+2024-11-08 06:54:46.933 +09:00 [INF] Received: {"id":2,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 2
+2024-11-08 06:54:47.821 +09:00 [INF] 遭遇判定: 2と6
+2024-11-08 06:54:49.376 +09:00 [INF] Received: hello from 2
+2024-11-08 06:54:49.429 +09:00 [INF] Received: hello from 6
+2024-11-08 06:54:49.432 +09:00 [INF] Received: hello from 2
+2024-11-08 06:54:56.605 +09:00 [INF] Received: hello from 2
+2024-11-08 06:54:59.338 +09:00 [INF] Received: hello from 6
+2024-11-08 06:54:59.338 +09:00 [INF] Received: hello from 2
+2024-11-08 06:54:59.388 +09:00 [INF] Received: hello from 2
+2024-11-08 06:55:06.604 +09:00 [INF] Received: hello from 2
+2024-11-08 06:55:09.338 +09:00 [INF] Received: hello from 2
+2024-11-08 06:55:09.338 +09:00 [INF] Received: hello from 6
+2024-11-08 06:55:09.341 +09:00 [INF] Received: hello from 2
+2024-11-08 06:55:16.607 +09:00 [INF] Received: hello from 2
+2024-11-08 06:55:19.356 +09:00 [INF] Received: hello from 2
+2024-11-08 06:55:19.356 +09:00 [INF] Received: hello from 6
+2024-11-08 06:55:19.359 +09:00 [INF] Received: hello from 2
+2024-11-08 06:55:26.610 +09:00 [INF] Received: hello from 2
+2024-11-08 06:55:29.334 +09:00 [INF] Received: hello from 2
+2024-11-08 06:55:29.338 +09:00 [INF] Received: hello from 6
+2024-11-08 06:55:29.338 +09:00 [INF] Received: hello from 2
+2024-11-08 06:55:34.507 +09:00 [INF] Received: {"id":2,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 2
+2024-11-08 06:55:34.871 +09:00 [INF] 遭遇判定: 2と6
+2024-11-08 06:55:36.607 +09:00 [INF] Received: hello from 2
+2024-11-08 06:55:39.342 +09:00 [INF] Received: hello from 6
+2024-11-08 06:55:39.342 +09:00 [INF] Received: hello from 2
+2024-11-08 06:55:39.367 +09:00 [INF] Received: hello from 2
+2024-11-08 06:55:45.141 +09:00 [INF] Received: {"id":6,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 6
+2024-11-08 06:55:45.446 +09:00 [INF] 遭遇判定: 6と2
+2024-11-08 06:55:45.448 +09:00 [INF] count1
+2024-11-08 06:55:45.450 +09:00 [INF] [null]
+2024-11-08 06:55:45.452 +09:00 [INF] [null]
+2024-11-08 06:55:46.614 +09:00 [INF] Received: hello from 2
+2024-11-08 06:55:49.339 +09:00 [INF] Received: hello from 2
+2024-11-08 06:55:49.339 +09:00 [INF] Received: hello from 6
+2024-11-08 06:55:49.396 +09:00 [INF] Received: hello from 2
+2024-11-08 06:55:56.610 +09:00 [INF] Received: hello from 2
+2024-11-08 06:55:59.339 +09:00 [INF] Received: hello from 6
+2024-11-08 06:55:59.344 +09:00 [INF] Received: hello from 2
+2024-11-08 06:55:59.346 +09:00 [INF] Received: hello from 2
+2024-11-08 06:56:06.614 +09:00 [INF] Received: hello from 2
+2024-11-08 06:56:09.339 +09:00 [INF] Received: hello from 2
+2024-11-08 06:56:09.342 +09:00 [INF] Received: hello from 6
+2024-11-08 06:56:09.419 +09:00 [INF] Received: hello from 2
+2024-11-08 06:56:16.644 +09:00 [INF] Received: hello from 2
+2024-11-08 06:56:19.361 +09:00 [INF] Received: hello from 2
+2024-11-08 06:56:19.394 +09:00 [INF] Received: hello from 6
+2024-11-08 06:56:19.394 +09:00 [INF] Received: hello from 2
+2024-11-08 06:56:26.614 +09:00 [INF] Received: hello from 2
+2024-11-08 06:56:29.339 +09:00 [INF] Received: hello from 2
+2024-11-08 06:56:29.339 +09:00 [INF] Received: hello from 6
+2024-11-08 06:56:29.341 +09:00 [INF] Received: hello from 2
+2024-11-08 06:56:36.621 +09:00 [INF] Received: hello from 2
+2024-11-08 06:56:39.362 +09:00 [INF] Received: hello from 2
+2024-11-08 06:56:39.364 +09:00 [INF] Received: hello from 6
+2024-11-08 06:56:39.366 +09:00 [INF] Received: hello from 2
+2024-11-08 06:56:46.614 +09:00 [INF] Received: hello from 2
+2024-11-08 06:56:49.368 +09:00 [INF] Received: hello from 2
+2024-11-08 06:56:49.368 +09:00 [INF] Received: hello from 6
+2024-11-08 06:56:49.392 +09:00 [INF] Received: hello from 2
+2024-11-08 06:56:56.617 +09:00 [INF] Received: hello from 2
+2024-11-08 06:56:59.368 +09:00 [INF] Received: hello from 6
+2024-11-08 06:56:59.429 +09:00 [INF] Received: hello from 2
+2024-11-08 06:56:59.455 +09:00 [INF] Received: hello from 2
+2024-11-08 06:57:00.085 +09:00 [INF] Received: {"id":2,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 2
+2024-11-08 06:57:01.001 +09:00 [INF] 遭遇判定: 2と6
+2024-11-08 06:57:03.442 +09:00 [INF] Received: {"id":6,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 6
+2024-11-08 06:57:03.546 +09:00 [INF] 遭遇判定: 6と2
+2024-11-08 06:57:03.552 +09:00 [INF] count1
+2024-11-08 06:57:03.556 +09:00 [INF] [null]
+2024-11-08 06:57:03.562 +09:00 [INF] [null]
+2024-11-08 06:57:06.766 +09:00 [INF] Received: hello from 2
+2024-11-08 06:57:09.402 +09:00 [INF] Received: hello from 2
+2024-11-08 06:57:09.402 +09:00 [INF] Received: hello from 6
+2024-11-08 06:57:09.454 +09:00 [INF] Received: hello from 2
+2024-11-08 06:57:16.622 +09:00 [INF] Received: hello from 2
+2024-11-08 06:57:19.348 +09:00 [INF] Received: hello from 2
+2024-11-08 06:57:19.352 +09:00 [INF] Received: hello from 2
+2024-11-08 06:57:19.355 +09:00 [INF] Received: hello from 6
+2024-11-08 06:57:26.627 +09:00 [INF] Received: hello from 2
+2024-11-08 06:57:29.348 +09:00 [INF] Received: hello from 2
+2024-11-08 06:57:29.352 +09:00 [INF] Received: hello from 6
+2024-11-08 06:57:29.355 +09:00 [INF] Received: hello from 2
+2024-11-08 06:57:36.622 +09:00 [INF] Received: hello from 2
+2024-11-08 06:57:39.345 +09:00 [INF] Received: hello from 2
+2024-11-08 06:57:39.347 +09:00 [INF] Received: hello from 6
+2024-11-08 06:57:39.349 +09:00 [INF] Received: hello from 2
+2024-11-08 06:57:46.624 +09:00 [INF] Received: hello from 2
+2024-11-08 06:57:49.355 +09:00 [INF] Received: hello from 2
+2024-11-08 06:57:49.385 +09:00 [INF] Received: hello from 2
+2024-11-08 06:57:49.415 +09:00 [INF] Received: hello from 6
+2024-11-08 06:57:56.667 +09:00 [INF] Received: hello from 2
+2024-11-08 06:57:59.354 +09:00 [INF] Received: hello from 6
+2024-11-08 06:57:59.354 +09:00 [INF] Received: hello from 2
+2024-11-08 06:57:59.387 +09:00 [INF] Received: hello from 2
+2024-11-08 06:58:03.523 +09:00 [INF] Received: {"id":6,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 6
+2024-11-08 06:58:03.640 +09:00 [INF] 遭遇判定: 6と2
+2024-11-08 06:58:03.644 +09:00 [INF] count1
+2024-11-08 06:58:03.648 +09:00 [INF] [null]
+2024-11-08 06:58:03.651 +09:00 [INF] [null]
+2024-11-08 06:58:06.628 +09:00 [INF] Received: hello from 2
+2024-11-08 06:58:09.383 +09:00 [INF] Received: hello from 2
+2024-11-08 06:58:09.384 +09:00 [INF] Received: hello from 6
+2024-11-08 06:58:09.435 +09:00 [INF] Received: hello from 2
+2024-11-08 06:58:16.630 +09:00 [INF] Received: hello from 2
+2024-11-08 06:58:19.392 +09:00 [INF] Received: hello from 6
+2024-11-08 06:58:19.395 +09:00 [INF] Received: hello from 2
+2024-11-08 06:58:19.472 +09:00 [INF] Received: hello from 2
+2024-11-08 06:58:26.629 +09:00 [INF] Received: hello from 2
+2024-11-08 06:58:29.361 +09:00 [INF] Received: hello from 6
+2024-11-08 06:58:29.366 +09:00 [INF] Received: hello from 2
+2024-11-08 06:58:29.371 +09:00 [INF] Received: hello from 2
+2024-11-08 06:58:36.635 +09:00 [INF] Received: hello from 2
+2024-11-08 06:58:39.357 +09:00 [INF] Received: hello from 2
+2024-11-08 06:58:39.360 +09:00 [INF] Received: hello from 6
+2024-11-08 06:58:39.363 +09:00 [INF] Received: hello from 2
+2024-11-08 06:58:46.636 +09:00 [INF] Received: hello from 2
+2024-11-08 06:58:49.359 +09:00 [INF] Received: hello from 2
+2024-11-08 06:58:49.361 +09:00 [INF] Received: hello from 2
+2024-11-08 06:58:49.363 +09:00 [INF] Received: hello from 6
+2024-11-08 06:58:56.630 +09:00 [INF] Received: hello from 2
+2024-11-08 06:58:59.361 +09:00 [INF] Received: hello from 2
+2024-11-08 06:58:59.361 +09:00 [INF] Received: hello from 6
+2024-11-08 06:58:59.414 +09:00 [INF] Received: hello from 2
+2024-11-08 06:59:06.640 +09:00 [INF] Received: hello from 2
+2024-11-08 06:59:09.362 +09:00 [INF] Received: hello from 2
+2024-11-08 06:59:09.362 +09:00 [INF] Received: hello from 6
+2024-11-08 06:59:09.475 +09:00 [INF] Received: hello from 2
+2024-11-08 06:59:16.636 +09:00 [INF] Received: hello from 2
+2024-11-08 06:59:19.420 +09:00 [INF] Received: hello from 6
+2024-11-08 06:59:19.420 +09:00 [INF] Received: hello from 2
+2024-11-08 06:59:19.427 +09:00 [INF] Received: hello from 2
+2024-11-08 06:59:26.632 +09:00 [INF] Received: hello from 2
+2024-11-08 06:59:29.435 +09:00 [INF] Received: hello from 6
+2024-11-08 06:59:29.487 +09:00 [INF] Received: hello from 2
+2024-11-08 06:59:29.518 +09:00 [INF] Received: hello from 2
+2024-11-08 06:59:36.638 +09:00 [INF] Received: hello from 2
+2024-11-08 06:59:39.365 +09:00 [INF] Received: hello from 6
+2024-11-08 06:59:39.365 +09:00 [INF] Received: hello from 2
+2024-11-08 06:59:39.394 +09:00 [INF] Received: hello from 2
+2024-11-08 06:59:46.638 +09:00 [INF] Received: hello from 2
+2024-11-08 06:59:49.374 +09:00 [INF] Received: hello from 2
+2024-11-08 06:59:49.374 +09:00 [INF] Received: hello from 6
+2024-11-08 06:59:49.377 +09:00 [INF] Received: hello from 2
+2024-11-08 06:59:56.651 +09:00 [INF] Received: hello from 2
+2024-11-08 06:59:59.376 +09:00 [INF] Received: hello from 2
+2024-11-08 06:59:59.379 +09:00 [INF] Received: hello from 6
+2024-11-08 06:59:59.384 +09:00 [INF] Received: hello from 2
+2024-11-08 07:00:06.638 +09:00 [INF] Received: hello from 2
+2024-11-08 07:00:09.400 +09:00 [INF] Received: hello from 2
+2024-11-08 07:00:09.400 +09:00 [INF] Received: hello from 6
+2024-11-08 07:00:09.403 +09:00 [INF] Received: hello from 2
+2024-11-08 07:00:16.642 +09:00 [INF] Received: hello from 2
+2024-11-08 07:00:19.372 +09:00 [INF] Received: hello from 2
+2024-11-08 07:00:19.377 +09:00 [INF] Received: hello from 6
+2024-11-08 07:00:19.380 +09:00 [INF] Received: hello from 2
+2024-11-08 07:00:26.641 +09:00 [INF] Received: hello from 2
+2024-11-08 07:00:29.380 +09:00 [INF] Received: hello from 6
+2024-11-08 07:00:30.376 +09:00 [INF] Received: hello from 2
+2024-11-08 07:00:30.380 +09:00 [INF] Received: hello from 2
+2024-11-08 07:00:36.645 +09:00 [INF] Received: hello from 2
+2024-11-08 07:00:39.377 +09:00 [INF] Received: hello from 2
+2024-11-08 07:00:39.382 +09:00 [INF] Received: hello from 2
+2024-11-08 07:00:39.387 +09:00 [INF] Received: hello from 6
+2024-11-08 07:00:46.642 +09:00 [INF] Received: hello from 2
+2024-11-08 07:00:49.380 +09:00 [INF] Received: hello from 2
+2024-11-08 07:00:49.561 +09:00 [INF] Received: hello from 6
+2024-11-08 07:00:49.564 +09:00 [INF] Received: hello from 2
+2024-11-08 07:00:56.643 +09:00 [INF] Received: hello from 2
+2024-11-08 07:00:59.391 +09:00 [INF] Received: hello from 2
+2024-11-08 07:00:59.391 +09:00 [INF] Received: hello from 6
+2024-11-08 07:00:59.437 +09:00 [INF] Received: hello from 2
+2024-11-08 07:01:06.652 +09:00 [INF] Received: hello from 2
+2024-11-08 07:01:09.358 +09:00 [INF] Received: {"id":2,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 2
+2024-11-08 07:01:09.385 +09:00 [INF] Received: hello from 6
+2024-11-08 07:01:09.410 +09:00 [INF] Received: hello from 2
+2024-11-08 07:01:09.414 +09:00 [INF] Received: hello from 2
+2024-11-08 07:01:10.266 +09:00 [INF] 遭遇判定: 2と6
+2024-11-08 07:01:16.649 +09:00 [INF] Received: hello from 2
+2024-11-08 07:01:19.410 +09:00 [INF] Received: hello from 6
+2024-11-08 07:01:19.564 +09:00 [INF] Received: hello from 2
+2024-11-08 07:01:19.568 +09:00 [INF] Received: hello from 2
+2024-11-08 07:01:26.641 +09:00 [INF] Received: hello from 2
+2024-11-08 07:01:29.388 +09:00 [INF] Received: hello from 2
+2024-11-08 07:01:29.388 +09:00 [INF] Received: hello from 6
+2024-11-08 07:01:29.391 +09:00 [INF] Received: hello from 2
+2024-11-08 07:01:36.642 +09:00 [INF] Received: hello from 2
+2024-11-08 07:01:39.382 +09:00 [INF] Received: hello from 2
+2024-11-08 07:01:39.387 +09:00 [INF] Received: hello from 2
+2024-11-08 07:01:39.387 +09:00 [INF] Received: hello from 6
+2024-11-08 07:01:46.641 +09:00 [INF] Received: hello from 2
+2024-11-08 07:01:49.377 +09:00 [INF] Received: hello from 2
+2024-11-08 07:01:49.380 +09:00 [INF] Received: hello from 6
+2024-11-08 07:01:49.382 +09:00 [INF] Received: hello from 2
+2024-11-08 07:01:56.642 +09:00 [INF] Received: hello from 2
+2024-11-08 07:01:59.379 +09:00 [INF] Received: hello from 2
+2024-11-08 07:01:59.380 +09:00 [INF] Received: hello from 2
+2024-11-08 07:01:59.383 +09:00 [INF] Received: hello from 6
+2024-11-08 07:02:06.645 +09:00 [INF] Received: hello from 2
+2024-11-08 07:02:09.383 +09:00 [INF] Received: hello from 6
+2024-11-08 07:02:09.387 +09:00 [INF] Received: hello from 2
+2024-11-08 07:02:09.390 +09:00 [INF] Received: hello from 2
+2024-11-08 07:02:16.646 +09:00 [INF] Received: hello from 2
+2024-11-08 07:02:19.405 +09:00 [INF] Received: hello from 2
+2024-11-08 07:02:19.509 +09:00 [INF] Received: hello from 6
+2024-11-08 07:02:19.639 +09:00 [INF] Received: hello from 2
+2024-11-08 07:02:26.640 +09:00 [INF] Received: hello from 2
+2024-11-08 07:02:29.391 +09:00 [INF] Received: hello from 6
+2024-11-08 07:02:29.391 +09:00 [INF] Received: hello from 2
+2024-11-08 07:02:29.417 +09:00 [INF] Received: hello from 2
+2024-11-08 07:02:36.657 +09:00 [INF] Received: hello from 2
+2024-11-08 07:02:39.406 +09:00 [INF] Received: hello from 6
+2024-11-08 07:02:39.415 +09:00 [INF] Received: hello from 2
+2024-11-08 07:02:39.440 +09:00 [INF] Received: hello from 2
+2024-11-08 07:02:46.642 +09:00 [INF] Received: hello from 2
+2024-11-08 07:02:49.487 +09:00 [INF] Received: hello from 6
+2024-11-08 07:02:49.487 +09:00 [INF] Received: hello from 2
+2024-11-08 07:02:49.535 +09:00 [INF] Received: hello from 2
+2024-11-08 07:02:49.702 +09:00 [INF] Received: {"id":6,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 6
+2024-11-08 07:02:49.953 +09:00 [INF] 遭遇判定: 6と2
+2024-11-08 07:02:49.957 +09:00 [INF] [null]
+2024-11-08 07:02:49.960 +09:00 [INF] [null]
+2024-11-08 07:02:56.646 +09:00 [INF] Received: hello from 2
+2024-11-08 07:02:59.416 +09:00 [INF] Received: hello from 6
+2024-11-08 07:02:59.568 +09:00 [INF] Received: hello from 2
+2024-11-08 07:02:59.573 +09:00 [INF] Received: hello from 2
+2024-11-08 07:03:06.645 +09:00 [INF] Received: hello from 2
+2024-11-08 07:03:09.390 +09:00 [INF] Received: hello from 6
+2024-11-08 07:03:09.395 +09:00 [INF] Received: hello from 2
+2024-11-08 07:03:09.402 +09:00 [INF] Received: hello from 2
+2024-11-08 07:03:16.643 +09:00 [INF] Received: hello from 2
+2024-11-08 07:03:19.397 +09:00 [INF] Received: hello from 2
+2024-11-08 07:03:19.397 +09:00 [INF] Received: hello from 6
+2024-11-08 07:03:19.402 +09:00 [INF] Received: hello from 2
+2024-11-08 07:03:26.650 +09:00 [INF] Received: hello from 2
+2024-11-08 07:03:29.437 +09:00 [INF] Received: hello from 6
+2024-11-08 07:03:29.439 +09:00 [INF] Received: hello from 2
+2024-11-08 07:03:29.468 +09:00 [INF] Received: hello from 2
+2024-11-08 07:03:36.649 +09:00 [INF] Received: hello from 2
+2024-11-08 07:03:39.394 +09:00 [INF] Received: hello from 2
+2024-11-08 07:03:39.394 +09:00 [INF] Received: hello from 6
+2024-11-08 07:03:39.444 +09:00 [INF] Received: hello from 2
+2024-11-08 07:03:46.649 +09:00 [INF] Received: hello from 2
+2024-11-08 07:03:49.397 +09:00 [INF] Received: hello from 6
+2024-11-08 07:03:49.397 +09:00 [INF] Received: hello from 2
+2024-11-08 07:03:49.447 +09:00 [INF] Received: hello from 2
+2024-11-08 07:03:56.651 +09:00 [INF] Received: hello from 2
+2024-11-08 07:03:59.463 +09:00 [INF] Received: hello from 2
+2024-11-08 07:03:59.463 +09:00 [INF] Received: hello from 6
+2024-11-08 07:03:59.561 +09:00 [INF] Received: hello from 2
+2024-11-08 07:04:06.673 +09:00 [INF] Received: hello from 2
+2024-11-08 07:04:09.418 +09:00 [INF] Received: hello from 6
+2024-11-08 07:04:09.419 +09:00 [INF] Received: hello from 2
+2024-11-08 07:04:09.492 +09:00 [INF] Received: hello from 2
+2024-11-08 07:04:16.655 +09:00 [INF] Received: hello from 2
+2024-11-08 07:04:19.396 +09:00 [INF] Received: hello from 2
+2024-11-08 07:04:19.396 +09:00 [INF] Received: hello from 6
+2024-11-08 07:04:19.498 +09:00 [INF] Received: hello from 2
+2024-11-08 07:04:26.656 +09:00 [INF] Received: hello from 2
+2024-11-08 07:04:29.398 +09:00 [INF] Received: hello from 2
+2024-11-08 07:04:29.398 +09:00 [INF] Received: hello from 6
+2024-11-08 07:04:29.473 +09:00 [INF] Received: hello from 2
+2024-11-08 07:04:36.653 +09:00 [INF] Received: hello from 2
+2024-11-08 07:04:39.448 +09:00 [INF] Received: hello from 6
+2024-11-08 07:04:39.450 +09:00 [INF] Received: hello from 2
+2024-11-08 07:04:39.480 +09:00 [INF] Received: hello from 2
+2024-11-08 07:04:46.656 +09:00 [INF] Received: hello from 2
+2024-11-08 07:04:49.448 +09:00 [INF] Received: hello from 2
+2024-11-08 07:04:49.450 +09:00 [INF] Received: hello from 6
+2024-11-08 07:04:49.480 +09:00 [INF] Received: hello from 2
+2024-11-08 07:04:56.656 +09:00 [INF] Received: hello from 2
+2024-11-08 07:04:59.402 +09:00 [INF] Received: hello from 6
+2024-11-08 07:04:59.408 +09:00 [INF] Received: hello from 2
+2024-11-08 07:04:59.480 +09:00 [INF] Received: hello from 2
+2024-11-08 07:05:06.658 +09:00 [INF] Received: hello from 2
+2024-11-08 07:05:09.400 +09:00 [INF] Received: hello from 2
+2024-11-08 07:05:09.405 +09:00 [INF] Received: hello from 6
+2024-11-08 07:05:09.489 +09:00 [INF] Received: hello from 2
+2024-11-08 07:05:16.659 +09:00 [INF] Received: hello from 2
+2024-11-08 07:05:19.401 +09:00 [INF] Received: hello from 6
+2024-11-08 07:05:19.405 +09:00 [INF] Received: hello from 2
+2024-11-08 07:05:19.490 +09:00 [INF] Received: hello from 2
+2024-11-08 07:05:26.707 +09:00 [INF] Received: hello from 2
+2024-11-08 07:05:29.405 +09:00 [INF] Received: hello from 2
+2024-11-08 07:05:29.410 +09:00 [INF] Received: hello from 6
+2024-11-08 07:05:29.492 +09:00 [INF] Received: hello from 2
+2024-11-08 07:05:36.692 +09:00 [INF] Received: hello from 2
+2024-11-08 07:05:39.404 +09:00 [INF] Received: hello from 2
+2024-11-08 07:05:39.405 +09:00 [INF] Received: hello from 6
+2024-11-08 07:05:39.493 +09:00 [INF] Received: hello from 2
+2024-11-08 07:05:46.660 +09:00 [INF] Received: hello from 2
+2024-11-08 07:05:49.484 +09:00 [INF] Received: hello from 2
+2024-11-08 07:05:49.484 +09:00 [INF] Received: hello from 6
+2024-11-08 07:05:49.493 +09:00 [INF] Received: hello from 2
+2024-11-08 07:05:56.661 +09:00 [INF] Received: hello from 2
+2024-11-08 07:05:59.403 +09:00 [INF] Received: hello from 6
+2024-11-08 07:05:59.406 +09:00 [INF] Received: hello from 2
+2024-11-08 07:05:59.517 +09:00 [INF] Received: hello from 2
+2024-11-08 07:06:06.668 +09:00 [INF] Received: hello from 2
+2024-11-08 07:06:09.431 +09:00 [INF] Received: hello from 6
+2024-11-08 07:06:09.431 +09:00 [INF] Received: hello from 2
+2024-11-08 07:06:09.494 +09:00 [INF] Received: hello from 2
+2024-11-08 07:06:24.595 +09:00 [INF] User profile is available. Using '/Users/takuto/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2024-11-08 07:06:24.655 +09:00 [INF] Now listening on: http://[::]:5050
+2024-11-08 07:06:24.658 +09:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-08 07:06:24.660 +09:00 [INF] Hosting environment: Development
+2024-11-08 07:06:24.660 +09:00 [INF] Content root path: /Users/takuto/Code/BATTARI-api
+2024-11-08 07:07:00.092 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 07:07:00.217 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 07:07:00.230 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 07:07:00.278 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 07:07:00.281 +09:00 [INF] 2:WebSocket接続開始
+2024-11-08 07:07:10.310 +09:00 [INF] Received: hello from 2
+2024-11-08 07:07:20.303 +09:00 [INF] Received: hello from 2
+2024-11-08 07:07:30.304 +09:00 [INF] Received: hello from 2
+2024-11-08 07:07:40.306 +09:00 [INF] Received: hello from 2
+2024-11-08 07:07:44.676 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 07:07:44.724 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 07:07:44.755 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 07:07:44.759 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 07:07:44.761 +09:00 [INF] 6:WebSocket接続開始
+2024-11-08 07:07:50.308 +09:00 [INF] Received: hello from 2
+2024-11-08 07:07:54.798 +09:00 [INF] Received: hello from 6
+2024-11-08 07:07:58.984 +09:00 [INF] Request starting HTTP/1.1 GET http://localhost:5050/ - null null
+2024-11-08 07:07:58.994 +09:00 [INF] Executing endpoint 'BATTARI_api.Controllers.HomeController.Index (BATTARI-api)'
+2024-11-08 07:07:58.999 +09:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BATTARI_api.Controllers.HomeController (BATTARI-api).
+2024-11-08 07:07:59.003 +09:00 [INF] Executing action method BATTARI_api.Controllers.HomeController.Index (BATTARI-api) - Validation state: "Valid"
+2024-11-08 07:07:59.672 +09:00 [INF] Executed action method BATTARI_api.Controllers.HomeController.Index (BATTARI-api), returned result Microsoft.AspNetCore.Mvc.ViewResult in 661.8963ms.
+2024-11-08 07:07:59.678 +09:00 [INF] Executing ViewResult, running view Index.
+2024-11-08 07:07:59.803 +09:00 [INF] Executed ViewResult - view Index executed in 123.8065ms.
+2024-11-08 07:07:59.805 +09:00 [INF] Executed action BATTARI_api.Controllers.HomeController.Index (BATTARI-api) in 804.6042ms
+2024-11-08 07:07:59.806 +09:00 [INF] Executed endpoint 'BATTARI_api.Controllers.HomeController.Index (BATTARI-api)'
+2024-11-08 07:07:59.810 +09:00 [INF] Request finished HTTP/1.1 GET http://localhost:5050/ - 200 null text/html; charset=utf-8 826.301ms
+2024-11-08 07:07:59.974 +09:00 [INF] Request starting HTTP/1.1 GET http://localhost:5050/lib/jquery/dist/jquery.min.js - null null
+2024-11-08 07:07:59.974 +09:00 [INF] Request starting HTTP/1.1 GET http://localhost:5050/lib/bootstrap/dist/css/bootstrap.min.css - null null
+2024-11-08 07:07:59.974 +09:00 [INF] Request starting HTTP/1.1 GET http://localhost:5050/lib/bootstrap/dist/js/bootstrap.bundle.min.js - null null
+2024-11-08 07:07:59.974 +09:00 [INF] Request starting HTTP/1.1 GET http://localhost:5050/BATTARI_api.styles.css - null null
+2024-11-08 07:07:59.978 +09:00 [INF] Request finished HTTP/1.1 GET http://localhost:5050/BATTARI_api.styles.css - 404 0 null 34.0772ms
+2024-11-08 07:07:59.980 +09:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5050/BATTARI_api.styles.css, Response status code: 404
+2024-11-08 07:08:00.071 +09:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/js/bootstrap.bundle.min.js'. Physical path: '/Users/takuto/Code/BATTARI-api/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js'
+2024-11-08 07:08:00.071 +09:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.min.css'. Physical path: '/Users/takuto/Code/BATTARI-api/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css'
+2024-11-08 07:08:00.071 +09:00 [INF] Sending file. Request path: '/lib/jquery/dist/jquery.min.js'. Physical path: '/Users/takuto/Code/BATTARI-api/wwwroot/lib/jquery/dist/jquery.min.js'
+2024-11-08 07:08:00.100 +09:00 [INF] Request finished HTTP/1.1 GET http://localhost:5050/lib/bootstrap/dist/js/bootstrap.bundle.min.js - 200 78468 text/javascript 127.4561ms
+2024-11-08 07:08:00.100 +09:00 [INF] Request finished HTTP/1.1 GET http://localhost:5050/lib/jquery/dist/jquery.min.js - 200 89501 text/javascript 127.9719ms
+2024-11-08 07:08:00.100 +09:00 [INF] Request finished HTTP/1.1 GET http://localhost:5050/lib/bootstrap/dist/css/bootstrap.min.css - 200 162720 text/css 127.7769ms
+2024-11-08 07:08:00.308 +09:00 [INF] Received: hello from 2
+2024-11-08 07:08:01.188 +09:00 [INF] Request starting HTTP/1.1 GET http://localhost:5050/swagger/index.html - null null
+2024-11-08 07:08:01.266 +09:00 [INF] Request finished HTTP/1.1 GET http://localhost:5050/swagger/index.html - 200 null text/html;charset=utf-8 80.4747ms
+2024-11-08 07:08:01.313 +09:00 [INF] Request starting HTTP/1.1 GET http://localhost:5050/swagger/swagger-ui-bundle.js - null null
+2024-11-08 07:08:01.313 +09:00 [INF] Request starting HTTP/1.1 GET http://localhost:5050/swagger/swagger-ui.css - null null
+2024-11-08 07:08:01.314 +09:00 [INF] Request starting HTTP/1.1 GET http://localhost:5050/swagger/swagger-ui-standalone-preset.js - null null
+2024-11-08 07:08:01.399 +09:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2024-11-08 07:08:01.400 +09:00 [INF] Request finished HTTP/1.1 GET http://localhost:5050/swagger/swagger-ui.css - 200 152034 text/css 90.7749ms
+2024-11-08 07:08:01.449 +09:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2024-11-08 07:08:01.474 +09:00 [INF] Request finished HTTP/1.1 GET http://localhost:5050/swagger/swagger-ui-standalone-preset.js - 200 230280 text/javascript 140.9937ms
+2024-11-08 07:08:01.558 +09:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2024-11-08 07:08:01.583 +09:00 [INF] Request finished HTTP/1.1 GET http://localhost:5050/swagger/swagger-ui-bundle.js - 200 1456926 text/javascript 255.2884ms
+2024-11-08 07:08:01.718 +09:00 [INF] Request starting HTTP/1.1 GET http://localhost:5050/swagger/v1/swagger.json - null null
+2024-11-08 07:08:01.853 +09:00 [INF] Request finished HTTP/1.1 GET http://localhost:5050/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 135.3008ms
+2024-11-08 07:08:04.790 +09:00 [INF] Received: hello from 6
+2024-11-08 07:08:10.308 +09:00 [INF] Received: hello from 2
+2024-11-08 07:08:14.767 +09:00 [INF] Received: hello from 6
+2024-11-08 07:08:20.313 +09:00 [INF] Received: hello from 2
+2024-11-08 07:08:24.769 +09:00 [INF] Received: hello from 6
+2024-11-08 07:08:27.582 +09:00 [INF] Request starting HTTP/1.1 GET http://localhost:5050/swagger/index.html - null null
+2024-11-08 07:08:27.589 +09:00 [INF] Request finished HTTP/1.1 GET http://localhost:5050/swagger/index.html - 200 null text/html;charset=utf-8 31.5455ms
+2024-11-08 07:08:27.763 +09:00 [INF] Request starting HTTP/1.1 GET http://localhost:5050/swagger/v1/swagger.json - null null
+2024-11-08 07:08:27.788 +09:00 [INF] Request finished HTTP/1.1 GET http://localhost:5050/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 28.6463ms
+2024-11-08 07:08:30.315 +09:00 [INF] Received: hello from 2
+2024-11-08 07:08:34.772 +09:00 [INF] Received: hello from 6
+2024-11-08 07:08:40.311 +09:00 [INF] Received: hello from 2
+2024-11-08 07:08:49.180 +09:00 [INF] User profile is available. Using '/Users/takuto/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2024-11-08 07:08:49.242 +09:00 [INF] Now listening on: http://[::]:5050
+2024-11-08 07:08:49.246 +09:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-08 07:08:49.248 +09:00 [INF] Hosting environment: Development
+2024-11-08 07:08:49.249 +09:00 [INF] Content root path: /Users/takuto/Code/BATTARI-api
+2024-11-08 07:08:51.426 +09:00 [INF] Request starting HTTP/1.1 GET http://localhost:5050/swagger/index.html - null null
+2024-11-08 07:08:51.509 +09:00 [INF] Request finished HTTP/1.1 GET http://localhost:5050/swagger/index.html - 200 null text/html;charset=utf-8 106.7102ms
+2024-11-08 07:08:51.704 +09:00 [INF] Request starting HTTP/1.1 GET http://localhost:5050/swagger/v1/swagger.json - null null
+2024-11-08 07:08:51.919 +09:00 [INF] Request finished HTTP/1.1 GET http://localhost:5050/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 217.4786ms
+2024-11-08 07:09:20.648 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 07:09:20.781 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 07:09:20.796 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 07:09:20.854 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 07:09:20.857 +09:00 [INF] 6:WebSocket接続開始
+2024-11-08 07:09:30.885 +09:00 [INF] Received: hello from 6
+2024-11-08 07:09:36.458 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 07:09:36.470 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 07:09:36.472 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 07:09:36.477 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 07:09:36.478 +09:00 [INF] 2:WebSocket接続開始
+2024-11-08 07:09:38.622 +09:00 [INF] Request starting HTTP/1.1 POST http://localhost:5050/Developer/TryParseSouguuMaterials?materials=%7B%22id%22%3A6%2C%22isWelcome%22%3Afalse%2C%22incredients%22%3A%5B%7B%22type%22%3A%22app%22%2C%22appData%22%3A%7B%22appName%22%3A%22hakondate%22%2C%22useTime%22%3A5%7D%7D%5D%7D - null 0
+2024-11-08 07:09:38.654 +09:00 [INF] Executing endpoint 'BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api)'
+2024-11-08 07:09:38.667 +09:00 [INF] Route matched with {action = "TryParseSouguuMaterials", controller = "Developer"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult TryParseSouguuMaterials(System.String) on controller BATTARI_api.Controllers.DeveloperController (BATTARI-api).
+2024-11-08 07:09:38.678 +09:00 [INF] Executing action method BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api) - Validation state: "Valid"
+2024-11-08 07:09:38.700 +09:00 [INF] Executed action method BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 14.2735ms.
+2024-11-08 07:09:38.708 +09:00 [INF] Executing OkObjectResult, writing value of type 'BATTARI_api.Models.DTO.SouguuWebsocketDto'.
+2024-11-08 07:09:38.719 +09:00 [INF] Executed action BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api) in 45.9772ms
+2024-11-08 07:09:38.720 +09:00 [INF] Executed endpoint 'BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api)'
+2024-11-08 07:09:38.722 +09:00 [INF] Request finished HTTP/1.1 POST http://localhost:5050/Developer/TryParseSouguuMaterials?materials=%7B%22id%22%3A6%2C%22isWelcome%22%3Afalse%2C%22incredients%22%3A%5B%7B%22type%22%3A%22app%22%2C%22appData%22%3A%7B%22appName%22%3A%22hakondate%22%2C%22useTime%22%3A5%7D%7D%5D%7D - 200 null application/json; charset=utf-8 100.1604ms
+2024-11-08 07:09:40.923 +09:00 [INF] Received: hello from 6
+2024-11-08 07:09:46.488 +09:00 [INF] Received: hello from 2
+2024-11-08 07:09:50.878 +09:00 [INF] Received: hello from 6
+2024-11-08 07:09:56.485 +09:00 [INF] Received: hello from 2
+2024-11-08 07:10:00.884 +09:00 [INF] Received: hello from 6
+2024-11-08 07:10:06.486 +09:00 [INF] Received: hello from 2
+2024-11-08 07:10:10.885 +09:00 [INF] Received: hello from 6
+2024-11-08 07:10:16.491 +09:00 [INF] Received: hello from 2
+2024-11-08 07:10:20.928 +09:00 [INF] Received: hello from 6
+2024-11-08 07:10:26.515 +09:00 [INF] Received: hello from 2
+2024-11-08 07:10:30.890 +09:00 [INF] Received: hello from 6
+2024-11-08 07:10:36.492 +09:00 [INF] Received: hello from 2
+2024-11-08 07:10:40.891 +09:00 [INF] Received: hello from 6
+2024-11-08 07:10:46.494 +09:00 [INF] Received: hello from 2
+2024-11-08 07:10:50.892 +09:00 [INF] Received: hello from 6
+2024-11-08 07:10:56.495 +09:00 [INF] Received: hello from 2
+2024-11-08 07:11:00.893 +09:00 [INF] Received: hello from 6
+2024-11-08 07:11:06.496 +09:00 [INF] Received: hello from 2
+2024-11-08 07:11:10.890 +09:00 [INF] Received: hello from 6
+2024-11-08 07:11:22.963 +09:00 [INF] User profile is available. Using '/Users/takuto/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2024-11-08 07:11:23.019 +09:00 [INF] Now listening on: http://[::]:5050
+2024-11-08 07:11:23.023 +09:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-08 07:11:23.024 +09:00 [INF] Hosting environment: Development
+2024-11-08 07:11:23.025 +09:00 [INF] Content root path: /Users/takuto/Code/BATTARI-api
+2024-11-08 07:11:28.355 +09:00 [INF] Request starting HTTP/1.1 POST http://localhost:5050/Developer/TryParseSouguuMaterials?materials=%7B%22id%22%3A6%2C%22isWelcome%22%3Afalse%2C%22incredients%22%3A%5B%7B%22type%22%3A%22app%22%2C%22appData%22%3A%7B%22appName%22%3A%22hakondate%22%2C%22useTime%22%3A5%7D%7D%5D%7D - null 0
+2024-11-08 07:11:28.445 +09:00 [INF] Executing endpoint 'BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api)'
+2024-11-08 07:11:28.459 +09:00 [INF] Route matched with {action = "TryParseSouguuMaterials", controller = "Developer"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult TryParseSouguuMaterials(System.String) on controller BATTARI_api.Controllers.DeveloperController (BATTARI-api).
+2024-11-08 07:11:28.478 +09:00 [INF] Executing action method BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api) - Validation state: "Valid"
+2024-11-08 07:11:28.520 +09:00 [INF] Executed action method BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 33.8661ms.
+2024-11-08 07:11:28.527 +09:00 [INF] Executing OkObjectResult, writing value of type 'BATTARI_api.Models.DTO.SouguuWebsocketDto'.
+2024-11-08 07:11:28.549 +09:00 [INF] Executed action BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api) in 84.877ms
+2024-11-08 07:11:28.550 +09:00 [INF] Executed endpoint 'BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api)'
+2024-11-08 07:11:28.551 +09:00 [INF] Request finished HTTP/1.1 POST http://localhost:5050/Developer/TryParseSouguuMaterials?materials=%7B%22id%22%3A6%2C%22isWelcome%22%3Afalse%2C%22incredients%22%3A%5B%7B%22type%22%3A%22app%22%2C%22appData%22%3A%7B%22appName%22%3A%22hakondate%22%2C%22useTime%22%3A5%7D%7D%5D%7D - 200 null application/json; charset=utf-8 204.6338ms
+2024-11-08 07:11:29.536 +09:00 [INF] Request starting HTTP/1.1 POST http://localhost:5050/Developer/TryParseSouguuMaterials?materials=%7B%22id%22%3A6%2C%22isWelcome%22%3Afalse%2C%22incredients%22%3A%5B%7B%22type%22%3A%22app%22%2C%22appData%22%3A%7B%22appName%22%3A%22hakondate%22%2C%22useTime%22%3A5%7D%7D%5D%7D - null 0
+2024-11-08 07:11:29.544 +09:00 [INF] Executing endpoint 'BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api)'
+2024-11-08 07:11:29.549 +09:00 [INF] Route matched with {action = "TryParseSouguuMaterials", controller = "Developer"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult TryParseSouguuMaterials(System.String) on controller BATTARI_api.Controllers.DeveloperController (BATTARI-api).
+2024-11-08 07:11:29.556 +09:00 [INF] Executing action method BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api) - Validation state: "Valid"
+2024-11-08 07:11:29.561 +09:00 [INF] Executed action method BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 0.0972ms.
+2024-11-08 07:11:29.563 +09:00 [INF] Executing OkObjectResult, writing value of type 'BATTARI_api.Models.DTO.SouguuWebsocketDto'.
+2024-11-08 07:11:29.565 +09:00 [INF] Executed action BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api) in 14.2584ms
+2024-11-08 07:11:29.566 +09:00 [INF] Executed endpoint 'BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api)'
+2024-11-08 07:11:29.568 +09:00 [INF] Request finished HTTP/1.1 POST http://localhost:5050/Developer/TryParseSouguuMaterials?materials=%7B%22id%22%3A6%2C%22isWelcome%22%3Afalse%2C%22incredients%22%3A%5B%7B%22type%22%3A%22app%22%2C%22appData%22%3A%7B%22appName%22%3A%22hakondate%22%2C%22useTime%22%3A5%7D%7D%5D%7D - 200 null application/json; charset=utf-8 33.6112ms
+2024-11-08 07:11:30.367 +09:00 [INF] Request starting HTTP/1.1 POST http://localhost:5050/Developer/TryParseSouguuMaterials?materials=%7B%22id%22%3A6%2C%22isWelcome%22%3Afalse%2C%22incredients%22%3A%5B%7B%22type%22%3A%22app%22%2C%22appData%22%3A%7B%22appName%22%3A%22hakondate%22%2C%22useTime%22%3A5%7D%7D%5D%7D - null 0
+2024-11-08 07:11:30.372 +09:00 [INF] Executing endpoint 'BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api)'
+2024-11-08 07:11:30.374 +09:00 [INF] Route matched with {action = "TryParseSouguuMaterials", controller = "Developer"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult TryParseSouguuMaterials(System.String) on controller BATTARI_api.Controllers.DeveloperController (BATTARI-api).
+2024-11-08 07:11:30.380 +09:00 [INF] Executing action method BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api) - Validation state: "Valid"
+2024-11-08 07:11:30.384 +09:00 [INF] Executed action method BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 0.1694ms.
+2024-11-08 07:11:30.387 +09:00 [INF] Executing OkObjectResult, writing value of type 'BATTARI_api.Models.DTO.SouguuWebsocketDto'.
+2024-11-08 07:11:30.389 +09:00 [INF] Executed action BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api) in 12.728ms
+2024-11-08 07:11:30.391 +09:00 [INF] Executed endpoint 'BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api)'
+2024-11-08 07:11:30.394 +09:00 [INF] Request finished HTTP/1.1 POST http://localhost:5050/Developer/TryParseSouguuMaterials?materials=%7B%22id%22%3A6%2C%22isWelcome%22%3Afalse%2C%22incredients%22%3A%5B%7B%22type%22%3A%22app%22%2C%22appData%22%3A%7B%22appName%22%3A%22hakondate%22%2C%22useTime%22%3A5%7D%7D%5D%7D - 200 null application/json; charset=utf-8 27.2538ms
+2024-11-08 07:11:31.151 +09:00 [INF] Request starting HTTP/1.1 POST http://localhost:5050/Developer/TryParseSouguuMaterials?materials=%7B%22id%22%3A6%2C%22isWelcome%22%3Afalse%2C%22incredients%22%3A%5B%7B%22type%22%3A%22app%22%2C%22appData%22%3A%7B%22appName%22%3A%22hakondate%22%2C%22useTime%22%3A5%7D%7D%5D%7D - null 0
+2024-11-08 07:11:31.158 +09:00 [INF] Executing endpoint 'BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api)'
+2024-11-08 07:11:31.161 +09:00 [INF] Route matched with {action = "TryParseSouguuMaterials", controller = "Developer"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult TryParseSouguuMaterials(System.String) on controller BATTARI_api.Controllers.DeveloperController (BATTARI-api).
+2024-11-08 07:11:31.165 +09:00 [INF] Executing action method BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api) - Validation state: "Valid"
+2024-11-08 07:11:31.169 +09:00 [INF] Executed action method BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 0.0834ms.
+2024-11-08 07:11:31.173 +09:00 [INF] Executing OkObjectResult, writing value of type 'BATTARI_api.Models.DTO.SouguuWebsocketDto'.
+2024-11-08 07:11:31.176 +09:00 [INF] Executed action BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api) in 12.6577ms
+2024-11-08 07:11:31.178 +09:00 [INF] Executed endpoint 'BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api)'
+2024-11-08 07:11:31.180 +09:00 [INF] Request finished HTTP/1.1 POST http://localhost:5050/Developer/TryParseSouguuMaterials?materials=%7B%22id%22%3A6%2C%22isWelcome%22%3Afalse%2C%22incredients%22%3A%5B%7B%22type%22%3A%22app%22%2C%22appData%22%3A%7B%22appName%22%3A%22hakondate%22%2C%22useTime%22%3A5%7D%7D%5D%7D - 200 null application/json; charset=utf-8 30.445ms
+2024-11-08 07:11:31.884 +09:00 [INF] Request starting HTTP/1.1 POST http://localhost:5050/Developer/TryParseSouguuMaterials?materials=%7B%22id%22%3A6%2C%22isWelcome%22%3Afalse%2C%22incredients%22%3A%5B%7B%22type%22%3A%22app%22%2C%22appData%22%3A%7B%22appName%22%3A%22hakondate%22%2C%22useTime%22%3A5%7D%7D%5D%7D - null 0
+2024-11-08 07:11:31.890 +09:00 [INF] Executing endpoint 'BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api)'
+2024-11-08 07:11:31.893 +09:00 [INF] Route matched with {action = "TryParseSouguuMaterials", controller = "Developer"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult TryParseSouguuMaterials(System.String) on controller BATTARI_api.Controllers.DeveloperController (BATTARI-api).
+2024-11-08 07:11:31.897 +09:00 [INF] Executing action method BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api) - Validation state: "Valid"
+2024-11-08 07:11:31.899 +09:00 [INF] Executed action method BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 0.0863ms.
+2024-11-08 07:11:31.901 +09:00 [INF] Executing OkObjectResult, writing value of type 'BATTARI_api.Models.DTO.SouguuWebsocketDto'.
+2024-11-08 07:11:31.903 +09:00 [INF] Executed action BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api) in 8.5118ms
+2024-11-08 07:11:31.905 +09:00 [INF] Executed endpoint 'BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api)'
+2024-11-08 07:11:31.906 +09:00 [INF] Request finished HTTP/1.1 POST http://localhost:5050/Developer/TryParseSouguuMaterials?materials=%7B%22id%22%3A6%2C%22isWelcome%22%3Afalse%2C%22incredients%22%3A%5B%7B%22type%22%3A%22app%22%2C%22appData%22%3A%7B%22appName%22%3A%22hakondate%22%2C%22useTime%22%3A5%7D%7D%5D%7D - 200 null application/json; charset=utf-8 26.5696ms
+2024-11-08 07:11:32.673 +09:00 [INF] Request starting HTTP/1.1 POST http://localhost:5050/Developer/TryParseSouguuMaterials?materials=%7B%22id%22%3A6%2C%22isWelcome%22%3Afalse%2C%22incredients%22%3A%5B%7B%22type%22%3A%22app%22%2C%22appData%22%3A%7B%22appName%22%3A%22hakondate%22%2C%22useTime%22%3A5%7D%7D%5D%7D - null 0
+2024-11-08 07:11:32.678 +09:00 [INF] Executing endpoint 'BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api)'
+2024-11-08 07:11:32.680 +09:00 [INF] Route matched with {action = "TryParseSouguuMaterials", controller = "Developer"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult TryParseSouguuMaterials(System.String) on controller BATTARI_api.Controllers.DeveloperController (BATTARI-api).
+2024-11-08 07:11:32.683 +09:00 [INF] Executing action method BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api) - Validation state: "Valid"
+2024-11-08 07:11:32.686 +09:00 [INF] Executed action method BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 0.0747ms.
+2024-11-08 07:11:32.688 +09:00 [INF] Executing OkObjectResult, writing value of type 'BATTARI_api.Models.DTO.SouguuWebsocketDto'.
+2024-11-08 07:11:32.691 +09:00 [INF] Executed action BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api) in 8.4005ms
+2024-11-08 07:11:32.694 +09:00 [INF] Executed endpoint 'BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api)'
+2024-11-08 07:11:32.697 +09:00 [INF] Request finished HTTP/1.1 POST http://localhost:5050/Developer/TryParseSouguuMaterials?materials=%7B%22id%22%3A6%2C%22isWelcome%22%3Afalse%2C%22incredients%22%3A%5B%7B%22type%22%3A%22app%22%2C%22appData%22%3A%7B%22appName%22%3A%22hakondate%22%2C%22useTime%22%3A5%7D%7D%5D%7D - 200 null application/json; charset=utf-8 23.8389ms
+2024-11-08 07:12:00.140 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 07:12:00.226 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 07:12:00.231 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 07:12:00.281 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 07:12:00.284 +09:00 [INF] 2:WebSocket接続開始
+2024-11-08 07:12:04.734 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 07:12:04.742 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 07:12:04.744 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 07:12:04.751 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 07:12:04.756 +09:00 [INF] 6:WebSocket接続開始
+2024-11-08 07:12:10.313 +09:00 [INF] Received: hello from 2
+2024-11-08 07:12:14.770 +09:00 [INF] Received: hello from 6
+2024-11-08 07:12:17.064 +09:00 [INF] websocekt切断:CloseReceived
+2024-11-08 07:12:17.083 +09:00 [INF] Executed action method WebSocketController.Get (BATTARI-api), returned result Microsoft.AspNetCore.Mvc.EmptyResult in 16787.2746ms.
+2024-11-08 07:12:17.090 +09:00 [INF] Executed action WebSocketController.Get (BATTARI-api) in 16855.3248ms
+2024-11-08 07:12:17.092 +09:00 [INF] Executed endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 07:12:17.098 +09:00 [INF] Request finished HTTP/1.1 GET http://192.168.10.5:5050/ws - 101 null null 16958.3048ms
+2024-11-08 07:12:18.307 +09:00 [INF] websocekt切断:CloseReceived
+2024-11-08 07:12:18.311 +09:00 [INF] Executed action method WebSocketController.Get (BATTARI-api), returned result Microsoft.AspNetCore.Mvc.EmptyResult in 13555.7083ms.
+2024-11-08 07:12:18.315 +09:00 [INF] Executed action WebSocketController.Get (BATTARI-api) in 13567.5217ms
+2024-11-08 07:12:18.322 +09:00 [INF] Executed endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 07:12:18.326 +09:00 [INF] Request finished HTTP/1.1 GET http://192.168.10.5:5050/ws - 101 null null 13591.468ms
+2024-11-08 07:12:24.488 +09:00 [INF] Request starting HTTP/1.1 POST http://localhost:5050/Developer/TryParseSouguuMaterials?materials=%7B%22id%22%3A6%2C%22isWelcome%22%3Afalse%2C%22incredients%22%3A%5B%7B%22type%22%3A%22app%22%2C%22appData%22%3A%7B%22appName%22%3A%22hakondate%22%2C%22useTime%22%3A5%7D%7D%5D%7D - null 0
+2024-11-08 07:12:24.494 +09:00 [INF] Executing endpoint 'BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api)'
+2024-11-08 07:12:24.496 +09:00 [INF] Route matched with {action = "TryParseSouguuMaterials", controller = "Developer"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult TryParseSouguuMaterials(System.String) on controller BATTARI_api.Controllers.DeveloperController (BATTARI-api).
+2024-11-08 07:12:24.501 +09:00 [INF] Executing action method BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api) - Validation state: "Valid"
+2024-11-08 07:12:24.505 +09:00 [INF] Executed action method BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 1.4641ms.
+2024-11-08 07:12:24.508 +09:00 [INF] Executing OkObjectResult, writing value of type 'BATTARI_api.Models.DTO.SouguuWebsocketDto'.
+2024-11-08 07:12:24.511 +09:00 [INF] Executed action BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api) in 11.9017ms
+2024-11-08 07:12:24.513 +09:00 [INF] Executed endpoint 'BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api)'
+2024-11-08 07:12:24.516 +09:00 [INF] Request finished HTTP/1.1 POST http://localhost:5050/Developer/TryParseSouguuMaterials?materials=%7B%22id%22%3A6%2C%22isWelcome%22%3Afalse%2C%22incredients%22%3A%5B%7B%22type%22%3A%22app%22%2C%22appData%22%3A%7B%22appName%22%3A%22hakondate%22%2C%22useTime%22%3A5%7D%7D%5D%7D - 200 null application/json; charset=utf-8 28.2979ms
+2024-11-08 07:12:52.141 +09:00 [INF] Request starting HTTP/1.1 POST http://localhost:5050/Developer/TryParseSouguuMaterials?materials=%7B%22id%22%3A6%2C%22isWelcome%22%3Afalse%2C%22incredients%22%3A%5B%7B%22type%22%3A%22app%22%2C%22appData%22%3A%7B%22appName%22%3A%22hakondate%22%2C%22useTime%22%3A5%7D%7D%5D%7D - null 0
+2024-11-08 07:12:52.150 +09:00 [INF] Executing endpoint 'BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api)'
+2024-11-08 07:12:52.152 +09:00 [INF] Route matched with {action = "TryParseSouguuMaterials", controller = "Developer"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult TryParseSouguuMaterials(System.String) on controller BATTARI_api.Controllers.DeveloperController (BATTARI-api).
+2024-11-08 07:12:52.155 +09:00 [INF] Executing action method BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api) - Validation state: "Valid"
+2024-11-08 07:12:52.157 +09:00 [INF] Executed action method BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 0.5179ms.
+2024-11-08 07:12:52.159 +09:00 [INF] Executing OkObjectResult, writing value of type 'BATTARI_api.Models.DTO.SouguuWebsocketDto'.
+2024-11-08 07:12:52.161 +09:00 [INF] Executed action BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api) in 7.0775ms
+2024-11-08 07:12:52.164 +09:00 [INF] Executed endpoint 'BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api)'
+2024-11-08 07:12:52.168 +09:00 [INF] Request finished HTTP/1.1 POST http://localhost:5050/Developer/TryParseSouguuMaterials?materials=%7B%22id%22%3A6%2C%22isWelcome%22%3Afalse%2C%22incredients%22%3A%5B%7B%22type%22%3A%22app%22%2C%22appData%22%3A%7B%22appName%22%3A%22hakondate%22%2C%22useTime%22%3A5%7D%7D%5D%7D - 200 null application/json; charset=utf-8 51.9448ms
+2024-11-08 07:13:17.167 +09:00 [INF] Request starting HTTP/1.1 POST http://localhost:5050/Developer/TryParseSouguuMaterials?materials=%7B%22id%22%3A6%2C%22isWelcome%22%3Afalse%2C%22incredients%22%3A%5B%7B%22type%22%3A%22app%22%2C%22appData%22%3A%7B%22appName%22%3A%22hakondate%22%2C%22useTime%22%3A5%7D%7D%5D%7D - null 0
+2024-11-08 07:13:17.176 +09:00 [INF] Executing endpoint 'BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api)'
+2024-11-08 07:13:17.183 +09:00 [INF] Route matched with {action = "TryParseSouguuMaterials", controller = "Developer"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult TryParseSouguuMaterials(System.String) on controller BATTARI_api.Controllers.DeveloperController (BATTARI-api).
+2024-11-08 07:13:17.188 +09:00 [INF] Executing action method BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api) - Validation state: "Valid"
+2024-11-08 07:13:17.192 +09:00 [INF] Executed action method BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 0.9927ms.
+2024-11-08 07:13:17.194 +09:00 [INF] Executing OkObjectResult, writing value of type 'BATTARI_api.Models.DTO.SouguuWebsocketDto'.
+2024-11-08 07:13:17.196 +09:00 [INF] Executed action BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api) in 11.8369ms
+2024-11-08 07:13:17.199 +09:00 [INF] Executed endpoint 'BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api)'
+2024-11-08 07:13:17.201 +09:00 [INF] Request finished HTTP/1.1 POST http://localhost:5050/Developer/TryParseSouguuMaterials?materials=%7B%22id%22%3A6%2C%22isWelcome%22%3Afalse%2C%22incredients%22%3A%5B%7B%22type%22%3A%22app%22%2C%22appData%22%3A%7B%22appName%22%3A%22hakondate%22%2C%22useTime%22%3A5%7D%7D%5D%7D - 200 null application/json; charset=utf-8 61.856ms
+2024-11-08 07:13:40.101 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 07:13:40.131 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 07:13:40.133 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 07:13:40.137 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 07:13:40.139 +09:00 [INF] 2:WebSocket接続開始
+2024-11-08 07:13:43.818 +09:00 [INF] Request starting HTTP/1.1 POST http://localhost:5050/Developer/TryParseSouguuMaterials?materials=%7B%22id%22%3A6%2C%22isWelcome%22%3Afalse%2C%22incredients%22%3A%5B%7B%22type%22%3A%22app%22%2C%22appData%22%3A%7B%22appName%22%3A%22hakondate%22%2C%22useTime%22%3A5%7D%7D%5D%7D - null 0
+2024-11-08 07:13:43.832 +09:00 [INF] Executing endpoint 'BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api)'
+2024-11-08 07:13:43.840 +09:00 [INF] Route matched with {action = "TryParseSouguuMaterials", controller = "Developer"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult TryParseSouguuMaterials(System.String) on controller BATTARI_api.Controllers.DeveloperController (BATTARI-api).
+2024-11-08 07:13:43.844 +09:00 [INF] Executing action method BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api) - Validation state: "Valid"
+2024-11-08 07:13:43.850 +09:00 [INF] Executed action method BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 0.655ms.
+2024-11-08 07:13:43.853 +09:00 [INF] Executing OkObjectResult, writing value of type 'BATTARI_api.Models.DTO.SouguuWebsocketDto'.
+2024-11-08 07:13:43.877 +09:00 [INF] Executed action BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api) in 12.6836ms
+2024-11-08 07:13:43.881 +09:00 [INF] Executed endpoint 'BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api)'
+2024-11-08 07:13:43.888 +09:00 [INF] Request finished HTTP/1.1 POST http://localhost:5050/Developer/TryParseSouguuMaterials?materials=%7B%22id%22%3A6%2C%22isWelcome%22%3Afalse%2C%22incredients%22%3A%5B%7B%22type%22%3A%22app%22%2C%22appData%22%3A%7B%22appName%22%3A%22hakondate%22%2C%22useTime%22%3A5%7D%7D%5D%7D - 200 null application/json; charset=utf-8 69.0574ms
+2024-11-08 07:13:50.151 +09:00 [INF] Received: hello from 2
+2024-11-08 07:13:54.779 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 07:13:54.786 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 07:13:54.787 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 07:13:54.789 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 07:13:54.791 +09:00 [INF] 6:WebSocket接続開始
+2024-11-08 07:14:00.177 +09:00 [INF] Received: hello from 2
+2024-11-08 07:14:04.800 +09:00 [INF] Received: hello from 6
+2024-11-08 07:14:10.150 +09:00 [INF] Received: hello from 2
+2024-11-08 07:14:14.798 +09:00 [INF] Received: hello from 6
+2024-11-08 07:14:20.156 +09:00 [INF] Received: hello from 2
+2024-11-08 07:14:24.851 +09:00 [INF] Received: hello from 6
+2024-11-08 07:14:30.150 +09:00 [INF] Received: hello from 2
+2024-11-08 07:14:34.803 +09:00 [INF] Received: hello from 6
+2024-11-08 07:14:40.156 +09:00 [INF] Received: hello from 2
+2024-11-08 07:14:44.807 +09:00 [INF] Received: hello from 6
+2024-11-08 07:14:50.154 +09:00 [INF] Received: hello from 2
+2024-11-08 07:14:54.804 +09:00 [INF] Received: hello from 6
+2024-11-08 07:15:00.157 +09:00 [INF] Received: hello from 2
+2024-11-08 07:15:04.802 +09:00 [INF] Received: hello from 6
+2024-11-08 07:15:10.156 +09:00 [INF] Received: hello from 2
+2024-11-08 07:15:14.806 +09:00 [INF] Received: hello from 6
+2024-11-08 07:15:20.159 +09:00 [INF] Received: hello from 2
+2024-11-08 07:15:24.860 +09:00 [INF] Received: hello from 6
+2024-11-08 07:15:30.159 +09:00 [INF] Received: hello from 2
+2024-11-08 07:15:34.810 +09:00 [INF] Received: hello from 6
+2024-11-08 07:15:40.165 +09:00 [INF] Received: hello from 2
+2024-11-08 07:15:44.809 +09:00 [INF] Received: hello from 6
+2024-11-08 07:15:50.167 +09:00 [INF] Received: hello from 2
+2024-11-08 07:15:54.811 +09:00 [INF] Received: hello from 6
+2024-11-08 07:16:00.194 +09:00 [INF] Received: hello from 2
+2024-11-08 07:16:04.809 +09:00 [INF] Received: hello from 6
+2024-11-08 07:16:10.164 +09:00 [INF] Received: hello from 2
+2024-11-08 07:16:14.812 +09:00 [INF] Received: hello from 6
+2024-11-08 07:16:20.163 +09:00 [INF] Received: hello from 2
+2024-11-08 07:16:24.818 +09:00 [INF] Received: hello from 6
+2024-11-08 07:16:30.169 +09:00 [INF] Received: hello from 2
+2024-11-08 07:16:34.817 +09:00 [INF] Received: hello from 6
+2024-11-08 07:16:40.175 +09:00 [INF] Received: hello from 2
+2024-11-08 07:16:44.834 +09:00 [INF] Received: hello from 6
+2024-11-08 07:16:50.175 +09:00 [INF] Received: hello from 2
+2024-11-08 07:16:54.830 +09:00 [INF] Received: hello from 6
+2024-11-08 07:17:00.183 +09:00 [INF] Received: hello from 2
+2024-11-08 07:17:04.825 +09:00 [INF] Received: hello from 6
+2024-11-08 07:17:10.183 +09:00 [INF] Received: hello from 2
+2024-11-08 07:17:14.832 +09:00 [INF] Received: hello from 6
+2024-11-08 07:17:20.183 +09:00 [INF] Received: hello from 2
+2024-11-08 07:17:24.834 +09:00 [INF] Received: hello from 6
+2024-11-08 07:17:30.187 +09:00 [INF] Received: hello from 2
+2024-11-08 07:17:34.832 +09:00 [INF] Received: hello from 6
+2024-11-08 07:17:40.186 +09:00 [INF] Received: hello from 2
+2024-11-08 07:17:44.835 +09:00 [INF] Received: hello from 6
+2024-11-08 07:17:50.183 +09:00 [INF] Received: hello from 2
+2024-11-08 07:17:54.833 +09:00 [INF] Received: hello from 6
+2024-11-08 07:18:00.186 +09:00 [INF] Received: hello from 2
+2024-11-08 07:18:04.841 +09:00 [INF] Received: hello from 6
+2024-11-08 07:18:10.184 +09:00 [INF] Received: hello from 2
+2024-11-08 07:18:14.837 +09:00 [INF] Received: hello from 6
+2024-11-08 07:18:20.194 +09:00 [INF] Received: hello from 2
+2024-11-08 07:18:24.843 +09:00 [INF] Received: hello from 6
+2024-11-08 07:18:30.187 +09:00 [INF] Received: hello from 2
+2024-11-08 07:18:34.838 +09:00 [INF] Received: hello from 6
+2024-11-08 07:18:40.193 +09:00 [INF] Received: hello from 2
+2024-11-08 07:18:44.895 +09:00 [INF] Received: hello from 6
+2024-11-08 07:18:50.194 +09:00 [INF] Received: hello from 2
+2024-11-08 07:18:54.839 +09:00 [INF] Received: hello from 6
+2024-11-08 07:19:00.194 +09:00 [INF] Received: hello from 2
+2024-11-08 07:19:04.847 +09:00 [INF] Received: hello from 6
+2024-11-08 07:19:10.193 +09:00 [INF] Received: hello from 2
+2024-11-08 07:19:14.840 +09:00 [INF] Received: hello from 6
+2024-11-08 07:19:20.193 +09:00 [INF] Received: hello from 2
+2024-11-08 07:19:24.867 +09:00 [INF] Received: hello from 6
+2024-11-08 07:19:30.200 +09:00 [INF] Received: hello from 2
+2024-11-08 07:19:34.863 +09:00 [INF] Received: hello from 6
+2024-11-08 07:19:40.200 +09:00 [INF] Received: hello from 2
+2024-11-08 07:19:44.842 +09:00 [INF] Received: hello from 6
+2024-11-08 07:19:50.202 +09:00 [INF] Received: hello from 2
+2024-11-08 07:19:54.846 +09:00 [INF] Received: hello from 6
+2024-11-08 07:20:00.207 +09:00 [INF] Received: hello from 2
+2024-11-08 07:20:04.847 +09:00 [INF] Received: hello from 6
+2024-11-08 07:20:10.203 +09:00 [INF] Received: hello from 2
+2024-11-08 07:20:14.848 +09:00 [INF] Received: hello from 6
+2024-11-08 07:20:20.202 +09:00 [INF] Received: hello from 2
+2024-11-08 07:20:24.854 +09:00 [INF] Received: hello from 6
+2024-11-08 07:20:30.209 +09:00 [INF] Received: hello from 2
+2024-11-08 07:20:34.851 +09:00 [INF] Received: hello from 6
+2024-11-08 07:20:40.205 +09:00 [INF] Received: hello from 2
+2024-11-08 07:20:44.858 +09:00 [INF] Received: hello from 6
+2024-11-08 07:20:50.205 +09:00 [INF] Received: hello from 2
+2024-11-08 07:20:54.855 +09:00 [INF] Received: hello from 6
+2024-11-08 07:21:00.206 +09:00 [INF] Received: hello from 2
+2024-11-08 07:21:04.859 +09:00 [INF] Received: hello from 6
+2024-11-08 07:21:10.281 +09:00 [INF] Received: hello from 2
+2024-11-08 07:21:14.883 +09:00 [INF] Received: hello from 6
+2024-11-08 07:21:20.208 +09:00 [INF] Received: hello from 2
+2024-11-08 07:21:24.858 +09:00 [INF] Received: hello from 6
+2024-11-08 07:21:30.209 +09:00 [INF] Received: hello from 2
+2024-11-08 07:21:34.861 +09:00 [INF] Received: hello from 6
+2024-11-08 07:21:40.209 +09:00 [INF] Received: hello from 2
+2024-11-08 07:21:44.863 +09:00 [INF] Received: hello from 6
+2024-11-08 07:21:50.235 +09:00 [INF] Received: hello from 2
+2024-11-08 07:21:54.860 +09:00 [INF] Received: hello from 6
+2024-11-08 07:22:00.211 +09:00 [INF] Received: hello from 2
+2024-11-08 07:22:04.868 +09:00 [INF] Received: hello from 6
+2024-11-08 07:22:10.215 +09:00 [INF] Received: hello from 2
+2024-11-08 07:22:14.863 +09:00 [INF] Received: hello from 6
+2024-11-08 07:22:20.214 +09:00 [INF] Received: hello from 2
+2024-11-08 07:22:24.871 +09:00 [INF] Received: hello from 6
+2024-11-08 07:22:30.233 +09:00 [INF] Received: hello from 2
+2024-11-08 07:22:33.186 +09:00 [INF] Request starting HTTP/1.1 POST http://localhost:5050/Developer/TryParseSouguuMaterials?materials=%7B%22id%22%3A6%2C%22isWelcome%22%3Afalse%2C%22incredients%22%3A%5B%7B%22type%22%3A%22app%22%2C%22appData%22%3A%7B%22appName%22%3A%22hakondate%22%2C%22useTime%22%3A5%7D%7D%5D%7D - null 0
+2024-11-08 07:22:33.194 +09:00 [INF] Executing endpoint 'BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api)'
+2024-11-08 07:22:33.198 +09:00 [INF] Route matched with {action = "TryParseSouguuMaterials", controller = "Developer"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult TryParseSouguuMaterials(System.String) on controller BATTARI_api.Controllers.DeveloperController (BATTARI-api).
+2024-11-08 07:22:33.204 +09:00 [INF] Executing action method BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api) - Validation state: "Valid"
+2024-11-08 07:22:33.212 +09:00 [INF] Executed action method BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 0.5136ms.
+2024-11-08 07:22:33.215 +09:00 [INF] Executing OkObjectResult, writing value of type 'BATTARI_api.Models.DTO.SouguuWebsocketDto'.
+2024-11-08 07:22:33.220 +09:00 [INF] Executed action BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api) in 17.9502ms
+2024-11-08 07:22:33.221 +09:00 [INF] Executed endpoint 'BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api)'
+2024-11-08 07:22:33.223 +09:00 [INF] Request finished HTTP/1.1 POST http://localhost:5050/Developer/TryParseSouguuMaterials?materials=%7B%22id%22%3A6%2C%22isWelcome%22%3Afalse%2C%22incredients%22%3A%5B%7B%22type%22%3A%22app%22%2C%22appData%22%3A%7B%22appName%22%3A%22hakondate%22%2C%22useTime%22%3A5%7D%7D%5D%7D - 200 null application/json; charset=utf-8 39.4209ms
+2024-11-08 07:22:34.876 +09:00 [INF] Received: hello from 6
+2024-11-08 07:22:36.459 +09:00 [INF] Request starting HTTP/1.1 POST http://localhost:5050/Developer/TryParseSouguuMaterials?materials=%7B%22id%22%3A6%2C%22isWelcome%22%3Afalse%2C%22incredients%22%3A%5B%7B%22type%22%3A%22app%22%2C%22appData%22%3A%7B%22appName%22%3A%22hakondate%22%2C%22useTime%22%3A5%7D%7D%5D%7D - null 0
+2024-11-08 07:22:36.466 +09:00 [INF] Executing endpoint 'BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api)'
+2024-11-08 07:22:36.470 +09:00 [INF] Route matched with {action = "TryParseSouguuMaterials", controller = "Developer"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult TryParseSouguuMaterials(System.String) on controller BATTARI_api.Controllers.DeveloperController (BATTARI-api).
+2024-11-08 07:22:36.477 +09:00 [INF] Executing action method BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api) - Validation state: "Valid"
+2024-11-08 07:22:36.481 +09:00 [INF] Executed action method BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 0.115ms.
+2024-11-08 07:22:36.484 +09:00 [INF] Executing OkObjectResult, writing value of type 'BATTARI_api.Models.DTO.SouguuWebsocketDto'.
+2024-11-08 07:22:36.486 +09:00 [INF] Executed action BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api) in 14.17ms
+2024-11-08 07:22:36.491 +09:00 [INF] Executed endpoint 'BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api)'
+2024-11-08 07:22:36.494 +09:00 [INF] Request finished HTTP/1.1 POST http://localhost:5050/Developer/TryParseSouguuMaterials?materials=%7B%22id%22%3A6%2C%22isWelcome%22%3Afalse%2C%22incredients%22%3A%5B%7B%22type%22%3A%22app%22%2C%22appData%22%3A%7B%22appName%22%3A%22hakondate%22%2C%22useTime%22%3A5%7D%7D%5D%7D - 200 null application/json; charset=utf-8 40.1039ms
+2024-11-08 07:22:37.376 +09:00 [INF] Request starting HTTP/1.1 POST http://localhost:5050/Developer/TryParseSouguuMaterials?materials=%7B%22id%22%3A6%2C%22isWelcome%22%3Afalse%2C%22incredients%22%3A%5B%7B%22type%22%3A%22app%22%2C%22appData%22%3A%7B%22appName%22%3A%22hakondate%22%2C%22useTime%22%3A5%7D%7D%5D%7D - null 0
+2024-11-08 07:22:37.382 +09:00 [INF] Executing endpoint 'BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api)'
+2024-11-08 07:22:37.385 +09:00 [INF] Route matched with {action = "TryParseSouguuMaterials", controller = "Developer"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult TryParseSouguuMaterials(System.String) on controller BATTARI_api.Controllers.DeveloperController (BATTARI-api).
+2024-11-08 07:22:37.388 +09:00 [INF] Executing action method BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api) - Validation state: "Valid"
+2024-11-08 07:22:37.392 +09:00 [INF] Executed action method BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 0.1184ms.
+2024-11-08 07:22:37.394 +09:00 [INF] Executing OkObjectResult, writing value of type 'BATTARI_api.Models.DTO.SouguuWebsocketDto'.
+2024-11-08 07:22:37.398 +09:00 [INF] Executed action BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api) in 10.2169ms
+2024-11-08 07:22:37.402 +09:00 [INF] Executed endpoint 'BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api)'
+2024-11-08 07:22:37.407 +09:00 [INF] Request finished HTTP/1.1 POST http://localhost:5050/Developer/TryParseSouguuMaterials?materials=%7B%22id%22%3A6%2C%22isWelcome%22%3Afalse%2C%22incredients%22%3A%5B%7B%22type%22%3A%22app%22%2C%22appData%22%3A%7B%22appName%22%3A%22hakondate%22%2C%22useTime%22%3A5%7D%7D%5D%7D - 200 null application/json; charset=utf-8 29.8941ms
+2024-11-08 07:22:38.681 +09:00 [INF] Request starting HTTP/1.1 POST http://localhost:5050/Developer/TryParseSouguuMaterials?materials=%7B%22id%22%3A6%2C%22isWelcome%22%3Afalse%2C%22incredients%22%3A%5B%7B%22type%22%3A%22app%22%2C%22appData%22%3A%7B%22appName%22%3A%22hakondate%22%2C%22useTime%22%3A5%7D%7D%5D%7D - null 0
+2024-11-08 07:22:38.687 +09:00 [INF] Executing endpoint 'BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api)'
+2024-11-08 07:22:38.691 +09:00 [INF] Route matched with {action = "TryParseSouguuMaterials", controller = "Developer"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult TryParseSouguuMaterials(System.String) on controller BATTARI_api.Controllers.DeveloperController (BATTARI-api).
+2024-11-08 07:22:38.695 +09:00 [INF] Executing action method BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api) - Validation state: "Valid"
+2024-11-08 07:22:38.698 +09:00 [INF] Executed action method BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 0.0874ms.
+2024-11-08 07:22:38.701 +09:00 [INF] Executing OkObjectResult, writing value of type 'BATTARI_api.Models.DTO.SouguuWebsocketDto'.
+2024-11-08 07:22:38.703 +09:00 [INF] Executed action BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api) in 9.4829ms
+2024-11-08 07:22:38.706 +09:00 [INF] Executed endpoint 'BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api)'
+2024-11-08 07:22:38.709 +09:00 [INF] Request finished HTTP/1.1 POST http://localhost:5050/Developer/TryParseSouguuMaterials?materials=%7B%22id%22%3A6%2C%22isWelcome%22%3Afalse%2C%22incredients%22%3A%5B%7B%22type%22%3A%22app%22%2C%22appData%22%3A%7B%22appName%22%3A%22hakondate%22%2C%22useTime%22%3A5%7D%7D%5D%7D - 200 null application/json; charset=utf-8 28.264ms
+2024-11-08 07:22:39.159 +09:00 [INF] Request starting HTTP/1.1 POST http://localhost:5050/Developer/TryParseSouguuMaterials?materials=%7B%22id%22%3A6%2C%22isWelcome%22%3Afalse%2C%22incredients%22%3A%5B%7B%22type%22%3A%22app%22%2C%22appData%22%3A%7B%22appName%22%3A%22hakondate%22%2C%22useTime%22%3A5%7D%7D%5D%7D - null 0
+2024-11-08 07:22:39.163 +09:00 [INF] Executing endpoint 'BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api)'
+2024-11-08 07:22:39.166 +09:00 [INF] Route matched with {action = "TryParseSouguuMaterials", controller = "Developer"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult TryParseSouguuMaterials(System.String) on controller BATTARI_api.Controllers.DeveloperController (BATTARI-api).
+2024-11-08 07:22:39.171 +09:00 [INF] Executing action method BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api) - Validation state: "Valid"
+2024-11-08 07:22:39.175 +09:00 [INF] Executed action method BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 0.1419ms.
+2024-11-08 07:22:39.178 +09:00 [INF] Executing OkObjectResult, writing value of type 'BATTARI_api.Models.DTO.SouguuWebsocketDto'.
+2024-11-08 07:22:39.183 +09:00 [INF] Executed action BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api) in 12.6709ms
+2024-11-08 07:22:39.186 +09:00 [INF] Executed endpoint 'BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api)'
+2024-11-08 07:22:39.188 +09:00 [INF] Request finished HTTP/1.1 POST http://localhost:5050/Developer/TryParseSouguuMaterials?materials=%7B%22id%22%3A6%2C%22isWelcome%22%3Afalse%2C%22incredients%22%3A%5B%7B%22type%22%3A%22app%22%2C%22appData%22%3A%7B%22appName%22%3A%22hakondate%22%2C%22useTime%22%3A5%7D%7D%5D%7D - 200 null application/json; charset=utf-8 31.6136ms
+2024-11-08 07:22:39.419 +09:00 [INF] Request starting HTTP/1.1 POST http://localhost:5050/Developer/TryParseSouguuMaterials?materials=%7B%22id%22%3A6%2C%22isWelcome%22%3Afalse%2C%22incredients%22%3A%5B%7B%22type%22%3A%22app%22%2C%22appData%22%3A%7B%22appName%22%3A%22hakondate%22%2C%22useTime%22%3A5%7D%7D%5D%7D - null 0
+2024-11-08 07:22:39.425 +09:00 [INF] Executing endpoint 'BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api)'
+2024-11-08 07:22:39.427 +09:00 [INF] Route matched with {action = "TryParseSouguuMaterials", controller = "Developer"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult TryParseSouguuMaterials(System.String) on controller BATTARI_api.Controllers.DeveloperController (BATTARI-api).
+2024-11-08 07:22:39.429 +09:00 [INF] Executing action method BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api) - Validation state: "Valid"
+2024-11-08 07:22:39.431 +09:00 [INF] Executed action method BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 0.0817ms.
+2024-11-08 07:22:39.433 +09:00 [INF] Executing OkObjectResult, writing value of type 'BATTARI_api.Models.DTO.SouguuWebsocketDto'.
+2024-11-08 07:22:39.435 +09:00 [INF] Executed action BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api) in 6.1838ms
+2024-11-08 07:22:39.438 +09:00 [INF] Executed endpoint 'BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api)'
+2024-11-08 07:22:39.442 +09:00 [INF] Request finished HTTP/1.1 POST http://localhost:5050/Developer/TryParseSouguuMaterials?materials=%7B%22id%22%3A6%2C%22isWelcome%22%3Afalse%2C%22incredients%22%3A%5B%7B%22type%22%3A%22app%22%2C%22appData%22%3A%7B%22appName%22%3A%22hakondate%22%2C%22useTime%22%3A5%7D%7D%5D%7D - 200 null application/json; charset=utf-8 34.4803ms
+2024-11-08 07:22:39.619 +09:00 [INF] Request starting HTTP/1.1 POST http://localhost:5050/Developer/TryParseSouguuMaterials?materials=%7B%22id%22%3A6%2C%22isWelcome%22%3Afalse%2C%22incredients%22%3A%5B%7B%22type%22%3A%22app%22%2C%22appData%22%3A%7B%22appName%22%3A%22hakondate%22%2C%22useTime%22%3A5%7D%7D%5D%7D - null 0
+2024-11-08 07:22:39.623 +09:00 [INF] Executing endpoint 'BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api)'
+2024-11-08 07:22:39.624 +09:00 [INF] Route matched with {action = "TryParseSouguuMaterials", controller = "Developer"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult TryParseSouguuMaterials(System.String) on controller BATTARI_api.Controllers.DeveloperController (BATTARI-api).
+2024-11-08 07:22:39.626 +09:00 [INF] Executing action method BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api) - Validation state: "Valid"
+2024-11-08 07:22:39.628 +09:00 [INF] Executed action method BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 0.0655ms.
+2024-11-08 07:22:39.629 +09:00 [INF] Executing OkObjectResult, writing value of type 'BATTARI_api.Models.DTO.SouguuWebsocketDto'.
+2024-11-08 07:22:39.631 +09:00 [INF] Executed action BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api) in 5.2902ms
+2024-11-08 07:22:39.633 +09:00 [INF] Executed endpoint 'BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api)'
+2024-11-08 07:22:39.634 +09:00 [INF] Request finished HTTP/1.1 POST http://localhost:5050/Developer/TryParseSouguuMaterials?materials=%7B%22id%22%3A6%2C%22isWelcome%22%3Afalse%2C%22incredients%22%3A%5B%7B%22type%22%3A%22app%22%2C%22appData%22%3A%7B%22appName%22%3A%22hakondate%22%2C%22useTime%22%3A5%7D%7D%5D%7D - 200 null application/json; charset=utf-8 15.912ms
+2024-11-08 07:22:39.837 +09:00 [INF] Request starting HTTP/1.1 POST http://localhost:5050/Developer/TryParseSouguuMaterials?materials=%7B%22id%22%3A6%2C%22isWelcome%22%3Afalse%2C%22incredients%22%3A%5B%7B%22type%22%3A%22app%22%2C%22appData%22%3A%7B%22appName%22%3A%22hakondate%22%2C%22useTime%22%3A5%7D%7D%5D%7D - null 0
+2024-11-08 07:22:39.845 +09:00 [INF] Executing endpoint 'BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api)'
+2024-11-08 07:22:39.848 +09:00 [INF] Route matched with {action = "TryParseSouguuMaterials", controller = "Developer"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult TryParseSouguuMaterials(System.String) on controller BATTARI_api.Controllers.DeveloperController (BATTARI-api).
+2024-11-08 07:22:39.852 +09:00 [INF] Executing action method BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api) - Validation state: "Valid"
+2024-11-08 07:22:39.855 +09:00 [INF] Executed action method BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 0.1131ms.
+2024-11-08 07:22:39.858 +09:00 [INF] Executing OkObjectResult, writing value of type 'BATTARI_api.Models.DTO.SouguuWebsocketDto'.
+2024-11-08 07:22:39.861 +09:00 [INF] Executed action BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api) in 9.6332ms
+2024-11-08 07:22:39.862 +09:00 [INF] Executed endpoint 'BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api)'
+2024-11-08 07:22:39.865 +09:00 [INF] Request finished HTTP/1.1 POST http://localhost:5050/Developer/TryParseSouguuMaterials?materials=%7B%22id%22%3A6%2C%22isWelcome%22%3Afalse%2C%22incredients%22%3A%5B%7B%22type%22%3A%22app%22%2C%22appData%22%3A%7B%22appName%22%3A%22hakondate%22%2C%22useTime%22%3A5%7D%7D%5D%7D - 200 null application/json; charset=utf-8 29.0499ms
+2024-11-08 07:22:40.086 +09:00 [INF] Request starting HTTP/1.1 POST http://localhost:5050/Developer/TryParseSouguuMaterials?materials=%7B%22id%22%3A6%2C%22isWelcome%22%3Afalse%2C%22incredients%22%3A%5B%7B%22type%22%3A%22app%22%2C%22appData%22%3A%7B%22appName%22%3A%22hakondate%22%2C%22useTime%22%3A5%7D%7D%5D%7D - null 0
+2024-11-08 07:22:40.089 +09:00 [INF] Executing endpoint 'BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api)'
+2024-11-08 07:22:40.090 +09:00 [INF] Route matched with {action = "TryParseSouguuMaterials", controller = "Developer"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult TryParseSouguuMaterials(System.String) on controller BATTARI_api.Controllers.DeveloperController (BATTARI-api).
+2024-11-08 07:22:40.092 +09:00 [INF] Executing action method BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api) - Validation state: "Valid"
+2024-11-08 07:22:40.093 +09:00 [INF] Executed action method BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 0.047ms.
+2024-11-08 07:22:40.094 +09:00 [INF] Executing OkObjectResult, writing value of type 'BATTARI_api.Models.DTO.SouguuWebsocketDto'.
+2024-11-08 07:22:40.096 +09:00 [INF] Executed action BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api) in 4.0482ms
+2024-11-08 07:22:40.097 +09:00 [INF] Executed endpoint 'BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api)'
+2024-11-08 07:22:40.099 +09:00 [INF] Request finished HTTP/1.1 POST http://localhost:5050/Developer/TryParseSouguuMaterials?materials=%7B%22id%22%3A6%2C%22isWelcome%22%3Afalse%2C%22incredients%22%3A%5B%7B%22type%22%3A%22app%22%2C%22appData%22%3A%7B%22appName%22%3A%22hakondate%22%2C%22useTime%22%3A5%7D%7D%5D%7D - 200 null application/json; charset=utf-8 13.0936ms
+2024-11-08 07:22:40.212 +09:00 [INF] Received: hello from 2
+2024-11-08 07:22:44.871 +09:00 [INF] Received: hello from 6
+2024-11-08 07:22:50.218 +09:00 [INF] Received: hello from 2
+2024-11-08 07:22:54.869 +09:00 [INF] Received: hello from 6
+2024-11-08 07:23:00.220 +09:00 [INF] Received: hello from 2
+2024-11-08 07:23:04.869 +09:00 [INF] Received: hello from 6
+2024-11-08 07:23:10.216 +09:00 [INF] Received: hello from 2
+2024-11-08 07:23:14.907 +09:00 [INF] Received: hello from 6
+2024-11-08 07:23:20.220 +09:00 [INF] Received: hello from 2
+2024-11-08 07:23:24.873 +09:00 [INF] Received: hello from 6
+2024-11-08 07:23:30.220 +09:00 [INF] Received: hello from 2
+2024-11-08 07:23:34.875 +09:00 [INF] Received: hello from 6
+2024-11-08 07:23:40.221 +09:00 [INF] Received: hello from 2
+2024-11-08 07:23:44.875 +09:00 [INF] Received: hello from 6
+2024-11-08 07:23:50.227 +09:00 [INF] Received: hello from 2
+2024-11-08 07:23:54.894 +09:00 [INF] Received: hello from 6
+2024-11-08 07:24:00.227 +09:00 [INF] Received: hello from 2
+2024-11-08 07:24:04.875 +09:00 [INF] Received: hello from 6
+2024-11-08 07:24:10.224 +09:00 [INF] Received: hello from 2
+2024-11-08 07:24:14.883 +09:00 [INF] Received: hello from 6
+2024-11-08 07:24:20.275 +09:00 [INF] Received: hello from 2
+2024-11-08 07:24:24.879 +09:00 [INF] Received: hello from 6
+2024-11-08 07:24:30.229 +09:00 [INF] Received: hello from 2
+2024-11-08 07:24:34.884 +09:00 [INF] Received: hello from 6
+2024-11-08 07:24:40.230 +09:00 [INF] Received: hello from 2
+2024-11-08 07:24:41.308 +09:00 [INF] Request starting HTTP/1.1 POST http://localhost:5050/Developer/TryParseSouguuMaterials?materials=%7B%22id%22%3A6%2C%22isWelcome%22%3Afalse%2C%22incredients%22%3A%5B%7B%22type%22%3A%22app%22%2C%22appData%22%3A%7B%22appName%22%3A%22hakondate%22%2C%22useTime%22%3A5%7D%7D%5D%7D - null 0
+2024-11-08 07:24:41.318 +09:00 [INF] Executing endpoint 'BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api)'
+2024-11-08 07:24:41.322 +09:00 [INF] Route matched with {action = "TryParseSouguuMaterials", controller = "Developer"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult TryParseSouguuMaterials(System.String) on controller BATTARI_api.Controllers.DeveloperController (BATTARI-api).
+2024-11-08 07:24:41.328 +09:00 [INF] Executing action method BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api) - Validation state: "Valid"
+2024-11-08 07:24:41.333 +09:00 [INF] Executed action method BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 0.6305ms.
+2024-11-08 07:24:41.335 +09:00 [INF] Executing OkObjectResult, writing value of type 'BATTARI_api.Models.DTO.SouguuWebsocketDto'.
+2024-11-08 07:24:41.339 +09:00 [INF] Executed action BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api) in 13.2024ms
+2024-11-08 07:24:41.342 +09:00 [INF] Executed endpoint 'BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api)'
+2024-11-08 07:24:41.344 +09:00 [INF] Request finished HTTP/1.1 POST http://localhost:5050/Developer/TryParseSouguuMaterials?materials=%7B%22id%22%3A6%2C%22isWelcome%22%3Afalse%2C%22incredients%22%3A%5B%7B%22type%22%3A%22app%22%2C%22appData%22%3A%7B%22appName%22%3A%22hakondate%22%2C%22useTime%22%3A5%7D%7D%5D%7D - 200 null application/json; charset=utf-8 38.5626ms
+2024-11-08 07:24:44.879 +09:00 [INF] Received: hello from 6
+2024-11-08 07:24:50.228 +09:00 [INF] Received: hello from 2
+2024-11-08 07:24:54.878 +09:00 [INF] Received: hello from 6
+2024-11-08 07:25:00.237 +09:00 [INF] Received: hello from 2
+2024-11-08 07:25:04.884 +09:00 [INF] Received: hello from 6
+2024-11-08 07:25:10.234 +09:00 [INF] Received: hello from 2
+2024-11-08 07:25:14.885 +09:00 [INF] Received: hello from 6
+2024-11-08 07:25:20.234 +09:00 [INF] Received: hello from 2
+2024-11-08 07:25:22.547 +09:00 [INF] Request starting HTTP/1.1 POST http://localhost:5050/Developer/TryParseSouguuMaterials?materials=%7B%22id%22%3A6%2C%22isWelcome%22%3Afalse%2C%22incredients%22%3A%5B%7B%22type%22%3A%22app%22%2C%22appData%22%3A%7B%22appName%22%3A%22hakondate%22%2C%22useTime%22%3A5%7D%7D%5D%7D - null 0
+2024-11-08 07:25:22.554 +09:00 [INF] Executing endpoint 'BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api)'
+2024-11-08 07:25:22.558 +09:00 [INF] Route matched with {action = "TryParseSouguuMaterials", controller = "Developer"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult TryParseSouguuMaterials(System.String) on controller BATTARI_api.Controllers.DeveloperController (BATTARI-api).
+2024-11-08 07:25:22.563 +09:00 [INF] Executing action method BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api) - Validation state: "Valid"
+2024-11-08 07:25:22.568 +09:00 [INF] Executed action method BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 1.8545ms.
+2024-11-08 07:25:22.573 +09:00 [INF] Executing OkObjectResult, writing value of type 'BATTARI_api.Models.DTO.SouguuWebsocketDto'.
+2024-11-08 07:25:58.429 +09:00 [INF] User profile is available. Using '/Users/takuto/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2024-11-08 07:25:58.486 +09:00 [INF] Now listening on: http://[::]:5050
+2024-11-08 07:25:58.489 +09:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-08 07:25:58.491 +09:00 [INF] Hosting environment: Development
+2024-11-08 07:25:58.492 +09:00 [INF] Content root path: /Users/takuto/Code/BATTARI-api
+2024-11-08 07:26:02.931 +09:00 [INF] Request starting HTTP/1.1 POST http://localhost:5050/Developer/TryParseSouguuMaterials?materials=%7B%22id%22%3A6%2C%22isWelcome%22%3Afalse%2C%22incredients%22%3A%5B%7B%22type%22%3A%22app%22%2C%22appData%22%3A%7B%22appName%22%3A%22hakondate%22%2C%22useTime%22%3A5%7D%7D%5D%7D - null 0
+2024-11-08 07:26:03.011 +09:00 [INF] Executing endpoint 'BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api)'
+2024-11-08 07:26:03.026 +09:00 [INF] Route matched with {action = "TryParseSouguuMaterials", controller = "Developer"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult TryParseSouguuMaterials(System.String) on controller BATTARI_api.Controllers.DeveloperController (BATTARI-api).
+2024-11-08 07:26:03.046 +09:00 [INF] Executing action method BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api) - Validation state: "Valid"
+2024-11-08 07:26:03.085 +09:00 [INF] Executed action method BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 32.296ms.
+2024-11-08 07:26:03.093 +09:00 [INF] Executing OkObjectResult, writing value of type 'BATTARI_api.Models.DTO.SouguuWebsocketDto'.
+2024-11-08 07:26:03.114 +09:00 [INF] Executed action BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api) in 83.7051ms
+2024-11-08 07:26:03.115 +09:00 [INF] Executed endpoint 'BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api)'
+2024-11-08 07:26:03.117 +09:00 [INF] Request finished HTTP/1.1 POST http://localhost:5050/Developer/TryParseSouguuMaterials?materials=%7B%22id%22%3A6%2C%22isWelcome%22%3Afalse%2C%22incredients%22%3A%5B%7B%22type%22%3A%22app%22%2C%22appData%22%3A%7B%22appName%22%3A%22hakondate%22%2C%22useTime%22%3A5%7D%7D%5D%7D - 200 null application/json; charset=utf-8 190.3131ms
+2024-11-08 07:26:54.728 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 07:26:54.814 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 07:26:54.817 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 07:26:54.862 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 07:26:54.865 +09:00 [INF] 6:WebSocket接続開始
+2024-11-08 07:27:00.105 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 07:27:00.112 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 07:27:00.114 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 07:27:00.118 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 07:27:00.120 +09:00 [INF] 2:WebSocket接続開始
+2024-11-08 07:27:11.843 +09:00 [INF] User profile is available. Using '/Users/takuto/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2024-11-08 07:27:11.899 +09:00 [INF] Now listening on: http://[::]:5050
+2024-11-08 07:27:11.903 +09:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-08 07:27:11.904 +09:00 [INF] Hosting environment: Development
+2024-11-08 07:27:11.905 +09:00 [INF] Content root path: /Users/takuto/Code/BATTARI-api
+2024-11-08 07:27:12.647 +09:00 [INF] Request starting HTTP/1.1 POST http://localhost:5050/Developer/TryParseSouguuMaterials?materials=%7B%22id%22%3A6%2C%22isWelcome%22%3Afalse%2C%22incredients%22%3A%5B%7B%22type%22%3A%22app%22%2C%22appData%22%3A%7B%22appName%22%3A%22hakondate%22%2C%22useTime%22%3A5%7D%7D%5D%7D - null 0
+2024-11-08 07:27:12.747 +09:00 [INF] Executing endpoint 'BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api)'
+2024-11-08 07:27:12.761 +09:00 [INF] Route matched with {action = "TryParseSouguuMaterials", controller = "Developer"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult TryParseSouguuMaterials(System.String) on controller BATTARI_api.Controllers.DeveloperController (BATTARI-api).
+2024-11-08 07:27:12.779 +09:00 [INF] Executing action method BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api) - Validation state: "Valid"
+2024-11-08 07:27:12.820 +09:00 [INF] Executed action method BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 33.6792ms.
+2024-11-08 07:27:12.827 +09:00 [INF] Executing OkObjectResult, writing value of type 'BATTARI_api.Models.DTO.SouguuWebsocketDto'.
+2024-11-08 07:27:12.848 +09:00 [INF] Executed action BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api) in 82.5934ms
+2024-11-08 07:27:12.849 +09:00 [INF] Executed endpoint 'BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api)'
+2024-11-08 07:27:12.851 +09:00 [INF] Request finished HTTP/1.1 POST http://localhost:5050/Developer/TryParseSouguuMaterials?materials=%7B%22id%22%3A6%2C%22isWelcome%22%3Afalse%2C%22incredients%22%3A%5B%7B%22type%22%3A%22app%22%2C%22appData%22%3A%7B%22appName%22%3A%22hakondate%22%2C%22useTime%22%3A5%7D%7D%5D%7D - 200 null application/json; charset=utf-8 208.1762ms
+2024-11-08 07:28:14.777 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 07:28:14.850 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 07:28:14.854 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 07:28:14.902 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 07:28:14.905 +09:00 [INF] 6:WebSocket接続開始
+2024-11-08 07:28:20.067 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 07:28:20.075 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 07:28:20.078 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 07:28:20.084 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 07:28:20.086 +09:00 [INF] 2:WebSocket接続開始
+2024-11-08 07:28:24.935 +09:00 [INF] Received: hello from 6
+2024-11-08 07:28:30.105 +09:00 [INF] Received: hello from 2
+2024-11-08 07:28:34.923 +09:00 [INF] Received: hello from 6
+2024-11-08 07:28:40.098 +09:00 [INF] Received: hello from 2
+2024-11-08 07:28:44.921 +09:00 [INF] Received: hello from 6
+2024-11-08 07:28:50.098 +09:00 [INF] Received: hello from 2
+2024-11-08 07:28:54.927 +09:00 [INF] Received: hello from 6
+2024-11-08 07:29:00.099 +09:00 [INF] Received: hello from 2
+2024-11-08 07:29:03.079 +09:00 [INF] Request starting HTTP/1.1 POST http://localhost:5050/Developer/TryParseSouguuMaterials?materials=%7B%22id%22%3A6%2C%22isWelcome%22%3Afalse%2C%22incredients%22%3A%5B%7B%22type%22%3A%22app%22%2C%22appData%22%3A%7B%22appName%22%3A%22hakondate%22%2C%22useTime%22%3A5%7D%7D%5D%7D - null 0
+2024-11-08 07:29:03.088 +09:00 [INF] Executing endpoint 'BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api)'
+2024-11-08 07:29:03.091 +09:00 [INF] Route matched with {action = "TryParseSouguuMaterials", controller = "Developer"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult TryParseSouguuMaterials(System.String) on controller BATTARI_api.Controllers.DeveloperController (BATTARI-api).
+2024-11-08 07:29:03.096 +09:00 [INF] Executing action method BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api) - Validation state: "Valid"
+2024-11-08 07:29:03.098 +09:00 [INF] Executed action method BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 0.3682ms.
+2024-11-08 07:29:03.101 +09:00 [INF] Executing OkObjectResult, writing value of type 'BATTARI_api.Models.DTO.SouguuWebsocketDto'.
+2024-11-08 07:29:03.103 +09:00 [INF] Executed action BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api) in 10.3525ms
+2024-11-08 07:29:03.105 +09:00 [INF] Executed endpoint 'BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api)'
+2024-11-08 07:29:03.107 +09:00 [INF] Request finished HTTP/1.1 POST http://localhost:5050/Developer/TryParseSouguuMaterials?materials=%7B%22id%22%3A6%2C%22isWelcome%22%3Afalse%2C%22incredients%22%3A%5B%7B%22type%22%3A%22app%22%2C%22appData%22%3A%7B%22appName%22%3A%22hakondate%22%2C%22useTime%22%3A5%7D%7D%5D%7D - 200 null application/json; charset=utf-8 29.0864ms
+2024-11-08 07:29:04.933 +09:00 [INF] Received: hello from 6
+2024-11-08 07:29:10.108 +09:00 [INF] Received: hello from 2
+2024-11-08 07:29:14.931 +09:00 [INF] Received: hello from 6
+2024-11-08 07:29:30.093 +09:00 [INF] User profile is available. Using '/Users/takuto/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2024-11-08 07:29:30.151 +09:00 [INF] Now listening on: http://[::]:5050
+2024-11-08 07:29:30.155 +09:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-08 07:29:30.156 +09:00 [INF] Hosting environment: Development
+2024-11-08 07:29:30.157 +09:00 [INF] Content root path: /Users/takuto/Code/BATTARI-api
+2024-11-08 07:29:51.222 +09:00 [INF] Request starting HTTP/1.1 POST http://localhost:5050/Developer/TryParseSouguuMaterials?materials=%7B%22id%22%3A6%2C%22isWelcome%22%3Afalse%2C%22incredients%22%3A%5B%7B%22type%22%3A%22app%22%2C%22appData%22%3A%7B%22appName%22%3A%22hakondate%22%2C%22useTime%22%3A5%7D%7D%5D%7D - null 0
+2024-11-08 07:29:51.333 +09:00 [INF] Executing endpoint 'BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api)'
+2024-11-08 07:29:51.348 +09:00 [INF] Route matched with {action = "TryParseSouguuMaterials", controller = "Developer"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult TryParseSouguuMaterials(System.String) on controller BATTARI_api.Controllers.DeveloperController (BATTARI-api).
+2024-11-08 07:29:51.369 +09:00 [INF] Executing action method BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api) - Validation state: "Valid"
+2024-11-08 07:29:51.413 +09:00 [INF] Executed action method BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 36.2346ms.
+2024-11-08 07:29:51.421 +09:00 [INF] Executing OkObjectResult, writing value of type 'BATTARI_api.Models.DTO.SouguuWebsocketDto'.
+2024-11-08 07:29:51.444 +09:00 [INF] Executed action BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api) in 91.2233ms
+2024-11-08 07:29:51.445 +09:00 [INF] Executed endpoint 'BATTARI_api.Controllers.DeveloperController.TryParseSouguuMaterials (BATTARI-api)'
+2024-11-08 07:29:51.447 +09:00 [INF] Request finished HTTP/1.1 POST http://localhost:5050/Developer/TryParseSouguuMaterials?materials=%7B%22id%22%3A6%2C%22isWelcome%22%3Afalse%2C%22incredients%22%3A%5B%7B%22type%22%3A%22app%22%2C%22appData%22%3A%7B%22appName%22%3A%22hakondate%22%2C%22useTime%22%3A5%7D%7D%5D%7D - 200 null application/json; charset=utf-8 228.4304ms
+2024-11-08 07:30:50.148 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 07:30:50.230 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 07:30:50.234 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 07:30:50.280 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 07:30:50.283 +09:00 [INF] 2:WebSocket接続開始
+2024-11-08 07:30:54.673 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 07:30:54.679 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 07:30:54.680 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 07:30:54.684 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 07:30:54.685 +09:00 [INF] 6:WebSocket接続開始
+2024-11-08 07:31:00.303 +09:00 [INF] Received: hello from 2

@@ -42,6 +42,11 @@ public class UserOnlineConcurrentDictionaryDatabase(IFriendRepository friendRepo
 
     public async Task<IEnumerable<UserDto>> GetFriendAndOnlineUsers(int userIndex)
     {
+        var frind = await friendRepository.GetFriendList(userIndex);
+        foreach (var VARIABLE in frind)
+        {
+            Console.WriteLine(frind.ToString());
+        }
         var friends = (await friendRepository.GetFriendList(userIndex)).Where(
             (element) =>
             {

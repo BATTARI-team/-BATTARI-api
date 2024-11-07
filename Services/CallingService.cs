@@ -23,6 +23,7 @@ public class NowCallModel
     public DateTime CallStartTime { get; }
     public DateTime SouguuDateTime { get; }
     public string SouguuReason { get; }
+    public bool IsEnded => CallEndTime < DateTime.Now;
 
     public int BufferTimeBeforeCall => (CallEndTime - CallStartTime).Minutes;
 
@@ -46,5 +47,10 @@ public class CallingService
     public void AddCall(int callId, DateTime callStartTime, DateTime callEndTime, string souguuReason, int user1, string user1Token, int user2, string user2Token, string cancellationReason, DateTime souguuDateTime)
     {
         _userOnlineConcurrentDictionaryDatabase.TryAdd(callId, new NowCallModel(callStartTime, callId, callEndTime, souguuReason, user1, user1Token, user2, user2Token, cancellationReason, souguuDateTime));
+    }
+    
+    public IEnumerable<NowCallModel> GetNowCalls()
+    {
+        return _userOnlineConcurrentDictionaryDatabase.Values;
     }
 }

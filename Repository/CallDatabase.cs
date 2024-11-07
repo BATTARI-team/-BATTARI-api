@@ -10,10 +10,14 @@ public interface ICallRepository
 {
     public Task<CallModel> AddCall(string SouguuReason, DateTime callStartTime, int user1, int user2, DateTime? souguuDateTime = null, CallStatusEnum status = CallStatusEnum.Ended);
 }
+/// <summary>
+/// 過去の通話を全て管理するデータベースです
+/// </summary>
+/// <param name="context"></param>
 public class CallDatabase(UserContext context) : ICallRepository
 {
     /// <summary>
-    /// 
+    /// 通話の登録
     /// </summary>
     /// <param name="SouguuReason"></param>
     /// <param name="callStartTime"></param>
