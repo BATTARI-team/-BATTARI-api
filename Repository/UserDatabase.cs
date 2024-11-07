@@ -9,10 +9,14 @@ using webUserLoginTest.Util;
 namespace BATTARI_api.Repository;
 
 public class UserDatabase
-(UserContext userContext) : IUserRepository
+ : IUserRepository
 {
+    public UserDatabase(IServiceScopeFactory serviceScopeFactory)
+    {
+        _userContext = serviceScopeFactory.CreateScope().ServiceProvider.GetRequiredService<UserContext>();
+    }
     const string _pepper = "BATTARI";
-    private UserContext _userContext = userContext;
+    private UserContext _userContext;
 
     /// <summary>
     ///

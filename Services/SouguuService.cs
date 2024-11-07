@@ -8,6 +8,7 @@ using BATTARI_api.Models.Enum;
 using BATTARI_api.Models.Log;
 using BATTARI_api.Repository;
 using BATTARI_api.Services;
+using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Extensions;
 
@@ -28,12 +29,13 @@ public class SouguuService : ISouguuService
         _userOnlineConcurrentDictionaryDatabase = userOnlineConcurrentDictionaryDatabase;
         _callingService = callingService;
         _logger = logger;
+        Console.WriteLine("SouguuServiceが作成されました");
     }
     /// <summary>
     /// 遭遇判定するためのキュー
     /// </summary>
     private readonly ConcurrentQueue<int> _souguuQueue = new ConcurrentQueue<int>();
-    private readonly ConcurrentDictionary<int,SouguuWebsocketDto > _latestIncredient = new ConcurrentDictionary<int, SouguuWebsocketDto>();
+    public ConcurrentDictionary<int,SouguuWebsocketDto > _latestIncredient = new ConcurrentDictionary<int, SouguuWebsocketDto>();
     private Task _dequeueTask;
     
     /// <summary>
@@ -43,8 +45,11 @@ public class SouguuService : ISouguuService
     /// <param name="userIndex"></param>
     public async Task AddMaterial(SouguuWebsocketDto materials)
     {
-        _latestIncredient.AddOrUpdate(materials.id, i => materials, (i, model) => materials);
+        Console.WriteLine(_latestIncredient.Count);
+        _latestIncredient[materials.id] = materials;
+        Console.WriteLine("追加されました　from " + materials.id);
         await AddSouguuQueueElement(materials.id);
+        Console.WriteLine(_latestIncredient.Count);
     }
 
     private async Task AddSouguuQueueElement(int userIndex)
@@ -94,8 +99,10 @@ public class SouguuService : ISouguuService
     // #TODO 遭遇材料が古かったら，どうしよう
     private async Task SouguuCheck(int user1, int user2)
     {
+        return;
         _logger.LogInformation("遭遇判定: {user1}と{user2}", user1, user2);
         if (!_latestIncredient.ContainsKey(user2)) return;
+        Console.WriteLine("ここまで[{s");
         
         var user1Materials = _latestIncredient[user1];
         var user2Materials = _latestIncredient[user2];
@@ -115,6 +122,8 @@ public class SouguuService : ISouguuService
             user1AppUsage = model;
             break;
         }
+        Console.Write("user1AppUsage");
+        Console.WriteLine(user1AppUsage);
 
         SouguuAppIncredientModel? user2AppUsage = null;
         foreach (var VARIABLE in user2Materials.incredients)
@@ -123,9 +132,8 @@ public class SouguuService : ISouguuService
             user2AppUsage = model;
             break;
         }
-        _logger.LogInformation(user1AppUsage?.appData.appName);
-        _logger.LogInformation(user2AppUsage?.appData.appName);
         if(user1AppUsage == null || user2AppUsage == null) return;
+        _logger.LogInformation("ここまで");
         if (user1AppUsage.appData.appName == user2AppUsage.appData.appName)
         {
             await Souguu(user1, user2, SouguuReasonStatusEnum.App_Usage);

@@ -1811,3 +1811,1457 @@ System.ArgumentNullException: Value cannot be null. (Parameter 'logger')
 2024-11-08 07:30:54.684 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
 2024-11-08 07:30:54.685 +09:00 [INF] 6:WebSocket接続開始
 2024-11-08 07:31:00.303 +09:00 [INF] Received: hello from 2
+2024-11-08 07:31:04.692 +09:00 [INF] Received: hello from 6
+2024-11-08 07:31:10.301 +09:00 [INF] Received: hello from 2
+2024-11-08 07:31:14.712 +09:00 [INF] Received: hello from 6
+2024-11-08 07:31:20.358 +09:00 [INF] Received: hello from 2
+2024-11-08 07:31:20.416 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 07:31:20.426 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 07:31:20.428 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 07:31:20.457 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 07:31:20.459 +09:00 [INF] 6:WebSocket接続開始
+2024-11-08 07:31:21.742 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 07:31:21.753 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 07:31:21.756 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 07:31:21.758 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 07:31:21.761 +09:00 [INF] 2:WebSocket接続開始
+2024-11-08 07:31:24.697 +09:00 [INF] Received: hello from 6
+2024-11-08 07:31:30.308 +09:00 [INF] Received: hello from 2
+2024-11-08 07:31:30.475 +09:00 [INF] Received: hello from 6
+2024-11-08 07:31:31.776 +09:00 [INF] Received: hello from 2
+2024-11-08 07:31:34.706 +09:00 [INF] Received: hello from 6
+2024-11-08 07:31:40.346 +09:00 [INF] Received: hello from 2
+2024-11-08 07:31:40.488 +09:00 [INF] Received: hello from 6
+2024-11-08 07:31:41.792 +09:00 [INF] Received: hello from 2
+2024-11-08 07:31:44.719 +09:00 [INF] Received: hello from 6
+2024-11-08 07:31:50.330 +09:00 [INF] Received: hello from 2
+2024-11-08 07:31:50.492 +09:00 [INF] Received: hello from 6
+2024-11-08 07:31:51.793 +09:00 [INF] Received: hello from 2
+2024-11-08 07:31:54.726 +09:00 [INF] Received: hello from 6
+2024-11-08 07:32:00.335 +09:00 [INF] Received: hello from 2
+2024-11-08 07:32:00.495 +09:00 [INF] Received: hello from 6
+2024-11-08 07:32:01.798 +09:00 [INF] Received: hello from 2
+2024-11-08 07:32:04.722 +09:00 [INF] Received: hello from 6
+2024-11-08 07:32:10.335 +09:00 [INF] Received: hello from 2
+2024-11-08 07:32:10.500 +09:00 [INF] Received: hello from 6
+2024-11-08 07:32:11.805 +09:00 [INF] Received: hello from 2
+2024-11-08 07:32:14.727 +09:00 [INF] Received: hello from 6
+2024-11-08 07:32:20.338 +09:00 [INF] Received: hello from 2
+2024-11-08 07:32:20.503 +09:00 [INF] Received: hello from 6
+2024-11-08 07:32:21.801 +09:00 [INF] Received: hello from 2
+2024-11-08 07:32:24.730 +09:00 [INF] Received: hello from 6
+2024-11-08 07:32:30.336 +09:00 [INF] Received: hello from 2
+2024-11-08 07:32:30.504 +09:00 [INF] Received: hello from 6
+2024-11-08 07:32:31.802 +09:00 [INF] Received: hello from 2
+2024-11-08 07:32:34.730 +09:00 [INF] Received: hello from 6
+2024-11-08 07:32:40.339 +09:00 [INF] Received: hello from 2
+2024-11-08 07:32:40.505 +09:00 [INF] Received: hello from 6
+2024-11-08 07:32:41.807 +09:00 [INF] Received: hello from 2
+2024-11-08 07:32:44.731 +09:00 [INF] Received: hello from 6
+2024-11-08 07:32:50.339 +09:00 [INF] Received: hello from 2
+2024-11-08 07:32:50.505 +09:00 [INF] Received: hello from 6
+2024-11-08 07:32:51.807 +09:00 [INF] Received: hello from 2
+2024-11-08 07:32:54.735 +09:00 [INF] Received: hello from 6
+2024-11-08 07:33:00.344 +09:00 [INF] Received: hello from 2
+2024-11-08 07:33:00.505 +09:00 [INF] Received: hello from 6
+2024-11-08 07:33:01.808 +09:00 [INF] Received: hello from 2
+2024-11-08 07:33:04.773 +09:00 [INF] Received: hello from 6
+2024-11-08 07:33:10.344 +09:00 [INF] Received: hello from 2
+2024-11-08 07:33:10.508 +09:00 [INF] Received: hello from 6
+2024-11-08 07:33:11.809 +09:00 [INF] Received: hello from 2
+2024-11-08 07:33:14.739 +09:00 [INF] Received: hello from 6
+2024-11-08 07:33:20.347 +09:00 [INF] Received: hello from 2
+2024-11-08 07:33:20.509 +09:00 [INF] Received: hello from 6
+2024-11-08 07:33:21.809 +09:00 [INF] Received: hello from 2
+2024-11-08 07:33:24.736 +09:00 [INF] Received: hello from 6
+2024-11-08 07:33:30.351 +09:00 [INF] Received: hello from 2
+2024-11-08 07:33:30.510 +09:00 [INF] Received: hello from 6
+2024-11-08 07:33:31.809 +09:00 [INF] Received: hello from 2
+2024-11-08 07:33:34.742 +09:00 [INF] Received: hello from 6
+2024-11-08 07:33:40.350 +09:00 [INF] Received: hello from 2
+2024-11-08 07:33:40.510 +09:00 [INF] Received: hello from 6
+2024-11-08 07:33:41.814 +09:00 [INF] Received: hello from 2
+2024-11-08 07:33:44.744 +09:00 [INF] Received: hello from 6
+2024-11-08 07:33:50.352 +09:00 [INF] Received: hello from 2
+2024-11-08 07:33:50.572 +09:00 [INF] Received: hello from 6
+2024-11-08 07:33:51.814 +09:00 [INF] Received: hello from 2
+2024-11-08 07:33:54.741 +09:00 [INF] Received: hello from 6
+2024-11-08 07:34:00.348 +09:00 [INF] Received: hello from 2
+2024-11-08 07:34:00.512 +09:00 [INF] Received: hello from 6
+2024-11-08 07:34:01.813 +09:00 [INF] Received: hello from 2
+2024-11-08 07:34:04.741 +09:00 [INF] Received: hello from 6
+2024-11-08 07:34:10.352 +09:00 [INF] Received: hello from 2
+2024-11-08 07:34:10.514 +09:00 [INF] Received: hello from 6
+2024-11-08 07:34:11.817 +09:00 [INF] Received: hello from 2
+2024-11-08 07:34:14.746 +09:00 [INF] Received: hello from 6
+2024-11-08 07:34:20.354 +09:00 [INF] Received: hello from 2
+2024-11-08 07:34:20.515 +09:00 [INF] Received: hello from 6
+2024-11-08 07:34:21.820 +09:00 [INF] Received: hello from 2
+2024-11-08 07:34:24.746 +09:00 [INF] Received: hello from 6
+2024-11-08 07:34:30.355 +09:00 [INF] Received: hello from 2
+2024-11-08 07:34:30.529 +09:00 [INF] Received: hello from 6
+2024-11-08 07:34:31.825 +09:00 [INF] Received: hello from 2
+2024-11-08 07:34:34.750 +09:00 [INF] Received: hello from 6
+2024-11-08 07:34:40.356 +09:00 [INF] Received: hello from 2
+2024-11-08 07:34:40.518 +09:00 [INF] Received: hello from 6
+2024-11-08 07:34:41.822 +09:00 [INF] Received: hello from 2
+2024-11-08 07:34:44.749 +09:00 [INF] Received: hello from 6
+2024-11-08 07:34:50.357 +09:00 [INF] Received: hello from 2
+2024-11-08 07:34:50.548 +09:00 [INF] Received: hello from 6
+2024-11-08 07:34:51.821 +09:00 [INF] Received: hello from 2
+2024-11-08 07:34:54.746 +09:00 [INF] Received: hello from 6
+2024-11-08 07:35:00.360 +09:00 [INF] Received: hello from 2
+2024-11-08 07:35:00.525 +09:00 [INF] Received: hello from 6
+2024-11-08 07:35:01.824 +09:00 [INF] Received: hello from 2
+2024-11-08 07:35:04.746 +09:00 [INF] Received: hello from 6
+2024-11-08 07:35:10.380 +09:00 [INF] Received: hello from 2
+2024-11-08 07:35:10.524 +09:00 [INF] Received: hello from 6
+2024-11-08 07:35:11.827 +09:00 [INF] Received: hello from 2
+2024-11-08 07:35:14.859 +09:00 [INF] Received: hello from 6
+2024-11-08 07:35:20.360 +09:00 [INF] Received: hello from 2
+2024-11-08 07:35:20.524 +09:00 [INF] Received: hello from 6
+2024-11-08 07:35:21.829 +09:00 [INF] Received: hello from 2
+2024-11-08 07:35:24.752 +09:00 [INF] Received: hello from 6
+2024-11-08 07:35:30.362 +09:00 [INF] Received: hello from 2
+2024-11-08 07:35:30.524 +09:00 [INF] Received: hello from 6
+2024-11-08 07:35:31.829 +09:00 [INF] Received: hello from 2
+2024-11-08 07:35:34.752 +09:00 [INF] Received: hello from 6
+2024-11-08 07:35:40.361 +09:00 [INF] Received: hello from 2
+2024-11-08 07:35:40.522 +09:00 [INF] Received: hello from 6
+2024-11-08 07:35:41.829 +09:00 [INF] Received: hello from 2
+2024-11-08 07:35:44.751 +09:00 [INF] Received: hello from 6
+2024-11-08 07:35:50.369 +09:00 [INF] Received: hello from 2
+2024-11-08 07:35:50.527 +09:00 [INF] Received: hello from 6
+2024-11-08 07:35:51.832 +09:00 [INF] Received: hello from 2
+2024-11-08 07:35:54.756 +09:00 [INF] Received: hello from 6
+2024-11-08 07:36:00.365 +09:00 [INF] Received: hello from 2
+2024-11-08 07:36:00.528 +09:00 [INF] Received: hello from 6
+2024-11-08 07:36:01.831 +09:00 [INF] Received: hello from 2
+2024-11-08 07:36:04.756 +09:00 [INF] Received: hello from 6
+2024-11-08 07:36:10.369 +09:00 [INF] Received: hello from 2
+2024-11-08 07:36:10.530 +09:00 [INF] Received: hello from 6
+2024-11-08 07:36:11.834 +09:00 [INF] Received: hello from 2
+2024-11-08 07:36:14.760 +09:00 [INF] Received: hello from 6
+2024-11-08 07:36:20.371 +09:00 [INF] Received: hello from 2
+2024-11-08 07:36:20.530 +09:00 [INF] Received: hello from 6
+2024-11-08 07:36:21.834 +09:00 [INF] Received: hello from 2
+2024-11-08 07:36:24.759 +09:00 [INF] Received: hello from 6
+2024-11-08 07:36:30.369 +09:00 [INF] Received: hello from 2
+2024-11-08 07:36:30.529 +09:00 [INF] Received: hello from 6
+2024-11-08 07:36:31.835 +09:00 [INF] Received: hello from 2
+2024-11-08 07:36:34.757 +09:00 [INF] Received: hello from 6
+2024-11-08 07:36:40.372 +09:00 [INF] Received: hello from 2
+2024-11-08 07:36:40.529 +09:00 [INF] Received: hello from 6
+2024-11-08 07:36:41.835 +09:00 [INF] Received: hello from 2
+2024-11-08 07:36:44.761 +09:00 [INF] Received: hello from 6
+2024-11-08 07:36:50.372 +09:00 [INF] Received: hello from 2
+2024-11-08 07:36:50.531 +09:00 [INF] Received: hello from 6
+2024-11-08 07:36:51.843 +09:00 [INF] Received: hello from 2
+2024-11-08 07:36:54.073 +09:00 [INF] Received: {"id":2,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 2
+2024-11-08 07:36:54.757 +09:00 [INF] Received: hello from 6
+2024-11-08 07:36:55.721 +09:00 [INF] 遭遇判定: 2と6
+2024-11-08 07:37:00.371 +09:00 [INF] Received: hello from 2
+2024-11-08 07:37:00.535 +09:00 [INF] Received: hello from 6
+2024-11-08 07:37:01.839 +09:00 [INF] Received: hello from 2
+2024-11-08 07:37:04.764 +09:00 [INF] Received: hello from 6
+2024-11-08 07:37:09.726 +09:00 [INF] Received: {"id":6,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 6
+2024-11-08 07:37:09.803 +09:00 [INF] 遭遇判定: 6と2
+2024-11-08 07:37:10.375 +09:00 [INF] Received: hello from 2
+2024-11-08 07:37:10.536 +09:00 [INF] Received: hello from 6
+2024-11-08 07:37:11.841 +09:00 [INF] Received: hello from 2
+2024-11-08 07:37:14.763 +09:00 [INF] Received: hello from 6
+2024-11-08 07:37:20.380 +09:00 [INF] Received: hello from 2
+2024-11-08 07:37:20.539 +09:00 [INF] Received: hello from 6
+2024-11-08 07:37:21.846 +09:00 [INF] Received: hello from 2
+2024-11-08 07:37:24.764 +09:00 [INF] Received: hello from 6
+2024-11-08 07:37:30.376 +09:00 [INF] Received: hello from 2
+2024-11-08 07:37:30.538 +09:00 [INF] Received: hello from 6
+2024-11-08 07:37:31.840 +09:00 [INF] Received: hello from 2
+2024-11-08 07:37:34.764 +09:00 [INF] Received: hello from 6
+2024-11-08 07:37:40.381 +09:00 [INF] Received: hello from 2
+2024-11-08 07:37:40.540 +09:00 [INF] Received: hello from 6
+2024-11-08 07:37:41.844 +09:00 [INF] Received: hello from 2
+2024-11-08 07:37:44.765 +09:00 [INF] Received: hello from 6
+2024-11-08 07:37:50.383 +09:00 [INF] Received: hello from 2
+2024-11-08 07:37:50.541 +09:00 [INF] Received: hello from 6
+2024-11-08 07:37:51.843 +09:00 [INF] Received: hello from 2
+2024-11-08 07:37:54.771 +09:00 [INF] Received: hello from 6
+2024-11-08 07:38:00.380 +09:00 [INF] Received: hello from 2
+2024-11-08 07:38:00.563 +09:00 [INF] Received: hello from 6
+2024-11-08 07:38:01.844 +09:00 [INF] Received: hello from 2
+2024-11-08 07:38:04.768 +09:00 [INF] Received: hello from 6
+2024-11-08 07:38:10.383 +09:00 [INF] Received: hello from 2
+2024-11-08 07:38:10.597 +09:00 [INF] Received: hello from 6
+2024-11-08 07:38:11.853 +09:00 [INF] Received: hello from 2
+2024-11-08 07:38:14.770 +09:00 [INF] Received: hello from 6
+2024-11-08 07:38:20.388 +09:00 [INF] Received: hello from 2
+2024-11-08 07:38:20.544 +09:00 [INF] Received: hello from 6
+2024-11-08 07:38:21.848 +09:00 [INF] Received: hello from 2
+2024-11-08 07:38:24.768 +09:00 [INF] Received: hello from 6
+2024-11-08 07:38:30.428 +09:00 [INF] Received: hello from 2
+2024-11-08 07:38:30.543 +09:00 [INF] Received: hello from 6
+2024-11-08 07:38:31.847 +09:00 [INF] Received: hello from 2
+2024-11-08 07:38:34.770 +09:00 [INF] Received: hello from 6
+2024-11-08 07:38:40.387 +09:00 [INF] Received: hello from 2
+2024-11-08 07:38:40.543 +09:00 [INF] Received: hello from 6
+2024-11-08 07:38:41.350 +09:00 [INF] Received: {"id":6,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 6
+2024-11-08 07:38:41.852 +09:00 [INF] Received: hello from 2
+2024-11-08 07:38:41.898 +09:00 [INF] 遭遇判定: 6と2
+2024-11-08 07:38:44.775 +09:00 [INF] Received: hello from 6
+2024-11-08 07:38:50.386 +09:00 [INF] Received: hello from 2
+2024-11-08 07:38:50.544 +09:00 [INF] Received: hello from 6
+2024-11-08 07:38:51.855 +09:00 [INF] Received: hello from 2
+2024-11-08 07:38:54.778 +09:00 [INF] Received: hello from 6
+2024-11-08 07:39:00.385 +09:00 [INF] Received: hello from 2
+2024-11-08 07:39:00.545 +09:00 [INF] Received: hello from 6
+2024-11-08 07:39:01.883 +09:00 [INF] Received: hello from 2
+2024-11-08 07:39:04.777 +09:00 [INF] Received: hello from 6
+2024-11-08 07:39:10.392 +09:00 [INF] Received: hello from 2
+2024-11-08 07:39:10.548 +09:00 [INF] Received: hello from 6
+2024-11-08 07:39:11.857 +09:00 [INF] Received: hello from 2
+2024-11-08 07:39:14.775 +09:00 [INF] Received: hello from 6
+2024-11-08 07:39:20.388 +09:00 [INF] Received: hello from 2
+2024-11-08 07:39:20.548 +09:00 [INF] Received: hello from 6
+2024-11-08 07:39:21.910 +09:00 [INF] Received: hello from 2
+2024-11-08 07:39:24.778 +09:00 [INF] Received: hello from 6
+2024-11-08 07:39:30.394 +09:00 [INF] Received: hello from 2
+2024-11-08 07:39:30.466 +09:00 [INF] Received: {"id":6,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 6
+2024-11-08 07:39:30.578 +09:00 [INF] Received: hello from 6
+2024-11-08 07:39:30.947 +09:00 [INF] 遭遇判定: 6と2
+2024-11-08 07:39:31.879 +09:00 [INF] Received: hello from 2
+2024-11-08 07:39:34.781 +09:00 [INF] Received: hello from 6
+2024-11-08 07:39:40.403 +09:00 [INF] Received: hello from 2
+2024-11-08 07:39:40.579 +09:00 [INF] Received: hello from 6
+2024-11-08 07:39:41.859 +09:00 [INF] Received: hello from 2
+2024-11-08 07:39:44.779 +09:00 [INF] Received: hello from 6
+2024-11-08 07:39:50.397 +09:00 [INF] Received: hello from 2
+2024-11-08 07:39:50.555 +09:00 [INF] Received: hello from 6
+2024-11-08 07:39:51.857 +09:00 [INF] Received: hello from 2
+2024-11-08 07:39:54.783 +09:00 [INF] Received: hello from 6
+2024-11-08 07:40:00.398 +09:00 [INF] Received: hello from 2
+2024-11-08 07:40:00.554 +09:00 [INF] Received: hello from 6
+2024-11-08 07:40:01.880 +09:00 [INF] Received: hello from 2
+2024-11-08 07:40:04.783 +09:00 [INF] Received: hello from 6
+2024-11-08 07:40:09.609 +09:00 [INF] Received: {"id":2,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 2
+2024-11-08 07:40:09.928 +09:00 [INF] 遭遇判定: 2と6
+2024-11-08 07:40:10.410 +09:00 [INF] Received: hello from 2
+2024-11-08 07:40:10.554 +09:00 [INF] Received: hello from 6
+2024-11-08 07:40:11.890 +09:00 [INF] Received: hello from 2
+2024-11-08 07:40:14.787 +09:00 [INF] Received: hello from 6
+2024-11-08 07:40:16.676 +09:00 [INF] Received: {"id":6,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 6
+2024-11-08 07:40:16.999 +09:00 [INF] 遭遇判定: 6と2
+2024-11-08 07:40:20.401 +09:00 [INF] Received: hello from 2
+2024-11-08 07:40:20.555 +09:00 [INF] Received: hello from 6
+2024-11-08 07:40:21.863 +09:00 [INF] Received: hello from 2
+2024-11-08 07:40:24.784 +09:00 [INF] Received: hello from 6
+2024-11-08 07:40:30.405 +09:00 [INF] Received: hello from 2
+2024-11-08 07:40:30.558 +09:00 [INF] Received: hello from 6
+2024-11-08 07:40:31.865 +09:00 [INF] Received: hello from 2
+2024-11-08 07:40:34.804 +09:00 [INF] Received: hello from 6
+2024-11-08 07:40:40.402 +09:00 [INF] Received: hello from 2
+2024-11-08 07:40:40.560 +09:00 [INF] Received: hello from 6
+2024-11-08 07:40:41.865 +09:00 [INF] Received: hello from 2
+2024-11-08 07:40:44.785 +09:00 [INF] Received: hello from 6
+2024-11-08 07:40:46.725 +09:00 [INF] Received: {"id":6,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 6
+2024-11-08 07:40:47.042 +09:00 [INF] 遭遇判定: 6と2
+2024-11-08 07:40:50.408 +09:00 [INF] Received: hello from 2
+2024-11-08 07:40:50.582 +09:00 [INF] Received: hello from 6
+2024-11-08 07:40:51.868 +09:00 [INF] Received: hello from 2
+2024-11-08 07:40:54.788 +09:00 [INF] Received: hello from 6
+2024-11-08 07:41:00.406 +09:00 [INF] Received: hello from 2
+2024-11-08 07:41:00.581 +09:00 [INF] Received: hello from 6
+2024-11-08 07:41:01.870 +09:00 [INF] Received: hello from 2
+2024-11-08 07:41:04.843 +09:00 [INF] Received: hello from 6
+2024-11-08 07:41:10.408 +09:00 [INF] Received: hello from 2
+2024-11-08 07:41:10.563 +09:00 [INF] Received: hello from 6
+2024-11-08 07:41:11.894 +09:00 [INF] Received: hello from 2
+2024-11-08 07:41:14.789 +09:00 [INF] Received: hello from 6
+2024-11-08 07:41:18.359 +09:00 [INF] Received: {"id":2,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 2
+2024-11-08 07:41:18.999 +09:00 [INF] 遭遇判定: 2と6
+2024-11-08 07:41:20.407 +09:00 [INF] Received: hello from 2
+2024-11-08 07:41:20.561 +09:00 [INF] Received: hello from 6
+2024-11-08 07:41:21.876 +09:00 [INF] Received: hello from 2
+2024-11-08 07:41:22.015 +09:00 [INF] Received: {"id":6,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 6
+2024-11-08 07:41:22.086 +09:00 [INF] 遭遇判定: 6と2
+2024-11-08 07:41:24.790 +09:00 [INF] Received: hello from 6
+2024-11-08 07:41:30.412 +09:00 [INF] Received: hello from 2
+2024-11-08 07:41:30.564 +09:00 [INF] Received: hello from 6
+2024-11-08 07:41:31.873 +09:00 [INF] Received: hello from 2
+2024-11-08 07:41:34.796 +09:00 [INF] Received: hello from 6
+2024-11-08 07:41:40.412 +09:00 [INF] Received: hello from 2
+2024-11-08 07:41:40.617 +09:00 [INF] Received: hello from 6
+2024-11-08 07:41:41.872 +09:00 [INF] Received: hello from 2
+2024-11-08 07:41:44.796 +09:00 [INF] Received: hello from 6
+2024-11-08 07:41:50.413 +09:00 [INF] Received: hello from 2
+2024-11-08 07:41:50.564 +09:00 [INF] Received: hello from 6
+2024-11-08 07:41:51.872 +09:00 [INF] Received: hello from 2
+2024-11-08 07:41:53.732 +09:00 [INF] Received: {"id":6,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 6
+2024-11-08 07:41:54.135 +09:00 [INF] 遭遇判定: 6と2
+2024-11-08 07:41:54.800 +09:00 [INF] Received: hello from 6
+2024-11-08 07:41:57.912 +09:00 [INF] Received: {"id":2,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 2
+2024-11-08 07:41:58.043 +09:00 [INF] 遭遇判定: 2と6
+2024-11-08 07:42:00.412 +09:00 [INF] Received: hello from 2
+2024-11-08 07:42:00.568 +09:00 [INF] Received: hello from 6
+2024-11-08 07:42:00.681 +09:00 [INF] Received: {"id":6,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 6
+2024-11-08 07:42:01.162 +09:00 [INF] 遭遇判定: 6と2
+2024-11-08 07:42:01.875 +09:00 [INF] Received: hello from 2
+2024-11-08 07:42:04.799 +09:00 [INF] Received: hello from 6
+2024-11-08 07:42:10.410 +09:00 [INF] Received: hello from 2
+2024-11-08 07:42:10.592 +09:00 [INF] Received: hello from 6
+2024-11-08 07:42:11.876 +09:00 [INF] Received: hello from 2
+2024-11-08 07:42:12.472 +09:00 [INF] Received: {"id":6,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 6
+2024-11-08 07:42:13.182 +09:00 [INF] 遭遇判定: 6と2
+2024-11-08 07:42:24.634 +09:00 [INF] Received: hello from 6
+2024-11-08 07:42:24.634 +09:00 [INF] Received: hello from 2
+2024-11-08 07:42:24.639 +09:00 [INF] Received: hello from 6
+2024-11-08 07:42:24.639 +09:00 [INF] Received: hello from 2
+2024-11-08 07:42:34.738 +09:00 [INF] Received: hello from 2
+2024-11-08 07:42:34.738 +09:00 [INF] Received: hello from 6
+2024-11-08 07:42:34.743 +09:00 [INF] Received: hello from 6
+2024-11-08 07:42:34.743 +09:00 [INF] Received: hello from 2
+2024-11-08 07:42:39.730 +09:00 [INF] Received: {"id":2,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 2
+2024-11-08 07:42:40.621 +09:00 [INF] 遭遇判定: 2と6
+2024-11-08 07:42:44.632 +09:00 [INF] Received: hello from 2
+2024-11-08 07:42:44.632 +09:00 [INF] Received: hello from 6
+2024-11-08 07:42:44.635 +09:00 [INF] Received: hello from 2
+2024-11-08 07:42:44.635 +09:00 [INF] Received: hello from 6
+2024-11-08 07:42:54.640 +09:00 [INF] Received: hello from 2
+2024-11-08 07:42:54.640 +09:00 [INF] Received: hello from 6
+2024-11-08 07:42:54.645 +09:00 [INF] Received: hello from 6
+2024-11-08 07:42:54.645 +09:00 [INF] Received: hello from 2
+2024-11-08 07:43:04.639 +09:00 [INF] Received: hello from 2
+2024-11-08 07:43:04.639 +09:00 [INF] Received: hello from 6
+2024-11-08 07:43:04.669 +09:00 [INF] Received: hello from 2
+2024-11-08 07:43:04.669 +09:00 [INF] Received: hello from 6
+2024-11-08 07:43:14.642 +09:00 [INF] Received: hello from 6
+2024-11-08 07:43:14.644 +09:00 [INF] Received: hello from 2
+2024-11-08 07:43:14.646 +09:00 [INF] Received: hello from 6
+2024-11-08 07:43:14.714 +09:00 [INF] Received: hello from 2
+2024-11-08 07:43:24.686 +09:00 [INF] Received: hello from 6
+2024-11-08 07:43:24.693 +09:00 [INF] Received: hello from 2
+2024-11-08 07:43:24.693 +09:00 [INF] Received: hello from 6
+2024-11-08 07:43:24.696 +09:00 [INF] Received: hello from 2
+2024-11-08 07:43:34.635 +09:00 [INF] Received: hello from 2
+2024-11-08 07:43:34.637 +09:00 [INF] Received: hello from 6
+2024-11-08 07:43:34.638 +09:00 [INF] Received: hello from 2
+2024-11-08 07:43:34.640 +09:00 [INF] Received: hello from 6
+2024-11-08 07:43:44.642 +09:00 [INF] Received: hello from 2
+2024-11-08 07:43:44.642 +09:00 [INF] Received: hello from 6
+2024-11-08 07:43:44.646 +09:00 [INF] Received: hello from 6
+2024-11-08 07:43:44.646 +09:00 [INF] Received: hello from 2
+2024-11-08 07:43:54.643 +09:00 [INF] Received: hello from 6
+2024-11-08 07:43:54.643 +09:00 [INF] Received: hello from 2
+2024-11-08 07:43:54.646 +09:00 [INF] Received: hello from 6
+2024-11-08 07:43:54.646 +09:00 [INF] Received: hello from 2
+2024-11-08 07:44:02.247 +09:00 [INF] Received: {"id":2,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 2
+2024-11-08 07:44:02.748 +09:00 [INF] 遭遇判定: 2と6
+2024-11-08 07:44:04.645 +09:00 [INF] Received: hello from 2
+2024-11-08 07:44:04.678 +09:00 [INF] Received: hello from 2
+2024-11-08 07:44:04.678 +09:00 [INF] Received: hello from 6
+2024-11-08 07:44:04.728 +09:00 [INF] Received: hello from 6
+2024-11-08 07:44:14.647 +09:00 [INF] Received: hello from 2
+2024-11-08 07:44:14.647 +09:00 [INF] Received: hello from 6
+2024-11-08 07:44:14.654 +09:00 [INF] Received: hello from 2
+2024-11-08 07:44:14.654 +09:00 [INF] Received: hello from 6
+2024-11-08 07:44:24.708 +09:00 [INF] Received: hello from 2
+2024-11-08 07:44:24.709 +09:00 [INF] Received: hello from 6
+2024-11-08 07:44:24.712 +09:00 [INF] Received: hello from 2
+2024-11-08 07:44:24.712 +09:00 [INF] Received: hello from 6
+2024-11-08 07:44:34.668 +09:00 [INF] Received: hello from 6
+2024-11-08 07:44:34.680 +09:00 [INF] Received: hello from 2
+2024-11-08 07:44:34.728 +09:00 [INF] Received: hello from 6
+2024-11-08 07:44:34.729 +09:00 [INF] Received: hello from 2
+2024-11-08 07:44:35.402 +09:00 [INF] Received: {"id":2,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 2
+2024-11-08 07:44:35.785 +09:00 [INF] 遭遇判定: 2と6
+2024-11-08 07:45:09.895 +09:00 [INF] Received: hello from 2
+2024-11-08 07:45:09.948 +09:00 [INF] Received: hello from 6
+2024-11-08 07:45:09.948 +09:00 [INF] Received: hello from 2
+2024-11-08 07:45:09.971 +09:00 [INF] Received: hello from 6
+2024-11-08 07:45:19.841 +09:00 [INF] Received: hello from 6
+2024-11-08 07:45:19.842 +09:00 [INF] Received: hello from 2
+2024-11-08 07:45:19.848 +09:00 [INF] Received: hello from 2
+2024-11-08 07:45:19.848 +09:00 [INF] Received: hello from 6
+2024-11-08 07:45:29.800 +09:00 [INF] Received: hello from 6
+2024-11-08 07:45:29.800 +09:00 [INF] Received: hello from 2
+2024-11-08 07:45:29.804 +09:00 [INF] Received: hello from 6
+2024-11-08 07:45:29.804 +09:00 [INF] Received: hello from 2
+2024-11-08 07:45:39.879 +09:00 [INF] Received: hello from 2
+2024-11-08 07:45:39.879 +09:00 [INF] Received: hello from 6
+2024-11-08 07:45:39.883 +09:00 [INF] Received: hello from 2
+2024-11-08 07:45:39.884 +09:00 [INF] Received: hello from 6
+2024-11-08 07:45:49.822 +09:00 [INF] Received: hello from 2
+2024-11-08 07:45:49.826 +09:00 [INF] Received: hello from 6
+2024-11-08 07:45:49.827 +09:00 [INF] Received: hello from 2
+2024-11-08 07:45:49.827 +09:00 [INF] Received: hello from 6
+2024-11-08 07:45:50.357 +09:00 [INF] Received: {"id":2,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 2
+2024-11-08 07:45:50.874 +09:00 [INF] 遭遇判定: 2と6
+2024-11-08 07:45:55.790 +09:00 [INF] Received: {"id":6,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 6
+2024-11-08 07:45:55.832 +09:00 [INF] 遭遇判定: 6と2
+2024-11-08 07:45:59.806 +09:00 [INF] Received: hello from 2
+2024-11-08 07:45:59.806 +09:00 [INF] Received: hello from 6
+2024-11-08 07:45:59.810 +09:00 [INF] Received: hello from 2
+2024-11-08 07:45:59.810 +09:00 [INF] Received: hello from 6
+2024-11-08 07:46:09.879 +09:00 [INF] Received: hello from 2
+2024-11-08 07:46:09.879 +09:00 [INF] Received: hello from 6
+2024-11-08 07:46:09.884 +09:00 [INF] Received: hello from 2
+2024-11-08 07:46:09.884 +09:00 [INF] Received: hello from 6
+2024-11-08 07:46:19.852 +09:00 [INF] Received: hello from 2
+2024-11-08 07:46:19.865 +09:00 [INF] Received: hello from 6
+2024-11-08 07:46:19.865 +09:00 [INF] Received: hello from 2
+2024-11-08 07:46:19.896 +09:00 [INF] Received: hello from 6
+2024-11-08 07:46:29.852 +09:00 [INF] Received: hello from 6
+2024-11-08 07:46:29.852 +09:00 [INF] Received: hello from 2
+2024-11-08 07:46:29.859 +09:00 [INF] Received: hello from 6
+2024-11-08 07:46:29.859 +09:00 [INF] Received: hello from 2
+2024-11-08 07:46:46.831 +09:00 [INF] User profile is available. Using '/Users/takuto/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2024-11-08 07:46:46.892 +09:00 [INF] Now listening on: http://[::]:5050
+2024-11-08 07:46:46.896 +09:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-08 07:46:46.897 +09:00 [INF] Hosting environment: Development
+2024-11-08 07:46:46.898 +09:00 [INF] Content root path: /Users/takuto/Code/BATTARI-api
+2024-11-08 07:47:20.166 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 07:47:20.308 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 07:47:20.321 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 07:47:20.378 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 07:47:20.382 +09:00 [INF] 2:WebSocket接続開始
+2024-11-08 07:47:20.408 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 07:47:20.419 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 07:47:20.420 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 07:47:20.425 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 07:47:20.426 +09:00 [INF] 6:WebSocket接続開始
+2024-11-08 07:47:24.821 +09:00 [INF] Received: {"id":6,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 6
+2024-11-08 07:47:26.090 +09:00 [INF] 遭遇判定: 6と2
+2024-11-08 07:47:30.420 +09:00 [INF] Received: hello from 2
+2024-11-08 07:47:30.444 +09:00 [INF] Received: hello from 6
+2024-11-08 07:47:33.790 +09:00 [INF] Received: {"id":2,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 2
+2024-11-08 07:47:34.431 +09:00 [INF] 遭遇判定: 2と6
+2024-11-08 07:47:37.285 +09:00 [INF] Received: {"id":6,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 6
+2024-11-08 07:47:38.113 +09:00 [INF] 遭遇判定: 6と2
+2024-11-08 07:47:40.420 +09:00 [INF] Received: hello from 2
+2024-11-08 07:47:40.446 +09:00 [INF] Received: hello from 6
+2024-11-08 07:47:50.235 +09:00 [INF] Received: {"id":6,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 6
+2024-11-08 07:47:50.425 +09:00 [INF] Received: hello from 2
+2024-11-08 07:47:50.457 +09:00 [INF] Received: hello from 6
+2024-11-08 07:47:51.133 +09:00 [INF] 遭遇判定: 6と2
+2024-11-08 07:48:22.104 +09:00 [INF] Received: hello from 2
+2024-11-08 07:48:22.104 +09:00 [INF] Received: hello from 6
+2024-11-08 07:48:32.026 +09:00 [INF] Received: hello from 2
+2024-11-08 07:48:32.026 +09:00 [INF] Received: hello from 6
+2024-11-08 07:48:42.023 +09:00 [INF] Received: hello from 6
+2024-11-08 07:48:42.024 +09:00 [INF] Received: hello from 2
+2024-11-08 07:48:52.044 +09:00 [INF] Received: hello from 2
+2024-11-08 07:48:52.045 +09:00 [INF] Received: hello from 6
+2024-11-08 07:48:54.235 +09:00 [INF] Received: {"id":6,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 6
+2024-11-08 07:49:07.903 +09:00 [INF] Received: hello from 2
+2024-11-08 07:49:07.952 +09:00 [INF] Received: hello from 6
+2024-11-08 07:49:08.049 +09:00 [INF] 遭遇判定: 6と2
+2024-11-08 07:49:10.552 +09:00 [INF] Received: {"id":2,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 2
+2024-11-08 07:49:38.911 +09:00 [INF] Received: hello from 6
+2024-11-08 07:49:38.911 +09:00 [INF] Received: hello from 2
+2024-11-08 07:49:38.915 +09:00 [INF] 遭遇判定: 2と6
+2024-11-08 07:49:47.621 +09:00 [INF] Received: hello from 6
+2024-11-08 07:49:47.621 +09:00 [INF] Received: hello from 2
+2024-11-08 07:49:57.562 +09:00 [INF] Received: hello from 6
+2024-11-08 07:49:57.563 +09:00 [INF] Received: hello from 2
+2024-11-08 07:50:13.409 +09:00 [INF] User profile is available. Using '/Users/takuto/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2024-11-08 07:50:13.465 +09:00 [INF] Now listening on: http://[::]:5050
+2024-11-08 07:50:13.469 +09:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-08 07:50:13.470 +09:00 [INF] Hosting environment: Development
+2024-11-08 07:50:13.471 +09:00 [INF] Content root path: /Users/takuto/Code/BATTARI-api
+2024-11-08 07:50:50.182 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 07:50:50.338 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 07:50:50.352 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 07:50:50.416 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 07:50:50.422 +09:00 [INF] 2:WebSocket接続開始
+2024-11-08 07:50:50.518 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 07:50:50.529 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 07:50:50.533 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 07:50:50.538 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 07:50:50.539 +09:00 [INF] 6:WebSocket接続開始
+2024-11-08 07:51:00.561 +09:00 [INF] Received: hello from 2
+2024-11-08 07:51:00.561 +09:00 [INF] Received: hello from 6
+2024-11-08 07:51:09.174 +09:00 [INF] Received: {"id":6,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 6
+2024-11-08 07:51:16.670 +09:00 [INF] Received: hello from 2
+2024-11-08 07:51:33.569 +09:00 [INF] Received: hello from 2
+2024-11-08 07:51:33.599 +09:00 [INF] Received: hello from 6
+2024-11-08 07:51:33.603 +09:00 [INF] Received: hello from 6
+2024-11-08 07:51:34.248 +09:00 [INF] 遭遇判定: 6と2
+2024-11-08 07:51:36.446 +09:00 [INF] Received: {"id":2,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 2
+2024-11-08 07:51:56.771 +09:00 [INF] Received: hello from 6
+2024-11-08 07:51:56.773 +09:00 [INF] Received: hello from 2
+2024-11-08 07:51:56.819 +09:00 [INF] 遭遇判定: 2と6
+2024-11-08 07:51:58.601 +09:00 [INF] Received: hello from 2
+2024-11-08 07:51:58.601 +09:00 [INF] Received: hello from 6
+2024-11-08 07:52:08.651 +09:00 [INF] Received: hello from 6
+2024-11-08 07:52:08.651 +09:00 [INF] Received: hello from 2
+2024-11-08 07:52:18.753 +09:00 [INF] Received: hello from 2
+2024-11-08 07:52:18.753 +09:00 [INF] Received: hello from 6
+2024-11-08 07:52:23.698 +09:00 [INF] Received: {"id":2,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 2
+2024-11-08 07:52:40.353 +09:00 [INF] Received: hello from 6
+2024-11-08 07:52:40.425 +09:00 [INF] Received: hello from 2
+2024-11-08 07:52:44.225 +09:00 [INF] Received: {"id":6,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 6
+2024-11-08 07:52:58.818 +09:00 [INF] Received: hello from 6
+2024-11-08 07:52:58.842 +09:00 [INF] Received: hello from 2
+2024-11-08 07:53:02.940 +09:00 [INF] Received: hello from 2
+2024-11-08 07:53:02.943 +09:00 [INF] Received: hello from 6
+2024-11-08 07:53:12.847 +09:00 [INF] Received: hello from 6
+2024-11-08 07:53:12.847 +09:00 [INF] Received: hello from 2
+2024-11-08 07:53:22.874 +09:00 [INF] Received: hello from 6
+2024-11-08 07:53:22.874 +09:00 [INF] Received: hello from 2
+2024-11-08 07:53:32.847 +09:00 [INF] Received: hello from 2
+2024-11-08 07:53:32.847 +09:00 [INF] Received: hello from 6
+2024-11-08 07:53:42.881 +09:00 [INF] Received: hello from 2
+2024-11-08 07:53:42.881 +09:00 [INF] Received: hello from 6
+2024-11-08 07:53:52.873 +09:00 [INF] Received: hello from 6
+2024-11-08 07:53:52.873 +09:00 [INF] Received: hello from 2
+2024-11-08 07:54:02.852 +09:00 [INF] Received: hello from 6
+2024-11-08 07:54:02.852 +09:00 [INF] Received: hello from 2
+2024-11-08 07:54:12.972 +09:00 [INF] Received: hello from 6
+2024-11-08 07:54:13.006 +09:00 [INF] Received: hello from 2
+2024-11-08 07:54:22.903 +09:00 [INF] Received: hello from 6
+2024-11-08 07:54:22.903 +09:00 [INF] Received: hello from 2
+2024-11-08 07:54:32.862 +09:00 [INF] Received: hello from 6
+2024-11-08 07:54:32.862 +09:00 [INF] Received: hello from 2
+2024-11-08 07:54:42.952 +09:00 [INF] Received: hello from 2
+2024-11-08 07:54:42.952 +09:00 [INF] Received: hello from 6
+2024-11-08 07:54:48.832 +09:00 [INF] Received: {"id":6,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 6
+2024-11-08 07:55:02.537 +09:00 [INF] Received: hello from 2
+2024-11-08 07:55:02.538 +09:00 [INF] Received: hello from 6
+2024-11-08 07:55:04.679 +09:00 [INF] Received: {"id":2,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 2
+2024-11-08 07:55:12.794 +09:00 [INF] Received: hello from 2
+2024-11-08 07:55:12.823 +09:00 [INF] Received: hello from 6
+2024-11-08 07:55:21.612 +09:00 [INF] Received: hello from 6
+2024-11-08 07:55:21.612 +09:00 [INF] Received: hello from 2
+2024-11-08 07:55:27.629 +09:00 [INF] Received: {"id":2,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 2
+2024-11-08 07:55:37.917 +09:00 [INF] Received: hello from 6
+2024-11-08 07:55:37.922 +09:00 [INF] Received: hello from 2
+2024-11-08 07:55:44.983 +09:00 [INF] Received: {"id":6,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 6
+2024-11-08 07:56:33.714 +09:00 [INF] websocekt切断:CloseReceived
+2024-11-08 07:56:33.714 +09:00 [INF] websocekt切断:CloseReceived
+2024-11-08 07:56:33.787 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 07:56:33.787 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 07:56:33.878 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 07:56:33.878 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 07:56:33.882 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 07:56:33.882 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 07:56:33.893 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 07:56:33.893 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 07:56:33.897 +09:00 [INF] 2:WebSocket接続開始
+2024-11-08 07:56:33.897 +09:00 [INF] 6:WebSocket接続開始
+2024-11-08 07:56:33.946 +09:00 [INF] Executed action method WebSocketController.Get (BATTARI-api), returned result Microsoft.AspNetCore.Mvc.EmptyResult in 343310.3019ms.
+2024-11-08 07:56:33.946 +09:00 [INF] Executed action method WebSocketController.Get (BATTARI-api), returned result Microsoft.AspNetCore.Mvc.EmptyResult in 343431.7043ms.
+2024-11-08 07:56:33.960 +09:00 [INF] Executed action WebSocketController.Get (BATTARI-api) in 343414.7818ms
+2024-11-08 07:56:33.960 +09:00 [INF] Executed action WebSocketController.Get (BATTARI-api) in 343596.0388ms
+2024-11-08 07:56:33.963 +09:00 [INF] Executed endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 07:56:33.963 +09:00 [INF] Executed endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 07:56:33.980 +09:00 [INF] Request finished HTTP/1.1 GET http://192.168.10.5:5050/ws - 101 null null 343454.2985ms
+2024-11-08 07:56:33.980 +09:00 [INF] Request finished HTTP/1.1 GET http://192.168.10.5:5050/ws - 101 null null 343793.4796ms
+2024-11-08 07:56:36.844 +09:00 [INF] Received: {"id":2,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 2
+2024-11-08 07:57:06.364 +09:00 [INF] Received: hello from 6
+2024-11-08 07:57:06.366 +09:00 [INF] websocekt切断:CloseReceived
+2024-11-08 07:57:06.416 +09:00 [INF] Executed action method WebSocketController.Get (BATTARI-api), returned result Microsoft.AspNetCore.Mvc.EmptyResult in 32520.6933ms.
+2024-11-08 07:57:06.418 +09:00 [INF] Executed action WebSocketController.Get (BATTARI-api) in 32533.698ms
+2024-11-08 07:57:06.419 +09:00 [INF] Executed endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 07:57:06.430 +09:00 [INF] Request finished HTTP/1.1 GET http://192.168.10.5:5050/ws - 101 null null 32688.0459ms
+2024-11-08 07:57:09.404 +09:00 [INF] Received: hello from 6
+2024-11-08 07:57:10.124 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 07:57:10.129 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 07:57:10.130 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 07:57:10.131 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 07:57:10.133 +09:00 [INF] 2:WebSocket接続開始
+2024-11-08 07:57:11.354 +09:00 [INF] Received: {"id":6,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 6
+2024-11-08 07:57:19.401 +09:00 [INF] Received: hello from 6
+2024-11-08 07:57:20.146 +09:00 [INF] Received: hello from 2
+2024-11-08 07:57:29.398 +09:00 [INF] Received: hello from 6
+2024-11-08 07:57:30.148 +09:00 [INF] Received: hello from 2
+2024-11-08 07:57:39.405 +09:00 [INF] Received: hello from 6
+2024-11-08 07:57:40.144 +09:00 [INF] Received: hello from 2
+2024-11-08 07:57:49.403 +09:00 [INF] Received: hello from 6
+2024-11-08 07:57:50.142 +09:00 [INF] Received: hello from 2
+2024-11-08 07:57:59.406 +09:00 [INF] Received: hello from 6
+2024-11-08 07:58:00.246 +09:00 [INF] Received: hello from 2
+2024-11-08 07:58:09.412 +09:00 [INF] Received: hello from 6
+2024-11-08 07:58:10.157 +09:00 [INF] Received: hello from 2
+2024-11-08 07:58:19.416 +09:00 [INF] Received: hello from 6
+2024-11-08 07:58:20.155 +09:00 [INF] Received: hello from 2
+2024-11-08 07:58:29.409 +09:00 [INF] Received: hello from 6
+2024-11-08 07:58:30.154 +09:00 [INF] Received: hello from 2
+2024-11-08 07:58:39.448 +09:00 [INF] Received: hello from 6
+2024-11-08 07:58:40.160 +09:00 [INF] Received: hello from 2
+2024-11-08 07:58:49.416 +09:00 [INF] Received: hello from 6
+2024-11-08 07:58:50.153 +09:00 [INF] Received: hello from 2
+2024-11-08 07:58:57.255 +09:00 [INF] User profile is available. Using '/Users/takuto/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2024-11-08 07:58:57.313 +09:00 [INF] Now listening on: http://[::]:5050
+2024-11-08 07:58:57.317 +09:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-08 07:58:57.318 +09:00 [INF] Hosting environment: Development
+2024-11-08 07:58:57.319 +09:00 [INF] Content root path: /Users/takuto/Code/BATTARI-api
+2024-11-08 07:59:40.489 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 07:59:40.641 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 07:59:40.653 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 07:59:40.704 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 07:59:40.708 +09:00 [INF] 6:WebSocket接続開始
+2024-11-08 07:59:41.786 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 07:59:41.799 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 07:59:41.804 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 07:59:41.809 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 07:59:41.811 +09:00 [INF] 2:WebSocket接続開始
+2024-11-08 07:59:46.183 +09:00 [INF] Received: {"id":6,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 6
+2024-11-08 07:59:50.739 +09:00 [INF] Received: hello from 6
+2024-11-08 07:59:51.822 +09:00 [INF] Received: hello from 2
+2024-11-08 08:00:00.732 +09:00 [INF] Received: hello from 6
+2024-11-08 08:00:01.821 +09:00 [INF] Received: hello from 2
+2024-11-08 08:00:01.948 +09:00 [INF] Received: {"id":2,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 2
+2024-11-08 08:00:10.735 +09:00 [INF] Received: hello from 6
+2024-11-08 08:00:11.823 +09:00 [INF] Received: hello from 2
+2024-11-08 08:00:20.786 +09:00 [INF] Received: hello from 6
+2024-11-08 08:00:21.825 +09:00 [INF] Received: hello from 2
+2024-11-08 08:00:30.767 +09:00 [INF] Received: hello from 6
+2024-11-08 08:00:31.825 +09:00 [INF] Received: hello from 2
+2024-11-08 08:00:40.792 +09:00 [INF] Received: hello from 6
+2024-11-08 08:00:41.826 +09:00 [INF] Received: hello from 2
+2024-11-08 08:00:50.766 +09:00 [INF] Received: hello from 6
+2024-11-08 08:00:51.828 +09:00 [INF] Received: hello from 2
+2024-11-08 08:01:00.773 +09:00 [INF] Received: hello from 6
+2024-11-08 08:01:01.832 +09:00 [INF] Received: hello from 2
+2024-11-08 08:01:10.769 +09:00 [INF] Received: hello from 6
+2024-11-08 08:01:11.832 +09:00 [INF] Received: hello from 2
+2024-11-08 08:01:20.792 +09:00 [INF] Received: hello from 6
+2024-11-08 08:01:21.834 +09:00 [INF] Received: hello from 2
+2024-11-08 08:01:30.665 +09:00 [INF] User profile is available. Using '/Users/takuto/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2024-11-08 08:01:30.722 +09:00 [INF] Now listening on: http://[::]:5050
+2024-11-08 08:01:30.725 +09:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-08 08:01:30.727 +09:00 [INF] Hosting environment: Development
+2024-11-08 08:01:30.728 +09:00 [INF] Content root path: /Users/takuto/Code/BATTARI-api
+2024-11-08 08:02:14.815 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 08:02:14.994 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 08:02:15.007 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 08:02:15.072 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 08:02:15.075 +09:00 [INF] 6:WebSocket接続開始
+2024-11-08 08:02:20.286 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 08:02:20.331 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 08:02:20.334 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 08:02:20.340 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 08:02:20.341 +09:00 [INF] 2:WebSocket接続開始
+2024-11-08 08:02:25.099 +09:00 [INF] Received: hello from 6
+2024-11-08 08:02:25.417 +09:00 [INF] Received: {"id":6,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 6
+2024-11-08 08:02:28.820 +09:00 [INF] Received: {"id":2,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 2
+2024-11-08 08:02:30.351 +09:00 [INF] Received: hello from 2
+2024-11-08 08:02:35.099 +09:00 [INF] Received: hello from 6
+2024-11-08 08:02:40.348 +09:00 [INF] Received: hello from 2
+2024-11-08 08:02:45.103 +09:00 [INF] Received: hello from 6
+2024-11-08 08:02:50.351 +09:00 [INF] Received: hello from 2
+2024-11-08 08:02:55.106 +09:00 [INF] Received: hello from 6
+2024-11-08 08:03:00.351 +09:00 [INF] Received: hello from 2
+2024-11-08 08:03:05.103 +09:00 [INF] Received: hello from 6
+2024-11-08 08:03:10.356 +09:00 [INF] Received: hello from 2
+2024-11-08 08:03:15.184 +09:00 [INF] Received: hello from 6
+2024-11-08 08:03:20.354 +09:00 [INF] Received: hello from 2
+2024-11-08 08:03:25.107 +09:00 [INF] Received: hello from 6
+2024-11-08 08:03:30.352 +09:00 [INF] Received: hello from 2
+2024-11-08 08:03:35.112 +09:00 [INF] Received: hello from 6
+2024-11-08 08:03:40.381 +09:00 [INF] Received: hello from 2
+2024-11-08 08:03:45.108 +09:00 [INF] Received: hello from 6
+2024-11-08 08:03:50.391 +09:00 [INF] Received: hello from 2
+2024-11-08 08:03:55.113 +09:00 [INF] Received: hello from 6
+2024-11-08 08:04:00.360 +09:00 [INF] Received: hello from 2
+2024-11-08 08:04:05.114 +09:00 [INF] Received: hello from 6
+2024-11-08 08:04:10.363 +09:00 [INF] Received: hello from 2
+2024-11-08 08:04:15.115 +09:00 [INF] Received: hello from 6
+2024-11-08 08:04:20.361 +09:00 [INF] Received: hello from 2
+2024-11-08 08:04:25.120 +09:00 [INF] Received: hello from 6
+2024-11-08 08:04:30.368 +09:00 [INF] Received: hello from 2
+2024-11-08 08:04:35.141 +09:00 [INF] Received: hello from 6
+2024-11-08 08:04:40.389 +09:00 [INF] Received: hello from 2
+2024-11-08 08:04:45.117 +09:00 [INF] Received: hello from 6
+2024-11-08 08:04:50.373 +09:00 [INF] Received: hello from 2
+2024-11-08 08:04:55.118 +09:00 [INF] Received: hello from 6
+2024-11-08 08:05:00.378 +09:00 [INF] Received: hello from 2
+2024-11-08 08:05:05.120 +09:00 [INF] Received: hello from 6
+2024-11-08 08:05:10.377 +09:00 [INF] Received: hello from 2
+2024-11-08 08:05:15.120 +09:00 [INF] Received: hello from 6
+2024-11-08 08:05:20.380 +09:00 [INF] Received: hello from 2
+2024-11-08 08:05:25.201 +09:00 [INF] Received: hello from 6
+2024-11-08 08:05:30.375 +09:00 [INF] Received: hello from 2
+2024-11-08 08:05:35.122 +09:00 [INF] Received: hello from 6
+2024-11-08 08:05:40.382 +09:00 [INF] Received: hello from 2
+2024-11-08 08:05:45.123 +09:00 [INF] Received: hello from 6
+2024-11-08 08:05:50.424 +09:00 [INF] Received: hello from 2
+2024-11-08 08:05:55.126 +09:00 [INF] Received: hello from 6
+2024-11-08 08:06:00.378 +09:00 [INF] Received: hello from 2
+2024-11-08 08:06:05.128 +09:00 [INF] Received: hello from 6
+2024-11-08 08:06:10.384 +09:00 [INF] Received: hello from 2
+2024-11-08 08:06:15.128 +09:00 [INF] Received: hello from 6
+2024-11-08 08:06:20.383 +09:00 [INF] Received: hello from 2
+2024-11-08 08:06:22.120 +09:00 [INF] Received: {"id":2,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 2
+2024-11-08 08:06:25.137 +09:00 [INF] Received: hello from 6
+2024-11-08 08:06:29.782 +09:00 [INF] Received: {"id":2,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 2
+2024-11-08 08:06:30.383 +09:00 [INF] Received: hello from 2
+2024-11-08 08:06:35.129 +09:00 [INF] Received: hello from 6
+2024-11-08 08:06:40.385 +09:00 [INF] Received: hello from 2
+2024-11-08 08:06:45.184 +09:00 [INF] Received: hello from 6
+2024-11-08 08:06:50.387 +09:00 [INF] Received: hello from 2
+2024-11-08 08:06:55.153 +09:00 [INF] Received: hello from 6
+2024-11-08 08:07:00.385 +09:00 [INF] Received: hello from 2
+2024-11-08 08:07:05.133 +09:00 [INF] Received: hello from 6
+2024-11-08 08:07:10.391 +09:00 [INF] Received: hello from 2
+2024-11-08 08:07:15.134 +09:00 [INF] Received: hello from 6
+2024-11-08 08:07:20.396 +09:00 [INF] Received: hello from 2
+2024-11-08 08:07:25.170 +09:00 [INF] Received: hello from 6
+2024-11-08 08:07:30.396 +09:00 [INF] Received: hello from 2
+2024-11-08 08:07:38.766 +09:00 [INF] User profile is available. Using '/Users/takuto/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2024-11-08 08:07:38.824 +09:00 [INF] Now listening on: http://[::]:5050
+2024-11-08 08:07:38.827 +09:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-08 08:07:38.829 +09:00 [INF] Hosting environment: Development
+2024-11-08 08:07:38.830 +09:00 [INF] Content root path: /Users/takuto/Code/BATTARI-api
+2024-11-08 08:08:20.499 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 08:08:20.668 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 08:08:20.681 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 08:08:20.730 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 08:08:20.733 +09:00 [INF] 6:WebSocket接続開始
+2024-11-08 08:08:21.797 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 08:08:21.807 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 08:08:21.810 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 08:08:21.815 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 08:08:21.816 +09:00 [INF] 2:WebSocket接続開始
+2024-11-08 08:08:30.763 +09:00 [INF] Received: hello from 6
+2024-11-08 08:08:31.825 +09:00 [INF] Received: hello from 2
+2024-11-08 08:08:37.269 +09:00 [INF] Received: {"id":2,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 2
+2024-11-08 08:08:40.762 +09:00 [INF] Received: hello from 6
+2024-11-08 08:08:41.824 +09:00 [INF] Received: hello from 2
+2024-11-08 08:08:49.719 +09:00 [INF] Received: {"id":6,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 6
+2024-11-08 08:08:50.759 +09:00 [INF] Received: hello from 6
+2024-11-08 08:08:51.830 +09:00 [INF] Received: hello from 2
+2024-11-08 08:09:00.761 +09:00 [INF] Received: hello from 6
+2024-11-08 08:09:01.831 +09:00 [INF] Received: hello from 2
+2024-11-08 08:09:10.814 +09:00 [INF] Received: hello from 6
+2024-11-08 08:09:11.827 +09:00 [INF] Received: hello from 2
+2024-11-08 08:09:20.769 +09:00 [INF] Received: hello from 6
+2024-11-08 08:09:21.855 +09:00 [INF] Received: hello from 2
+2024-11-08 08:09:30.767 +09:00 [INF] Received: hello from 6
+2024-11-08 08:09:31.833 +09:00 [INF] Received: hello from 2
+2024-11-08 08:09:40.767 +09:00 [INF] Received: hello from 6
+2024-11-08 08:09:41.834 +09:00 [INF] Received: hello from 2
+2024-11-08 08:09:50.768 +09:00 [INF] Received: hello from 6
+2024-11-08 08:09:51.832 +09:00 [INF] Received: hello from 2
+2024-11-08 08:10:00.770 +09:00 [INF] Received: hello from 6
+2024-11-08 08:10:01.870 +09:00 [INF] Received: hello from 2
+2024-11-08 08:10:10.772 +09:00 [INF] Received: hello from 6
+2024-11-08 08:10:11.837 +09:00 [INF] Received: hello from 2
+2024-11-08 08:10:20.770 +09:00 [INF] Received: hello from 6
+2024-11-08 08:10:21.839 +09:00 [INF] Received: hello from 2
+2024-11-08 08:10:30.773 +09:00 [INF] Received: hello from 6
+2024-11-08 08:10:31.838 +09:00 [INF] Received: hello from 2
+2024-11-08 08:10:40.799 +09:00 [INF] Received: hello from 6
+2024-11-08 08:10:41.843 +09:00 [INF] Received: hello from 2
+2024-11-08 08:10:50.776 +09:00 [INF] Received: hello from 6
+2024-11-08 08:10:51.850 +09:00 [INF] Received: hello from 2
+2024-11-08 08:11:00.781 +09:00 [INF] Received: hello from 6
+2024-11-08 08:11:01.845 +09:00 [INF] Received: hello from 2
+2024-11-08 08:11:10.781 +09:00 [INF] Received: hello from 6
+2024-11-08 08:11:11.845 +09:00 [INF] Received: hello from 2
+2024-11-08 08:11:20.777 +09:00 [INF] Received: hello from 6
+2024-11-08 08:11:21.844 +09:00 [INF] Received: hello from 2
+2024-11-08 08:11:30.784 +09:00 [INF] Received: hello from 6
+2024-11-08 08:11:31.846 +09:00 [INF] Received: hello from 2
+2024-11-08 08:11:40.785 +09:00 [INF] Received: hello from 6
+2024-11-08 08:11:41.850 +09:00 [INF] Received: hello from 2
+2024-11-08 08:11:50.790 +09:00 [INF] Received: hello from 6
+2024-11-08 08:11:51.847 +09:00 [INF] Received: hello from 2
+2024-11-08 08:12:00.787 +09:00 [INF] Received: hello from 6
+2024-11-08 08:12:01.883 +09:00 [INF] Received: hello from 2
+2024-11-08 08:12:10.790 +09:00 [INF] Received: hello from 6
+2024-11-08 08:12:11.852 +09:00 [INF] Received: hello from 2
+2024-11-08 08:12:20.791 +09:00 [INF] Received: hello from 6
+2024-11-08 08:12:21.854 +09:00 [INF] Received: hello from 2
+2024-11-08 08:12:30.793 +09:00 [INF] Received: hello from 6
+2024-11-08 08:12:31.855 +09:00 [INF] Received: hello from 2
+2024-11-08 08:12:40.801 +09:00 [INF] Received: hello from 6
+2024-11-08 08:12:41.852 +09:00 [INF] Received: hello from 2
+2024-11-08 08:12:50.796 +09:00 [INF] Received: hello from 6
+2024-11-08 08:12:51.853 +09:00 [INF] Received: hello from 2
+2024-11-08 08:13:00.904 +09:00 [INF] Received: hello from 6
+2024-11-08 08:13:08.031 +09:00 [INF] User profile is available. Using '/Users/takuto/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2024-11-08 08:13:08.088 +09:00 [INF] Now listening on: http://[::]:5050
+2024-11-08 08:13:08.092 +09:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-08 08:13:08.093 +09:00 [INF] Hosting environment: Development
+2024-11-08 08:13:08.094 +09:00 [INF] Content root path: /Users/takuto/Code/BATTARI-api
+2024-11-08 08:13:50.187 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 08:13:50.318 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 08:13:50.331 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 08:13:50.381 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 08:13:50.384 +09:00 [INF] 2:WebSocket接続開始
+2024-11-08 08:13:54.737 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 08:13:54.752 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 08:13:54.754 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 08:13:54.760 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 08:13:54.761 +09:00 [INF] 6:WebSocket接続開始
+2024-11-08 08:14:00.422 +09:00 [INF] Received: hello from 2
+2024-11-08 08:14:02.684 +09:00 [INF] Received: {"id":6,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 6
+2024-11-08 08:14:04.776 +09:00 [INF] Received: hello from 6
+2024-11-08 08:14:10.432 +09:00 [INF] Received: hello from 2
+2024-11-08 08:14:11.534 +09:00 [INF] Received: {"id":2,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 2
+2024-11-08 08:14:14.773 +09:00 [INF] Received: hello from 6
+2024-11-08 08:14:20.413 +09:00 [INF] Received: hello from 2
+2024-11-08 08:14:23.180 +09:00 [INF] Received: {"id":6,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 6
+2024-11-08 08:14:24.771 +09:00 [INF] Received: hello from 6
+2024-11-08 08:14:26.891 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 08:14:26.902 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 08:14:26.904 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 08:14:26.908 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 08:14:26.911 +09:00 [INF] 6:WebSocket接続開始
+2024-11-08 08:14:30.415 +09:00 [INF] Received: hello from 2
+2024-11-08 08:14:34.774 +09:00 [INF] Received: hello from 6
+2024-11-08 08:14:36.919 +09:00 [INF] Received: hello from 6
+2024-11-08 08:14:40.418 +09:00 [INF] Received: hello from 2
+2024-11-08 08:14:44.777 +09:00 [INF] Received: hello from 6
+2024-11-08 08:14:46.925 +09:00 [INF] Received: hello from 6
+2024-11-08 08:14:50.414 +09:00 [INF] Received: hello from 2
+2024-11-08 08:14:54.778 +09:00 [INF] Received: hello from 6
+2024-11-08 08:14:56.921 +09:00 [INF] Received: hello from 6
+2024-11-08 08:15:00.417 +09:00 [INF] Received: hello from 2
+2024-11-08 08:15:04.781 +09:00 [INF] Received: hello from 6
+2024-11-08 08:15:06.922 +09:00 [INF] Received: hello from 6
+2024-11-08 08:15:10.418 +09:00 [INF] Received: hello from 2
+2024-11-08 08:15:14.785 +09:00 [INF] Received: hello from 6
+2024-11-08 08:15:16.924 +09:00 [INF] Received: hello from 6
+2024-11-08 08:15:20.418 +09:00 [INF] Received: hello from 2
+2024-11-08 08:15:24.783 +09:00 [INF] Received: hello from 6
+2024-11-08 08:15:26.927 +09:00 [INF] Received: hello from 6
+2024-11-08 08:15:30.424 +09:00 [INF] Received: hello from 2
+2024-11-08 08:15:34.783 +09:00 [INF] Received: hello from 6
+2024-11-08 08:15:36.932 +09:00 [INF] Received: hello from 6
+2024-11-08 08:15:40.421 +09:00 [INF] Received: hello from 2
+2024-11-08 08:15:44.784 +09:00 [INF] Received: hello from 6
+2024-11-08 08:15:46.928 +09:00 [INF] Received: hello from 6
+2024-11-08 08:15:50.424 +09:00 [INF] Received: hello from 2
+2024-11-08 08:15:54.787 +09:00 [INF] Received: hello from 6
+2024-11-08 08:15:56.932 +09:00 [INF] Received: hello from 6
+2024-11-08 08:16:00.424 +09:00 [INF] Received: hello from 2
+2024-11-08 08:16:04.787 +09:00 [INF] Received: hello from 6
+2024-11-08 08:16:06.930 +09:00 [INF] Received: hello from 6
+2024-11-08 08:16:10.426 +09:00 [INF] Received: hello from 2
+2024-11-08 08:16:14.810 +09:00 [INF] Received: hello from 6
+2024-11-08 08:16:16.934 +09:00 [INF] Received: hello from 6
+2024-11-08 08:16:20.430 +09:00 [INF] Received: hello from 2
+2024-11-08 08:16:24.786 +09:00 [INF] Received: hello from 6
+2024-11-08 08:16:26.930 +09:00 [INF] Received: hello from 6
+2024-11-08 08:16:30.430 +09:00 [INF] Received: hello from 2
+2024-11-08 08:16:34.786 +09:00 [INF] Received: hello from 6
+2024-11-08 08:16:36.931 +09:00 [INF] Received: hello from 6
+2024-11-08 08:16:40.429 +09:00 [INF] Received: hello from 2
+2024-11-08 08:16:44.791 +09:00 [INF] Received: hello from 6
+2024-11-08 08:16:46.937 +09:00 [INF] Received: hello from 6
+2024-11-08 08:16:50.430 +09:00 [INF] Received: hello from 2
+2024-11-08 08:16:54.796 +09:00 [INF] Received: hello from 6
+2024-11-08 08:16:56.942 +09:00 [INF] Received: hello from 6
+2024-11-08 08:17:00.431 +09:00 [INF] Received: hello from 2
+2024-11-08 08:17:04.791 +09:00 [INF] Received: hello from 6
+2024-11-08 08:17:06.938 +09:00 [INF] Received: hello from 6
+2024-11-08 08:32:36.984 +09:00 [INF] User profile is available. Using '/Users/takuto/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2024-11-08 08:32:37.112 +09:00 [INF] Now listening on: http://[::]:5050
+2024-11-08 08:32:37.153 +09:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-08 08:32:37.158 +09:00 [INF] Hosting environment: Development
+2024-11-08 08:32:37.161 +09:00 [INF] Content root path: /Users/takuto/Code/BATTARI-api
+2024-11-08 08:32:39.984 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 08:32:39.986 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 08:32:39.984 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 08:32:39.985 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 08:32:39.985 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 08:32:39.985 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 08:32:39.986 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 08:32:39.987 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 08:32:39.987 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 08:32:40.371 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 08:32:40.371 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 08:32:40.375 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 08:32:40.375 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 08:32:40.378 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 08:32:40.431 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 08:32:40.434 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 08:32:40.489 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 08:32:40.563 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 08:32:40.615 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 08:32:40.664 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 08:32:40.665 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 08:32:40.789 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 08:32:40.790 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 08:32:40.790 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 08:32:40.889 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 08:32:40.892 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 08:32:43.422 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 08:32:43.422 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 08:32:43.423 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 08:32:43.422 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 08:32:43.422 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 08:32:43.422 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 08:32:43.423 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 08:32:43.422 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 08:32:43.423 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 08:32:43.422 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 08:32:43.423 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 08:32:43.422 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 08:32:43.423 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 08:32:43.422 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 08:32:43.423 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 08:32:43.423 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 08:32:43.422 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 08:32:43.423 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 08:32:43.423 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 08:32:43.423 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 08:32:43.423 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 08:32:43.423 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 08:32:43.423 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 08:32:43.423 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 08:32:43.423 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 08:32:43.423 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 08:32:43.468 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 08:32:43.468 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 08:32:43.468 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 08:32:43.468 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 08:32:43.468 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 08:32:43.469 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 08:32:43.469 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 08:32:43.469 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 08:32:43.469 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 08:32:43.469 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 08:32:43.469 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 08:32:43.469 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 08:32:43.469 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 08:32:43.469 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 08:32:43.469 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 08:32:43.470 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 08:32:43.470 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 08:32:43.470 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 08:32:43.470 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 08:32:43.470 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 08:32:43.470 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 08:32:43.470 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 08:32:43.470 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 08:32:43.470 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 08:32:43.473 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 08:32:43.473 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 08:32:43.554 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 08:32:43.554 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 08:32:43.554 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 08:32:43.554 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 08:32:43.554 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 08:32:43.554 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 08:32:43.554 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 08:32:43.554 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 08:32:43.555 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 08:32:43.555 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 08:32:43.555 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 08:32:43.555 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 08:32:43.555 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 08:32:43.555 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 08:32:43.555 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 08:32:43.555 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 08:32:43.555 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 08:32:43.555 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 08:32:43.555 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 08:32:43.555 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 08:32:43.555 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 08:32:43.555 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 08:32:43.556 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 08:32:43.556 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 08:32:43.556 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 08:32:43.556 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 08:32:43.560 +09:00 [INF] 6:WebSocket接続開始
+2024-11-08 08:32:43.559 +09:00 [INF] 6:WebSocket接続開始
+2024-11-08 08:32:43.560 +09:00 [INF] 6:WebSocket接続開始
+2024-11-08 08:32:43.585 +09:00 [INF] 6:WebSocket接続開始
+2024-11-08 08:32:43.586 +09:00 [INF] 6:WebSocket接続開始
+2024-11-08 08:32:43.588 +09:00 [INF] 6:WebSocket接続開始
+2024-11-08 08:32:43.589 +09:00 [INF] 6:WebSocket接続開始
+2024-11-08 08:32:43.590 +09:00 [INF] 6:WebSocket接続開始
+2024-11-08 08:32:43.590 +09:00 [INF] 6:WebSocket接続開始
+2024-11-08 08:32:43.592 +09:00 [INF] 6:WebSocket接続開始
+2024-11-08 08:32:43.592 +09:00 [INF] 6:WebSocket接続開始
+2024-11-08 08:32:43.595 +09:00 [INF] 6:WebSocket接続開始
+2024-11-08 08:32:43.596 +09:00 [INF] 6:WebSocket接続開始
+2024-11-08 08:32:43.596 +09:00 [INF] 6:WebSocket接続開始
+2024-11-08 08:32:43.596 +09:00 [INF] 6:WebSocket接続開始
+2024-11-08 08:32:43.597 +09:00 [INF] 6:WebSocket接続開始
+2024-11-08 08:32:43.599 +09:00 [INF] 6:WebSocket接続開始
+2024-11-08 08:32:43.601 +09:00 [INF] 6:WebSocket接続開始
+2024-11-08 08:32:43.601 +09:00 [INF] 6:WebSocket接続開始
+2024-11-08 08:32:43.603 +09:00 [INF] 6:WebSocket接続開始
+2024-11-08 08:32:43.603 +09:00 [INF] 6:WebSocket接続開始
+2024-11-08 08:32:43.606 +09:00 [INF] 6:WebSocket接続開始
+2024-11-08 08:32:43.609 +09:00 [INF] 6:WebSocket接続開始
+2024-11-08 08:32:43.610 +09:00 [INF] 6:WebSocket接続開始
+2024-11-08 08:32:43.610 +09:00 [INF] 6:WebSocket接続開始
+2024-11-08 08:32:43.610 +09:00 [INF] 6:WebSocket接続開始
+2024-11-08 08:32:46.088 +09:00 [ERR] WebSocketの受信に失敗System.Net.WebSockets.WebSocketException (2): The remote party closed the WebSocket connection without completing the close handshake.
+   at System.Net.WebSockets.ManagedWebSocket.ThrowEOFUnexpected()
+   at System.Net.WebSockets.ManagedWebSocket.EnsureBufferContainsAsync(Int32 minimumRequiredBytes, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.WebSockets.ManagedWebSocket.ReceiveAsyncPrivate[TResult](Memory`1 payloadBuffer, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at WebSocketController.Get() in /Users/takuto/Code/BATTARI-api/Controllers/WebSocketController.cs:line 81
+2024-11-08 08:32:46.090 +09:00 [ERR] WebSocketの受信に失敗System.Net.WebSockets.WebSocketException (2): The remote party closed the WebSocket connection without completing the close handshake.
+   at System.Net.WebSockets.ManagedWebSocket.ThrowEOFUnexpected()
+   at System.Net.WebSockets.ManagedWebSocket.EnsureBufferContainsAsync(Int32 minimumRequiredBytes, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.WebSockets.ManagedWebSocket.ReceiveAsyncPrivate[TResult](Memory`1 payloadBuffer, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at WebSocketController.Get() in /Users/takuto/Code/BATTARI-api/Controllers/WebSocketController.cs:line 81
+2024-11-08 08:32:46.092 +09:00 [ERR] WebSocketの受信に失敗System.Net.WebSockets.WebSocketException (2): The remote party closed the WebSocket connection without completing the close handshake.
+   at System.Net.WebSockets.ManagedWebSocket.ThrowEOFUnexpected()
+   at System.Net.WebSockets.ManagedWebSocket.EnsureBufferContainsAsync(Int32 minimumRequiredBytes, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.WebSockets.ManagedWebSocket.ReceiveAsyncPrivate[TResult](Memory`1 payloadBuffer, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at WebSocketController.Get() in /Users/takuto/Code/BATTARI-api/Controllers/WebSocketController.cs:line 81
+2024-11-08 08:32:46.093 +09:00 [ERR] WebSocketの受信に失敗System.Net.WebSockets.WebSocketException (2): The remote party closed the WebSocket connection without completing the close handshake.
+   at System.Net.WebSockets.ManagedWebSocket.ThrowEOFUnexpected()
+   at System.Net.WebSockets.ManagedWebSocket.EnsureBufferContainsAsync(Int32 minimumRequiredBytes, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.WebSockets.ManagedWebSocket.ReceiveAsyncPrivate[TResult](Memory`1 payloadBuffer, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at WebSocketController.Get() in /Users/takuto/Code/BATTARI-api/Controllers/WebSocketController.cs:line 81
+2024-11-08 08:32:46.093 +09:00 [ERR] WebSocketの受信に失敗System.Net.WebSockets.WebSocketException (2): The remote party closed the WebSocket connection without completing the close handshake.
+   at System.Net.WebSockets.ManagedWebSocket.ThrowEOFUnexpected()
+   at System.Net.WebSockets.ManagedWebSocket.EnsureBufferContainsAsync(Int32 minimumRequiredBytes, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.WebSockets.ManagedWebSocket.ReceiveAsyncPrivate[TResult](Memory`1 payloadBuffer, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at WebSocketController.Get() in /Users/takuto/Code/BATTARI-api/Controllers/WebSocketController.cs:line 81
+2024-11-08 08:32:46.093 +09:00 [ERR] WebSocketの受信に失敗System.Net.WebSockets.WebSocketException (2): The remote party closed the WebSocket connection without completing the close handshake.
+   at System.Net.WebSockets.ManagedWebSocket.ThrowEOFUnexpected()
+   at System.Net.WebSockets.ManagedWebSocket.EnsureBufferContainsAsync(Int32 minimumRequiredBytes, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.WebSockets.ManagedWebSocket.ReceiveAsyncPrivate[TResult](Memory`1 payloadBuffer, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at WebSocketController.Get() in /Users/takuto/Code/BATTARI-api/Controllers/WebSocketController.cs:line 81
+2024-11-08 08:32:46.095 +09:00 [ERR] WebSocketの受信に失敗System.Net.WebSockets.WebSocketException (0x80004005): The remote party closed the WebSocket connection without completing the close handshake.
+   at System.Net.WebSockets.ManagedWebSocket.ThrowEOFUnexpected()
+   at System.Net.WebSockets.ManagedWebSocket.EnsureBufferContainsAsync(Int32 minimumRequiredBytes, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.WebSockets.ManagedWebSocket.ReceiveAsyncPrivate[TResult](Memory`1 payloadBuffer, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at WebSocketController.Get() in /Users/takuto/Code/BATTARI-api/Controllers/WebSocketController.cs:line 81
+2024-11-08 08:32:46.098 +09:00 [ERR] WebSocketの受信に失敗System.Net.WebSockets.WebSocketException (2): The remote party closed the WebSocket connection without completing the close handshake.
+   at System.Net.WebSockets.ManagedWebSocket.ThrowEOFUnexpected()
+   at System.Net.WebSockets.ManagedWebSocket.EnsureBufferContainsAsync(Int32 minimumRequiredBytes, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.WebSockets.ManagedWebSocket.ReceiveAsyncPrivate[TResult](Memory`1 payloadBuffer, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at WebSocketController.Get() in /Users/takuto/Code/BATTARI-api/Controllers/WebSocketController.cs:line 81
+2024-11-08 08:32:46.098 +09:00 [ERR] WebSocketの受信に失敗System.Net.WebSockets.WebSocketException (2): The remote party closed the WebSocket connection without completing the close handshake.
+   at System.Net.WebSockets.ManagedWebSocket.ThrowEOFUnexpected()
+   at System.Net.WebSockets.ManagedWebSocket.EnsureBufferContainsAsync(Int32 minimumRequiredBytes, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.WebSockets.ManagedWebSocket.ReceiveAsyncPrivate[TResult](Memory`1 payloadBuffer, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at WebSocketController.Get() in /Users/takuto/Code/BATTARI-api/Controllers/WebSocketController.cs:line 81
+2024-11-08 08:32:46.098 +09:00 [ERR] WebSocketの受信に失敗System.Net.WebSockets.WebSocketException (2): The remote party closed the WebSocket connection without completing the close handshake.
+   at System.Net.WebSockets.ManagedWebSocket.ThrowEOFUnexpected()
+   at System.Net.WebSockets.ManagedWebSocket.EnsureBufferContainsAsync(Int32 minimumRequiredBytes, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.WebSockets.ManagedWebSocket.ReceiveAsyncPrivate[TResult](Memory`1 payloadBuffer, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at WebSocketController.Get() in /Users/takuto/Code/BATTARI-api/Controllers/WebSocketController.cs:line 81
+2024-11-08 08:32:46.129 +09:00 [ERR] WebSocketの受信に失敗System.Net.WebSockets.WebSocketException (2): The remote party closed the WebSocket connection without completing the close handshake.
+   at System.Net.WebSockets.ManagedWebSocket.ThrowEOFUnexpected()
+   at System.Net.WebSockets.ManagedWebSocket.EnsureBufferContainsAsync(Int32 minimumRequiredBytes, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.WebSockets.ManagedWebSocket.ReceiveAsyncPrivate[TResult](Memory`1 payloadBuffer, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at WebSocketController.Get() in /Users/takuto/Code/BATTARI-api/Controllers/WebSocketController.cs:line 81
+2024-11-08 08:32:46.131 +09:00 [ERR] WebSocketの受信に失敗System.Net.WebSockets.WebSocketException (2): The remote party closed the WebSocket connection without completing the close handshake.
+   at System.Net.WebSockets.ManagedWebSocket.ThrowEOFUnexpected()
+   at System.Net.WebSockets.ManagedWebSocket.EnsureBufferContainsAsync(Int32 minimumRequiredBytes, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.WebSockets.ManagedWebSocket.ReceiveAsyncPrivate[TResult](Memory`1 payloadBuffer, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at WebSocketController.Get() in /Users/takuto/Code/BATTARI-api/Controllers/WebSocketController.cs:line 81
+2024-11-08 08:32:46.133 +09:00 [ERR] WebSocketの受信に失敗System.Net.WebSockets.WebSocketException (2): The remote party closed the WebSocket connection without completing the close handshake.
+   at System.Net.WebSockets.ManagedWebSocket.ThrowEOFUnexpected()
+   at System.Net.WebSockets.ManagedWebSocket.EnsureBufferContainsAsync(Int32 minimumRequiredBytes, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.WebSockets.ManagedWebSocket.ReceiveAsyncPrivate[TResult](Memory`1 payloadBuffer, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at WebSocketController.Get() in /Users/takuto/Code/BATTARI-api/Controllers/WebSocketController.cs:line 81
+2024-11-08 08:32:46.134 +09:00 [ERR] WebSocketの受信に失敗System.Net.WebSockets.WebSocketException (2): The remote party closed the WebSocket connection without completing the close handshake.
+   at System.Net.WebSockets.ManagedWebSocket.ThrowEOFUnexpected()
+   at System.Net.WebSockets.ManagedWebSocket.EnsureBufferContainsAsync(Int32 minimumRequiredBytes, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.WebSockets.ManagedWebSocket.ReceiveAsyncPrivate[TResult](Memory`1 payloadBuffer, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at WebSocketController.Get() in /Users/takuto/Code/BATTARI-api/Controllers/WebSocketController.cs:line 81
+2024-11-08 08:32:46.135 +09:00 [ERR] WebSocketの受信に失敗System.Net.WebSockets.WebSocketException (2): The remote party closed the WebSocket connection without completing the close handshake.
+   at System.Net.WebSockets.ManagedWebSocket.ThrowEOFUnexpected()
+   at System.Net.WebSockets.ManagedWebSocket.EnsureBufferContainsAsync(Int32 minimumRequiredBytes, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.WebSockets.ManagedWebSocket.ReceiveAsyncPrivate[TResult](Memory`1 payloadBuffer, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at WebSocketController.Get() in /Users/takuto/Code/BATTARI-api/Controllers/WebSocketController.cs:line 81
+2024-11-08 08:32:46.137 +09:00 [ERR] WebSocketの受信に失敗System.Net.WebSockets.WebSocketException (2): The remote party closed the WebSocket connection without completing the close handshake.
+   at System.Net.WebSockets.ManagedWebSocket.ThrowEOFUnexpected()
+   at System.Net.WebSockets.ManagedWebSocket.EnsureBufferContainsAsync(Int32 minimumRequiredBytes, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.WebSockets.ManagedWebSocket.ReceiveAsyncPrivate[TResult](Memory`1 payloadBuffer, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at WebSocketController.Get() in /Users/takuto/Code/BATTARI-api/Controllers/WebSocketController.cs:line 81
+2024-11-08 08:32:46.138 +09:00 [ERR] WebSocketの受信に失敗System.Net.WebSockets.WebSocketException (2): The remote party closed the WebSocket connection without completing the close handshake.
+   at System.Net.WebSockets.ManagedWebSocket.ThrowEOFUnexpected()
+   at System.Net.WebSockets.ManagedWebSocket.EnsureBufferContainsAsync(Int32 minimumRequiredBytes, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.WebSockets.ManagedWebSocket.ReceiveAsyncPrivate[TResult](Memory`1 payloadBuffer, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at WebSocketController.Get() in /Users/takuto/Code/BATTARI-api/Controllers/WebSocketController.cs:line 81
+2024-11-08 08:32:46.189 +09:00 [ERR] WebSocketの受信に失敗System.Net.WebSockets.WebSocketException (2): The remote party closed the WebSocket connection without completing the close handshake.
+   at System.Net.WebSockets.ManagedWebSocket.ThrowEOFUnexpected()
+   at System.Net.WebSockets.ManagedWebSocket.EnsureBufferContainsAsync(Int32 minimumRequiredBytes, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.WebSockets.ManagedWebSocket.ReceiveAsyncPrivate[TResult](Memory`1 payloadBuffer, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at WebSocketController.Get() in /Users/takuto/Code/BATTARI-api/Controllers/WebSocketController.cs:line 81
+2024-11-08 08:32:46.213 +09:00 [ERR] WebSocketの受信に失敗System.Net.WebSockets.WebSocketException (2): The remote party closed the WebSocket connection without completing the close handshake.
+   at System.Net.WebSockets.ManagedWebSocket.ThrowEOFUnexpected()
+   at System.Net.WebSockets.ManagedWebSocket.EnsureBufferContainsAsync(Int32 minimumRequiredBytes, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.WebSockets.ManagedWebSocket.ReceiveAsyncPrivate[TResult](Memory`1 payloadBuffer, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at WebSocketController.Get() in /Users/takuto/Code/BATTARI-api/Controllers/WebSocketController.cs:line 81
+2024-11-08 08:32:46.216 +09:00 [ERR] WebSocketの受信に失敗System.Net.WebSockets.WebSocketException (2): The remote party closed the WebSocket connection without completing the close handshake.
+   at System.Net.WebSockets.ManagedWebSocket.ThrowEOFUnexpected()
+   at System.Net.WebSockets.ManagedWebSocket.EnsureBufferContainsAsync(Int32 minimumRequiredBytes, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.WebSockets.ManagedWebSocket.ReceiveAsyncPrivate[TResult](Memory`1 payloadBuffer, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at WebSocketController.Get() in /Users/takuto/Code/BATTARI-api/Controllers/WebSocketController.cs:line 81
+2024-11-08 08:32:46.216 +09:00 [INF] websocekt切断:Aborted
+2024-11-08 08:32:46.225 +09:00 [ERR] WebSocketの受信に失敗System.Net.WebSockets.WebSocketException (2): The remote party closed the WebSocket connection without completing the close handshake.
+   at System.Net.WebSockets.ManagedWebSocket.ThrowEOFUnexpected()
+   at System.Net.WebSockets.ManagedWebSocket.EnsureBufferContainsAsync(Int32 minimumRequiredBytes, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.WebSockets.ManagedWebSocket.ReceiveAsyncPrivate[TResult](Memory`1 payloadBuffer, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at WebSocketController.Get() in /Users/takuto/Code/BATTARI-api/Controllers/WebSocketController.cs:line 81
+2024-11-08 08:32:46.230 +09:00 [ERR] WebSocketの受信に失敗System.Net.WebSockets.WebSocketException (2): The remote party closed the WebSocket connection without completing the close handshake.
+   at System.Net.WebSockets.ManagedWebSocket.ThrowEOFUnexpected()
+   at System.Net.WebSockets.ManagedWebSocket.EnsureBufferContainsAsync(Int32 minimumRequiredBytes, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.WebSockets.ManagedWebSocket.ReceiveAsyncPrivate[TResult](Memory`1 payloadBuffer, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at WebSocketController.Get() in /Users/takuto/Code/BATTARI-api/Controllers/WebSocketController.cs:line 81
+2024-11-08 08:32:46.239 +09:00 [ERR] WebSocketの受信に失敗System.Net.WebSockets.WebSocketException (2): The remote party closed the WebSocket connection without completing the close handshake.
+   at System.Net.WebSockets.ManagedWebSocket.ThrowEOFUnexpected()
+   at System.Net.WebSockets.ManagedWebSocket.EnsureBufferContainsAsync(Int32 minimumRequiredBytes, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.WebSockets.ManagedWebSocket.ReceiveAsyncPrivate[TResult](Memory`1 payloadBuffer, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at WebSocketController.Get() in /Users/takuto/Code/BATTARI-api/Controllers/WebSocketController.cs:line 81
+2024-11-08 08:32:46.241 +09:00 [INF] websocekt切断:Aborted
+2024-11-08 08:32:46.241 +09:00 [INF] websocekt切断:Aborted
+2024-11-08 08:32:46.263 +09:00 [INF] websocekt切断:Aborted
+2024-11-08 08:32:46.263 +09:00 [ERR] WebSocketの受信に失敗System.Net.WebSockets.WebSocketException (2): The remote party closed the WebSocket connection without completing the close handshake.
+   at System.Net.WebSockets.ManagedWebSocket.ThrowEOFUnexpected()
+   at System.Net.WebSockets.ManagedWebSocket.EnsureBufferContainsAsync(Int32 minimumRequiredBytes, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.WebSockets.ManagedWebSocket.ReceiveAsyncPrivate[TResult](Memory`1 payloadBuffer, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at WebSocketController.Get() in /Users/takuto/Code/BATTARI-api/Controllers/WebSocketController.cs:line 81
+2024-11-08 08:32:46.263 +09:00 [INF] websocekt切断:Aborted
+2024-11-08 08:32:46.263 +09:00 [INF] websocekt切断:Aborted
+2024-11-08 08:32:46.265 +09:00 [INF] websocekt切断:Aborted
+2024-11-08 08:32:46.265 +09:00 [INF] websocekt切断:Aborted
+2024-11-08 08:32:46.265 +09:00 [INF] websocekt切断:Aborted
+2024-11-08 08:32:46.265 +09:00 [INF] websocekt切断:Aborted
+2024-11-08 08:32:46.266 +09:00 [INF] websocekt切断:Aborted
+2024-11-08 08:32:46.266 +09:00 [INF] websocekt切断:Aborted
+2024-11-08 08:32:46.266 +09:00 [INF] websocekt切断:Aborted
+2024-11-08 08:32:46.266 +09:00 [INF] websocekt切断:Aborted
+2024-11-08 08:32:46.266 +09:00 [INF] websocekt切断:Aborted
+2024-11-08 08:32:46.266 +09:00 [INF] websocekt切断:Aborted
+2024-11-08 08:32:46.267 +09:00 [INF] websocekt切断:Aborted
+2024-11-08 08:32:46.267 +09:00 [INF] websocekt切断:Aborted
+2024-11-08 08:32:46.267 +09:00 [INF] websocekt切断:Aborted
+2024-11-08 08:32:46.267 +09:00 [INF] websocekt切断:Aborted
+2024-11-08 08:32:46.267 +09:00 [INF] websocekt切断:Aborted
+2024-11-08 08:32:46.268 +09:00 [INF] websocekt切断:Aborted
+2024-11-08 08:32:46.268 +09:00 [ERR] WebSocketの受信に失敗System.Net.WebSockets.WebSocketException (2): The remote party closed the WebSocket connection without completing the close handshake.
+   at System.Net.WebSockets.ManagedWebSocket.ThrowEOFUnexpected()
+   at System.Net.WebSockets.ManagedWebSocket.EnsureBufferContainsAsync(Int32 minimumRequiredBytes, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.WebSockets.ManagedWebSocket.ReceiveAsyncPrivate[TResult](Memory`1 payloadBuffer, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at WebSocketController.Get() in /Users/takuto/Code/BATTARI-api/Controllers/WebSocketController.cs:line 81
+2024-11-08 08:32:46.268 +09:00 [INF] websocekt切断:Aborted
+2024-11-08 08:32:46.270 +09:00 [INF] websocekt切断:Aborted
+2024-11-08 08:32:46.270 +09:00 [INF] websocekt切断:Aborted
+2024-11-08 08:32:46.317 +09:00 [INF] Executed action method WebSocketController.Get (BATTARI-api), returned result Microsoft.AspNetCore.Mvc.EmptyResult in 2711.8674ms.
+2024-11-08 08:32:46.317 +09:00 [INF] Executed action method WebSocketController.Get (BATTARI-api), returned result Microsoft.AspNetCore.Mvc.EmptyResult in 2712.0581ms.
+2024-11-08 08:32:46.317 +09:00 [INF] Executed action method WebSocketController.Get (BATTARI-api), returned result Microsoft.AspNetCore.Mvc.EmptyResult in 2714.4599ms.
+2024-11-08 08:32:46.317 +09:00 [INF] Executed action method WebSocketController.Get (BATTARI-api), returned result Microsoft.AspNetCore.Mvc.EmptyResult in 2711.1378ms.
+2024-11-08 08:32:46.317 +09:00 [INF] Executed action method WebSocketController.Get (BATTARI-api), returned result Microsoft.AspNetCore.Mvc.EmptyResult in 2711.792ms.
+2024-11-08 08:32:46.317 +09:00 [INF] Executed action method WebSocketController.Get (BATTARI-api), returned result Microsoft.AspNetCore.Mvc.EmptyResult in 2712.2473ms.
+2024-11-08 08:32:46.317 +09:00 [INF] Executed action method WebSocketController.Get (BATTARI-api), returned result Microsoft.AspNetCore.Mvc.EmptyResult in 2710.1692ms.
+2024-11-08 08:32:46.317 +09:00 [INF] Executed action method WebSocketController.Get (BATTARI-api), returned result Microsoft.AspNetCore.Mvc.EmptyResult in 2711.16ms.
+2024-11-08 08:32:46.317 +09:00 [INF] Executed action method WebSocketController.Get (BATTARI-api), returned result Microsoft.AspNetCore.Mvc.EmptyResult in 2711.2379ms.
+2024-11-08 08:32:46.317 +09:00 [INF] Executed action method WebSocketController.Get (BATTARI-api), returned result Microsoft.AspNetCore.Mvc.EmptyResult in 2711.5838ms.
+2024-11-08 08:32:46.318 +09:00 [INF] Executed action method WebSocketController.Get (BATTARI-api), returned result Microsoft.AspNetCore.Mvc.EmptyResult in 2711.4013ms.
+2024-11-08 08:32:46.318 +09:00 [INF] Executed action method WebSocketController.Get (BATTARI-api), returned result Microsoft.AspNetCore.Mvc.EmptyResult in 2715.4428ms.
+2024-11-08 08:32:46.318 +09:00 [INF] Executed action method WebSocketController.Get (BATTARI-api), returned result Microsoft.AspNetCore.Mvc.EmptyResult in 2710.7898ms.
+2024-11-08 08:32:46.318 +09:00 [INF] Executed action method WebSocketController.Get (BATTARI-api), returned result Microsoft.AspNetCore.Mvc.EmptyResult in 2710.1161ms.
+2024-11-08 08:32:46.318 +09:00 [INF] Executed action method WebSocketController.Get (BATTARI-api), returned result Microsoft.AspNetCore.Mvc.EmptyResult in 2711.2557ms.
+2024-11-08 08:32:46.318 +09:00 [INF] Executed action method WebSocketController.Get (BATTARI-api), returned result Microsoft.AspNetCore.Mvc.EmptyResult in 2710.5708ms.
+2024-11-08 08:32:46.318 +09:00 [INF] Executed action method WebSocketController.Get (BATTARI-api), returned result Microsoft.AspNetCore.Mvc.EmptyResult in 2711.3353ms.
+2024-11-08 08:32:46.318 +09:00 [INF] Executed action method WebSocketController.Get (BATTARI-api), returned result Microsoft.AspNetCore.Mvc.EmptyResult in 2715.7331ms.
+2024-11-08 08:32:46.318 +09:00 [INF] Executed action method WebSocketController.Get (BATTARI-api), returned result Microsoft.AspNetCore.Mvc.EmptyResult in 2710.6137ms.
+2024-11-08 08:32:46.318 +09:00 [INF] Executed action method WebSocketController.Get (BATTARI-api), returned result Microsoft.AspNetCore.Mvc.EmptyResult in 2710.8383ms.
+2024-11-08 08:32:46.318 +09:00 [INF] Executed action method WebSocketController.Get (BATTARI-api), returned result Microsoft.AspNetCore.Mvc.EmptyResult in 2712.3608ms.
+2024-11-08 08:32:46.319 +09:00 [INF] Executed action method WebSocketController.Get (BATTARI-api), returned result Microsoft.AspNetCore.Mvc.EmptyResult in 2711.1933ms.
+2024-11-08 08:32:46.319 +09:00 [INF] Executed action method WebSocketController.Get (BATTARI-api), returned result Microsoft.AspNetCore.Mvc.EmptyResult in 2713.4025ms.
+2024-11-08 08:32:46.319 +09:00 [INF] Executed action method WebSocketController.Get (BATTARI-api), returned result Microsoft.AspNetCore.Mvc.EmptyResult in 2710.9601ms.
+2024-11-08 08:32:46.319 +09:00 [INF] Executed action method WebSocketController.Get (BATTARI-api), returned result Microsoft.AspNetCore.Mvc.EmptyResult in 2711.424ms.
+2024-11-08 08:32:46.365 +09:00 [INF] Executed action WebSocketController.Get (BATTARI-api) in 2854.0807ms
+2024-11-08 08:32:46.365 +09:00 [INF] Executed action WebSocketController.Get (BATTARI-api) in 2854.9374ms
+2024-11-08 08:32:46.365 +09:00 [INF] Executed action WebSocketController.Get (BATTARI-api) in 2854.0328ms
+2024-11-08 08:32:46.365 +09:00 [INF] Executed action WebSocketController.Get (BATTARI-api) in 2855.2265ms
+2024-11-08 08:32:46.365 +09:00 [INF] Executed action WebSocketController.Get (BATTARI-api) in 2855.0241ms
+2024-11-08 08:32:46.365 +09:00 [INF] Executed action WebSocketController.Get (BATTARI-api) in 2850.6174ms
+2024-11-08 08:32:46.365 +09:00 [INF] Executed action WebSocketController.Get (BATTARI-api) in 2855.0547ms
+2024-11-08 08:32:46.365 +09:00 [INF] Executed action WebSocketController.Get (BATTARI-api) in 2854.0706ms
+2024-11-08 08:32:46.365 +09:00 [INF] Executed action WebSocketController.Get (BATTARI-api) in 2854.4427ms
+2024-11-08 08:32:46.365 +09:00 [INF] Executed action WebSocketController.Get (BATTARI-api) in 2854.2388ms
+2024-11-08 08:32:46.387 +09:00 [INF] Executed action WebSocketController.Get (BATTARI-api) in 2854.4524ms
+2024-11-08 08:32:46.387 +09:00 [INF] Executed action WebSocketController.Get (BATTARI-api) in 2853.9424ms
+2024-11-08 08:32:46.421 +09:00 [INF] Executed endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 08:32:46.422 +09:00 [INF] Executed endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 08:32:46.422 +09:00 [INF] Executed endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 08:32:46.426 +09:00 [INF] Executed action WebSocketController.Get (BATTARI-api) in 2853.9635ms
+2024-11-08 08:32:46.427 +09:00 [INF] Executed action WebSocketController.Get (BATTARI-api) in 2855.1742ms
+2024-11-08 08:32:46.427 +09:00 [INF] Executed action WebSocketController.Get (BATTARI-api) in 2854.6397ms
+2024-11-08 08:32:46.451 +09:00 [INF] Executed action WebSocketController.Get (BATTARI-api) in 2855.6985ms
+2024-11-08 08:32:46.451 +09:00 [INF] Executed action WebSocketController.Get (BATTARI-api) in 2854.0753ms
+2024-11-08 08:32:46.473 +09:00 [INF] Executed action WebSocketController.Get (BATTARI-api) in 2855.8085ms
+2024-11-08 08:32:46.473 +09:00 [INF] Executed endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 08:32:46.476 +09:00 [INF] Executed action WebSocketController.Get (BATTARI-api) in 2854.4082ms
+2024-11-08 08:32:46.477 +09:00 [INF] Executed action WebSocketController.Get (BATTARI-api) in 2854.3618ms
+2024-11-08 08:32:46.477 +09:00 [INF] Executed action WebSocketController.Get (BATTARI-api) in 2855.8062ms
+2024-11-08 08:32:46.478 +09:00 [INF] Executed action WebSocketController.Get (BATTARI-api) in 2850.6755ms
+2024-11-08 08:32:46.480 +09:00 [INF] Executed action WebSocketController.Get (BATTARI-api) in 2855.6675ms
+2024-11-08 08:32:46.482 +09:00 [INF] Executed endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 08:32:46.482 +09:00 [INF] Executed endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 08:32:46.482 +09:00 [INF] Executed endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 08:32:46.482 +09:00 [INF] Executed endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 08:32:46.482 +09:00 [INF] Executed endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 08:32:46.482 +09:00 [INF] Executed endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 08:32:46.483 +09:00 [INF] Executed endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 08:32:46.483 +09:00 [INF] Executed action WebSocketController.Get (BATTARI-api) in 2854.1913ms
+2024-11-08 08:32:46.484 +09:00 [INF] Executed endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 08:32:46.484 +09:00 [INF] Executed endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 08:32:46.484 +09:00 [INF] Executed endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 08:32:46.484 +09:00 [INF] Executed endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 08:32:46.484 +09:00 [INF] Executed endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 08:32:46.484 +09:00 [INF] Executed endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 08:32:46.484 +09:00 [INF] Executed action WebSocketController.Get (BATTARI-api) in 2855.1518ms
+2024-11-08 08:32:46.486 +09:00 [INF] Executed endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 08:32:46.486 +09:00 [INF] Executed endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 08:32:46.486 +09:00 [INF] Executed endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 08:32:46.486 +09:00 [INF] Executed endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 08:32:46.486 +09:00 [INF] Executed endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 08:32:46.486 +09:00 [INF] Executed endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 08:32:46.486 +09:00 [INF] Executed endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 08:32:46.486 +09:00 [INF] Executed endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 08:32:46.527 +09:00 [INF] Request finished HTTP/1.1 GET http://192.168.10.5:5050/ws - 101 null null 6572.4909ms
+2024-11-08 08:32:46.528 +09:00 [INF] Request finished HTTP/1.1 GET http://192.168.10.5:5050/ws - 101 null null 6113.4642ms
+2024-11-08 08:32:46.534 +09:00 [INF] Request finished HTTP/1.1 GET http://192.168.10.5:5050/ws - 101 null null 6572.206ms
+2024-11-08 08:32:46.536 +09:00 [INF] Request finished HTTP/1.1 GET http://192.168.10.5:5050/ws - 101 null null 5603.1701ms
+2024-11-08 08:32:46.543 +09:00 [INF] Request finished HTTP/1.1 GET http://192.168.10.5:5050/ws - 101 null null 6572.307ms
+2024-11-08 08:32:46.541 +09:00 [INF] Request finished HTTP/1.1 GET http://192.168.10.5:5050/ws - 101 null null 5603.1495ms
+2024-11-08 08:32:46.538 +09:00 [INF] Request finished HTTP/1.1 GET http://192.168.10.5:5050/ws - 101 null null 6572.2912ms
+2024-11-08 08:32:46.544 +09:00 [INF] Request finished HTTP/1.1 GET http://192.168.10.5:5050/ws - 101 null null 6572.1922ms
+2024-11-08 08:32:46.545 +09:00 [INF] Request finished HTTP/1.1 GET http://192.168.10.5:5050/ws - 101 null null 5925.0043ms
+2024-11-08 08:32:46.545 +09:00 [INF] Request finished HTTP/1.1 GET http://192.168.10.5:5050/ws - 101 null null 5900.2954ms
+2024-11-08 08:32:46.545 +09:00 [INF] Request finished HTTP/1.1 GET http://192.168.10.5:5050/ws - 101 null null 6057.611ms
+2024-11-08 08:32:46.546 +09:00 [INF] Request finished HTTP/1.1 GET http://192.168.10.5:5050/ws - 101 null null 6120.591ms
+2024-11-08 08:32:46.546 +09:00 [INF] Request finished HTTP/1.1 GET http://192.168.10.5:5050/ws - 101 null null 5701.8073ms
+2024-11-08 08:32:46.547 +09:00 [INF] Request finished HTTP/1.1 GET http://192.168.10.5:5050/ws - 101 null null 6572.212ms
+2024-11-08 08:32:46.547 +09:00 [INF] Request finished HTTP/1.1 GET http://192.168.10.5:5050/ws - 101 null null 6115.8961ms
+2024-11-08 08:32:46.548 +09:00 [INF] Request finished HTTP/1.1 GET http://192.168.10.5:5050/ws - 101 null null 6571.9337ms
+2024-11-08 08:32:46.548 +09:00 [INF] Request finished HTTP/1.1 GET http://192.168.10.5:5050/ws - 101 null null 6190.6058ms
+2024-11-08 08:32:46.548 +09:00 [INF] Request finished HTTP/1.1 GET http://192.168.10.5:5050/ws - 101 null null 6059.6282ms
+2024-11-08 08:32:46.548 +09:00 [INF] Request finished HTTP/1.1 GET http://192.168.10.5:5050/ws - 101 null null 6052.9795ms
+2024-11-08 08:32:46.549 +09:00 [INF] Request finished HTTP/1.1 GET http://192.168.10.5:5050/ws - 101 null null 6572.1467ms
+2024-11-08 08:32:46.549 +09:00 [INF] Request finished HTTP/1.1 GET http://192.168.10.5:5050/ws - 101 null null 6190.5812ms
+2024-11-08 08:32:46.549 +09:00 [INF] Request finished HTTP/1.1 GET http://192.168.10.5:5050/ws - 101 null null 5978.8532ms
+2024-11-08 08:32:46.549 +09:00 [INF] Request finished HTTP/1.1 GET http://192.168.10.5:5050/ws - 101 null null 5703.8884ms
+2024-11-08 08:32:46.550 +09:00 [INF] Request finished HTTP/1.1 GET http://192.168.10.5:5050/ws - 101 null null 5754.2017ms
+2024-11-08 08:32:46.550 +09:00 [INF] Request finished HTTP/1.1 GET http://192.168.10.5:5050/ws - 101 null null 5850.7764ms
+2024-11-08 08:32:46.689 +09:00 [ERR] WebSocketの受信に失敗System.Net.WebSockets.WebSocketException (0x80004005): The remote party closed the WebSocket connection without completing the close handshake.
+   at System.Net.WebSockets.ManagedWebSocket.ThrowEOFUnexpected()
+   at System.Net.WebSockets.ManagedWebSocket.EnsureBufferContainsAsync(Int32 minimumRequiredBytes, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.WebSockets.ManagedWebSocket.ReceiveAsyncPrivate[TResult](Memory`1 payloadBuffer, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at WebSocketController.Get() in /Users/takuto/Code/BATTARI-api/Controllers/WebSocketController.cs:line 81
+2024-11-08 08:32:46.693 +09:00 [INF] websocekt切断:Aborted
+2024-11-08 08:32:46.768 +09:00 [INF] Executed action method WebSocketController.Get (BATTARI-api), returned result Microsoft.AspNetCore.Mvc.EmptyResult in 3162.7004ms.
+2024-11-08 08:32:46.797 +09:00 [INF] Executed action WebSocketController.Get (BATTARI-api) in 3325.3917ms
+2024-11-08 08:32:46.870 +09:00 [INF] Executed endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 08:32:46.923 +09:00 [INF] Request finished HTTP/1.1 GET http://192.168.10.5:5050/ws - 101 null null 6978.0721ms
+2024-11-08 08:34:01.462 +09:00 [INF] Request starting HTTP/1.1 POST http://192.168.10.5:5050/User/Login - application/json; charset=UTF-8 56
+2024-11-08 08:34:01.516 +09:00 [INF] Executing endpoint 'BATTARI_api.Controllers.UserController.Login (BATTARI-api)'
+2024-11-08 08:34:01.529 +09:00 [INF] Route matched with {action = "Login", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[AuthenticatedDto]] Login(BATTARI_api.Models.UserLoginModel) on controller BATTARI_api.Controllers.UserController (BATTARI-api).
+2024-11-08 08:34:01.584 +09:00 [INF] Executing action method BATTARI_api.Controllers.UserController.Login (BATTARI-api) - Validation state: "Valid"
+2024-11-08 08:34:02.582 +09:00 [INF] Executed action method BATTARI_api.Controllers.UserController.Login (BATTARI-api), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 995.2525ms.
+2024-11-08 08:34:02.591 +09:00 [INF] Executing ObjectResult, writing value of type 'AuthenticatedDto'.
+2024-11-08 08:34:02.605 +09:00 [INF] Executed action BATTARI_api.Controllers.UserController.Login (BATTARI-api) in 1072.9289ms
+2024-11-08 08:34:02.606 +09:00 [INF] Executed endpoint 'BATTARI_api.Controllers.UserController.Login (BATTARI-api)'
+2024-11-08 08:34:02.612 +09:00 [INF] Request finished HTTP/1.1 POST http://192.168.10.5:5050/User/Login - 200 null application/json; charset=utf-8 1151.3055ms
+2024-11-08 08:34:02.627 +09:00 [INF] Request starting HTTP/1.1 PUT http://192.168.10.5:5050/User/GetUserByUserId?userId=takuto1127second - null 0
+2024-11-08 08:34:02.633 +09:00 [INF] Executing endpoint 'BATTARI_api.Controllers.UserController.GetUserByUserId (BATTARI-api)'
+2024-11-08 08:34:02.637 +09:00 [INF] Route matched with {action = "GetUserByUserId", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[UserDto]] GetUserByUserId(System.String) on controller BATTARI_api.Controllers.UserController (BATTARI-api).
+2024-11-08 08:34:02.644 +09:00 [INF] Executing action method BATTARI_api.Controllers.UserController.GetUserByUserId (BATTARI-api) - Validation state: "Valid"
+2024-11-08 08:34:02.649 +09:00 [INF] Executed action method BATTARI_api.Controllers.UserController.GetUserByUserId (BATTARI-api), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 2.6118ms.
+2024-11-08 08:34:02.650 +09:00 [INF] Executing ObjectResult, writing value of type 'UserDto'.
+2024-11-08 08:34:02.656 +09:00 [INF] Executed action BATTARI_api.Controllers.UserController.GetUserByUserId (BATTARI-api) in 17.5515ms
+2024-11-08 08:34:02.657 +09:00 [INF] Executed endpoint 'BATTARI_api.Controllers.UserController.GetUserByUserId (BATTARI-api)'
+2024-11-08 08:34:02.659 +09:00 [INF] Request finished HTTP/1.1 PUT http://192.168.10.5:5050/User/GetUserByUserId?userId=takuto1127second - 200 null application/json; charset=utf-8 31.8772ms
+2024-11-08 08:34:25.031 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 08:34:25.091 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 08:34:25.093 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 08:34:25.094 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 08:34:25.096 +09:00 [INF] 6:WebSocket接続開始
+2024-11-08 08:34:35.123 +09:00 [INF] Received: hello from 6
+2024-11-08 08:34:45.109 +09:00 [INF] Received: hello from 6
+2024-11-08 08:34:55.114 +09:00 [INF] Received: hello from 6
+2024-11-08 08:35:05.118 +09:00 [INF] Received: hello from 6
+2024-11-08 08:35:15.112 +09:00 [INF] Received: hello from 6
+2024-11-08 08:35:25.116 +09:00 [INF] Received: hello from 6
+2024-11-08 08:35:35.125 +09:00 [INF] Received: hello from 6
+2024-11-08 08:35:45.143 +09:00 [INF] Received: hello from 6
+2024-11-08 08:35:55.119 +09:00 [INF] Received: hello from 6
+2024-11-08 08:36:05.155 +09:00 [INF] Received: hello from 6
+2024-11-08 08:36:15.125 +09:00 [INF] Received: hello from 6
+2024-11-08 08:36:25.124 +09:00 [INF] Received: hello from 6
+2024-11-08 08:36:35.127 +09:00 [INF] Received: hello from 6
+2024-11-08 08:36:45.129 +09:00 [INF] Received: hello from 6
+2024-11-08 08:36:55.128 +09:00 [INF] Received: hello from 6
+2024-11-08 08:37:05.130 +09:00 [INF] Received: hello from 6
+2024-11-08 08:37:15.158 +09:00 [INF] Received: hello from 6
+2024-11-08 08:37:25.143 +09:00 [INF] Received: hello from 6
+2024-11-08 08:37:35.144 +09:00 [INF] Received: hello from 6
+2024-11-08 08:37:45.144 +09:00 [INF] Received: hello from 6
+2024-11-08 08:37:52.322 +09:00 [ERR] WebSocketの受信に失敗System.Net.WebSockets.WebSocketException (0x80004005): The remote party closed the WebSocket connection without completing the close handshake.
+   at System.Net.WebSockets.ManagedWebSocket.ThrowEOFUnexpected()
+   at System.Net.WebSockets.ManagedWebSocket.EnsureBufferContainsAsync(Int32 minimumRequiredBytes, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.WebSockets.ManagedWebSocket.ReceiveAsyncPrivate[TResult](Memory`1 payloadBuffer, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at WebSocketController.Get() in /Users/takuto/Code/BATTARI-api/Controllers/WebSocketController.cs:line 81
+2024-11-08 08:37:52.326 +09:00 [INF] websocekt切断:Aborted
+2024-11-08 08:37:52.328 +09:00 [INF] Executed action method WebSocketController.Get (BATTARI-api), returned result Microsoft.AspNetCore.Mvc.EmptyResult in 207225.8205ms.
+2024-11-08 08:37:52.333 +09:00 [INF] Executed action WebSocketController.Get (BATTARI-api) in 207231.0441ms
+2024-11-08 08:37:52.335 +09:00 [INF] Executed endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 08:37:52.338 +09:00 [INF] Request finished HTTP/1.1 GET http://192.168.10.5:5050/ws - 101 null null 207319.3715ms
+2024-11-08 08:37:56.144 +09:00 [INF] Request starting HTTP/1.1 POST http://192.168.10.5:5050/User/RefreshToken - application/json; charset=UTF-8 121
+2024-11-08 08:37:56.154 +09:00 [INF] Executing endpoint 'BATTARI_api.Controllers.UserController.RefreshToken (BATTARI-api)'
+2024-11-08 08:37:56.165 +09:00 [INF] Route matched with {action = "RefreshToken", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.String]] RefreshToken(RefreshTokenDto) on controller BATTARI_api.Controllers.UserController (BATTARI-api).
+2024-11-08 08:37:56.181 +09:00 [INF] Executing action method BATTARI_api.Controllers.UserController.RefreshToken (BATTARI-api) - Validation state: "Valid"
+2024-11-08 08:37:56.241 +09:00 [INF] Executed action method BATTARI_api.Controllers.UserController.RefreshToken (BATTARI-api), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 56.261ms.
+2024-11-08 08:37:56.243 +09:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2024-11-08 08:37:56.268 +09:00 [INF] Executed action BATTARI_api.Controllers.UserController.RefreshToken (BATTARI-api) in 79.5247ms
+2024-11-08 08:37:56.270 +09:00 [INF] Executed endpoint 'BATTARI_api.Controllers.UserController.RefreshToken (BATTARI-api)'
+2024-11-08 08:37:56.272 +09:00 [INF] Request finished HTTP/1.1 POST http://192.168.10.5:5050/User/RefreshToken - 200 null text/plain; charset=utf-8 129.8888ms
+2024-11-08 08:38:18.413 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 08:38:18.426 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 08:38:18.430 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 08:38:18.433 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 08:38:18.435 +09:00 [INF] 6:WebSocket接続開始
+2024-11-08 08:38:23.754 +09:00 [INF] Request starting HTTP/1.1 POST http://192.168.10.5:5050/User/Login - application/json; charset=UTF-8 50
+2024-11-08 08:38:23.766 +09:00 [INF] Executing endpoint 'BATTARI_api.Controllers.UserController.Login (BATTARI-api)'
+2024-11-08 08:38:23.771 +09:00 [INF] Route matched with {action = "Login", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[AuthenticatedDto]] Login(BATTARI_api.Models.UserLoginModel) on controller BATTARI_api.Controllers.UserController (BATTARI-api).
+2024-11-08 08:38:23.778 +09:00 [INF] Executing action method BATTARI_api.Controllers.UserController.Login (BATTARI-api) - Validation state: "Valid"
+2024-11-08 08:38:23.808 +09:00 [INF] Executed action method BATTARI_api.Controllers.UserController.Login (BATTARI-api), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 25.9012ms.
+2024-11-08 08:38:23.811 +09:00 [INF] Executing ObjectResult, writing value of type 'AuthenticatedDto'.
+2024-11-08 08:38:23.814 +09:00 [INF] Executed action BATTARI_api.Controllers.UserController.Login (BATTARI-api) in 40.7097ms
+2024-11-08 08:38:23.816 +09:00 [INF] Executed endpoint 'BATTARI_api.Controllers.UserController.Login (BATTARI-api)'
+2024-11-08 08:38:23.818 +09:00 [INF] Request finished HTTP/1.1 POST http://192.168.10.5:5050/User/Login - 200 null application/json; charset=utf-8 64.2021ms
+2024-11-08 08:38:23.858 +09:00 [INF] Request starting HTTP/1.1 PUT http://192.168.10.5:5050/User/GetUserByUserId?userId=takuto1127 - null 0
+2024-11-08 08:38:23.863 +09:00 [INF] Executing endpoint 'BATTARI_api.Controllers.UserController.GetUserByUserId (BATTARI-api)'
+2024-11-08 08:38:23.864 +09:00 [INF] Route matched with {action = "GetUserByUserId", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[UserDto]] GetUserByUserId(System.String) on controller BATTARI_api.Controllers.UserController (BATTARI-api).
+2024-11-08 08:38:23.866 +09:00 [INF] Executing action method BATTARI_api.Controllers.UserController.GetUserByUserId (BATTARI-api) - Validation state: "Valid"
+2024-11-08 08:38:23.869 +09:00 [INF] Executed action method BATTARI_api.Controllers.UserController.GetUserByUserId (BATTARI-api), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 0.9938ms.
+2024-11-08 08:38:23.870 +09:00 [INF] Executing ObjectResult, writing value of type 'UserDto'.
+2024-11-08 08:38:23.872 +09:00 [INF] Executed action BATTARI_api.Controllers.UserController.GetUserByUserId (BATTARI-api) in 6.816ms
+2024-11-08 08:38:23.874 +09:00 [INF] Executed endpoint 'BATTARI_api.Controllers.UserController.GetUserByUserId (BATTARI-api)'
+2024-11-08 08:38:23.875 +09:00 [INF] Request finished HTTP/1.1 PUT http://192.168.10.5:5050/User/GetUserByUserId?userId=takuto1127 - 200 null application/json; charset=utf-8 18.0158ms
+2024-11-08 08:38:28.453 +09:00 [INF] Received: hello from 6
+2024-11-08 08:38:37.562 +09:00 [INF] Request starting HTTP/1.1 GET http://192.168.10.5:5050/ws - null null
+2024-11-08 08:38:37.572 +09:00 [INF] Executing endpoint 'WebSocketController.Get (BATTARI-api)'
+2024-11-08 08:38:37.574 +09:00 [INF] Route matched with {action = "Get", controller = "WebSocket"}. Executing controller action with signature System.Threading.Tasks.Task Get() on controller WebSocketController (BATTARI-api).
+2024-11-08 08:38:37.577 +09:00 [INF] Executing action method WebSocketController.Get (BATTARI-api) - Validation state: "Valid"
+2024-11-08 08:38:37.579 +09:00 [INF] 2:WebSocket接続開始
+2024-11-08 08:38:38.468 +09:00 [INF] Received: hello from 6
+2024-11-08 08:38:47.600 +09:00 [INF] Received: hello from 2
+2024-11-08 08:38:48.472 +09:00 [INF] Received: hello from 6
+2024-11-08 08:38:54.675 +09:00 [INF] Received: {"id":2,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 2
+2024-11-08 08:38:57.588 +09:00 [INF] Received: hello from 2
+2024-11-08 08:38:58.446 +09:00 [INF] Received: hello from 6
+2024-11-08 08:38:58.629 +09:00 [INF] Received: {"id":6,"isWelcome":false,"incredients":[{"type":"app","appData":{"appName":"hakondate","useTime":5}}]} from 6
+2024-11-08 08:39:07.590 +09:00 [INF] Received: hello from 2
+2024-11-08 08:39:08.448 +09:00 [INF] Received: hello from 6
+2024-11-08 08:39:17.593 +09:00 [INF] Received: hello from 2
+2024-11-08 08:39:18.449 +09:00 [INF] Received: hello from 6
+2024-11-08 08:39:27.597 +09:00 [INF] Received: hello from 2
+2024-11-08 08:39:28.450 +09:00 [INF] Received: hello from 6
+2024-11-08 08:39:37.599 +09:00 [INF] Received: hello from 2
+2024-11-08 08:39:38.455 +09:00 [INF] Received: hello from 6

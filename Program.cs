@@ -62,15 +62,15 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddEndpointsApiExplorer();
 
 // Repository
-builder.Services.AddScoped<IUserRepository, UserDatabase>();
+builder.Services.AddSingleton<IUserRepository, UserDatabase>();
 builder.Services.AddScoped<IRefreshTokensRepository, RefreshTokenDatabase>();
-builder.Services.AddScoped<IFriendRepository, FriendDatabase>();
-builder.Services.AddScoped<UserOnlineConcurrentDictionaryDatabase>();
+builder.Services.AddSingleton<IFriendRepository, FriendDatabase>();
+builder.Services.AddSingleton<UserOnlineConcurrentDictionaryDatabase>();
 builder.Services.AddScoped<ICallRepository, CallDatabase>();
 // Service
 builder.Services.AddScoped<ITokenService, TokenService>();
-builder.Services.AddScoped<ISouguuService, SouguuService>();
-builder.Services.AddScoped<CallingService>();
+builder.Services.AddSingleton<ISouguuService, SouguuService>();
+builder.Services.AddSingleton<CallingService>();
 
 builder.Services.AddSwaggerGen(c =>
 {

@@ -22,10 +22,10 @@ namespace BATTARI_api.Repository
     {
         private readonly UserContext _context;
         private readonly IUserRepository _userRepository;
-        public FriendDatabase(UserContext context, IUserRepository userRepository)
+        public FriendDatabase(IUserRepository userRepository, IServiceScopeFactory _serviceScopeFactory)
         {
             _userRepository = userRepository;
-            _context = context;
+            _context = _serviceScopeFactory.CreateScope().ServiceProvider.GetRequiredService<UserContext>();
         }
 
         /// <summary>
