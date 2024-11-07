@@ -22,19 +22,45 @@ public class SouguuWebsocketDto
 // [JsonPolymorphic(TypeDiscriminatorPropertyName = "type")]
 // [JsonDerivedType(typeof(SouguuAppIncredientModel), typeDiscriminator: "app")]
 // [JsonDerivedType(typeof(SouguuIncredientDataModel), typeDiscriminator: "default")]
+[JsonConverter(typeof(SouguuIncredientDataModelConverter))]
 public class SouguuIncredientDataModel
 {
-    public string Type { get; set; }
+    public string type { get; set; }
 }
 
 // sealedつけたら，deserializeがうまくいった
 public class SouguuAppIncredientModel : SouguuIncredientDataModel
 {
-    public SouguuIncredientDataAppUsageModel AppData { get; set; }
+    public SouguuIncredientDataAppUsageModel appData { get; set; }
 }
 
 public class SouguuIncredientDataAppUsageModel
 {
     public String appName { get; set; }
     public int useTime { get; set; }
+}
+public class SouguuIncredientDataModelConverter : JsonConverter<SouguuIncredientDataModel>
+{
+    public override SouguuIncredientDataModel Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+    {
+        using (JsonDocument doc = JsonDocument.ParseValue(ref reader))
+        {
+            var root = doc.RootElement;
+            var type = root.GetProperty("type").GetString();
+
+            if (type == "app")
+            {
+                return JsonSerializer.Deserialize<SouguuAppIncredientModel>(root.GetRawText(), options);
+            }
+            else
+            {
+                return JsonSerializer.Deserialize<SouguuIncredientDataModel>(root.GetRawText(), options);
+            }
+        }
+    }
+
+    public override void Write(Utf8JsonWriter writer, SouguuIncredientDataModel value, JsonSerializerOptions options)
+    {
+        JsonSerializer.Serialize(writer, (object)value, options);
+    }
 }
