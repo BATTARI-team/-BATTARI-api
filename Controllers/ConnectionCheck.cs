@@ -9,7 +9,7 @@ namespace BATTARI_api.Controllers;
 
 [ApiController]
 [Route("[controller]/[action]")]
-public class DeveloperController : ControllerBase
+public class DeveloperController(IConfiguration configuration) : ControllerBase
 {
     /// <summary>
     /// ログインしてないと使えません
@@ -29,6 +29,7 @@ public class DeveloperController : ControllerBase
         {
             Console.WriteLine(claim.Value);
         }
+        Console.WriteLine(configuration["Pepper"]);
 
         return Ok("Connection is working. Welcome " + claim.Value + "!");
     }

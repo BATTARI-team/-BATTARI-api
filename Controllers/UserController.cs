@@ -43,7 +43,7 @@ public class UserController
                 UserId = userRegisterModel.UserId,
                 Name = userRegisterModel.Name,
                 PasswordHash = PasswordUtil.GetPasswordHashFromPepper(
-                                  _salt, userRegisterModel.Password, "BATTARI"),
+                                  _salt, userRegisterModel.Password, configuration["Pepper"] ?? throw new Exception("appsettingsのPepperがnullです")),
                 PasswordSalt = _salt,
                 Created = DateTime.Now
             };
@@ -56,7 +56,7 @@ public class UserController
         String refreshToken =
             await tokenService.GenerateAndSaveRefreshToken(userModel);
         String token =
-            tokenService.GenerateToken(configuration["Jwt:Key"] ?? "", userModel);
+            tokenService.GenerateToken(configuration["Jwt:Key"] ?? throw new Exception("appsettingsのJwt:Keyがnullです"), userModel);
         return new AuthenticatedDto { Token = token, RefreshToken = refreshToken };
     }
 
@@ -81,13 +81,11 @@ public class UserController
         if (PasswordUtil.CompareHash(
                 userModel.PasswordHash,
                 PasswordUtil.GetPasswordHashFromPepper(
-                    userModel.PasswordSalt, userLoginModel.Password, "BATTARI")))
+                    userModel.PasswordSalt, userLoginModel.Password, configuration["Pepper"] ?? throw new Exception("appsettingsのPepperがnullです"))))
         {
-            // return tokenService.GenerateToken(configuration["Jwt:Key"] ?? "",
-            //                                   userModel);
             return new AuthenticatedDto
             {
-                Token = tokenService.GenerateToken(configuration["Jwt:Key"] ?? "",
+                Token = tokenService.GenerateToken(configuration["Jwt:Key"] ?? throw new Exception("appsettingsのJwt:Keyがnullです"),
                                                  userModel),
                 RefreshToken =
                   await tokenService.GenerateAndSaveRefreshToken(userModel),
@@ -131,7 +129,7 @@ public class UserController
         }
 
         string token =
-            tokenService.GenerateToken(configuration["Jwt:Key"] ?? "", userModel);
+            tokenService.GenerateToken(configuration["Jwt:Key"] ?? throw new Exception("appsettingsのJwt:Keyがnullです"), userModel);
         return token;
     }
 

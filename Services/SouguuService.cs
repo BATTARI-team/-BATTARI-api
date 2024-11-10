@@ -81,8 +81,6 @@ public class SouguuService : ISouguuService
                 souguuReason: call.SouguuReason,
                 user1: call.User1Id,
                 user2: call.User2Id,
-                user1Token: "",
-                user2Token: "",
                 cancellationReason: "",
                 souguuDateTime: call.SouguuDateTime
             );
