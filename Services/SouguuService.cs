@@ -15,6 +15,8 @@ using Microsoft.OpenApi.Extensions;
 public interface ISouguuService
 {
     public Task AddMaterial(SouguuWebsocketDto materials);
+    public void AddSouguuNotification(int userIndex, Action<SouguuNotificationDto> action);
+    public void RemoveSouguuNotification(int userIndex);
 }
 
 public class SouguuService : ISouguuService
@@ -37,7 +39,18 @@ public class SouguuService : ISouguuService
     /// </summary>
     private readonly ConcurrentQueue<int> _souguuQueue = new ConcurrentQueue<int>();
     public ConcurrentDictionary<int,SouguuWebsocketDto > _latestIncredient = new ConcurrentDictionary<int, SouguuWebsocketDto>();
+    private ConcurrentDictionary<int, Action<SouguuNotificationDto>> _souguuNotification = new ConcurrentDictionary<int, Action<SouguuNotificationDto>>();
     private Task _dequeueTask;
+    
+    public void AddSouguuNotification(int userIndex, Action<SouguuNotificationDto> action)
+    {
+        _souguuNotification[userIndex] = action;
+    }
+    
+    public void RemoveSouguuNotification(int userIndex)
+    {
+        _souguuNotification.TryRemove(userIndex, out _);
+    }
     
     /// <summary>
     /// 遭遇の判断材料を入れる
@@ -90,6 +103,27 @@ public class SouguuService : ISouguuService
             Console.WriteLine("データベースに保存できませんでした" + e);
             throw;
         }
+        
+        _userOnlineConcurrentDictionaryDatabase.SetSouguu(user1, user2);
+
+        _souguuNotification[user1](new SouguuNotificationDto()
+        {
+            CallEndTime = call.CallStartTime.AddMinutes(call.CallTime),
+            CallStartTime = call.CallStartTime,
+            CallId = call.CallId,
+            SouguuDateTime = call.SouguuDateTime,
+            SouguuReason = call.SouguuReason,
+            Token = ""
+        });
+        _souguuNotification[user2](new SouguuNotificationDto()
+        {
+            CallEndTime = call.CallStartTime.AddMinutes(call.CallTime),
+            CallStartTime = call.CallStartTime,
+            CallId = call.CallId,
+            SouguuDateTime = call.SouguuDateTime,
+            SouguuReason = call.SouguuReason,
+            Token = "",
+        });
 
         // await _callingService.AddCall("battari", DateTime.Now.AddMinutes(2), user1, user2, DateTime.Now,
         //     CallStatusEnum.Waiting);
@@ -162,7 +196,7 @@ public class SouguuService : ISouguuService
                         {
                             Console.WriteLine("call: " + VARIABLE.CallId + " " + VARIABLE.User1 + " " + VARIABLE.User2);
                         }
-                        
+
                         if (_souguuQueue.TryDequeue(out int element))
                         {
                             if (element == 0) continue;

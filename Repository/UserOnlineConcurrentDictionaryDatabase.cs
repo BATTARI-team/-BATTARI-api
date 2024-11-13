@@ -40,19 +40,20 @@ public class UserOnlineConcurrentDictionaryDatabase(IFriendRepository friendRepo
         return _userOnlineDictionary.Where((element) => element.Value.IsOnline).Select((element) => element.Key);
     }
 
+    /// <summary>
+    /// 指定されたユーザーのフレンドかつオンラインかつ遭遇していないユーザーをリターンします
+    /// </summary>
+    /// <param name="userIndex"></param>
+    /// <returns></returns>
     public async Task<IEnumerable<UserDto>> GetFriendAndOnlineUsers(int userIndex)
     {
         var frind = await friendRepository.GetFriendList(userIndex);
-        foreach (var VARIABLE in frind)
-        {
-            Console.WriteLine(frind.ToString());
-        }
         var friends = (await friendRepository.GetFriendList(userIndex)).Where(
             (element) =>
             {
                 // オンラインかつ遭遇してなかったら
                 if (IsUserOnline(element.Id) ==
-                    (IsUserSouguu(element.Id) != 0))
+                    (IsUserSouguu(element.Id) == 0))
                 {
                     return true;
                 }
@@ -90,6 +91,9 @@ public class UserOnlineConcurrentDictionaryDatabase(IFriendRepository friendRepo
             
             if(_userOnlineDictionary[userId].IsOnline)
             {
+            }
+            else
+            {
                 RemoveUserOnline(userId);
                 return false;
             }
@@ -103,7 +107,7 @@ public class UserOnlineConcurrentDictionaryDatabase(IFriendRepository friendRepo
     /// 
     /// </summary>
     /// <param name="userId"></param>
-    /// <returns>失敗したら0, 成功したら相手のユーザーid</returns>
+    /// <returns>失敗したらまたは遭遇してなかったら0, 成功したら相手のユーザーid</returns>
     public int IsUserSouguu(int userId)
     {
         if (Monitor.TryEnter(_lock, _timeout))
@@ -117,7 +121,7 @@ public class UserOnlineConcurrentDictionaryDatabase(IFriendRepository friendRepo
     }
     
     /// <summary>
-    /// 
+    /// 片方だけやれば両方に適用されるよ
     /// </summary>
     /// <param name="userId"></param>
     /// <param name="souguuUserId"></param>
@@ -135,4 +139,6 @@ public class UserOnlineConcurrentDictionaryDatabase(IFriendRepository friendRepo
             }
         }
     }
+    
+    public void Clear() => _userOnlineDictionary.Clear();
 }

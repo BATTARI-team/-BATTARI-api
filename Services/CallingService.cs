@@ -64,4 +64,9 @@ public class CallingService
     {
         return "";
     }
+    
+    public void Clear()
+    {
+        _userOnlineConcurrentDictionaryDatabase.Clear();
+    }
 }

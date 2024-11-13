@@ -2,6 +2,8 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text.Json;
 using BATTARI_api.Models.DTO;
+using BATTARI_api.Repository;
+using BATTARI_api.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,7 +11,7 @@ namespace BATTARI_api.Controllers;
 
 [ApiController]
 [Route("[controller]/[action]")]
-public class DeveloperController(IConfiguration configuration) : ControllerBase
+public class DeveloperController(IConfiguration configuration, UserOnlineConcurrentDictionaryDatabase userOnlineConcurrentDictionaryDatabase, CallingService callingService) : ControllerBase
 {
     /// <summary>
     /// ログインしてないと使えません
@@ -59,5 +61,19 @@ public class DeveloperController(IConfiguration configuration) : ControllerBase
         Console.WriteLine(souguuMaterials.incredients.Count);
         Console.WriteLine(souguuMaterials.incredients[0].type);
         return Ok(souguuMaterials);
+    }
+
+    [HttpGet]
+    public IActionResult ClearUserOnline()
+    {
+        userOnlineConcurrentDictionaryDatabase.Clear();
+        callingService.Clear();
+        return Ok("UserOnlineDictionary is cleared");
+    }
+    
+    [HttpGet]
+    public IActionResult IsUserSouguu(int userId)
+    {
+        return Ok(userOnlineConcurrentDictionaryDatabase.IsUserSouguu(userId));
     }
 }

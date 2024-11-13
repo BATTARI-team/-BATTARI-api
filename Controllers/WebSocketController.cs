@@ -23,6 +23,20 @@ public class WebSocketController(UserOnlineConcurrentDictionaryDatabase userOnli
         }
     }
     
+    private void SendNotification(WebSocket websocket, int userId, SouguuNotificationDto dto)
+    {
+        if(websocket == null) return;
+        if (userOnlineConcurrentDictionaryDatabase.IsUserOnline(userId))
+        {
+            if(websocket.State == WebSocketState.Open)
+            {
+                var json = JsonSerializer.Serialize(dto);
+                var bytes = Encoding.UTF8.GetBytes(json);
+                websocket.SendAsync(new ArraySegment<byte>(bytes), WebSocketMessageType.Text, true, CancellationToken.None);
+            }
+        }
+    }
+    
     /// <summary>
     /// Json
     /// </summary>
@@ -68,6 +82,11 @@ public class WebSocketController(UserOnlineConcurrentDictionaryDatabase userOnli
             
             //Task task = send(webSocket);
             Task task2 = KeepAlive(webSocket, new CancellationToken());
+            souguuService.AddSouguuNotification(userId, (dto) =>
+            {
+               // 遭遇した時に実行したい関数 
+                SendNotification(webSocket, userId, dto);
+            });
             while (webSocket.State == WebSocketState.Open)
             {
                 using (var ms = new MemoryStream())

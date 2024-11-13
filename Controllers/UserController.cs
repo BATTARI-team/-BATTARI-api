@@ -92,7 +92,7 @@ public class UserController
             };
         }
 
-        return Unauthorized();
+        return Unauthorized("パスワードかuserIdが間違っています");
     }
 
     [HttpPost]
