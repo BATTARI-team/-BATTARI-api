@@ -25,7 +25,6 @@ public class WebSocketController(UserOnlineConcurrentDictionaryDatabase userOnli
     
     private void SendNotification(WebSocket websocket, int userId, SouguuNotificationDto dto)
     {
-        if(websocket == null) return;
         if (userOnlineConcurrentDictionaryDatabase.IsUserOnline(userId))
         {
             if(websocket.State == WebSocketState.Open)
@@ -85,6 +84,8 @@ public class WebSocketController(UserOnlineConcurrentDictionaryDatabase userOnli
             souguuService.AddSouguuNotification(userId, (dto) =>
             {
                // 遭遇した時に実行したい関数 
+               // #TODO variable is disposed in the outer scope
+               // obsidian://adv-uri?vault=main&filepath=%2B%2FCsharpdeCaptured%20variable%20is%20disposed%20in%20the%20outer%20scope2024-11-13.md
                 SendNotification(webSocket, userId, dto);
             });
             while (webSocket.State == WebSocketState.Open)
@@ -156,6 +157,7 @@ public class WebSocketController(UserOnlineConcurrentDictionaryDatabase userOnli
                 }
                 
             }
+            souguuService.RemoveSouguuNotification(userId);
             Console.WriteLine("切断されたようです" + webSocket.State);
             _logger.LogInformation("websocekt切断:" + webSocket.State);
             close(userId);

@@ -44,7 +44,7 @@ public class SouguuService : ISouguuService
     
     public void AddSouguuNotification(int userIndex, Action<SouguuNotificationDto> action)
     {
-        _souguuNotification[userIndex] = action;
+        _souguuNotification.AddOrUpdate(userIndex, i => action, (i, action1) => action);
     }
     
     public void RemoveSouguuNotification(int userIndex)
