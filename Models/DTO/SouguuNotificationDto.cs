@@ -8,4 +8,5 @@ public class SouguuNotificationDto
     public required string SouguuReason { get; set; }
     public required string Token { get; set; }
     public required DateTime SouguuDateTime { get; set; }
+    public required int AiteUserId { get; set; }
 }

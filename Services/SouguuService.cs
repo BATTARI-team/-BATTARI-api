@@ -113,7 +113,8 @@ public class SouguuService : ISouguuService
             CallId = call.CallId,
             SouguuDateTime = call.SouguuDateTime,
             SouguuReason = call.SouguuReason,
-            Token = ""
+            Token = "",
+            AiteUserId = user2
         });
         _souguuNotification[user2](new SouguuNotificationDto()
         {
@@ -123,6 +124,7 @@ public class SouguuService : ISouguuService
             SouguuDateTime = call.SouguuDateTime,
             SouguuReason = call.SouguuReason,
             Token = "",
+            AiteUserId = user1
         });
 
         // await _callingService.AddCall("battari", DateTime.Now.AddMinutes(2), user1, user2, DateTime.Now,
