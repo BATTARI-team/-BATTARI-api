@@ -57,11 +57,6 @@ public class WebSocketController(UserOnlineConcurrentDictionaryDatabase userOnli
         var end = isEnd;
         int userId = Int16.Parse((HttpContext.User.Claims.FirstOrDefault(c => c.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"))!.Value);
 
-        async Task close(int userId)
-        {
-            userOnlineConcurrentDictionaryDatabase.RemoveUserOnline(userId);
-        }
-
         async Task send(WebSocket webSocket)
         {
             while (webSocket.State == WebSocketState.Open)
@@ -170,7 +165,7 @@ public class WebSocketController(UserOnlineConcurrentDictionaryDatabase userOnli
             Console.WriteLine("切断されたようです" + webSocket.CloseStatusDescription);
             Console.WriteLine("切断されたようです" + lastReceived);
             _logger.LogInformation("websocekt切断:" + webSocket.State);
-            close(userId);
+            userOnlineConcurrentDictionaryDatabase.RemoveUserOnline(userId);
         }
         else
         {
