@@ -3,10 +3,11 @@ using System.Collections.Concurrent;
 namespace BATTARI_api.Repository;
 
 // #TODO サービス化したい
-public class UserOnlineConcurrentDictionaryModel()
+public class UserOnlineConcurrentDictionaryModel
 {
     public DateTime LastOnlineTime { get; set; }
-    public bool IsOnline { get { return LastOnlineTime > DateTime.Now.AddSeconds(-30); } }
+    public bool IsOnline => LastOnlineTime > DateTime.Now.AddSeconds(-30);
+
     /// <summary>
     /// 遭遇しているかを表すフラグ
     /// 遭遇している場合は遭遇相手のuserid, そうでない場合は0
@@ -17,13 +18,13 @@ public class UserOnlineConcurrentDictionaryDatabase
 {
     readonly ConcurrentDictionary<int,  UserOnlineConcurrentDictionaryModel> _userOnlineDictionary = new ConcurrentDictionary<int, UserOnlineConcurrentDictionaryModel>();
     private readonly object _lock = new object();
-    private TimeSpan _timeout = TimeSpan.FromSeconds(10);
-    private Task _autoRemover;
-    private IFriendRepository friendRepository;
+    private readonly TimeSpan _timeout = TimeSpan.FromSeconds(10);
+    private Task _autoRemover = null!;
+    private readonly IFriendRepository _friendRepository;
 
     public UserOnlineConcurrentDictionaryDatabase(IFriendRepository friendRepository)
     {
-        this.friendRepository = friendRepository;
+        this._friendRepository = friendRepository;
         CreateAutoRemover();
     }
 
@@ -43,7 +44,7 @@ public class UserOnlineConcurrentDictionaryDatabase
                 }
             }
         });
-        _autoRemover.ContinueWith(task =>
+        _autoRemover.ContinueWith(_ =>
                            {
                                CreateAutoRemover();
                            });
@@ -54,15 +55,17 @@ public class UserOnlineConcurrentDictionaryDatabase
     /// </summary>
     /// <param name="userId"></param>
     /// <exception cref="TimeoutException"></exception>
-    public async Task AddUserOnline(int userId)
+    public Task AddUserOnline(int userId)
     {
         if (Monitor.TryEnter(_lock, _timeout))
         {
             // デッドロックが起きちゃうので，ロックが不要なものはロックしない
             // スレッドセーフのため
             Monitor.Exit(_lock);
-            _userOnlineDictionary.AddOrUpdate(userId, new UserOnlineConcurrentDictionaryModel { LastOnlineTime = DateTime.Now }, (key, oldValue) => { oldValue.LastOnlineTime = DateTime.Now; return oldValue; });
+            _userOnlineDictionary.AddOrUpdate(userId, new UserOnlineConcurrentDictionaryModel { LastOnlineTime = DateTime.Now }, (_, oldValue) => { oldValue.LastOnlineTime = DateTime.Now; return oldValue; });
         }
+
+        return Task.CompletedTask;
     }
     
     public IEnumerable<int> GetOnlineUsers()
@@ -77,8 +80,8 @@ public class UserOnlineConcurrentDictionaryDatabase
     /// <returns></returns>
     public async Task<IEnumerable<UserDto>> GetFriendAndOnlineUsers(int userIndex)
     {
-        var frind = await friendRepository.GetFriendList(userIndex);
-        var friends = (await friendRepository.GetFriendList(userIndex)).Where(
+        await _friendRepository.GetFriendList(userIndex);
+        var friends = (await _friendRepository.GetFriendList(userIndex)).Where(
             (element) =>
             {
                 // オンラインかつ遭遇してなかったら

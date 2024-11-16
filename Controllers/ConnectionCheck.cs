@@ -33,7 +33,7 @@ public class DeveloperController(IConfiguration configuration, UserOnlineConcurr
         }
         Console.WriteLine(configuration["Pepper"]);
 
-        return Ok("Connection is working. Welcome " + claim.Value + "!");
+        return Ok("Connection is working. Welcome " + claim?.Value + "!");
     }
 
     /// <summary>
@@ -41,9 +41,9 @@ public class DeveloperController(IConfiguration configuration, UserOnlineConcurr
     /// </summary>
     /// <returns></returns>
     [HttpPut]
-    public IActionResult JWTParse(String aiueo)
+    public IActionResult JwtParse(String input)
     {
-        var jsonToken = new JwtSecurityTokenHandler().ReadToken(aiueo);
+        var jsonToken = new JwtSecurityTokenHandler().ReadToken(input);
         
         return Ok(jsonToken);
     }
@@ -58,9 +58,14 @@ public class DeveloperController(IConfiguration configuration, UserOnlineConcurr
         Console.WriteLine(materials);
         var souguuMaterials = JsonSerializer.Deserialize<SouguuWebsocketDto>(materials);
         Console.WriteLine("TryParseSouguuMaterials");
-        Console.WriteLine(souguuMaterials.incredients.Count);
-        Console.WriteLine(souguuMaterials.incredients[0].type);
-        return Ok(souguuMaterials);
+        if (souguuMaterials != null)
+        {
+            Console.WriteLine(souguuMaterials.incredients.Count);
+            Console.WriteLine(souguuMaterials.incredients[0].type);
+            return Ok(souguuMaterials);
+        }
+
+        return Ok(null);
     }
     
     [HttpGet]

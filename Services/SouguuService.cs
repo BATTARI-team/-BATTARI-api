@@ -98,7 +98,7 @@ public class SouguuService : ISouguuService
         string[] callDetail;
         try
         {
-            call = await _callRepository.AddCall(SouguuReason: "battari", callStartTime: DateTime.Now.AddMinutes(1),
+            call = await _callRepository.AddCall(souguuReason: "battari", callStartTime: DateTime.Now.AddMinutes(1),
                 user1: user1,
                 user2: user2, souguuDateTime: DateTime.Now, status: CallStatusEnum.Waiting);
             

@@ -1,8 +1,9 @@
 using System.Reflection;
 using System.Text;
-using BATTARI_api.Data;
 using BATTARI_api.Interfaces;
+using BATTARI_api.Interfaces.Service;
 using BATTARI_api.Repository;
+using BATTARI_api.Repository.Data;
 using BATTARI_api.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;

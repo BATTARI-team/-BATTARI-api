@@ -1,22 +1,13 @@
-using System.Drawing.Printing;
-using BATTARI_api.Data;
 using BATTARI_api.Interfaces;
-using BATTARI_api.Migrations;
 using BATTARI_api.Models;
+using BATTARI_api.Repository.Data;
 using Microsoft.EntityFrameworkCore;
-using webUserLoginTest.Util;
 
 namespace BATTARI_api.Repository;
 
-public class UserDatabase
- : IUserRepository
+public class UserDatabase(IServiceScopeFactory serviceScopeFactory) : IUserRepository
 {
-    public UserDatabase(IServiceScopeFactory serviceScopeFactory)
-    {
-        _userContext = serviceScopeFactory.CreateScope().ServiceProvider.GetRequiredService<UserContext>();
-    }
-    const string _pepper = "BATTARI";
-    private UserContext _userContext;
+    private readonly UserContext _userContext = serviceScopeFactory.CreateScope().ServiceProvider.GetRequiredService<UserContext>();
 
     /// <summary>
     ///
@@ -76,10 +67,10 @@ public class UserDatabase
         UserModel user;
         try
         {
-            user = await _userContext.Users.Where<UserModel>(x => x.UserId == userId)
+            user = await _userContext.Users.Where(x => x.UserId == userId)
                        .FirstAsync();
         }
-        catch (InvalidOperationException e)
+        catch (InvalidOperationException)
         {
             return null;
         }
@@ -89,7 +80,7 @@ public class UserDatabase
 
     public async Task<UserModel> DeleteUser(int id)
     {
-        UserModel user = await _userContext.Users.FindAsync(id);
+        UserModel? user = await _userContext.Users.FindAsync(id);
         if (user != null)
         {
             _userContext.Users.Remove(user);
@@ -116,10 +107,10 @@ public class UserDatabase
     public async Task<UserModel
         ?> ChangeNickname(string userId, string nickname)
     {
-        UserModel? user = null;
+        UserModel? user;
         try
         {
-            user = await _userContext.Users.Where<UserModel>(x => x.UserId == userId)
+            user = await _userContext.Users.Where(x => x.UserId == userId)
                        .FirstAsync();
         }
         catch (ArgumentNullException)
@@ -130,12 +121,7 @@ public class UserDatabase
         {
             return null;
         }
-        catch (Exception e)
-        {
-            throw;
-        }
-        if (user == null)
-            return null;
+
         user.Name = nickname;
         _userContext.Update(user);
         await _userContext.SaveChangesAsync();

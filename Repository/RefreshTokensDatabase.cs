@@ -1,22 +1,23 @@
-using BATTARI_api.Data;
+using BATTARI_api.Interfaces;
+using BATTARI_api.Repository.Data;
 using Microsoft.EntityFrameworkCore;
 
-class RefreshTokenDatabase : IRefreshTokensRepository
+namespace BATTARI_api.Repository;
+
+class RefreshTokenDatabase(UserContext context) : IRefreshTokensRepository
 {
-    private readonly UserContext _context;
-    public RefreshTokenDatabase(UserContext context) { _context = context; }
     public async Task Add(RefreshTokenModel refreshToken)
     {
-        await _context.RefreshTokens.AddAsync(refreshToken);
-        await _context.SaveChangesAsync();
+        await context.RefreshTokens.AddAsync(refreshToken);
+        await context.SaveChangesAsync();
     }
     public async Task Deactivate(int refreshTokenId)
     {
-        var refreshToken = await _context.RefreshTokens.FindAsync(refreshTokenId);
+        var refreshToken = await context.RefreshTokens.FindAsync(refreshTokenId);
         if (refreshToken == null)
             throw new KeyNotFoundException("RefreshToken not found");
         refreshToken.IsActive = false;
-        await _context.SaveChangesAsync();
+        await context.SaveChangesAsync();
     }
     /// <summary>
     /// 
@@ -27,7 +28,7 @@ class RefreshTokenDatabase : IRefreshTokensRepository
     public async Task<RefreshTokenModel> GetByToken(string token)
     {
         RefreshTokenModel? refreshToken =
-            await _context.RefreshTokens.FirstOrDefaultAsync(x => x.Token == token);
+            await context.RefreshTokens.FirstOrDefaultAsync(x => x.Token == token);
         if (refreshToken == null)
             throw new KeyNotFoundException("RefreshToken not found");
         return refreshToken;

@@ -1,6 +1,4 @@
-using System.Net;
 using BATTARI_api.Models.DTO;
-using BATTARI_api.Repository;
 using BATTARI_api.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

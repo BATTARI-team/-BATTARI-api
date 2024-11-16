@@ -1,5 +1,7 @@
 using BATTARI_api.Models;
 
+namespace BATTARI_api.Interfaces.Service;
+
 public interface ITokenService
 {
     /// <summary>
@@ -8,15 +10,9 @@ public interface ITokenService
     /// <param name="key"></param>
     /// <param name="userModel"></param>
     /// <param name="expires"></param>
-    /// <returns></returns> <summary>
-    ///
-    /// </summary>
-    /// <param name="key"></param>
-    /// <param name="userModel"></param>
-    /// <param name="expires"></param>
     /// <returns></returns>
     public string GenerateToken(string key, UserModel userModel,
-                                DateTime? expires = null);
+        DateTime? expires = null);
     public Task<string> GenerateAndSaveRefreshToken(UserModel userModel);
     /// <summary>
     /// 

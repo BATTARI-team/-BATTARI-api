@@ -2,7 +2,7 @@ using BATTARI_api.Models;
 using BATTARI_api.Models.Data;
 using Microsoft.EntityFrameworkCore;
 
-namespace BATTARI_api.Data;
+namespace BATTARI_api.Repository.Data;
 
 public class UserContext : DbContext
 {
