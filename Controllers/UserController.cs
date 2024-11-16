@@ -34,7 +34,6 @@ public class UserController
             return Conflict("User already exists");
         }
 
-        // TODO コアロジックなので，別の場所に移動した方がいい
         DateTime now = DateTime.Now;
         byte[] _salt = PasswordUtil.GetInitialPasswordSalt(now.ToString());
         UserModel user =
