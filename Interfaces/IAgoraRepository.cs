@@ -1,5 +1,7 @@
 using AgoraIO.Media;
 
+namespace BATTARI_api.Interfaces;
+
 interface IAgoraRepository
 {
     public int GetUid(string channelName);
@@ -8,7 +10,7 @@ interface IAgoraRepository
 
 class AgoraRepositoryMock : IAgoraRepository
 {
-    Dictionary<string, int> _uidMap = new Dictionary<string, int>();
+    readonly Dictionary<string, int> _uidMap = new Dictionary<string, int>();
 
     public string GetChannelId()
     {

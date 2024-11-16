@@ -1,6 +1,6 @@
-using BATTARI_api.Data;
 using BATTARI_api.Interfaces;
 using BATTARI_api.Models;
+using BATTARI_api.Repository.Data;
 using Microsoft.EntityFrameworkCore;
 
 namespace BATTARI_api.Repository
@@ -18,20 +18,24 @@ namespace BATTARI_api.Repository
         Task<IEnumerable<int>> GetFriendRequests(int userId);
     }
 
-    public class FriendDatabase : IFriendRepository
+    public class FriendDatabase(IUserRepository userRepository, IServiceScopeFactory serviceScopeFactory)
+        : IFriendRepository
     {
-        private readonly UserContext _context;
-        private readonly IUserRepository _userRepository;
-        public FriendDatabase(UserContext context, IUserRepository userRepository)
-        {
-            _userRepository = userRepository;
-            _context = context;
-        }
+        private readonly UserContext _context = serviceScopeFactory.CreateScope().ServiceProvider.GetRequiredService<UserContext>();
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="user1"></param>
+        /// <param name="user2"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        /// <exception cref="DbUpdateException"></exception>
+        /// <exception cref="DbUpdateConcurrencyException"></exception>
+        /// <exception cref="OperationCanceledException"></exception>
         public async Task<FriendStatusEnum?> AddFriendRequest(int user1, int user2)
         {
-
-            using var transaction = _context.Database.BeginTransaction();
+            await using var transaction = await _context.Database.BeginTransactionAsync();
             FriendModel? friendModel = await this.IsExist(user1, user2);
             if (friendModel != null)
             {
@@ -55,7 +59,7 @@ namespace BATTARI_api.Repository
                         return null;
                     }
 
-                    transaction.Commit();
+                    await transaction.CommitAsync();
                     return FriendStatusEnum.accepted;
                 }
                 else
@@ -73,18 +77,8 @@ namespace BATTARI_api.Repository
                         Status = FriendStatusEnum.requested
                     };
                 _context.Friends.Add(newFriend);
-                try
-                {
-                    // saveChangesのエラー処理用の何かを用意するべき
-
                     await _context.SaveChangesAsync();
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine(e);
-                    return null;
-                }
-                transaction.Commit();
+                await transaction.CommitAsync();
                 return FriendStatusEnum.requested;
             }
         }
@@ -97,15 +91,15 @@ namespace BATTARI_api.Repository
                                                   x.Status == FriendStatusEnum.accepted)
                                   .ToListAsync();
             List<Task<UserDto
-                ?>>? friendIdList =
+                ?>> friendIdList =
                       friendModel.Where(x => x.Status == FriendStatusEnum.accepted)
                           .Select(async x =>
                           {
                               UserModel? user;
                               if (x.User1Id == userId)
-                                  user = await _userRepository.GetUser(x.User2Id);
+                                  user = await userRepository.GetUser(x.User2Id);
                               else
-                                  user = await _userRepository.GetUser(x.User1Id);
+                                  user = await userRepository.GetUser(x.User1Id);
                               if (user == null)
                                   return null;
                               return new UserDto()
@@ -118,11 +112,9 @@ namespace BATTARI_api.Repository
                           .ToList();
 
             var friendListContainsNull = await Task.WhenAll(friendIdList);
-            if (friendListContainsNull == null)
-                friendListContainsNull = [];
             IEnumerable<UserDto> friendList =
-                friendListContainsNull.Where(x => x != null);
-            return friendList.AsEnumerable<UserDto>();
+                friendListContainsNull.Where(x => x != null)!;
+            return friendList.AsEnumerable();
         }
 
         public async Task<IEnumerable<int>> GetFriendRequests(int userId)
@@ -133,8 +125,6 @@ namespace BATTARI_api.Repository
                                 x.Status == FriendStatusEnum.requested)
                     .Select(x => x.User1Id)
                     .ToListAsync();
-            if (friendRequestsTask == null)
-                return [];
             return friendRequestsTask;
         }
 

@@ -11,14 +11,44 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BATTARI_api.Migrations
 {
     [DbContext(typeof(UserContext))]
-    [Migration("20241003030652_add refresh token table")]
-    partial class addrefreshtokentable
+    [Migration("20241030054250_add calldb")]
+    partial class addcalldb
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.0-preview.5.24306.3");
+
+            modelBuilder.Entity("BATTARI_api.Models.Data.CallModel", b =>
+                {
+                    b.Property<int>("CallId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("CallStartTime")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("CallTime")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("SouguuReason")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("User1Id")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("User2Id")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("CallId");
+
+                    b.ToTable("Calls");
+                });
 
             modelBuilder.Entity("BATTARI_api.Models.UserModel", b =>
                 {
@@ -57,11 +87,13 @@ namespace BATTARI_api.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Frineds")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                    b.Property<int>("Status")
+                        .HasColumnType("INTEGER");
 
-                    b.Property<int>("UserId")
+                    b.Property<int>("User1Id")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("User2Id")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");

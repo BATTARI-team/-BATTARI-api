@@ -1,14 +1,14 @@
-using System.Security.Claims;
-using BATTARI_api.Interfaces;
 using BATTARI_api.Repository;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+
+namespace BATTARI_api.Controllers;
 
 [ApiController]
 [Authorize]
 [Route("[controller]/[action]")]
 public class FriendController
-(IUserRepository _userRepository, IFriendRepository _friendRepository)
+    (IFriendRepository friendRepository)
     : Controller
 {
 
@@ -20,7 +20,6 @@ public class FriendController
     public async Task<ActionResult<FriendRequestDto>> PushFriendRequest(
         int userIndex)
     {
-        var identity = HttpContext.User.Identity as ClaimsIdentity;
         var claim = HttpContext.User.Claims.FirstOrDefault(
             c => c.Type ==
                  "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name");
@@ -40,7 +39,7 @@ public class FriendController
         try
         {
             FriendStatusEnum? friendStatusEnum =
-                await _friendRepository.AddFriendRequest(claimId, userIndex);
+                await friendRepository.AddFriendRequest(claimId, userIndex);
             if (friendStatusEnum == null)
                 return BadRequest();
             else
@@ -65,7 +64,6 @@ public class FriendController
     [HttpGet]
     public async Task<ActionResult<IEnumerable<UserDto>>> GetFriends()
     {
-        var identity = HttpContext.User.Identity as ClaimsIdentity;
         var claim = HttpContext.User.Claims.FirstOrDefault(
             c => c.Type ==
                  "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name");
@@ -83,7 +81,7 @@ public class FriendController
         try
         {
             IEnumerable<UserDto> friendList =
-                await _friendRepository.GetFriendList(claimId);
+                await friendRepository.GetFriendList(claimId);
             return Ok(friendList);
         }
         catch (Exception e)
@@ -104,7 +102,6 @@ public class FriendController
     public async Task<ActionResult<FriendRequestDto>> GetFriendStatus(
         int userIndex)
     {
-        var identity = HttpContext.User.Identity as ClaimsIdentity;
         var claim = HttpContext.User.Claims.FirstOrDefault(
             c => c.Type ==
                  "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name");
@@ -122,7 +119,7 @@ public class FriendController
         try
         {
             FriendModel? friendModel =
-                await _friendRepository.IsExist(claimId, userIndex);
+                await friendRepository.IsExist(claimId, userIndex);
             if (friendModel == null)
                 return new FriendRequestDto()
                 {
@@ -152,7 +149,6 @@ public class FriendController
     [HttpGet]
     public async Task<ActionResult<List<FriendRequestDto>>> GetFriendRequests()
     {
-        var identity = HttpContext.User.Identity as ClaimsIdentity;
         var claim = HttpContext.User.Claims.FirstOrDefault(
             c => c.Type ==
                  "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name");
@@ -170,7 +166,7 @@ public class FriendController
         try
         {
             IEnumerable<int> friendRequestList =
-                await _friendRepository.GetFriendRequests(claimId);
+                await friendRepository.GetFriendRequests(claimId);
             return Ok(friendRequestList);
         }
         catch (Exception e)

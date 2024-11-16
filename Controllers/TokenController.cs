@@ -1,6 +1,6 @@
 using BATTARI_api.Interfaces;
+using BATTARI_api.Interfaces.Service;
 using BATTARI_api.Models;
-using BATTARI_api.Services;
 using Microsoft.AspNetCore.Mvc;
 using webUserLoginTest.Util;
 
@@ -10,10 +10,6 @@ namespace BATTARI_api.Controllers;
 [ApiController]
 public class TokenController(ITokenService tokenService, IConfiguration configuration, IUserRepository userControllerInterface) : ControllerBase
 {
-    private readonly ITokenService tokenService = tokenService;
-    private readonly IConfiguration configuration = configuration;
-    private readonly IUserRepository userControllerInterface = userControllerInterface;
-
     /// <summary>
     /// UserIdとPasswordがあっていれば，Tokenを返します
     /// </summary>
@@ -27,11 +23,10 @@ public class TokenController(ITokenService tokenService, IConfiguration configur
         {
             return NotFound("User not found");
         }
-        //TODO パスワードペッパーを別の場所に保管する．
-        if (PasswordUtil.CompareHash(user.PasswordHash, PasswordUtil.GetPasswordHashFromPepper(user.PasswordSalt, userLoginModel.Password, "BATTARI")))
+        if (PasswordUtil.CompareHash(user.PasswordHash, PasswordUtil.GetPasswordHashFromPepper(user.PasswordSalt, userLoginModel.Password, configuration["Pepper"] ?? throw new Exception("app settingsのPepperがnullです"))))
         {
             var token = tokenService.GenerateToken(
-                configuration["Jwt:Key"] ?? "",
+                configuration["Jwt:Key"] ?? throw new Exception("app settingsのJwt:Keyがnullです"),
                 user
             );
             return Ok(token);

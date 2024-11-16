@@ -1,5 +1,5 @@
-using BATTARI_api.Data;
 using BATTARI_api.Models;
+using BATTARI_api.Repository.Data;
 
 public class UserViewModel
 {

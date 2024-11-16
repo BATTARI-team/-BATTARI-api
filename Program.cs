@@ -1,12 +1,14 @@
 using System.Reflection;
 using System.Text;
-using BATTARI_api.Data;
 using BATTARI_api.Interfaces;
+using BATTARI_api.Interfaces.Service;
 using BATTARI_api.Repository;
+using BATTARI_api.Repository.Data;
 using BATTARI_api.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Serilog;
 
 var options = new WebApplicationOptions()
 {
@@ -16,6 +18,14 @@ var options = new WebApplicationOptions()
     WebRootPath = "wwwroot"
 };
 var builder = WebApplication.CreateBuilder(options);
+
+// Logger
+builder.Logging.AddSerilog(new LoggerConfiguration()
+    .WriteTo.Console()
+    .CreateLogger());
+builder.Logging.AddSerilog(new LoggerConfiguration()
+    .WriteTo.File("log.txt")
+    .CreateLogger());
 
 // Add services to the container.
 // jwtの設定はここでやる
@@ -35,16 +45,33 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 ValidateIssuerSigningKey = true,
                 ValidateAudience = false,
             };
+        configureOptions.Events = new JwtBearerEvents()
+        {
+            OnMessageReceived = context =>
+            {
+                if(context.Request.Headers.ContainsKey("sec-websocket-protocol"))
+                {
+                    Console.WriteLine("websocketをauth");
+                }
+                return Task.CompletedTask;
+            }
+        };
     });
 builder.Services.AddDbContext<UserContext>();
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddEndpointsApiExplorer();
 
-builder.Services.AddScoped<IUserRepository, UserDatabase>();
-builder.Services.AddScoped<ITokenService, TokenService>();
+// Repository
+builder.Services.AddSingleton<IUserRepository, UserDatabase>();
 builder.Services.AddScoped<IRefreshTokensRepository, RefreshTokenDatabase>();
-builder.Services.AddScoped<IFriendRepository, FriendDatabase>();
+builder.Services.AddSingleton<IFriendRepository, FriendDatabase>();
+builder.Services.AddSingleton<UserOnlineConcurrentDictionaryDatabase>();
+builder.Services.AddScoped<ICallRepository, CallDatabase>();
+// Service
+builder.Services.AddScoped<ITokenService, TokenService>();
+builder.Services.AddSingleton<ISouguuService, SouguuService>();
+builder.Services.AddSingleton<CallingService>();
 
 builder.Services.AddSwaggerGen(c =>
 {
@@ -72,7 +99,12 @@ builder.Services.AddSwaggerGen(c =>
   });
 });
 
-builder.WebHost.UseUrls("http://*:" + args[0]);
+string port = "5050";
+if(args.Length != 0)
+{
+    port = args[0];
+}
+builder.WebHost.UseUrls("http://*:" + port);
 
 var app = builder.Build();
 
@@ -95,7 +127,7 @@ app.UseRouting();
 
 app.UseWebSockets(new WebSocketOptions
 {
-    KeepAliveInterval = TimeSpan.FromHours(1),
+    KeepAliveInterval = TimeSpan.FromHours(1)
 });
 
 app.UseAuthentication();

@@ -1,8 +1,7 @@
 using BATTARI_api.Interfaces;
+using BATTARI_api.Interfaces.Service;
 using BATTARI_api.Models;
-using BATTARI_api.Repository;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Authorization.Infrastructure;
 using Microsoft.AspNetCore.Mvc;
 using webUserLoginTest.Util;
 
@@ -12,7 +11,7 @@ namespace BATTARI_api.Controllers;
 [Authorize]
 [Route("[controller]/[action]")]
 public class UserController
-(IUserRepository _userRepositoryInterface, ITokenService tokenService,
+(IUserRepository userRepositoryInterface, ITokenService tokenService,
  IConfiguration configuration)
     : ControllerBase
 {
@@ -29,26 +28,26 @@ public class UserController
     public async Task<ActionResult<AuthenticatedDto>> CreateUser(
         UserRegisterModel userRegisterModel)
     {
-        if (await _userRepositoryInterface.UserExists(userRegisterModel.UserId))
+        if (await userRepositoryInterface.UserExists(userRegisterModel.UserId))
         {
             return Conflict("User already exists");
         }
 
-        // TODO コアロジックなので，別の場所に移動した方がいい
         DateTime now = DateTime.Now;
-        byte[] _salt = PasswordUtil.GetInitialPasswordSalt(now.ToString());
+        // #TODO なんかやばそう
+        byte[] salt = PasswordUtil.GetInitialPasswordSalt(now.ToString());
         UserModel user =
             new UserModel()
             {
                 UserId = userRegisterModel.UserId,
                 Name = userRegisterModel.Name,
                 PasswordHash = PasswordUtil.GetPasswordHashFromPepper(
-                                  _salt, userRegisterModel.Password, "BATTARI"),
-                PasswordSalt = _salt,
+                                  salt, userRegisterModel.Password, configuration["Pepper"] ?? throw new Exception("app settingsのPepperがnullです")),
+                PasswordSalt = salt,
                 Created = DateTime.Now
             };
 
-        var userModel = await _userRepositoryInterface.CreateUser(user);
+        var userModel = await userRepositoryInterface.CreateUser(user);
         if (userModel == null)
         {
             return BadRequest();
@@ -56,7 +55,7 @@ public class UserController
         String refreshToken =
             await tokenService.GenerateAndSaveRefreshToken(userModel);
         String token =
-            tokenService.GenerateToken(configuration["Jwt:Key"] ?? "", userModel);
+            tokenService.GenerateToken(configuration["Jwt:Key"] ?? throw new Exception("app settingsのJwt:Keyがnullです"), userModel);
         return new AuthenticatedDto { Token = token, RefreshToken = refreshToken };
     }
 
@@ -64,7 +63,7 @@ public class UserController
     [AllowAnonymous]
     public async Task<bool> UserExists(string userId)
     {
-        return await _userRepositoryInterface.UserExists(userId);
+        return await userRepositoryInterface.UserExists(userId);
     }
 
     [HttpPost]
@@ -73,7 +72,7 @@ public class UserController
         UserLoginModel userLoginModel)
     {
         var userModel =
-            await _userRepositoryInterface.GetUser(userLoginModel.UserId);
+            await userRepositoryInterface.GetUser(userLoginModel.UserId);
         if (userModel == null)
         {
             return NotFound();
@@ -81,20 +80,18 @@ public class UserController
         if (PasswordUtil.CompareHash(
                 userModel.PasswordHash,
                 PasswordUtil.GetPasswordHashFromPepper(
-                    userModel.PasswordSalt, userLoginModel.Password, "BATTARI")))
+                    userModel.PasswordSalt, userLoginModel.Password, configuration["Pepper"] ?? throw new Exception("app settingsのPepperがnullです"))))
         {
-            // return tokenService.GenerateToken(configuration["Jwt:Key"] ?? "",
-            //                                   userModel);
             return new AuthenticatedDto
             {
-                Token = tokenService.GenerateToken(configuration["Jwt:Key"] ?? "",
+                Token = tokenService.GenerateToken(configuration["Jwt:Key"] ?? throw new Exception("app settingsのJwt:Keyがnullです"),
                                                  userModel),
                 RefreshToken =
                   await tokenService.GenerateAndSaveRefreshToken(userModel),
             };
         }
 
-        return Unauthorized();
+        return Unauthorized("パスワードかuserIdが間違っています");
     }
 
     [HttpPost]
@@ -110,44 +107,45 @@ public class UserController
         }
         catch (KeyNotFoundException e)
         {
-            return NotFound();
+            return NotFound(e);
         }
         catch (Exception e)
         {
             return BadRequest(e.ToString());
         }
 
-        UserModel? userModel;
-
-        userModel =
-            await _userRepositoryInterface.GetUser(refreshTokenModel.UserId);
+        var userModel = await userRepositoryInterface.GetUser(refreshTokenModel.UserId);
         if (userModel == null)
         {
             return NotFound("User not found");
         }
+        if (userModel.Id != refreshToken.UserIndex)
+        {
+            return BadRequest("Invalid user");
+        }
 
         string token =
-            tokenService.GenerateToken(configuration["Jwt:Key"] ?? "", userModel);
+            tokenService.GenerateToken(configuration["Jwt:Key"] ?? throw new Exception("app settingsのJwt:Keyがnullです"), userModel);
         return token;
     }
 
     [HttpDelete("{id}")]
     public async Task<ActionResult<UserModel>> DeleteUser(int id)
     {
-        var userModel = await _userRepositoryInterface.GetUser(id);
+        var userModel = await userRepositoryInterface.GetUser(id);
         if (userModel == null)
         {
             return NotFound();
         }
-        _ = _userRepositoryInterface.DeleteUser(userModel.Id);
+        _ = userRepositoryInterface.DeleteUser(userModel.Id);
         return userModel;
     }
 
     [HttpGet]
     public async Task<ActionResult<UserModel>> GetUsers()
     {
-        var users = await _userRepositoryInterface.GetUsers();
-        if (users.Count() == 0)
+        var users = await userRepositoryInterface.GetUsers();
+        if (!users.Any())
             return NotFound();
         return Ok(users);
     }
@@ -156,7 +154,7 @@ public class UserController
     public async Task<ActionResult<UserModel>> ChangeNickname(string userName,
                                                               string userId)
     {
-        var user = await _userRepositoryInterface.ChangeNickname(nickname: userName,
+        var user = await userRepositoryInterface.ChangeNickname(nickname: userName,
                                                                  userId: userId);
         if (user == null)
             return BadRequest();
@@ -166,14 +164,39 @@ public class UserController
     [HttpPut]
     public async Task<ActionResult<UserDto>> GetUser(int userIndex)
     {
-        var userModel = await _userRepositoryInterface.GetUser(userIndex);
-        var user = new UserDto()
+        var userModel = await userRepositoryInterface.GetUser(userIndex);
+        if (userModel != null)
         {
-            Name = userModel.Name,
-            UserId = userModel.UserId,
-            Id = userModel.Id,
-        };
+            var user = new UserDto()
+            {
+                Name = userModel.Name,
+                UserId = userModel.UserId,
+                Id = userModel.Id,
+            };
 
-        return user;
+            return user;
+        }
+        else
+        {
+            return NotFound("User not found");
+        }
+    }
+
+    [HttpPut]
+    public async Task<ActionResult<UserDto>> GetUserByUserId(string userId)
+    {
+        var userModel = await userRepositoryInterface.GetUser(userId);
+        if (userModel != null)
+        {
+            var user = new UserDto()
+            {
+                Name = userModel.Name,
+                UserId = userModel.UserId,
+                Id = userModel.Id,
+            };
+
+            return user;
+        }
+        return NotFound("User not found");
     }
 }

@@ -1,3 +1,5 @@
+namespace BATTARI_api.Interfaces;
+
 public interface IRefreshTokensRepository
 {
     /// <summary>

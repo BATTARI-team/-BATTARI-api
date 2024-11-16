@@ -1,5 +1,9 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using System.Text.Json;
+using BATTARI_api.Models.DTO;
+using BATTARI_api.Repository;
+using BATTARI_api.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,7 +11,7 @@ namespace BATTARI_api.Controllers;
 
 [ApiController]
 [Route("[controller]/[action]")]
-public class DeveloperController : ControllerBase
+public class DeveloperController(IConfiguration configuration, UserOnlineConcurrentDictionaryDatabase userOnlineConcurrentDictionaryDatabase, CallingService callingService) : ControllerBase
 {
     /// <summary>
     /// ログインしてないと使えません
@@ -27,8 +31,9 @@ public class DeveloperController : ControllerBase
         {
             Console.WriteLine(claim.Value);
         }
+        Console.WriteLine(configuration["Pepper"]);
 
-        return Ok("Connection is working. Welcome " + claim.Value + "!");
+        return Ok("Connection is working. Welcome " + claim?.Value + "!");
     }
 
     /// <summary>
@@ -36,16 +41,50 @@ public class DeveloperController : ControllerBase
     /// </summary>
     /// <returns></returns>
     [HttpPut]
-    public IActionResult JWTParse(String token)
+    public IActionResult JwtParse(String input)
     {
-        var jsonToken = new JwtSecurityTokenHandler().ReadToken(token);
+        var jsonToken = new JwtSecurityTokenHandler().ReadToken(input);
+        
         return Ok(jsonToken);
     }
+    
+    /// <summary>
+    ///
+    /// </summary>
+    [HttpPost]
+    public IActionResult TryParseSouguuMaterials(string materials)
+    {
+            
+        Console.WriteLine(materials);
+        var souguuMaterials = JsonSerializer.Deserialize<SouguuWebsocketDto>(materials);
+        Console.WriteLine("TryParseSouguuMaterials");
+        if (souguuMaterials != null)
+        {
+            Console.WriteLine(souguuMaterials.incredients.Count);
+            Console.WriteLine(souguuMaterials.incredients[0].type);
+            return Ok(souguuMaterials);
+        }
+
+        return Ok(null);
+    }
+    
     [HttpGet]
-    public void setSouguu() { WebSocketController.isSouguu = true; }
+    public IActionResult GetOnlineUsers()
+    {
+        return Ok(userOnlineConcurrentDictionaryDatabase.GetOnlineUsers());
+    }
 
     [HttpGet]
-    public void unsetSouguu() { WebSocketController.isSouguu = false; }
+    public IActionResult ClearUserOnline()
+    {
+        userOnlineConcurrentDictionaryDatabase.Clear();
+        callingService.Clear();
+        return Ok("UserOnlineDictionary is cleared");
+    }
+    
     [HttpGet]
-    public bool isSouguu() { return WebSocketController.isSouguu; }
+    public IActionResult IsUserSouguu(int userId)
+    {
+        return Ok(userOnlineConcurrentDictionaryDatabase.IsUserSouguu(userId));
+    }
 }
