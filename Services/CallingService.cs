@@ -43,13 +43,36 @@ public class CallingService
     private int channelId = 0;
     private readonly ConcurrentDictionary<int, NowCallModel> _userOnlineConcurrentDictionaryDatabase;
     private readonly IConfiguration _configuration;
+    private Task _autoRemover;
     
     public CallingService(IConfiguration configuration)
     {
         _userOnlineConcurrentDictionaryDatabase = new ConcurrentDictionary<int, NowCallModel>();
         _configuration = configuration;
+        CreateAutoRemover();
     }
     
+    private void CreateAutoRemover()
+    {
+        _autoRemover = Task.Run(async () =>
+        {
+            while (true)
+            {
+                await Task.Delay(30000);
+                foreach (var user in _userOnlineConcurrentDictionaryDatabase)
+                {
+                    if (user.Value.IsEnded)
+                    {
+                        _userOnlineConcurrentDictionaryDatabase.TryRemove(user.Key, out _);
+                    }
+                }
+            }
+        });
+        _autoRemover.ContinueWith(task =>
+                           {
+                               CreateAutoRemover();
+                           });
+    }
     /// <summary>
     /// 
     /// </summary>

@@ -13,11 +13,41 @@ public class UserOnlineConcurrentDictionaryModel()
     /// </summary>
     public int IsSouguu { get; set; }
 }
-public class UserOnlineConcurrentDictionaryDatabase(IFriendRepository friendRepository)
+public class UserOnlineConcurrentDictionaryDatabase
 {
     readonly ConcurrentDictionary<int,  UserOnlineConcurrentDictionaryModel> _userOnlineDictionary = new ConcurrentDictionary<int, UserOnlineConcurrentDictionaryModel>();
     private readonly object _lock = new object();
     private TimeSpan _timeout = TimeSpan.FromSeconds(10);
+    private Task _autoRemover;
+    private IFriendRepository friendRepository;
+
+    public UserOnlineConcurrentDictionaryDatabase(IFriendRepository friendRepository)
+    {
+        this.friendRepository = friendRepository;
+        CreateAutoRemover();
+    }
+
+    private void CreateAutoRemover()
+    {
+        _autoRemover = Task.Run(async () =>
+        {
+            while (true)
+            {
+                await Task.Delay(60000);
+                foreach (var user in _userOnlineDictionary)
+                {
+                    if (!user.Value.IsOnline)
+                    {
+                        RemoveUserOnline(user.Key);
+                    }
+                }
+            }
+        });
+        _autoRemover.ContinueWith(task =>
+                           {
+                               CreateAutoRemover();
+                           });
+    }
 
     /// <summary>
     /// 
