@@ -7,12 +7,12 @@ public class CallModel
 {
     [Key]
     public int CallId { get; set; }
-    public CallStatusEnum Status { get; set; }
-    public DateTime CallStartTime { get; set; }
+    public required CallStatusEnum Status { get; set; }
+    public required DateTime CallStartTime { get; set; }
     public required string SouguuReason { get; set; }
-    public DateTime SouguuDateTime { get; set; }
+    public required DateTime SouguuDateTime { get; set; }
     public SouguuReasonStatusEnum SouguuReasonStatus { get; set; }
-    public int CallTime { get; set; }
-    public int User1Id { get; set; }
-    public int User2Id { get; set; }
+    public required int CallTime { get; set; }
+    public required int User1Id { get; set; }
+    public required int User2Id { get; set; }
 }

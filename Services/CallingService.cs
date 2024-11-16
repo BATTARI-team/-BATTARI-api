@@ -1,5 +1,6 @@
 using System.Collections.Concurrent;
 using AgoraIO.Media;
+using BATTARI_api.Models.DTO;
 
 namespace BATTARI_api.Services;
 
@@ -41,18 +42,33 @@ public class CallingService
 {
     private int channelId = 0;
     private readonly ConcurrentDictionary<int, NowCallModel> _userOnlineConcurrentDictionaryDatabase;
+    private readonly IConfiguration _configuration;
     
-    public CallingService()
+    public CallingService(IConfiguration configuration)
     {
         _userOnlineConcurrentDictionaryDatabase = new ConcurrentDictionary<int, NowCallModel>();
+        _configuration = configuration;
     }
     
-    public void AddCall(int callId, DateTime callStartTime, DateTime callEndTime, string souguuReason, int user1, int user2, string cancellationReason, DateTime souguuDateTime)
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="callId"></param>
+    /// <param name="callStartTime"></param>
+    /// <param name="callEndTime"></param>
+    /// <param name="souguuReason"></param>
+    /// <param name="user1"></param>
+    /// <param name="user2"></param>
+    /// <param name="cancellationReason"></param>
+    /// <param name="souguuDateTime"></param>
+    /// <returns>配列{channelId, user1Token, user2Token)</returns>
+    public string[] AddCall(int callId, DateTime callStartTime, DateTime callEndTime, string souguuReason, int user1, int user2, string cancellationReason, DateTime souguuDateTime)
     {
         string _channelId = (channelId++).ToString();
-        string user1Token = "aiueo";
-        string user2Token = "aiueo";
+        string user1Token = _generateToken(user1.ToString(), _channelId);
+        string user2Token = _generateToken(user2.ToString(), _channelId);
         _userOnlineConcurrentDictionaryDatabase.TryAdd(callId, new NowCallModel(callStartTime, callId, callEndTime, souguuReason, user1, user1Token, user2, user2Token, cancellationReason, souguuDateTime));
+        return new[] { _channelId, user1Token, user2Token };
     }
     
     public IEnumerable<NowCallModel> GetNowCalls()
@@ -60,13 +76,43 @@ public class CallingService
         return _userOnlineConcurrentDictionaryDatabase.Values;
     }
 
-    public string GetToken(int channelId)
-    {
-        return "";
-    }
-    
     public void Clear()
     {
         _userOnlineConcurrentDictionaryDatabase.Clear();
+    }
+    private string _generateToken(String uid, string channelId)
+    {
+        AccessToken accessToken =
+            new AccessToken(_configuration["Agora:AppId"] ?? throw new ArgumentNullException("AppIdがappsettings.jsonに設定されていません。,"), _configuration["Agora:AppCertificate"] ?? throw new ArgumentNullException("AppCertificateがappsettings.jsonに設定されていません。"),
+                channelId, uid.ToString());
+        string result = accessToken.Build();
+        if (result == null)
+        {
+            throw new Exception("Failed to generate token");
+        }
+        return result;
+    }
+
+    public SouguuNotificationDto? GetCall(int userIndex)
+    {
+        var a = _userOnlineConcurrentDictionaryDatabase.SingleOrDefault<KeyValuePair<int, NowCallModel>>(source => (source.Value.User1 == userIndex || source.Value.User2 == userIndex) && !source.Value.IsEnded);
+        try
+        {
+            SouguuNotificationDto notificationDto = new SouguuNotificationDto()
+            {
+                CallEndTime = a.Value.CallEndTime,
+                CallStartTime = a.Value.CallStartTime,
+                CallId = a.Value.CallId,
+                SouguuDateTime = a.Value.SouguuDateTime,
+                SouguuReason = a.Value.SouguuReason,
+                Token = a.Value.User1 == userIndex ? a.Value.User1Token : a.Value.User2Token,
+                AiteUserId = a.Value.User1 == userIndex ? a.Value.User2 : a.Value.User1
+            };
+            return notificationDto;
+        }
+        catch (Exception)
+        {
+            return null;
+        }
     }
 }

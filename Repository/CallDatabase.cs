@@ -38,7 +38,9 @@ public class CallDatabase(UserContext context) : ICallRepository
             User1Id = user1,
             User2Id = user2,
             SouguuDateTime = souguuDateTime ?? DateTime.Now,
-            Status = status
+            Status = status,
+            // 通話時間を指定する
+            CallTime = 2,
         };
         var result = context.Calls.Add(call);
         await context.SaveChangesAsync();
