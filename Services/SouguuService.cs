@@ -15,8 +15,8 @@ using Microsoft.OpenApi.Extensions;
 public interface ISouguuService
 {
     public Task AddMaterial(SouguuWebsocketDto materials);
-    public void AddSouguuNotification(int userIndex, Action<SouguuNotificationDto> action);
-    public void RemoveSouguuNotification(int userIndex);
+    public void AddSouguuNotification(string requestId, Action<SouguuNotificationDto> action, int userIndex);
+    public void RemoveSouguuNotification(string requestId);
 }
 
 public class SouguuService : ISouguuService
@@ -39,17 +39,20 @@ public class SouguuService : ISouguuService
     /// </summary>
     private readonly ConcurrentQueue<int> _souguuQueue = new ConcurrentQueue<int>();
     public ConcurrentDictionary<int,SouguuWebsocketDto > _latestIncredient = new ConcurrentDictionary<int, SouguuWebsocketDto>();
-    private ConcurrentDictionary<int, Action<SouguuNotificationDto>> _souguuNotification = new ConcurrentDictionary<int, Action<SouguuNotificationDto>>();
+    private ConcurrentDictionary<string, Action<SouguuNotificationDto>> _souguuNotification = new ConcurrentDictionary<string, Action<SouguuNotificationDto>>();
+    private ConcurrentDictionary<string, int> _requestIdToUserIndex = new ConcurrentDictionary<string, int>();
     private Task _dequeueTask;
     
-    public void AddSouguuNotification(int userIndex, Action<SouguuNotificationDto> action)
+    public void AddSouguuNotification(string requestId, Action<SouguuNotificationDto> action, int userIndex)
     {
-        _souguuNotification.AddOrUpdate(userIndex, i => action, (i, action1) => action);
+        _souguuNotification.AddOrUpdate(requestId, i => action, (i, action1) => action);
+        _requestIdToUserIndex.AddOrUpdate(requestId, userIndex, (i, index) => userIndex);
     }
     
-    public void RemoveSouguuNotification(int userIndex)
+    public void RemoveSouguuNotification(string requestId)
     {
-        _souguuNotification.TryRemove(userIndex, out _);
+        _souguuNotification.TryRemove(requestId, out _);
+        _requestIdToUserIndex.TryRemove(requestId, out _);
     }
     
     /// <summary>
@@ -82,12 +85,16 @@ public class SouguuService : ISouguuService
     {
         Console.WriteLine("遭遇しました");
         CallModel call;
+        
+        // 配列{channelId, user1Token, user2Token)
+        string[] callDetail;
         try
         {
-            call = await _callRepository.AddCall(SouguuReason: "battari", callStartTime: DateTime.Now.AddMinutes(2),
+            call = await _callRepository.AddCall(SouguuReason: "battari", callStartTime: DateTime.Now.AddMinutes(1),
                 user1: user1,
                 user2: user2, souguuDateTime: DateTime.Now, status: CallStatusEnum.Waiting);
-            _callingService.AddCall(
+            
+            callDetail = _callingService.AddCall(
                 callId: call.CallId,
                 callStartTime: call.CallStartTime,
                 callEndTime: call.CallStartTime.AddMinutes(call.CallTime),
@@ -105,30 +112,44 @@ public class SouguuService : ISouguuService
         }
         
         _userOnlineConcurrentDictionaryDatabase.SetSouguu(user1, user2);
-
-        _souguuNotification[user1](new SouguuNotificationDto()
+        var user1RequestIds = _requestIdToUserIndex.Where(i => i.Value == user1).Select(i => i.Key).ToList();
+        var user2RequestIds = _requestIdToUserIndex.Where(i => i.Value == user2).Select(i => i.Key).ToList();
+        foreach (var user1RequestId in user1RequestIds)
         {
-            CallEndTime = call.CallStartTime.AddMinutes(call.CallTime),
-            CallStartTime = call.CallStartTime,
-            CallId = call.CallId,
-            SouguuDateTime = call.SouguuDateTime,
-            SouguuReason = call.SouguuReason,
-            Token = "",
-            AiteUserId = user2
-        });
-        _souguuNotification[user2](new SouguuNotificationDto()
+            _souguuNotification.TryGetValue(user1RequestId, out var user1Notification);
+            if (user1Notification != null)
+            {
+                user1Notification(new SouguuNotificationDto()
+                {
+                    CallEndTime = call.CallStartTime.AddMinutes(call.CallTime),
+                    CallStartTime = call.CallStartTime,
+                    CallId = call.CallId,
+                    SouguuDateTime = call.SouguuDateTime,
+                    SouguuReason = call.SouguuReason,
+                    Token = callDetail[1],
+                    AiteUserId = user2
+                });
+            }
+        }
+        
+        foreach (var user2RequestId in user2RequestIds)
         {
-            CallEndTime = call.CallStartTime.AddMinutes(call.CallTime),
-            CallStartTime = call.CallStartTime,
-            CallId = call.CallId,
-            SouguuDateTime = call.SouguuDateTime,
-            SouguuReason = call.SouguuReason,
-            Token = "",
-            AiteUserId = user1
-        });
+            _souguuNotification.TryGetValue(user2RequestId, out var user2Notification);
+            if (user2Notification != null)
+            {
+                user2Notification(new SouguuNotificationDto()
+                {
+                    CallEndTime = call.CallStartTime.AddMinutes(call.CallTime),
+                    CallStartTime = call.CallStartTime,
+                    CallId = call.CallId,
+                    SouguuDateTime = call.SouguuDateTime,
+                    SouguuReason = call.SouguuReason,
+                    Token = callDetail[2],
+                    AiteUserId = user1
+                });
+            }
+        }
 
-        // await _callingService.AddCall("battari", DateTime.Now.AddMinutes(2), user1, user2, DateTime.Now,
-        //     CallStatusEnum.Waiting);
         _logger.LogInformation("{}と{}が遭遇しました⭐⭐️⭐️️", user1, user2);
     }
 

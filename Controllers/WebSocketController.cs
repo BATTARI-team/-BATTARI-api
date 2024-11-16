@@ -32,7 +32,12 @@ public class WebSocketController(UserOnlineConcurrentDictionaryDatabase userOnli
                 var json = JsonSerializer.Serialize(dto);
                 var bytes = Encoding.UTF8.GetBytes(json);
                 websocket.SendAsync(new ArraySegment<byte>(bytes), WebSocketMessageType.Text, true, CancellationToken.None);
+                Console.WriteLine(userId + "に通知を送信しました");
             }
+        }
+        else
+        {
+            Console.WriteLine("Websocket Sendnotification: user is not online " + userId);
         }
     }
     
@@ -81,13 +86,15 @@ public class WebSocketController(UserOnlineConcurrentDictionaryDatabase userOnli
             
             //Task task = send(webSocket);
             Task task2 = KeepAlive(webSocket, new CancellationToken());
-            souguuService.AddSouguuNotification(userId, (dto) =>
+            var requestKey = HttpContext.TraceIdentifier;
+            souguuService.AddSouguuNotification(requestKey, (dto) =>
             {
                // 遭遇した時に実行したい関数 
                // #TODO variable is disposed in the outer scope
                // obsidian://adv-uri?vault=main&filepath=%2B%2FCsharpdeCaptured%20variable%20is%20disposed%20in%20the%20outer%20scope2024-11-13.md
                 SendNotification(webSocket, userId, dto);
-            });
+            }, userId);
+            string lastReceived = "";
             while (webSocket.State == WebSocketState.Open)
             {
                 using (var ms = new MemoryStream())
@@ -133,6 +140,7 @@ public class WebSocketController(UserOnlineConcurrentDictionaryDatabase userOnli
                         {
                             try
                             {
+                                lastReceived = received;
                                 SouguuWebsocketDto? parsed = JsonSerializer.Deserialize<SouguuWebsocketDto>(received, options);
                                 if(parsed == null) continue;
                                 if (parsed?.incredients[0] is SouguuAppIncredientModel)
@@ -157,8 +165,10 @@ public class WebSocketController(UserOnlineConcurrentDictionaryDatabase userOnli
                 }
                 
             }
-            souguuService.RemoveSouguuNotification(userId);
+            souguuService.RemoveSouguuNotification(HttpContext.TraceIdentifier);
             Console.WriteLine("切断されたようです" + webSocket.State);
+            Console.WriteLine("切断されたようです" + webSocket.CloseStatusDescription);
+            Console.WriteLine("切断されたようです" + lastReceived);
             _logger.LogInformation("websocekt切断:" + webSocket.State);
             close(userId);
         }
