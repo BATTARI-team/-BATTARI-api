@@ -16,7 +16,12 @@ public interface ISouguuService
 {
     public Task AddMaterial(SouguuWebsocketDto materials);
     public void AddSouguuNotification(string requestId, Action<SouguuNotificationDto> action, int userIndex);
-    public void RemoveSouguuNotification(string requestId);
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="requestId"></param>
+    /// <returns>もし他にこのユーザーへのwebsocket接続が存在しなかった場合はtrueを返す．つまりオンラインユーザーから省くべき場合はtrue</returns>
+    public bool RemoveSouguuNotification(string requestId);
 }
 
 public class SouguuService : ISouguuService
@@ -49,10 +54,13 @@ public class SouguuService : ISouguuService
         _requestIdToUserIndex.AddOrUpdate(requestId, userIndex, (i, index) => userIndex);
     }
     
-    public void RemoveSouguuNotification(string requestId)
+    public bool RemoveSouguuNotification(string requestId)
     {
         _souguuNotification.TryRemove(requestId, out _);
+        var userIndex = _requestIdToUserIndex[requestId];
         _requestIdToUserIndex.TryRemove(requestId, out _);
+        return _requestIdToUserIndex.Any(
+             i => i.Value == userIndex);
     }
     
     /// <summary>

@@ -160,12 +160,13 @@ public class WebSocketController(UserOnlineConcurrentDictionaryDatabase userOnli
                 }
                 
             }
-            souguuService.RemoveSouguuNotification(HttpContext.TraceIdentifier);
+            bool isNeedRemove = souguuService.RemoveSouguuNotification(HttpContext.TraceIdentifier);
             Console.WriteLine("切断されたようです" + webSocket.State);
             Console.WriteLine("切断されたようです" + webSocket.CloseStatusDescription);
             Console.WriteLine("切断されたようです" + lastReceived);
             _logger.LogInformation("websocekt切断:" + webSocket.State);
-            userOnlineConcurrentDictionaryDatabase.RemoveUserOnline(userId);
+            if (isNeedRemove)
+                userOnlineConcurrentDictionaryDatabase.RemoveUserOnline(userId);
         }
         else
         {
