@@ -62,6 +62,12 @@ public class DeveloperController(IConfiguration configuration, UserOnlineConcurr
         Console.WriteLine(souguuMaterials.incredients[0].type);
         return Ok(souguuMaterials);
     }
+    
+    [HttpGet]
+    public IActionResult GetOnlineUsers()
+    {
+        return Ok(userOnlineConcurrentDictionaryDatabase.GetOnlineUsers());
+    }
 
     [HttpGet]
     public IActionResult ClearUserOnline()
