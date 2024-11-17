@@ -13,7 +13,7 @@ public interface ICallRepository
 /// 過去の通話を全て管理するデータベースです
 /// </summary>
 /// <param name="context"></param>
-public class CallDatabase(UserContext context) : ICallRepository
+public class CallDatabase(UserContext context, ILogger<CallDatabase> logger) : ICallRepository
 {
     /// <summary>
     /// 通話の登録
@@ -42,7 +42,14 @@ public class CallDatabase(UserContext context) : ICallRepository
             CallTime = 2,
         };
         var result = context.Calls.Add(call);
-        await context.SaveChangesAsync();
+        try
+        {
+            await context.SaveChangesAsync();
+        }
+        catch (Exception e)
+        {
+            logger.LogError("通話の追加に失敗しました", e);
+        }
         return result.Entity;
     }
 }

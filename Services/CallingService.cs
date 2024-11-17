@@ -44,11 +44,13 @@ public class CallingService
     private readonly ConcurrentDictionary<int, NowCallModel> _userOnlineConcurrentDictionaryDatabase;
     private readonly IConfiguration _configuration;
     private Task _autoRemover;
+    private readonly ILogger<CallingService> _logger;
     
-    public CallingService(IConfiguration configuration)
+    public CallingService(IConfiguration configuration, ILogger<CallingService> logger)
     {
         _userOnlineConcurrentDictionaryDatabase = new ConcurrentDictionary<int, NowCallModel>();
         _configuration = configuration;
+        _logger = logger;
         CreateAutoRemover();
     }
     
@@ -87,11 +89,20 @@ public class CallingService
     /// <returns>配列{channelId, user1Token, user2Token)</returns>
     public string[] AddCall(int callId, DateTime callStartTime, DateTime callEndTime, string souguuReason, int user1, int user2, string cancellationReason, DateTime souguuDateTime)
     {
-        string _channelId = (channelId++).ToString();
-        string user1Token = _generateToken(user1.ToString(), _channelId);
-        string user2Token = _generateToken(user2.ToString(), _channelId);
-        _userOnlineConcurrentDictionaryDatabase.TryAdd(callId, new NowCallModel(callStartTime, callId, callEndTime, souguuReason, user1, user1Token, user2, user2Token, cancellationReason, souguuDateTime));
-        return new[] { _channelId, user1Token, user2Token };
+        Console.WriteLine(callId);
+        string callIdStr = callId.ToString();
+        try
+        {
+            string user1Token = _generateToken(user1.ToString(), callIdStr);
+            string user2Token = _generateToken(user2.ToString(), callIdStr);
+            _userOnlineConcurrentDictionaryDatabase.TryAdd(callId, new NowCallModel(callStartTime, callId, callEndTime, souguuReason, user1, user1Token, user2, user2Token, cancellationReason, souguuDateTime));
+        return new[] { callIdStr, user1Token, user2Token };
+        }
+        catch (Exception e)
+        {
+            _logger.LogError("トークンの作成に失敗しました", e);
+            throw;
+        }
     }
     
     public IEnumerable<NowCallModel> GetNowCalls()
@@ -109,6 +120,7 @@ public class CallingService
             new AccessToken(_configuration["Agora:AppId"] ?? throw new ArgumentNullException("AppIdがappsettings.jsonに設定されていません。,"), _configuration["Agora:AppCertificate"] ?? throw new ArgumentNullException("AppCertificateがappsettings.jsonに設定されていません。"),
                 channelId, uid.ToString());
         string result = accessToken.Build();
+        _logger.LogInformation("agora token generated successfully, channelId: {channelId}, uid: {uid}", channelId, uid);
         if (result == null)
         {
             throw new Exception("Failed to generate token");

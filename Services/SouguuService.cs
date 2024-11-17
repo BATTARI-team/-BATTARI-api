@@ -101,7 +101,6 @@ public class SouguuService : ISouguuService
             call = await _callRepository.AddCall(souguuReason: "battari", callStartTime: DateTime.Now.AddMinutes(1),
                 user1: user1,
                 user2: user2, souguuDateTime: DateTime.Now, status: CallStatusEnum.Waiting);
-            
             callDetail = _callingService.AddCall(
                 callId: call.CallId,
                 callStartTime: call.CallStartTime,
@@ -116,6 +115,11 @@ public class SouguuService : ISouguuService
         catch (DbUpdateException e)
         {
             Console.WriteLine("データベースに保存できませんでした" + e);
+            throw;
+        }
+        catch (Exception e)
+        {
+            _logger.LogError("遭遇処理に失敗しました", e);
             throw;
         }
         
