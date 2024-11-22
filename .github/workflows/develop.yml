@@ -30,9 +30,7 @@ jobs:
         dotnet tool restore
         dotnet ef database update
     - name: download appsettings.json
-      uses: wei/wget@v1
-      with:
-        args: $ {{ secrets.APPSETTINGS_URL }}
+      run: curl ${{ secrets.APPSETTINGS_URL }} -o appsettings.json
     - name: Build
       run: dotnet publish --no-restore
     - name: Restart service
