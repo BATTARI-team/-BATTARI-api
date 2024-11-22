@@ -89,7 +89,7 @@ public class SouguuService : ISouguuService
     /// <param name="user1"></param>
     /// <param name="user2"></param>
     /// <param name="reason"></param>
-    private async Task Souguu(int user1, int user2, SouguuReasonStatusEnum reason)
+    private async Task Souguu(int user1, int user2, SouguuReasonStatusEnum reason, string reasonStr)
     {
         Console.WriteLine("遭遇しました");
         CallModel call;
@@ -98,7 +98,7 @@ public class SouguuService : ISouguuService
         string[] callDetail;
         try
         {
-            call = await _callRepository.AddCall(souguuReason: "battari", callStartTime: DateTime.Now.AddSeconds(15),
+            call = await _callRepository.AddCall(souguuReason: reasonStr, callStartTime: DateTime.Now.AddSeconds(15),
                 user1: user1,
                 user2: user2, souguuDateTime: DateTime.Now, status: CallStatusEnum.Waiting);
             callDetail = _callingService.AddCall(
@@ -179,7 +179,7 @@ public class SouguuService : ISouguuService
         if(user1Materials.isWelcome && user2Materials.isWelcome)
         {
             // ここで遭遇処理を行う
-            await Souguu(user1, user2, SouguuReasonStatusEnum.Battari_Welcome);
+            await Souguu(user1, user2, SouguuReasonStatusEnum.Battari_Welcome, "BATTARI WelcomeでBATTARI");
             result = SouguuReasonStatusEnum.Battari_Welcome;
         }
 
@@ -206,7 +206,7 @@ public class SouguuService : ISouguuService
         if (String.Compare(user1AppUsage.appData.appName, user2AppUsage.appData.appName, StringComparison.Ordinal) == 0)
         {
             Console.WriteLine("同じアプリを使っている");
-            await Souguu(user1, user2, SouguuReasonStatusEnum.App_Usage);
+            await Souguu(user1, user2, SouguuReasonStatusEnum.App_Usage, "${user1AppUsage.appData.appName}でBATTARI");
             result = SouguuReasonStatusEnum.App_Usage;
         }
         _logger.LogInformation("ここまで");
