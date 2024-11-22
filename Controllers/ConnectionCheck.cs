@@ -11,7 +11,7 @@ namespace BATTARI_api.Controllers;
 
 [ApiController]
 [Route("[controller]/[action]")]
-public class DeveloperController(IConfiguration configuration, UserOnlineConcurrentDictionaryDatabase userOnlineConcurrentDictionaryDatabase, CallingService callingService) : ControllerBase
+public class DeveloperController(IConfiguration configuration, UserOnlineConcurrentDictionaryDatabase userOnlineConcurrentDictionaryDatabase, CallingService callingService, ISouguuService souguuService) : ControllerBase
 {
     /// <summary>
     /// ログインしてないと使えません
@@ -86,5 +86,12 @@ public class DeveloperController(IConfiguration configuration, UserOnlineConcurr
     public IActionResult IsUserSouguu(int userId)
     {
         return Ok(userOnlineConcurrentDictionaryDatabase.IsUserSouguu(userId));
+    }
+
+    [HttpGet]
+    [AllowAnonymous]
+    public IActionResult GetSouguuIncredients()
+    {
+        return Ok(souguuService.GetLatestIncredient());
     }
 }

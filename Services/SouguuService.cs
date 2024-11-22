@@ -22,6 +22,7 @@ public interface ISouguuService
     /// <param name="requestId"></param>
     /// <returns>もし他にこのユーザーへのwebsocket接続が存在しなかった場合はtrueを返す．つまりオンラインユーザーから省くべき場合はtrue</returns>
     public bool RemoveSouguuNotification(string requestId);
+    public Dictionary<int, SouguuWebsocketDto> GetLatestIncredient();
 }
 
 public class SouguuService : ISouguuService
@@ -75,6 +76,11 @@ public class SouguuService : ISouguuService
         Console.WriteLine("追加されました　from " + materials.id);
         await AddSouguuQueueElement(materials.id);
         Console.WriteLine(_latestIncredient.Count);
+    }
+    
+    public Dictionary<int, SouguuWebsocketDto> GetLatestIncredient()
+    {
+        return new Dictionary<int, SouguuWebsocketDto>(_latestIncredient);
     }
 
     private async Task AddSouguuQueueElement(int userIndex)
@@ -182,34 +188,35 @@ public class SouguuService : ISouguuService
             await Souguu(user1, user2, SouguuReasonStatusEnum.Battari_Welcome, "BATTARI WelcomeでBATTARI");
             result = SouguuReasonStatusEnum.Battari_Welcome;
         }
+        
+        const int souguu_app_usage_time = 2;
 
         SouguuAppIncredientModel? user1AppUsage = null;
         foreach (var VARIABLE in user1Materials.incredients)
         {
             if (VARIABLE is not SouguuAppIncredientModel model) continue;
+            if(model.appData.useTime < souguu_app_usage_time) continue;
+            
             user1AppUsage = model;
             break;
         }
-        Console.Write("user1AppUsage");
-        Console.WriteLine(user1AppUsage);
 
         SouguuAppIncredientModel? user2AppUsage = null;
         foreach (var VARIABLE in user2Materials.incredients)
         {
             if (VARIABLE is not SouguuAppIncredientModel model) continue;
+            if(model.appData.useTime < souguu_app_usage_time) continue;
+            
             user2AppUsage = model;
             break;
         }
         if(user1AppUsage == null || user2AppUsage == null) return;
-        _logger.LogInformation("ここまで");
-        Console.WriteLine("user1AppUsage" + user1AppUsage.appData.appName + "\nuser2AppUsage" + user2AppUsage.appData.appName);
+        
         if (String.Compare(user1AppUsage.appData.appName, user2AppUsage.appData.appName, StringComparison.Ordinal) == 0)
         {
-            Console.WriteLine("同じアプリを使っている");
             await Souguu(user1, user2, SouguuReasonStatusEnum.App_Usage, "${user1AppUsage.appData.appName}でBATTARI");
             result = SouguuReasonStatusEnum.App_Usage;
         }
-        _logger.LogInformation("ここまで");
 
         string resultString = "";
         if(result == null) resultString = "";
