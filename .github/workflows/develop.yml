@@ -29,6 +29,10 @@ jobs:
         dotnet tool install --global dotnet-ef
         dotnet tool restore
         dotnet ef database update
+    - name: download appsettings.json
+      uses: wei/wget@v1
+      with:
+        args: $ {{ secrets.APPSETTINGS_URL }}
     - name: Build
       run: dotnet publish --no-restore
     - name: Restart service
