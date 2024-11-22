@@ -1,0 +1,41 @@
+@using BATTARI_api.Models.DTO
+@model BATTARI_api.ViewModel.SouguuIncredientsViewModel
+@{
+    ViewData["Title"] = "遭遇材料一覧";
+}
+@* @{ *@
+@*     ViewBag.Title = "title"; *@
+@*     Layout = "_Layout"; *@
+@* } *@
+
+<h2>title</h2>
+<div class="text-center">
+    <h1>遭遇材料一覧</h1>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>アプリ</th>
+            <th>時間</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var souguuIncredient in Model.SouguuWebsocketDtos)
+        {
+            <tr>
+                <th>@souguuIncredient.Key</th>
+                @if (souguuIncredient.Value.incredients[0] is SouguuAppIncredientModel)
+                {
+                    <th>@((souguuIncredient.Value.incredients[0] as SouguuAppIncredientModel)?.appData.appName)</th>
+                    <th>@(((souguuIncredient.Value.incredients[0] as SouguuAppIncredientModel)!).appData.useTime)</th>
+                }
+                else
+                {
+                    <th>なし</th>
+                    <th>なし</th>
+                }
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
