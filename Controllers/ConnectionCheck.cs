@@ -89,6 +89,16 @@ public class DeveloperController(IConfiguration configuration, UserOnlineConcurr
     }
 
     [HttpGet]
+    public async Task<IActionResult> GetFriendsAndOnlineUsers(int userId)
+    {
+        Random random = new Random();
+        var friends = (await userOnlineConcurrentDictionaryDatabase.GetFriendAndOnlineUsers(userId)).OrderBy(
+            (_) => random.Next());
+        return Ok(friends);
+
+    }
+    
+    [HttpGet]
     [AllowAnonymous]
     public IActionResult GetSouguuIncredients()
     {
