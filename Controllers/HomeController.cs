@@ -6,11 +6,11 @@ using BATTARI_api.ViewModel;
 
 namespace BATTARI_api.Controllers;
 
-public class HomeController(ISouguuService souguuService) : Controller
+public class HomeController(ISouguuService souguuService, IConfiguration configuration) : Controller
 {
     public IActionResult Index()
     {
-        return View(new UserViewModel(new UserContext()));
+        return View(new UserViewModel(new UserContext(configuration)));
     }
 
     public IActionResult Privacy()

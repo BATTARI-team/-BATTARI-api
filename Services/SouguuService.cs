@@ -189,7 +189,7 @@ public class SouguuService : ISouguuService
             result = SouguuReasonStatusEnum.Battari_Welcome;
         }
         
-        const int souguu_app_usage_time = 2;
+        const int souguu_app_usage_time = 10;
 
         SouguuAppIncredientModel? user1AppUsage = null;
         foreach (var VARIABLE in user1Materials.incredients)
@@ -243,7 +243,6 @@ public class SouguuService : ISouguuService
                         {
                             if (element == 0) continue;
                             // ここで遭遇処理を行う
-                            var users = await _userOnlineConcurrentDictionaryDatabase.GetFriendAndOnlineUsers(element);
                             var friends = (await _userOnlineConcurrentDictionaryDatabase.GetFriendAndOnlineUsers(element)).OrderBy(
                                 (_) => random.Next());
                             if (!friends.Any()) continue;
