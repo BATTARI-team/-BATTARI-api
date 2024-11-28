@@ -104,4 +104,12 @@ public class DeveloperController(IConfiguration configuration, UserOnlineConcurr
     {
         return Ok(souguuService.GetLatestIncredient());
     }
+
+    [HttpGet]
+    [AllowAnonymous]
+    public IActionResult ForceSouguu(int user1, int user2)
+    {
+        souguuService.ForceSouguu(user1, user2);
+        return Ok();
+    }
 }

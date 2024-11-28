@@ -23,6 +23,7 @@ public interface ISouguuService
     /// <returns>もし他にこのユーザーへのwebsocket接続が存在しなかった場合はtrueを返す．つまりオンラインユーザーから省くべき場合はtrue</returns>
     public bool RemoveSouguuNotification(string requestId);
     public Dictionary<int, SouguuWebsocketDto> GetLatestIncredient();
+    public void ForceSouguu(int user1, int user2);
 }
 
 public class SouguuService : ISouguuService
@@ -262,5 +263,9 @@ public class SouguuService : ISouguuService
                 {
                     CreateDequeTask();
                 });
+    }
+    public void ForceSouguu(int user1, int user2)
+    {
+        Souguu(user1, user2, SouguuReasonStatusEnum.Battari_Welcome, "強制遭遇しました");
     }
 }
