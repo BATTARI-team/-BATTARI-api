@@ -69,7 +69,7 @@ public class CallingService
                     if (user.Value.IsEnded)
                     {
                         _userOnlineConcurrentDictionaryDatabase.TryRemove(user.Key, out _);
-                        _onlineConcurrentDictionaryDatabase.RemoveSouguu(user.Key);
+                        _onlineConcurrentDictionaryDatabase.RemoveSouguu(user.Value.User1);
                     }
                 }
             }

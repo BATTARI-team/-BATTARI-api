@@ -193,10 +193,19 @@ public class UserOnlineConcurrentDictionaryDatabase
             {
                 _userOnlineDictionary[_userOnlineDictionary[userId].IsSouguu].IsSouguu = 0;
                 _userOnlineDictionary[userId].IsSouguu = 0;
-            }finally
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            finally
             {
                 Monitor.Exit(_lock);
             }
+        }
+        else
+        {
+            throw new ArgumentNullException("削除できませんでした");
         }
     }
     
