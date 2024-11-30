@@ -1,6 +1,7 @@
 using System.Collections.Concurrent;
 using AgoraIO.Media;
 using BATTARI_api.Models.DTO;
+using BATTARI_api.Repository;
 
 namespace BATTARI_api.Services;
 
@@ -45,10 +46,12 @@ public class CallingService
     private readonly IConfiguration _configuration;
     private Task _autoRemover;
     private readonly ILogger<CallingService> _logger;
+    private readonly UserOnlineConcurrentDictionaryDatabase _onlineConcurrentDictionaryDatabase;
     
-    public CallingService(IConfiguration configuration, ILogger<CallingService> logger)
+    public CallingService(IConfiguration configuration, ILogger<CallingService> logger, UserOnlineConcurrentDictionaryDatabase onlineConcurrentDictionaryDatabase)
     {
         _userOnlineConcurrentDictionaryDatabase = new ConcurrentDictionary<int, NowCallModel>();
+        _onlineConcurrentDictionaryDatabase = onlineConcurrentDictionaryDatabase;
         _configuration = configuration;
         _logger = logger;
         CreateAutoRemover();
@@ -66,6 +69,7 @@ public class CallingService
                     if (user.Value.IsEnded)
                     {
                         _userOnlineConcurrentDictionaryDatabase.TryRemove(user.Key, out _);
+                        _onlineConcurrentDictionaryDatabase.RemoveSouguu(user.Key);
                     }
                 }
             }
@@ -128,11 +132,16 @@ public class CallingService
         return result;
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="userIndex"></param>
+    /// <returns>現在通話中でなければ，nullを返す</returns>
     public SouguuNotificationDto? GetCall(int userIndex)
     {
-        var a = _userOnlineConcurrentDictionaryDatabase.SingleOrDefault<KeyValuePair<int, NowCallModel>>(source => (source.Value.User1 == userIndex || source.Value.User2 == userIndex) && !source.Value.IsEnded);
         try
         {
+        var a = _userOnlineConcurrentDictionaryDatabase.SingleOrDefault<KeyValuePair<int, NowCallModel>>(source => (source.Value.User1 == userIndex || source.Value.User2 == userIndex) && !source.Value.IsEnded);
             SouguuNotificationDto notificationDto = new SouguuNotificationDto()
             {
                 CallEndTime = a.Value.CallEndTime,

@@ -96,7 +96,7 @@ namespace BATTARI_api.Repository
                           .Select(async x =>
                           {
                               UserModel? user;
-                              if (x.User1Id == userId)
+                              if (x.User1Id.CompareTo(userId) == 0)
                                   user = await userRepository.GetUser(x.User2Id);
                               else
                                   user = await userRepository.GetUser(x.User1Id);

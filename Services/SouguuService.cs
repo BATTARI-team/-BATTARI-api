@@ -72,10 +72,9 @@ public class SouguuService : ISouguuService
     /// <param name="userIndex"></param>
     public async Task AddMaterial(SouguuWebsocketDto materials)
     {
-        Console.WriteLine(_latestIncredient.Count);
         _latestIncredient[materials.id] = materials;
         Console.WriteLine("追加されました　from " + materials.id);
-        await AddSouguuQueueElement(materials.id);
+        AddSouguuQueueElement(materials.id);
         Console.WriteLine(_latestIncredient.Count);
     }
     
@@ -84,7 +83,7 @@ public class SouguuService : ISouguuService
         return new Dictionary<int, SouguuWebsocketDto>(_latestIncredient);
     }
 
-    private async Task AddSouguuQueueElement(int userIndex)
+    private void AddSouguuQueueElement(int userIndex)
     {
         _logger.LogDebug(userIndex + " enqueue");
         _souguuQueue.Enqueue(userIndex);
@@ -133,6 +132,10 @@ public class SouguuService : ISouguuService
         _userOnlineConcurrentDictionaryDatabase.SetSouguu(user1, user2);
         var user1RequestIds = _requestIdToUserIndex.Where(i => i.Value == user1).Select(i => i.Key).ToList();
         var user2RequestIds = _requestIdToUserIndex.Where(i => i.Value == user2).Select(i => i.Key).ToList();
+        if (user1RequestIds.Count == 0 || user2RequestIds.Count == 0)
+        {
+            _logger.LogWarning("遭遇通知が送信されませんでした, user1: {}: {}, user2: {}: {}", user1, user2, user1RequestIds.Count, user2RequestIds.Count);
+        } 
         foreach (var user1RequestId in user1RequestIds)
         {
             _souguuNotification.TryGetValue(user1RequestId, out var user1Notification);

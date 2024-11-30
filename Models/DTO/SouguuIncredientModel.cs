@@ -10,9 +10,10 @@ public class SouguuWebsocketDto
     /// <summary>
     /// ユーザーid
     /// </summary>
-    public int id { get; set; }
-    public bool isWelcome { get; set; }
-    public List<SouguuIncredientDataModel> incredients { get; set; }
+    public required int id { get; set; }
+    public required bool isWelcome { get; set; }
+    public required DateTime created { get; set; }
+    public required List<SouguuIncredientDataModel> incredients { get; set; }
 }
 
 /// <summary>
