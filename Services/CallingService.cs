@@ -2,6 +2,7 @@ using System.Collections.Concurrent;
 using AgoraIO.Media;
 using BATTARI_api.Models.DTO;
 using BATTARI_api.Repository;
+using Sentry;
 
 namespace BATTARI_api.Services;
 
@@ -70,6 +71,7 @@ public class CallingService
                     {
                         _userOnlineConcurrentDictionaryDatabase.TryRemove(user.Key, out _);
                         _onlineConcurrentDictionaryDatabase.RemoveSouguu(user.Value.User1);
+                        SentrySdk.CaptureMessage("removed souguu" + user.Key, SentryLevel.Debug);
                     }
                 }
             }
@@ -97,6 +99,7 @@ public class CallingService
         string callIdStr = callId.ToString();
         try
         {
+            SentrySdk.CaptureMessage("start call" + callIdStr + "user1: " + user1 + "user2: " + user2);
             string user1Token = _generateToken(user1.ToString(), callIdStr);
             string user2Token = _generateToken(user2.ToString(), callIdStr);
             _userOnlineConcurrentDictionaryDatabase.TryAdd(callId, new NowCallModel(callStartTime, callId, callEndTime, souguuReason, user1, user1Token, user2, user2Token, cancellationReason, souguuDateTime));
@@ -154,8 +157,9 @@ public class CallingService
             };
             return notificationDto;
         }
-        catch (Exception)
+        catch (Exception e)
         {
+            SentrySdk.CaptureException(e);
             return null;
         }
     }

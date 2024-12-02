@@ -5,6 +5,7 @@ using BATTARI_api.Models.DTO;
 using BATTARI_api.Repository;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Sentry;
 
 namespace BATTARI_api.Controllers;
 
@@ -23,21 +24,29 @@ public class WebSocketController(UserOnlineConcurrentDictionaryDatabase userOnli
         }
     }
     
-    private void SendNotification(WebSocket websocket, int userId, SouguuNotificationDto dto)
+    private void SendNotification(WebSocket websocket, int userId, SouguuNotificationDto dto, string requestKey)
     {
         if (userOnlineConcurrentDictionaryDatabase.IsUserOnline(userId))
         {
             if(websocket.State == WebSocketState.Open)
             {
-                var json = JsonSerializer.Serialize(dto);
-                var bytes = Encoding.UTF8.GetBytes(json);
-                websocket.SendAsync(new ArraySegment<byte>(bytes), WebSocketMessageType.Text, true, CancellationToken.None);
-                Console.WriteLine(userId + "に通知を送信しました");
+                try
+                {
+                    var json = JsonSerializer.Serialize(dto);
+                    var bytes = Encoding.UTF8.GetBytes(json);
+                    websocket.SendAsync(new ArraySegment<byte>(bytes), WebSocketMessageType.Text, true, CancellationToken.None);
+                    Console.WriteLine(userId + "に通知を送信しました");
+                    SentrySdk.CaptureMessage("Websocket Send notification:" + json + userId, SentryLevel.Info);
+                }
+                catch (Exception e)
+                {
+                    SentrySdk.CaptureException(e);
+                }
             }
         }
         else
         {
-            Console.WriteLine("Websocket Send notification: user is not online " + userId);
+            SentrySdk.CaptureMessage("Websocket Send notification: user is not online " + userId, SentryLevel.Warning);
         }
     }
     
@@ -58,6 +67,7 @@ public class WebSocketController(UserOnlineConcurrentDictionaryDatabase userOnli
 
         // #TODO ワンチャンbufferを超えたデータを受け取った場合，受け取れきれないかも
         logger.LogInformation($"{userId}:WebSocket接続開始");
+        SentrySdk.CaptureMessage($"{userId}:WebSocket接続開始", SentryLevel.Info);
         if (HttpContext.WebSockets.IsWebSocketRequest)
         {
             
@@ -74,7 +84,7 @@ public class WebSocketController(UserOnlineConcurrentDictionaryDatabase userOnli
                 // #TODO variable is disposed in the outer scope
                 // obsidian://adv-uri?vault=main&filepath=%2B%2FCsharpdeCaptured%20variable%20is%20disposed%20in%20the%20outer%20scope2024-11-13.md
                 // ReSharper disable once AccessToDisposedClosure
-                SendNotification(webSocket, userId, dto);
+                SendNotification(webSocket, userId, dto, HttpContext.TraceIdentifier);
             }, userId);
             string lastReceived = "";
             while (webSocket.State == WebSocketState.Open)
@@ -91,6 +101,7 @@ public class WebSocketController(UserOnlineConcurrentDictionaryDatabase userOnli
                         if (result.CloseStatus.HasValue)
                         {
                             logger.LogDebug($"{userId}:WebSocket接続終了");
+                            SentrySdk.CaptureMessage($"{userId}:WebSocket接続終了", SentryLevel.Info);
                             isEnd = true;
                             break;
                         }
@@ -102,6 +113,7 @@ public class WebSocketController(UserOnlineConcurrentDictionaryDatabase userOnli
                 catch (Exception e)
                 {
                     logger.LogError("WebSocketの受信に失敗" + e);
+                    SentrySdk.CaptureException(e);
                     isEnd = true;
                 }
                 if(isEnd) break;
@@ -119,6 +131,7 @@ public class WebSocketController(UserOnlineConcurrentDictionaryDatabase userOnli
                     }
                     else
                     {
+                        logger.LogInformation("Received: {received} from {userId}", received, userId);
                         try
                         {
                             lastReceived = received;
@@ -131,12 +144,11 @@ public class WebSocketController(UserOnlineConcurrentDictionaryDatabase userOnli
                             }
 
                             await souguuService.AddMaterial(parsed);
-
-
                         }
                         catch (Exception e)
                         {
                             logger.LogError("jsonのパースに失敗：{}", e.ToString());
+                            SentrySdk.CaptureException(e);
                         }    
                     }
                         
@@ -144,10 +156,8 @@ public class WebSocketController(UserOnlineConcurrentDictionaryDatabase userOnli
                 }
             }
             bool isNeedRemove = souguuService.RemoveSouguuNotification(HttpContext.TraceIdentifier);
-            Console.WriteLine("切断されたようです" + webSocket.State);
-            Console.WriteLine("切断されたようです" + webSocket.CloseStatusDescription);
-            Console.WriteLine("切断されたようです" + lastReceived);
             logger.LogInformation("websocket 切断:" + webSocket.State);
+            SentrySdk.CaptureMessage("websocket 切断:" + webSocket.State, SentryLevel.Info);
             if (isNeedRemove)
                 userOnlineConcurrentDictionaryDatabase.RemoveUserOnline(userId);
         }

@@ -8,6 +8,7 @@ using BATTARI_api.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Sentry;
 using Serilog;
 
 var options = new WebApplicationOptions()
@@ -98,6 +99,8 @@ builder.Services.AddSwaggerGen(c =>
       new string[] {} }
   });
 });
+
+builder.WebHost.UseSentry(); // Initialize Sentry
 
 string port = "5050";
 if(args.Length != 0)

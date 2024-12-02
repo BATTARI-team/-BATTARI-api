@@ -1,4 +1,5 @@
 using System.Collections.Concurrent;
+using Sentry;
 
 namespace BATTARI_api.Repository;
 
@@ -39,6 +40,7 @@ public class UserOnlineConcurrentDictionaryDatabase
                 {
                     if (!user.Value.IsOnline)
                     {
+                        SentrySdk.CaptureMessage("removed online user" + user.Key);
                         RemoveUserOnline(user.Key);
                     }
                 }
@@ -97,9 +99,13 @@ public class UserOnlineConcurrentDictionaryDatabase
                     IsUserOnline(element.Id) == false
                        ?  "オンラインじゃない " + element.Id : "遭遇している " + element.Id
                 );
+                SentrySdk.CaptureMessage(
+                    IsUserOnline(element.Id) == false
+                        ?  "オンラインじゃない " + element.Id : "遭遇している " + element.Id
+                , SentryLevel.Debug);
+
                 return false;
             });
-        Console.WriteLine("getfriendandonlineusers, " + friends.Count());
         return friends;
     }
     
@@ -144,6 +150,10 @@ public class UserOnlineConcurrentDictionaryDatabase
                 return false;
             }
             return true;
+        }
+        else
+        {
+            throw new ArgumentNullException("削除できませんでした");
         }
 
         return false;
@@ -193,9 +203,12 @@ public class UserOnlineConcurrentDictionaryDatabase
             {
                 _userOnlineDictionary[_userOnlineDictionary[userId].IsSouguu].IsSouguu = 0;
                 _userOnlineDictionary[userId].IsSouguu = 0;
+                
+                SentrySdk.CaptureMessage("souguu removed" + _userOnlineDictionary[userId].IsSouguu + " "  + _userOnlineDictionary[_userOnlineDictionary[userId].IsSouguu].IsSouguu);
             }
             catch (Exception e)
             {
+                SentrySdk.CaptureException(e);
                 Console.WriteLine(e);
             }
             finally
