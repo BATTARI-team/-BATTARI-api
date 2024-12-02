@@ -36,7 +36,7 @@ public class WebSocketController(UserOnlineConcurrentDictionaryDatabase userOnli
                     var bytes = Encoding.UTF8.GetBytes(json);
                     websocket.SendAsync(new ArraySegment<byte>(bytes), WebSocketMessageType.Text, true, CancellationToken.None);
                     Console.WriteLine(userId + "に通知を送信しました");
-                    SentrySdk.CaptureMessage("Websocket Send notification:" + json + userId, SentryLevel.Info);
+                    SentrySdk.CaptureMessage("Websocket Send notification:" + json + userId + "requestKey:" + requestKey, SentryLevel.Info);
                 }
                 catch (Exception e)
                 {

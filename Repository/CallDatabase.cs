@@ -40,7 +40,7 @@ public class CallDatabase(UserContext context, ILogger<CallDatabase> logger) : I
             SouguuDateTime = souguuDateTime ?? DateTime.Now,
             Status = status,
             // 通話時間を指定する
-            CallTime = 1,
+            CallTime = 2,
         };
         var result = context.Calls.Add(call);
         try
