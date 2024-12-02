@@ -2,6 +2,7 @@ using BATTARI_api.Models.DTO;
 using BATTARI_api.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Sentry;
 
 namespace BATTARI_api.Controllers;
 
@@ -13,9 +14,19 @@ public class SouguuInfoController(CallingService callingService) : ControllerBas
     [HttpGet]
     public SouguuNotificationDto? GetSouguuInfo()
     {
-        var userIdStr = HttpContext.User.Claims.FirstOrDefault(c => c.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name")!.Value;
-        int userId = int.Parse(userIdStr);
-        var a = callingService.GetCall(userId);
-        return a;
+        try
+        {
+            var userIdStr = HttpContext.User.Claims.FirstOrDefault(c =>
+                c.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name")!.Value;
+            int userId = int.Parse(userIdStr);
+            var a = callingService.GetCall(userId);
+            return a;
+        }
+        catch (Exception e)
+        {
+            SentrySdk.CaptureException(e);
+        }
+
+        return null;
     }
 }

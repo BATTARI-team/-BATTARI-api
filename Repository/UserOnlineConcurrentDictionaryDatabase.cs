@@ -1,4 +1,5 @@
 using System.Collections.Concurrent;
+using Sentry;
 
 namespace BATTARI_api.Repository;
 
@@ -39,6 +40,7 @@ public class UserOnlineConcurrentDictionaryDatabase
                 {
                     if (!user.Value.IsOnline)
                     {
+                        SentrySdk.CaptureMessage("removed online user" + user.Key);
                         RemoveUserOnline(user.Key);
                     }
                 }
@@ -80,16 +82,28 @@ public class UserOnlineConcurrentDictionaryDatabase
     /// <returns></returns>
     public async Task<IEnumerable<UserDto>> GetFriendAndOnlineUsers(int userIndex)
     {
-        await _friendRepository.GetFriendList(userIndex);
+        var frindList = await _friendRepository.GetFriendList(userIndex);
+        Console.WriteLine("UserOnlineConcurrentDictionaryDatabase.GetFriendAndOnlineUsers " + frindList.Count());
         var friends = (await _friendRepository.GetFriendList(userIndex)).Where(
             (element) =>
             {
+                Console.Write(element.Id + "welcome");
                 // オンラインかつ遭遇してなかったら
                 if (IsUserOnline(element.Id) ==
                     (IsUserSouguu(element.Id) == 0))
                 {
                     return true;
                 }
+
+                Console.WriteLine(
+                    IsUserOnline(element.Id) == false
+                       ?  "オンラインじゃない " + element.Id : "遭遇している " + element.Id
+                );
+                SentrySdk.CaptureMessage(
+                    IsUserOnline(element.Id) == false
+                        ?  "オンラインじゃない " + element.Id : "遭遇している " + element.Id
+                , SentryLevel.Debug);
+
                 return false;
             });
         return friends;
@@ -106,6 +120,11 @@ public class UserOnlineConcurrentDictionaryDatabase
         {
             Monitor.Exit(_lock);
             _userOnlineDictionary.TryRemove(userId, out _);
+            _userOnlineDictionary.Remove(userId, out _);
+        }
+        else
+        {
+            throw new ArgumentNullException("削除できませんでした");
         }
     }
     
@@ -132,6 +151,10 @@ public class UserOnlineConcurrentDictionaryDatabase
             }
             return true;
         }
+        else
+        {
+            throw new ArgumentNullException("削除できませんでした");
+        }
 
         return false;
     }
@@ -140,17 +163,16 @@ public class UserOnlineConcurrentDictionaryDatabase
     /// 
     /// </summary>
     /// <param name="userId"></param>
-    /// <returns>失敗したらまたは遭遇してなかったら0, 成功したら相手のユーザーid</returns>
+    /// <returns>失敗したら-1, 遭遇してなかったら0, 成功したら相手のユーザーid</returns>
     public int IsUserSouguu(int userId)
     {
-        if (Monitor.TryEnter(_lock, _timeout))
+        while(Monitor.TryEnter(_lock, _timeout))
         {
             Monitor.Exit(_lock);
             if(!_userOnlineDictionary.ContainsKey(userId)) return 0;
             return _userOnlineDictionary[userId].IsSouguu;
         }
-
-        return 0;
+        return -1;
     }
     
     /// <summary>
@@ -170,6 +192,33 @@ public class UserOnlineConcurrentDictionaryDatabase
             {
                 Monitor.Exit(_lock);
             }
+        }
+    }
+
+    public void RemoveSouguu(int userId)
+    {
+        if (Monitor.TryEnter(_lock, _timeout))
+        {
+            try
+            {
+                _userOnlineDictionary[_userOnlineDictionary[userId].IsSouguu].IsSouguu = 0;
+                _userOnlineDictionary[userId].IsSouguu = 0;
+                
+                SentrySdk.CaptureMessage("souguu removed" + _userOnlineDictionary[userId].IsSouguu + " "  + _userOnlineDictionary[_userOnlineDictionary[userId].IsSouguu].IsSouguu);
+            }
+            catch (Exception e)
+            {
+                SentrySdk.CaptureException(e);
+                Console.WriteLine(e);
+            }
+            finally
+            {
+                Monitor.Exit(_lock);
+            }
+        }
+        else
+        {
+            throw new ArgumentNullException("削除できませんでした");
         }
     }
     

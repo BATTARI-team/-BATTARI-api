@@ -1,6 +1,8 @@
 using System.Collections.Concurrent;
 using AgoraIO.Media;
 using BATTARI_api.Models.DTO;
+using BATTARI_api.Repository;
+using Sentry;
 
 namespace BATTARI_api.Services;
 
@@ -45,10 +47,12 @@ public class CallingService
     private readonly IConfiguration _configuration;
     private Task _autoRemover;
     private readonly ILogger<CallingService> _logger;
+    private readonly UserOnlineConcurrentDictionaryDatabase _onlineConcurrentDictionaryDatabase;
     
-    public CallingService(IConfiguration configuration, ILogger<CallingService> logger)
+    public CallingService(IConfiguration configuration, ILogger<CallingService> logger, UserOnlineConcurrentDictionaryDatabase onlineConcurrentDictionaryDatabase)
     {
         _userOnlineConcurrentDictionaryDatabase = new ConcurrentDictionary<int, NowCallModel>();
+        _onlineConcurrentDictionaryDatabase = onlineConcurrentDictionaryDatabase;
         _configuration = configuration;
         _logger = logger;
         CreateAutoRemover();
@@ -66,6 +70,8 @@ public class CallingService
                     if (user.Value.IsEnded)
                     {
                         _userOnlineConcurrentDictionaryDatabase.TryRemove(user.Key, out _);
+                        _onlineConcurrentDictionaryDatabase.RemoveSouguu(user.Value.User1);
+                        SentrySdk.CaptureMessage("removed souguu" + user.Key, SentryLevel.Debug);
                     }
                 }
             }
@@ -93,6 +99,7 @@ public class CallingService
         string callIdStr = callId.ToString();
         try
         {
+            SentrySdk.CaptureMessage("start call" + callIdStr + "user1: " + user1 + "user2: " + user2);
             string user1Token = _generateToken(user1.ToString(), callIdStr);
             string user2Token = _generateToken(user2.ToString(), callIdStr);
             _userOnlineConcurrentDictionaryDatabase.TryAdd(callId, new NowCallModel(callStartTime, callId, callEndTime, souguuReason, user1, user1Token, user2, user2Token, cancellationReason, souguuDateTime));
@@ -128,11 +135,16 @@ public class CallingService
         return result;
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="userIndex"></param>
+    /// <returns>現在通話中でなければ，nullを返す</returns>
     public SouguuNotificationDto? GetCall(int userIndex)
     {
-        var a = _userOnlineConcurrentDictionaryDatabase.SingleOrDefault<KeyValuePair<int, NowCallModel>>(source => (source.Value.User1 == userIndex || source.Value.User2 == userIndex) && !source.Value.IsEnded);
         try
         {
+        var a = _userOnlineConcurrentDictionaryDatabase.SingleOrDefault<KeyValuePair<int, NowCallModel>>(source => (source.Value.User1 == userIndex || source.Value.User2 == userIndex) && !source.Value.IsEnded);
             SouguuNotificationDto notificationDto = new SouguuNotificationDto()
             {
                 CallEndTime = a.Value.CallEndTime,
@@ -145,8 +157,9 @@ public class CallingService
             };
             return notificationDto;
         }
-        catch (Exception)
+        catch (Exception e)
         {
+            SentrySdk.CaptureException(e);
             return null;
         }
     }

@@ -1,6 +1,7 @@
 using BATTARI_api.Repository;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Sentry;
 
 namespace BATTARI_api.Controllers;
 
@@ -54,6 +55,7 @@ public class FriendController
         }
         catch (Exception e)
         {
+            SentrySdk.CaptureException(e);
             return BadRequest(e.ToString());
         }
     }
@@ -76,6 +78,7 @@ public class FriendController
         }
         catch (Exception e)
         {
+            SentrySdk.CaptureException(e);
             return BadRequest(e.ToString());
         }
         try
@@ -86,6 +89,7 @@ public class FriendController
         }
         catch (Exception e)
         {
+            SentrySdk.CaptureException(e);
             return BadRequest(e.ToString());
         }
     }
@@ -106,7 +110,9 @@ public class FriendController
             c => c.Type ==
                  "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name");
         if (claim == null)
+        {
             return BadRequest("tokenが無効です");
+        }
         int claimId;
         try
         {
@@ -114,6 +120,7 @@ public class FriendController
         }
         catch (Exception e)
         {
+            SentrySdk.CaptureException(e);
             return BadRequest(e.ToString());
         }
         try
@@ -139,6 +146,7 @@ public class FriendController
         }
         catch (Exception e)
         {
+            SentrySdk.CaptureException(e);
             return BadRequest(e.ToString());
         }
     }
@@ -161,6 +169,7 @@ public class FriendController
         }
         catch (Exception e)
         {
+            SentrySdk.CaptureException(e);
             return BadRequest(e.ToString());
         }
         try
@@ -171,6 +180,7 @@ public class FriendController
         }
         catch (Exception e)
         {
+            SentrySdk.CaptureException(e);
             return BadRequest(e.ToString());
         }
     }

@@ -2,6 +2,7 @@ using BATTARI_api.Interfaces;
 using BATTARI_api.Models;
 using BATTARI_api.Repository.Data;
 using Microsoft.EntityFrameworkCore;
+using Sentry;
 
 namespace BATTARI_api.Repository;
 
@@ -34,24 +35,13 @@ public class UserDatabase(IServiceScopeFactory serviceScopeFactory) : IUserRepos
 
     public async Task<UserModel?> CreateUser(UserModel userModel)
     {
-        // //ここら辺はコアロジック？
-        // DateTime _created = DateTime.Now;
-        // byte[] _salt = PasswordUtil.GetInitialPasswordSalt(_created.ToString());
-        // UserModel userModel = new UserModel()
-        // {
-        //     UserId = userRegisterModel.UserId,
-        //     Name = userRegisterModel.Name,
-        //     PasswordHash = PasswordUtil.GetPasswordHashFromPepper(_salt,
-        //     userRegisterModel.Password, _pepper), PasswordSalt = _salt, Created =
-        //     _created
-        // };
-
         var result = await _userContext.AddAsync(userModel);
         Console.WriteLine(result);
 
         try
         {
             await _userContext.SaveChangesAsync();
+            SentrySdk.CaptureMessage("CreatedUser: " + userModel.UserId);
         }
         catch (Exception e)
         {
@@ -85,6 +75,7 @@ public class UserDatabase(IServiceScopeFactory serviceScopeFactory) : IUserRepos
         {
             _userContext.Users.Remove(user);
             await _userContext.SaveChangesAsync();
+            SentrySdk.CaptureMessage("DeletedUser: " + user.UserId);
             return user;
         }
         else
@@ -125,6 +116,7 @@ public class UserDatabase(IServiceScopeFactory serviceScopeFactory) : IUserRepos
         user.Name = nickname;
         _userContext.Update(user);
         await _userContext.SaveChangesAsync();
+        SentrySdk.CaptureMessage("ChangedNickname: " + user.UserId);
         return user;
     }
 }

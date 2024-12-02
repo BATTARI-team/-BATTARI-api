@@ -11,6 +11,7 @@ using BATTARI_api.Services;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Extensions;
+using Sentry;
 
 public interface ISouguuService
 {
@@ -72,10 +73,10 @@ public class SouguuService : ISouguuService
     /// <param name="userIndex"></param>
     public async Task AddMaterial(SouguuWebsocketDto materials)
     {
-        Console.WriteLine(_latestIncredient.Count);
         _latestIncredient[materials.id] = materials;
         Console.WriteLine("追加されました　from " + materials.id);
-        await AddSouguuQueueElement(materials.id);
+        SentrySdk.CaptureMessage("追加されました　from " + materials.id, SentryLevel.Debug);
+        AddSouguuQueueElement(materials.id);
         Console.WriteLine(_latestIncredient.Count);
     }
     
@@ -84,9 +85,8 @@ public class SouguuService : ISouguuService
         return new Dictionary<int, SouguuWebsocketDto>(_latestIncredient);
     }
 
-    private async Task AddSouguuQueueElement(int userIndex)
+    private void AddSouguuQueueElement(int userIndex)
     {
-        _logger.LogDebug(userIndex + " enqueue");
         _souguuQueue.Enqueue(userIndex);
     }
 
@@ -133,6 +133,11 @@ public class SouguuService : ISouguuService
         _userOnlineConcurrentDictionaryDatabase.SetSouguu(user1, user2);
         var user1RequestIds = _requestIdToUserIndex.Where(i => i.Value == user1).Select(i => i.Key).ToList();
         var user2RequestIds = _requestIdToUserIndex.Where(i => i.Value == user2).Select(i => i.Key).ToList();
+        if (user1RequestIds.Count == 0 || user2RequestIds.Count == 0)
+        {
+            _logger.LogWarning("遭遇通知が送信されませんでした, user1: {}: {}, user2: {}: {}", user1, user2, user1RequestIds.Count, user2RequestIds.Count);
+            SentrySdk.CaptureMessage("遭遇通知が送信されませんでした, user1: "+ user1 + ":" + user2 + ", user2: " + user2 + ":" + user2RequestIds.Count, SentryLevel.Warning);
+        } 
         foreach (var user1RequestId in user1RequestIds)
         {
             _souguuNotification.TryGetValue(user1RequestId, out var user1Notification);
@@ -169,6 +174,7 @@ public class SouguuService : ISouguuService
             }
         }
 
+        SentrySdk.CaptureMessage(user1 + "と" + user2 + "が遭遇しました⭐⭐️⭐️️", SentryLevel.Info);
         _logger.LogInformation("{}と{}が遭遇しました⭐⭐️⭐️️", user1, user2);
     }
 
@@ -176,8 +182,8 @@ public class SouguuService : ISouguuService
     private async Task SouguuCheck(int user1, int user2)
     {
         _logger.LogInformation("遭遇判定: {user1}と{user2}", user1, user2);
+        SentrySdk.CaptureMessage("遭遇判定: " + user1 + "と" + user2, SentryLevel.Debug);
         if (!_latestIncredient.ContainsKey(user2)) return;
-        Console.WriteLine("ここまで[{s");
         
         var user1Materials = _latestIncredient[user1];
         var user2Materials = _latestIncredient[user2];

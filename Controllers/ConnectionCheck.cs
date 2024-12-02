@@ -112,4 +112,20 @@ public class DeveloperController(IConfiguration configuration, UserOnlineConcurr
         souguuService.ForceSouguu(user1, user2);
         return Ok();
     }
+    
+    [HttpGet]
+    [AllowAnonymous]
+    public IActionResult RemoveUserOnline(int userId)
+    {
+        userOnlineConcurrentDictionaryDatabase.RemoveUserOnline(userId);
+        return Ok();
+    }
+    
+    [HttpGet]
+    [AllowAnonymous]
+    public IActionResult RemoveUserSouguu(int userId)
+    {
+        userOnlineConcurrentDictionaryDatabase.RemoveSouguu(userId);
+        return Ok();
+    }
 }

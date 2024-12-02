@@ -2,6 +2,7 @@ using BATTARI_api.Models.Data;
 using BATTARI_api.Models.Enum;
 using BATTARI_api.Repository.Data;
 using Microsoft.EntityFrameworkCore;
+using Sentry;
 
 namespace BATTARI_api.Repository;
 
@@ -48,6 +49,7 @@ public class CallDatabase(UserContext context, ILogger<CallDatabase> logger) : I
         }
         catch (Exception e)
         {
+            SentrySdk.CaptureException(e);
             logger.LogError("通話の追加に失敗しました", e);
         }
         return result.Entity;
