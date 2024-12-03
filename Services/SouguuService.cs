@@ -234,7 +234,7 @@ public class SouguuService : ISouguuService
         
         if (String.Compare(user1AppUsage.appData.appName, user2AppUsage.appData.appName, StringComparison.Ordinal) == 0)
         {
-            await Souguu(user1, user2, SouguuReasonStatusEnum.App_Usage, "${user1AppUsage.appData.appName}でBATTARI");
+            await Souguu(user1, user2, SouguuReasonStatusEnum.App_Usage, user1AppUsage.appData.appName + "でBATTARI");
             result = SouguuReasonStatusEnum.App_Usage;
         }
 
