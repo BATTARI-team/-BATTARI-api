@@ -25,6 +25,7 @@ public interface ISouguuService
     public bool RemoveSouguuNotification(string requestId);
     public Dictionary<int, SouguuWebsocketDto> GetLatestIncredient();
     public void ForceSouguu(int user1, int user2);
+    public Task RemoveMaterial(int userId);
 }
 
 public class SouguuService : ISouguuService
@@ -78,6 +79,16 @@ public class SouguuService : ISouguuService
         SentrySdk.CaptureMessage("追加されました　from " + materials.id, SentryLevel.Debug);
         AddSouguuQueueElement(materials.id);
         Console.WriteLine(_latestIncredient.Count);
+    }
+
+    public async Task RemoveMaterial(int userId)
+    {
+        var isSuc = _latestIncredient.TryRemove(userId, out _);
+        if (!isSuc)
+        {
+            throw new Exception("遭遇材料の削除に失敗しました");
+        }
+        SentrySdk.CaptureMessage(userId + "nの遭遇材料が削除されました", SentryLevel.Debug);
     }
     
     public Dictionary<int, SouguuWebsocketDto> GetLatestIncredient()
@@ -185,8 +196,10 @@ public class SouguuService : ISouguuService
         SentrySdk.CaptureMessage("遭遇判定: " + user1 + "と" + user2, SentryLevel.Debug);
         if (!_latestIncredient.ContainsKey(user2)) return;
         
+        
         var user1Materials = _latestIncredient[user1];
         var user2Materials = _latestIncredient[user2];
+        
         SouguuReasonStatusEnum? result = null;
         
         if(user1Materials.isWelcome && user2Materials.isWelcome)
