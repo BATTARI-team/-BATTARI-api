@@ -9,7 +9,7 @@ namespace BATTARI_api.Controllers;
 [Route("[controller]/[action]")]
 [ApiController]
 [Authorize]
-public class SouguuInfoController(CallingService callingService) : ControllerBase
+public class SouguuInfoController(CallingService callingService, ISouguuService souguuService) : ControllerBase
 {
     [HttpGet]
     public SouguuNotificationDto? GetSouguuInfo()
@@ -28,5 +28,32 @@ public class SouguuInfoController(CallingService callingService) : ControllerBas
         }
 
         return null;
+    }
+
+    [HttpGet]
+    public bool ClearSouguuIncredient()
+    {
+        int userId;
+        try
+        {
+            userId = Int16.Parse((HttpContext.User.Claims.FirstOrDefault(c =>
+                c.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"))!.Value);
+        }
+        catch (Exception e)
+        {
+            SentrySdk.CaptureException(e);
+            return false;
+        }
+
+        try
+        {
+            souguuService.RemoveMaterial(userId);
+        }
+        catch (Exception e)
+        {
+            SentrySdk.CaptureException(e);
+            return false;
+        }
+        return true;
     }
 }
