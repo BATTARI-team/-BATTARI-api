@@ -269,7 +269,7 @@ public class SouguuService : ISouguuService
                             foreach (var VARIABLE in friends)
                             {
                                 Console.WriteLine(VARIABLE.Name);
-                                if (_userOnlineConcurrentDictionaryDatabase.IsUserSouguu(int.Parse(VARIABLE.UserId)) ==
+                                if (_userOnlineConcurrentDictionaryDatabase.IsUserSouguu(VARIABLE.Id) ==
                                     0)
                                 {
                                     await SouguuCheck(element, VARIABLE.Id);
