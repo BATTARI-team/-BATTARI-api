@@ -3,6 +3,7 @@ using BATTARI_api.Interfaces.Service;
 using BATTARI_api.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Sentry;
 using webUserLoginTest.Util;
 
 namespace BATTARI_api.Controllers;
@@ -100,6 +101,7 @@ public class UserController
         RefreshTokenDto refreshToken)
     {
         RefreshTokenModel refreshTokenModel;
+            var transaction = SentrySdk.StartTransaction("RefreshToken", "RefreshToken");
         try
         {
             refreshTokenModel =
@@ -107,25 +109,30 @@ public class UserController
         }
         catch (KeyNotFoundException e)
         {
+            transaction.Finish();
             return NotFound(e);
         }
         catch (Exception e)
         {
+            transaction.Finish();
             return BadRequest(e.ToString());
         }
 
         var userModel = await userRepositoryInterface.GetUser(refreshTokenModel.UserId);
         if (userModel == null)
         {
+            transaction.Finish();
             return NotFound("User not found");
         }
         if (userModel.Id != refreshToken.UserIndex)
         {
+            transaction.Finish();
             return BadRequest("Invalid user");
         }
 
         string token =
             tokenService.GenerateToken(configuration["Jwt:Key"] ?? throw new Exception("app settingsのJwt:Keyがnullです"), userModel);
+        transaction.Finish();
         return token;
     }
 

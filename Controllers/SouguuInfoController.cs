@@ -16,10 +16,12 @@ public class SouguuInfoController(CallingService callingService, ISouguuService 
     {
         try
         {
+            var transaction = SentrySdk.StartTransaction(new TransactionContext("GetSouguuInfo", "GetSouguuInfo"));
             var userIdStr = HttpContext.User.Claims.FirstOrDefault(c =>
                 c.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name")!.Value;
             int userId = int.Parse(userIdStr);
             var a = callingService.GetCall(userId);
+            transaction.Finish();
             return a;
         }
         catch (Exception e)
