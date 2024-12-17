@@ -135,15 +135,22 @@ public class WebSocketController(UserOnlineConcurrentDictionaryDatabase userOnli
                         try
                         {
                             lastReceived = received;
-                            SouguuWebsocketDto? parsed = JsonSerializer.Deserialize<SouguuWebsocketDto>(received, _options);
-                            if(parsed == null) continue;
-                            if (parsed.incredients[0] is SouguuAppIncredientModel)
+                            WebsocketDto? parsed = JsonSerializer.Deserialize<WebsocketDto>(received, _options); if(parsed == null) continue;
+                            if (parsed.Type.Equals("souguu_materials"))
                             {
-                                SouguuAppIncredientModel app = (SouguuAppIncredientModel)parsed.incredients[0];
-                                Console.WriteLine("app name:" + app.appData.appName);
+                                SouguuWebsocketDto? souguuWebsocketDto =
+                                    JsonSerializer.Deserialize<SouguuWebsocketDto>(parsed.Data.ToString());
+                                Console.WriteLine("0");
+                                if(souguuWebsocketDto == null) continue;
+                                if (souguuWebsocketDto.incredients[0] is SouguuAppIncredientModel)
+                                {
+                                    Console.WriteLine("1");
+                                    SouguuAppIncredientModel app = (SouguuAppIncredientModel)souguuWebsocketDto.incredients[0];
+                                    Console.WriteLine("app name:" + app.appData.appName);
+                                    await souguuService.AddMaterial(souguuWebsocketDto);
+                                }
                             }
 
-                            await souguuService.AddMaterial(parsed);
                         }
                         catch (Exception e)
                         {
