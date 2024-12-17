@@ -119,8 +119,15 @@ public class UserOnlineConcurrentDictionaryDatabase
         if (Monitor.TryEnter(_lock, _timeout))
         {
             Monitor.Exit(_lock);
-            _userOnlineDictionary.TryRemove(userId, out _);
-            _userOnlineDictionary.Remove(userId, out _);
+            if (_userOnlineDictionary[userId].IsSouguu == 0)
+            {
+                _userOnlineDictionary.TryRemove(userId, out _);
+                _userOnlineDictionary.Remove(userId, out _);
+            }
+            else
+            {
+                Console.WriteLine("遭遇しているユーザーを削除しようとしました");
+            }
         }
         else
         {
