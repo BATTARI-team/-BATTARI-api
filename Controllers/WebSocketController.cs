@@ -1,10 +1,12 @@
 using System.Net.WebSockets;
 using System.Text;
 using System.Text.Json;
+using System.Text.Json.Nodes;
 using BATTARI_api.Models.DTO;
 using BATTARI_api.Repository;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Sentry;
 
 namespace BATTARI_api.Controllers;
@@ -24,7 +26,7 @@ public class WebSocketController(UserOnlineConcurrentDictionaryDatabase userOnli
         }
     }
     
-    private void SendNotification(WebSocket websocket, int userId, SouguuNotificationDto dto, string requestKey)
+    private void SendNotification(WebSocket websocket, int userId, WebsocketDtoForSend dto, string requestKey)
     {
         if (userOnlineConcurrentDictionaryDatabase.IsUserOnline(userId))
         {
@@ -32,7 +34,9 @@ public class WebSocketController(UserOnlineConcurrentDictionaryDatabase userOnli
             {
                 try
                 {
-                    var json = JsonSerializer.Serialize(dto);
+                    var json = JsonSerializer.Serialize<WebsocketDtoForSend>(dto);
+                    Console.WriteLine(json);
+                    Console.WriteLine(dto.data);
                     var bytes = Encoding.UTF8.GetBytes(json);
                     websocket.SendAsync(new ArraySegment<byte>(bytes), WebSocketMessageType.Text, true, CancellationToken.None);
                     Console.WriteLine(userId + "に通知を送信しました");
@@ -41,6 +45,7 @@ public class WebSocketController(UserOnlineConcurrentDictionaryDatabase userOnli
                 catch (Exception e)
                 {
                     SentrySdk.CaptureException(e);
+                    Console.WriteLine(e.ToString());
                 }
             }
         }
@@ -78,13 +83,13 @@ public class WebSocketController(UserOnlineConcurrentDictionaryDatabase userOnli
             //Task task = send(webSocket);
             Task unused = KeepAlive(webSocket, new CancellationToken());
             var requestKey = HttpContext.TraceIdentifier;
-            souguuService.AddSouguuNotification(requestKey, (dto) =>
+            souguuService.AddSouguuNotification(requestKey, (SouguuNotificationDto dto) =>
             {
                 // 遭遇した時に実行したい関数 
                 // #TODO variable is disposed in the outer scope
                 // obsidian://adv-uri?vault=main&filepath=%2B%2FCsharpdeCaptured%20variable%20is%20disposed%20in%20the%20outer%20scope2024-11-13.md
                 // ReSharper disable once AccessToDisposedClosure
-                SendNotification(webSocket, userId, dto, HttpContext.TraceIdentifier);
+                SendNotification(webSocket, userId, new WebsocketDtoForSend(){type = "notification", data = JsonNode.Parse(JsonSerializer.Serialize(dto))}, HttpContext.TraceIdentifier);
             }, userId);
             string lastReceived = "";
             while (webSocket.State == WebSocketState.Open)
@@ -136,10 +141,10 @@ public class WebSocketController(UserOnlineConcurrentDictionaryDatabase userOnli
                         {
                             lastReceived = received;
                             WebsocketDto? parsed = JsonSerializer.Deserialize<WebsocketDto>(received, _options); if(parsed == null) continue;
-                            if (parsed.Type.Equals("souguu_materials"))
+                            if (parsed.type.Equals("souguu_materials"))
                             {
                                 SouguuWebsocketDto? souguuWebsocketDto =
-                                    JsonSerializer.Deserialize<SouguuWebsocketDto>(parsed.Data.ToString());
+                                    JsonSerializer.Deserialize<SouguuWebsocketDto>(parsed.data.ToString());
                                 Console.WriteLine("0");
                                 if(souguuWebsocketDto == null) continue;
                                 if (souguuWebsocketDto.incredients[0] is SouguuAppIncredientModel)
