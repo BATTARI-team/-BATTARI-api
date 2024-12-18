@@ -36,8 +36,6 @@ public class WebSocketController(UserOnlineConcurrentDictionaryDatabase userOnli
                 try
                 {
                     var json = JsonSerializer.Serialize<WebsocketDtoForSend>(dto, new JsonSerializerOptions{Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping});
-                    Console.WriteLine(json);
-                    Console.WriteLine(dto.data);
                     var bytes = Encoding.UTF8.GetBytes(json);
                     websocket.SendAsync(new ArraySegment<byte>(bytes), WebSocketMessageType.Text, true, CancellationToken.None);
                     Console.WriteLine(userId + "に通知を送信しました");
@@ -146,11 +144,9 @@ public class WebSocketController(UserOnlineConcurrentDictionaryDatabase userOnli
                             {
                                 SouguuWebsocketDto? souguuWebsocketDto =
                                     JsonSerializer.Deserialize<SouguuWebsocketDto>(parsed.data.ToString());
-                                Console.WriteLine("0");
                                 if(souguuWebsocketDto == null) continue;
                                 if (souguuWebsocketDto.incredients[0] is SouguuAppIncredientModel)
                                 {
-                                    Console.WriteLine("1");
                                     SouguuAppIncredientModel app = (SouguuAppIncredientModel)souguuWebsocketDto.incredients[0];
                                     Console.WriteLine("app name:" + app.appData.appName);
                                     await souguuService.AddMaterial(souguuWebsocketDto);
