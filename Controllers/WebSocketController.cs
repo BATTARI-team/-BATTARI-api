@@ -1,5 +1,6 @@
 using System.Net.WebSockets;
 using System.Text;
+using System.Text.Encodings.Web;
 using System.Text.Json;
 using System.Text.Json.Nodes;
 using BATTARI_api.Models.DTO;
@@ -34,7 +35,7 @@ public class WebSocketController(UserOnlineConcurrentDictionaryDatabase userOnli
             {
                 try
                 {
-                    var json = JsonSerializer.Serialize<WebsocketDtoForSend>(dto);
+                    var json = JsonSerializer.Serialize<WebsocketDtoForSend>(dto, new JsonSerializerOptions{Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping});
                     Console.WriteLine(json);
                     Console.WriteLine(dto.data);
                     var bytes = Encoding.UTF8.GetBytes(json);
@@ -89,7 +90,7 @@ public class WebSocketController(UserOnlineConcurrentDictionaryDatabase userOnli
                 // #TODO variable is disposed in the outer scope
                 // obsidian://adv-uri?vault=main&filepath=%2B%2FCsharpdeCaptured%20variable%20is%20disposed%20in%20the%20outer%20scope2024-11-13.md
                 // ReSharper disable once AccessToDisposedClosure
-                SendNotification(webSocket, userId, new WebsocketDtoForSend(){type = "notification", data = JsonNode.Parse(JsonSerializer.Serialize(dto))}, HttpContext.TraceIdentifier);
+                SendNotification(webSocket, userId, new WebsocketDtoForSend(){type = "notification", data = JsonNode.Parse(JsonSerializer.Serialize(dto, new JsonSerializerOptions{Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping}))}, HttpContext.TraceIdentifier);
             }, userId);
             string lastReceived = "";
             while (webSocket.State == WebSocketState.Open)
