@@ -6,6 +6,11 @@ namespace BATTARI_api.Repository;
 // #TODO サービス化したい
 public class UserOnlineConcurrentDictionaryModel
 {
+    public UserOnlineConcurrentDictionaryModel()
+    {
+        this.LastSouguuTime = DateTime.MinValue;
+    }
+
     public DateTime LastOnlineTime { get; set; }
     public bool IsOnline => LastOnlineTime > DateTime.Now.AddSeconds(-30);
 
