@@ -281,8 +281,8 @@ public class SouguuService : ISouguuService
         if (user1OnlineUser == null || user2OnlineUser == null)
             return;
         // 連続して遭遇しすぎないように20分間のタイムアウトを設ける
-        if (user1OnlineUser.LastSouguuTime > DateTime.Now.AddMinutes(20) ||
-            user2OnlineUser.LastSouguuTime > DateTime.Now.AddMinutes(20))
+        if (user1OnlineUser.LastSouguuTime < DateTime.Now.AddMinutes(20) ||
+            user2OnlineUser.LastSouguuTime < DateTime.Now.AddMinutes(20))
             return;
 
         SouguuReasonStatusEnum? result = null;
