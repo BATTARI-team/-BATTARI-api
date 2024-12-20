@@ -125,25 +125,25 @@ public class WebSocketController
 
             souguuService.AddCancelNotification(
                 requestKey, (int userId, CancelCallWebsocketDto dto) =>
-                {
-                    // 遭遇した時に実行したい関数
-                    // #TODO variable is disposed in the outer scope
-                    // obsidian://adv-uri?vault=main&filepath=%2B%2FCsharpdeCaptured%20variable%20is%20disposed%20in%20the%20outer%20scope2024-11-13.md
-                    // ReSharper disable once AccessToDisposedClosure
-                    SendNotification(
-                  webSocket, userId,
-                  new WebsocketDtoForSend()
-                      {
-                          type = "cancel",
-                          data = JsonNode.Parse(JsonSerializer.Serialize(
-                        new CancelCallWebsocketDto() { reason = dto.reason },
-                        new JsonSerializerOptions
                             {
-                                Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping
-                            }))
-                      },
-                  HttpContext.TraceIdentifier);
-                });
+                                // 遭遇した時に実行したい関数
+                                // #TODO variable is disposed in the outer scope
+                                // obsidian://adv-uri?vault=main&filepath=%2B%2FCsharpdeCaptured%20variable%20is%20disposed%20in%20the%20outer%20scope2024-11-13.md
+                                // ReSharper disable once AccessToDisposedClosure
+                                SendNotification(
+                              webSocket, userId,
+                              new WebsocketDtoForSend()
+                                  {
+                                      type = "cancel",
+                                      data = JsonNode.Parse(JsonSerializer.Serialize(
+                                    new CancelCallWebsocketDto() { reason = dto.reason },
+                                    new JsonSerializerOptions
+                                        {
+                                            Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping
+                                        }))
+                                  },
+                              HttpContext.TraceIdentifier);
+                            });
             string lastReceived = "";
             while (webSocket.State == WebSocketState.Open)
             {
@@ -230,6 +230,7 @@ public class WebSocketController
             }
             bool isNeedRemove =
                 souguuService.RemoveSouguuNotification(HttpContext.TraceIdentifier);
+            await souguuService.RemoveCancelNotification(HttpContext.TraceIdentifier);
             logger.LogInformation("websocket 切断:" + webSocket.State);
             SentrySdk.CaptureMessage("websocket 切断:" + webSocket.State,
                                      SentryLevel.Info);
