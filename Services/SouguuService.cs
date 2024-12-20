@@ -260,6 +260,8 @@ public class SouguuService : ISouguuService
         SentrySdk.CaptureMessage(user1 + "と" + user2 + "が遭遇しました⭐⭐️⭐️️",
                                  SentryLevel.Info);
         _logger.LogInformation("{}と{}が遭遇しました⭐⭐️⭐️️", user1, user2);
+        _userOnlineConcurrentDictionaryDatabase.SetLastSouguu(user1);
+        _userOnlineConcurrentDictionaryDatabase.SetLastSouguu(user2);
     }
 
     // #TODO 遭遇材料が古かったら，どうしよう
@@ -273,6 +275,15 @@ public class SouguuService : ISouguuService
 
         var user1Materials = _latestIncredient[user1];
         var user2Materials = _latestIncredient[user2];
+
+        var user1OnlineUser = _userOnlineConcurrentDictionaryDatabase[user1];
+        var user2OnlineUser = _userOnlineConcurrentDictionaryDatabase[user2];
+        if (user1OnlineUser == null || user2OnlineUser == null)
+            return;
+        // 連続して遭遇しすぎないように20分間のタイムアウトを設ける
+        if (user1OnlineUser.LastSouguuTime > DateTime.Now.AddMinutes(20) ||
+            user2OnlineUser.LastSouguuTime > DateTime.Now.AddMinutes(20))
+            return;
 
         SouguuReasonStatusEnum? result = null;
 
