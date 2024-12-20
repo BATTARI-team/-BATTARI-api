@@ -5,6 +5,7 @@ using System.Text.Json;
 using System.Text.Json.Nodes;
 using BATTARI_api.Models.DTO;
 using BATTARI_api.Repository;
+using BATTARI_api.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
@@ -15,7 +16,7 @@ namespace BATTARI_api.Controllers;
 [ApiExplorerSettings(IgnoreApi = true)]
 public class WebSocketController
 (UserOnlineConcurrentDictionaryDatabase userOnlineConcurrentDictionaryDatabase,
- ISouguuService souguuService, ILogger<WebSocketContext> logger)
+ ISouguuService souguuService, ILogger<WebSocketContext> logger, CallingService callingService)
     : ControllerBase
 {
     private async Task KeepAlive(WebSocket webSocket,
@@ -130,6 +131,7 @@ public class WebSocketController
                                 // #TODO variable is disposed in the outer scope
                                 // obsidian://adv-uri?vault=main&filepath=%2B%2FCsharpdeCaptured%20variable%20is%20disposed%20in%20the%20outer%20scope2024-11-13.md
                                 // ReSharper disable once AccessToDisposedClosure
+                                /*callingService.CancelCall(userId, dto.reason);*/
                                 SendNotification(
                               webSocket, userId,
                               new WebsocketDtoForSend()
@@ -143,6 +145,7 @@ public class WebSocketController
                                         }))
                                   },
                               HttpContext.TraceIdentifier);
+                                // #TODO ここで通話をキャンセルする．
                             });
             string lastReceived = "";
             while (webSocket.State == WebSocketState.Open)

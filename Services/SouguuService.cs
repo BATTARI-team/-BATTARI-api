@@ -73,6 +73,7 @@ public class SouguuService : ISouguuService
             new ConcurrentDictionary<string, Action<SouguuNotificationDto>>();
     private ConcurrentDictionary<string, int> _requestIdToUserIndex =
         new ConcurrentDictionary<string, int>();
+
     private Task _dequeueTask;
 
     public void AddSouguuNotification(string requestId,

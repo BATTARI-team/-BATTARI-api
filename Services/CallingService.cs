@@ -23,8 +23,15 @@ public class NowCallModel
         SouguuDateTime = souguuDateTime;
     }
 
+    public NowCallModel CancelCall(string cancellationReason)
+    {
+        this.CancellationReason = cancellationReason;
+        this.CallEndTime = DateTime.Now;
+        return this;
+    }
+
     public int CallId { get; }
-    public DateTime CallEndTime { get; }
+    public DateTime CallEndTime { get; set; }
     public DateTime CallStartTime { get; }
     public DateTime SouguuDateTime { get; }
     public string SouguuReason { get; }
@@ -37,7 +44,7 @@ public class NowCallModel
     public string User1Token { get; }
     public int User2 { get; }
     public string User2Token { get; }
-    public string CancellationReason { get; }
+    public string CancellationReason { get; set; }
 }
 
 public class CallingService
@@ -162,5 +169,19 @@ public class CallingService
             SentrySdk.CaptureException(e);
             return null;
         }
+    }
+
+    public void CancelCall(int userIndex, string cancellationReason)
+    {
+        SentrySdk.CaptureMessage("cancel call", SentryLevel.Debug);
+        // GetCallでユーザーの通話を取得して，それを削除する
+        var dto = this.GetCall(userIndex);
+        _userOnlineConcurrentDictionaryDatabase.TryGetValue(dto?.CallId ?? throw new ArgumentNullException("通話が見つかりませんでした"), out var call);
+        if (call == null)
+        {
+            SentrySdk.CaptureMessage("通話が見つかりませんでした");
+            return;
+        }
+        _userOnlineConcurrentDictionaryDatabase.TryUpdate(dto.CallId, call.CancelCall(cancellationReason), call);
     }
 }

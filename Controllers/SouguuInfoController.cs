@@ -67,7 +67,7 @@ public class SouguuInfoController
     }
 
     [HttpPut]
-    public IActionResult CancelCall(CancelCallWebsocketDto dto)
+    public async Task<IActionResult> CancelCall(CancelCallWebsocketDto dto)
     {
 
         int userId;
@@ -78,13 +78,14 @@ public class SouguuInfoController
                      "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"))!
                                      .Value);
 
-            souguuService.CancelCall(userId, dto);
+            await souguuService.CancelCall(userId, dto);
         }
         catch (Exception e)
         {
             SentrySdk.CaptureException(e);
             return NotFound();
         }
+        callingService.CancelCall(userId, dto.reason);
         return Ok();
     }
 }
