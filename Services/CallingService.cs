@@ -9,7 +9,7 @@ namespace BATTARI_api.Services;
 public class NowCallModel
 {
     public NowCallModel(DateTime callStartTime, int callId, DateTime callEndTime, string souguuReason, int user1,
-        string user1Token, int user2, string user2Token, string cancellationReason, DateTime souguuDateTime)
+                        string user1Token, int user2, string user2Token, string cancellationReason, DateTime souguuDateTime)
     {
         this.CallStartTime = callStartTime;
         CallId = callId;
@@ -31,7 +31,7 @@ public class NowCallModel
     public bool IsEnded => CallEndTime < DateTime.Now;
     public string ChannelId { get; }
 
-public int BufferTimeBeforeCall => (CallEndTime - CallStartTime).Minutes;
+    public int BufferTimeBeforeCall => (CallEndTime - CallStartTime).Minutes;
 
     public int User1 { get; }
     public string User1Token { get; }
@@ -48,7 +48,7 @@ public class CallingService
     private Task _autoRemover;
     private readonly ILogger<CallingService> _logger;
     private readonly UserOnlineConcurrentDictionaryDatabase _onlineConcurrentDictionaryDatabase;
-    
+
     public CallingService(IConfiguration configuration, ILogger<CallingService> logger, UserOnlineConcurrentDictionaryDatabase onlineConcurrentDictionaryDatabase)
     {
         _userOnlineConcurrentDictionaryDatabase = new ConcurrentDictionary<int, NowCallModel>();
@@ -57,32 +57,32 @@ public class CallingService
         _logger = logger;
         CreateAutoRemover();
     }
-    
+
     private void CreateAutoRemover()
     {
         _autoRemover = Task.Run(async () =>
-        {
-            while (true)
-            {
-                await Task.Delay(30000);
-                foreach (var user in _userOnlineConcurrentDictionaryDatabase)
-                {
-                    if (user.Value.IsEnded)
-                    {
-                        _userOnlineConcurrentDictionaryDatabase.TryRemove(user.Key, out _);
-                        _onlineConcurrentDictionaryDatabase.RemoveSouguu(user.Value.User1);
-                        SentrySdk.CaptureMessage("removed souguu" + user.Key, SentryLevel.Debug);
-                    }
-                }
-            }
-        });
+                                {
+                                    while (true)
+                                    {
+                                        await Task.Delay(30000);
+                                        foreach (var user in _userOnlineConcurrentDictionaryDatabase)
+                                        {
+                                            if (user.Value.IsEnded)
+                                            {
+                                                _userOnlineConcurrentDictionaryDatabase.TryRemove(user.Key, out _);
+                                                _onlineConcurrentDictionaryDatabase.RemoveSouguu(user.Value.User1);
+                                                SentrySdk.CaptureMessage("removed souguu" + user.Key, SentryLevel.Debug);
+                                            }
+                                        }
+                                    }
+                                });
         _autoRemover.ContinueWith(task =>
-                           {
-                               CreateAutoRemover();
-                           });
+                                  {
+                                      CreateAutoRemover();
+                                  });
     }
     /// <summary>
-    /// 
+    ///
     /// </summary>
     /// <param name="callId"></param>
     /// <param name="callStartTime"></param>
@@ -103,7 +103,7 @@ public class CallingService
             string user1Token = _generateToken(user1.ToString(), callIdStr);
             string user2Token = _generateToken(user2.ToString(), callIdStr);
             _userOnlineConcurrentDictionaryDatabase.TryAdd(callId, new NowCallModel(callStartTime, callId, callEndTime, souguuReason, user1, user1Token, user2, user2Token, cancellationReason, souguuDateTime));
-        return new[] { callIdStr, user1Token, user2Token };
+            return new[] { callIdStr, user1Token, user2Token };
         }
         catch (Exception e)
         {
@@ -111,7 +111,7 @@ public class CallingService
             throw;
         }
     }
-    
+
     public IEnumerable<NowCallModel> GetNowCalls()
     {
         return _userOnlineConcurrentDictionaryDatabase.Values;
@@ -125,7 +125,7 @@ public class CallingService
     {
         AccessToken accessToken =
             new AccessToken(_configuration["Agora:AppId"] ?? throw new ArgumentNullException("AppIdがappsettings.jsonに設定されていません。,"), _configuration["Agora:AppCertificate"] ?? throw new ArgumentNullException("AppCertificateがappsettings.jsonに設定されていません。"),
-                channelId, uid.ToString());
+                            channelId, uid.ToString());
         string result = accessToken.Build();
         _logger.LogInformation("agora token generated successfully, channelId: {channelId}, uid: {uid}", channelId, uid);
         if (result == null)
@@ -136,7 +136,7 @@ public class CallingService
     }
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
     /// <param name="userIndex"></param>
     /// <returns>現在通話中でなければ，nullを返す</returns>
@@ -144,7 +144,7 @@ public class CallingService
     {
         try
         {
-        var a = _userOnlineConcurrentDictionaryDatabase.SingleOrDefault<KeyValuePair<int, NowCallModel>>(source => (source.Value.User1 == userIndex || source.Value.User2 == userIndex) && !source.Value.IsEnded);
+            var a = _userOnlineConcurrentDictionaryDatabase.SingleOrDefault<KeyValuePair<int, NowCallModel>>(source => (source.Value.User1 == userIndex || source.Value.User2 == userIndex) && !source.Value.IsEnded);
             SouguuNotificationDto notificationDto = new SouguuNotificationDto()
             {
                 CallEndTime = a.Value.CallEndTime,

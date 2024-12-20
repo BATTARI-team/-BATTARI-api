@@ -134,7 +134,7 @@ public class WebSocketController
                               webSocket, userId,
                               new WebsocketDtoForSend()
                                   {
-                                      type = "cancel",
+                                      type = "cancel_call",
                                       data = JsonNode.Parse(JsonSerializer.Serialize(
                                     new CancelCallWebsocketDto() { reason = dto.reason },
                                     new JsonSerializerOptions

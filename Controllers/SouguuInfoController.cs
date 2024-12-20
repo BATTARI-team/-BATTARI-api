@@ -77,6 +77,8 @@ public class SouguuInfoController
                 c => c.Type ==
                      "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"))!
                                      .Value);
+
+            souguuService.CancelCall(userId, dto);
         }
         catch (Exception e)
         {
