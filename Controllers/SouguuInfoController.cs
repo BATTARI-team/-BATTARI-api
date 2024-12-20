@@ -9,16 +9,21 @@ namespace BATTARI_api.Controllers;
 [Route("[controller]/[action]")]
 [ApiController]
 [Authorize]
-public class SouguuInfoController(CallingService callingService, ISouguuService souguuService) : ControllerBase
+public class SouguuInfoController
+(CallingService callingService, ISouguuService souguuService) : ControllerBase
 {
     [HttpGet]
     public SouguuNotificationDto? GetSouguuInfo()
     {
         try
         {
-            var transaction = SentrySdk.StartTransaction(new TransactionContext("GetSouguuInfo", "GetSouguuInfo"));
-            var userIdStr = HttpContext.User.Claims.FirstOrDefault(c =>
-                c.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name")!.Value;
+            var transaction = SentrySdk.StartTransaction(
+                new TransactionContext("GetSouguuInfo", "GetSouguuInfo"));
+            var userIdStr =
+                HttpContext.User.Claims
+                    .FirstOrDefault(c => c.Type ==
+                                         "http://schemas.xmlsoap.org/ws/2005/05/" +
+                                             "identity/claims/name")!.Value;
             int userId = int.Parse(userIdStr);
             var a = callingService.GetCall(userId);
             transaction.Finish();
@@ -38,8 +43,10 @@ public class SouguuInfoController(CallingService callingService, ISouguuService 
         int userId;
         try
         {
-            userId = Int16.Parse((HttpContext.User.Claims.FirstOrDefault(c =>
-                c.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"))!.Value);
+            userId = Int16.Parse((HttpContext.User.Claims.FirstOrDefault(
+                c => c.Type ==
+                     "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"))!
+                                     .Value);
         }
         catch (Exception e)
         {
@@ -57,5 +64,28 @@ public class SouguuInfoController(CallingService callingService, ISouguuService 
             return false;
         }
         return true;
+    }
+
+    [HttpPut]
+    public async Task<IActionResult> CancelCall(CancelCallWebsocketDto dto)
+    {
+
+        int userId;
+        try
+        {
+            userId = Int16.Parse((HttpContext.User.Claims.FirstOrDefault(
+                c => c.Type ==
+                     "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"))!
+                                     .Value);
+
+            await souguuService.CancelCall(userId, dto);
+        }
+        catch (Exception e)
+        {
+            SentrySdk.CaptureException(e);
+            return NotFound();
+        }
+        callingService.CancelCall(userId, dto.reason);
+        return Ok();
     }
 }
