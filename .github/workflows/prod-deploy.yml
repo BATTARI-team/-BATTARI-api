@@ -10,7 +10,7 @@ on:
 jobs:
   build:
 
-    runs-on: self-hosted
+    runs-on: production
 
     steps:
     - uses: actions/checkout@v4
@@ -22,6 +22,15 @@ jobs:
       run: echo "${{ env.DOTNET_INSTALL_DIR }}"
     - name: Restore dependencies
       run: dotnet restore
+    - name: download appsettings.json
+      run: curl ${{ secrets.APPSETTINGS_URL_PROD }} -o appsettings.json
+    - name: Update database
+      run: |
+        export PATH="$PATH:/home/runner/.dotnet/tools"
+        dotnet new tool-manifest
+        dotnet tool install --global dotnet-ef
+        dotnet tool restore
+        dotnet ef database update
     - name: Build
       run: dotnet publish --no-restore
     - name: Restart service

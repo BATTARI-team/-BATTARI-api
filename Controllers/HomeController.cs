@@ -1,21 +1,16 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using BATTARI_api.Models;
+using BATTARI_api.Repository.Data;
+using BATTARI_api.ViewModel;
 
 namespace BATTARI_api.Controllers;
 
-public class HomeController : Controller
+public class HomeController(ISouguuService souguuService, IConfiguration configuration) : Controller
 {
-    private readonly ILogger<HomeController> _logger;
-
-    public HomeController(ILogger<HomeController> logger)
-    {
-        _logger = logger;
-    }
-
     public IActionResult Index()
     {
-        return View();
+        return View(new UserViewModel(new UserContext(configuration)));
     }
 
     public IActionResult Privacy()
@@ -27,5 +22,10 @@ public class HomeController : Controller
     public IActionResult Error()
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+    }
+
+    public IActionResult SouguuIncredients()
+    {
+        return View(new SouguuIncredientsViewModel(souguuService));
     }
 }

@@ -1,0 +1,21 @@
+.header {
+    /* background-color: #a4c991; */
+    padding: 10px 20px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
+
+.ul li {
+    margin-right: 20px;
+}
+
+.ul li:last-child {
+    margin-right: 0;
+}
