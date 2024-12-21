@@ -6,8 +6,7 @@ using Sentry;
 
 namespace BATTARI_api.Repository;
 
-public class UserDatabase
-(IServiceScopeFactory serviceScopeFactory) : IUserRepository
+public class UserDatabase(IServiceScopeFactory serviceScopeFactory) : IUserRepository
 {
     private readonly UserContext _userContext = serviceScopeFactory.CreateScope().ServiceProvider.GetRequiredService<UserContext>();
 
@@ -54,7 +53,7 @@ public class UserDatabase
 
     public async Task<UserModel?> GetUser(string userId)
     {
-        Console.WriteLine("GetUser: " + userId);
+        Console.WriteLine(userId);
         UserModel user;
         try
         {
