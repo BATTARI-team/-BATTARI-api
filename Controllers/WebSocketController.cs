@@ -105,7 +105,6 @@ public class WebSocketController
             souguuService.AddSouguuNotification(
                 requestKey, (SouguuNotificationDto dto) =>
                 {
-                    SentrySdk.CaptureMessage("souguu notification" + userId, level: SentryLevel.Debug);
                     // 遭遇した時に実行したい関数
                     // #TODO variable is disposed in the outer scope
                     // obsidian://adv-uri?vault=main&filepath=%2B%2FCsharpdeCaptured%20variable%20is%20disposed%20in%20the%20outer%20scope2024-11-13.md
@@ -128,7 +127,6 @@ public class WebSocketController
             souguuService.AddCancelNotification(
                 requestKey, (int userId, CancelCallWebsocketDto dto) =>
                             {
-                                SentrySdk.CaptureMessage("send cancel call notification" + userId, level: SentryLevel.Debug);
                                 // 遭遇した時に実行したい関数
                                 // #TODO variable is disposed in the outer scope
                                 // obsidian://adv-uri?vault=main&filepath=%2B%2FCsharpdeCaptured%20variable%20is%20disposed%20in%20the%20outer%20scope2024-11-13.md
@@ -197,6 +195,8 @@ public class WebSocketController
                     }
                     else
                     {
+                        logger.LogInformation("Received: {received} from {userId}",
+                                              received, userId);
                         try
                         {
                             lastReceived = received;
@@ -218,7 +218,6 @@ public class WebSocketController
                                         (SouguuAppIncredientModel)
                                             souguuWebsocketDto.incredients[0];
                                     Console.WriteLine("app name:" + app.appData.appName);
-                                    SentrySdk.CaptureMessage("app name:" + app.appData.appName, level: SentryLevel.Debug);
                                     await souguuService.AddMaterial(souguuWebsocketDto);
                                 }
                             }
