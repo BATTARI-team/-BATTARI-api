@@ -101,11 +101,6 @@ public class UserOnlineConcurrentDictionaryDatabase
             {
                 return true;
             }
-
-            Console.WriteLine(
-                IsUserOnline(element.Id) == false
-                    ? "オンラインじゃない " + element.Id
-                    : "遭遇している " + element.Id);
             SentrySdk.CaptureMessage(
                 IsUserOnline(element.Id) == false
                     ? "オンラインじゃない " + element.Id

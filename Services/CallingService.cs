@@ -102,7 +102,6 @@ public class CallingService
     /// <returns>配列{channelId, user1Token, user2Token)</returns>
     public string[] AddCall(int callId, DateTime callStartTime, DateTime callEndTime, string souguuReason, int user1, int user2, string cancellationReason, DateTime souguuDateTime)
     {
-        Console.WriteLine(callId);
         string callIdStr = callId.ToString();
         try
         {

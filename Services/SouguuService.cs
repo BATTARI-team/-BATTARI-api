@@ -106,7 +106,6 @@ public class SouguuService : ISouguuService
         SentrySdk.CaptureMessage("追加されました　from " + materials.id,
                                  SentryLevel.Debug);
         AddSouguuQueueElement(materials.id);
-        Console.WriteLine(_latestIncredient.Count);
     }
 
     public async Task RemoveMaterial(int userId)
@@ -174,6 +173,7 @@ public class SouguuService : ISouguuService
                               string reasonStr)
     {
         Console.WriteLine("遭遇しました");
+        SentrySdk.CaptureMessage("遭遇しました", SentryLevel.Debug);
         CallModel call;
 
         // 配列{channelId, user1Token, user2Token)
@@ -194,11 +194,13 @@ public class SouguuService : ISouguuService
         catch (DbUpdateException e)
         {
             Console.WriteLine("データベースに保存できませんでした" + e);
+            SentrySdk.CaptureException(e);
             throw;
         }
         catch (Exception e)
         {
             _logger.LogError("遭遇処理に失敗しました", e);
+            SentrySdk.CaptureException(e);
             throw;
         }
 
@@ -283,7 +285,11 @@ public class SouguuService : ISouguuService
         // 連続して遭遇しすぎないように20分間のタイムアウトを設ける
         if (user1OnlineUser.LastSouguuTime > DateTime.Now.AddMinutes(-20) ||
             user2OnlineUser.LastSouguuTime > DateTime.Now.AddMinutes(-20))
+        {
+            _logger.LogInformation("not 遭遇: {user1}と{user2} タイムアウト", user1,
+                                   user2);
             return;
+        }
 
         SouguuReasonStatusEnum? result = null;
 
@@ -321,7 +327,10 @@ public class SouguuService : ISouguuService
             break;
         }
         if (user1AppUsage == null || user2AppUsage == null)
-            return;
+
+            _logger.LogInformation("not 遭遇: {user1}と{user2} アプリの使用状況が見つからない", user1,
+                                   user2);
+        return;
 
         if (String.Compare(user1AppUsage.appData.appName,
                            user2AppUsage.appData.appName,
@@ -341,8 +350,6 @@ public class SouguuService : ISouguuService
             (new CheckSouguuLogElement("遭遇判定", user1, user1Materials, user2,
                                        user2Materials, resultString))
                 .ToString();
-        _logger.LogInformation("遭遇判定終了: {user1}と{user2} {result}", user1,
-                               user2, result);
         _logger.LogInformation(JsonSerializer.Serialize(logmodel));
     }
 
@@ -371,7 +378,6 @@ public class SouguuService : ISouguuService
                                                 continue;
                                             foreach (var VARIABLE in friends)
                                             {
-                                                Console.WriteLine(VARIABLE.Name);
                                                 if (_userOnlineConcurrentDictionaryDatabase.IsUserSouguu(
                                                     VARIABLE.Id) == 0)
                                                 {
