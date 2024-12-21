@@ -23,7 +23,7 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: download appsettings.json
-      run: curl ${{ secrets.APPSETTINGS_URL }} -o appsettings.json
+      run: curl ${{ secrets.APPSETTINGS_URL_PROD }} -o appsettings.json
     - name: Update database
       run: |
         export PATH="$PATH:/home/runner/.dotnet/tools"
