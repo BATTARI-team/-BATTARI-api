@@ -181,7 +181,7 @@ public class SouguuService : ISouguuService
         try
         {
             call = await _callRepository.AddCall(
-                souguuReason: reasonStr, callStartTime: DateTime.Now.AddSeconds(15),
+                souguuReason: reasonStr, callStartTime: DateTime.Now.AddSeconds(17),
                 user1: user1, user2: user2, souguuDateTime: DateTime.Now,
                 status: CallStatusEnum.Waiting);
             callDetail = _callingService.AddCall(
@@ -295,7 +295,7 @@ public class SouguuService : ISouguuService
             result = SouguuReasonStatusEnum.Battari_Welcome;
         }
 
-        const int souguu_app_usage_time = 10;
+        const int souguu_app_usage_time = 120;
 
         SouguuAppIncredientModel? user1AppUsage = null;
         foreach (var VARIABLE in user1Materials.incredients)
