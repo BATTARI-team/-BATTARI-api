@@ -295,7 +295,7 @@ public class SouguuService : ISouguuService
             result = SouguuReasonStatusEnum.Battari_Welcome;
         }
 
-        const int souguu_app_usage_time = 0;
+        const int souguu_app_usage_time = 20;
 
         SouguuAppIncredientModel? user1AppUsage = null;
         foreach (var VARIABLE in user1Materials.incredients)
