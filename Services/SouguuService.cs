@@ -295,14 +295,14 @@ public class SouguuService : ISouguuService
             result = SouguuReasonStatusEnum.Battari_Welcome;
         }
 
-        const int souguu_app_usage_time = 20;
+        const int souguu_app_usage_time = 0;
 
         SouguuAppIncredientModel? user1AppUsage = null;
         foreach (var VARIABLE in user1Materials.incredients)
         {
             if (VARIABLE is not SouguuAppIncredientModel model)
                 continue;
-            if (model.appData.useTime < souguu_app_usage_time)
+            if (model.appData.useTime <= souguu_app_usage_time)
                 continue;
 
             user1AppUsage = model;
@@ -314,7 +314,7 @@ public class SouguuService : ISouguuService
         {
             if (VARIABLE is not SouguuAppIncredientModel model)
                 continue;
-            if (model.appData.useTime < souguu_app_usage_time)
+            if (model.appData.useTime <= souguu_app_usage_time)
                 continue;
 
             user2AppUsage = model;
